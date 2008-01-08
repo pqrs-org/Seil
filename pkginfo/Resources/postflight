@@ -1,0 +1,9 @@
+#!/bin/sh
+PATH=/bin:/sbin:/usr/bin:/usr/sbin; export PATH
+
+startup="/Applications/PCKeyboardHack/scripts/startup.sh"
+[ -f "$startup" ] && "$startup" quickstart
+
+launchctl load /Library/LaunchDaemons/org.pqrs.PCKeyboardHack.autosave.plist
+
+exit 0
