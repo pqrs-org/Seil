@@ -1,9 +1,11 @@
 #!/bin/sh
 PATH=/bin:/sbin:/usr/bin:/usr/sbin; export PATH
 
+# uninstall obsolute files
+rm -f "/Library/LaunchDaemons/org.pqrs.PCKeyboardHack.autosave.plist"
+rm -f "/Applications/PCKeyboardHack/scripts/autosave.sh"
+
 startup="/Applications/PCKeyboardHack/scripts/startup.sh"
 [ -f "$startup" ] && "$startup" quickstart
-
-launchctl load /Library/LaunchDaemons/org.pqrs.PCKeyboardHack.autosave.plist
 
 exit 0
