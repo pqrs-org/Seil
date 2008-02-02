@@ -32,8 +32,6 @@ org_pqrs_driver_PCKeyboardHack::HookedKeyboard::initialize(IOHIKeyboard *p)
   IOHIDKeyboard *hid = OSDynamicCast(IOHIDKeyboard, p);
   if (hid) {
     kbd = p;
-    keycode_f1 = hid->_usb_2_adb_keymap[org_pqrs_PCKeyboardHack::KeyMapIndex::F1];
-    keycode_f2 = hid->_usb_2_adb_keymap[org_pqrs_PCKeyboardHack::KeyMapIndex::F2];
     keycode_f3 = hid->_usb_2_adb_keymap[org_pqrs_PCKeyboardHack::KeyMapIndex::F3];
     keycode_f4 = hid->_usb_2_adb_keymap[org_pqrs_PCKeyboardHack::KeyMapIndex::F4];
     keycode_f5 = hid->_usb_2_adb_keymap[org_pqrs_PCKeyboardHack::KeyMapIndex::F5];
@@ -51,8 +49,6 @@ org_pqrs_driver_PCKeyboardHack::HookedKeyboard::terminate(void)
 
   IOHIDKeyboard *hid = OSDynamicCast(IOHIDKeyboard, kbd);
   if (hid) {
-    hid->_usb_2_adb_keymap[org_pqrs_PCKeyboardHack::KeyMapIndex::F1] = keycode_f1;
-    hid->_usb_2_adb_keymap[org_pqrs_PCKeyboardHack::KeyMapIndex::F2] = keycode_f2;
     hid->_usb_2_adb_keymap[org_pqrs_PCKeyboardHack::KeyMapIndex::F3] = keycode_f3;
     hid->_usb_2_adb_keymap[org_pqrs_PCKeyboardHack::KeyMapIndex::F4] = keycode_f4;
     hid->_usb_2_adb_keymap[org_pqrs_PCKeyboardHack::KeyMapIndex::F5] = keycode_f5;
@@ -70,16 +66,6 @@ org_pqrs_driver_PCKeyboardHack::HookedKeyboard::refresh(void)
 
   IOHIDKeyboard *hid = OSDynamicCast(IOHIDKeyboard, kbd);
   if (hid) {
-    if (org_pqrs_PCKeyboardHack::config.enable_f1) {
-      hid->_usb_2_adb_keymap[org_pqrs_PCKeyboardHack::KeyMapIndex::F1] = org_pqrs_PCKeyboardHack::config.keycode_f1;
-    } else {
-      hid->_usb_2_adb_keymap[org_pqrs_PCKeyboardHack::KeyMapIndex::F1] = keycode_f1;
-    }
-    if (org_pqrs_PCKeyboardHack::config.enable_f2) {
-      hid->_usb_2_adb_keymap[org_pqrs_PCKeyboardHack::KeyMapIndex::F2] = org_pqrs_PCKeyboardHack::config.keycode_f2;
-    } else {
-      hid->_usb_2_adb_keymap[org_pqrs_PCKeyboardHack::KeyMapIndex::F2] = keycode_f2;
-    }
     if (org_pqrs_PCKeyboardHack::config.enable_f3) {
       hid->_usb_2_adb_keymap[org_pqrs_PCKeyboardHack::KeyMapIndex::F3] = org_pqrs_PCKeyboardHack::config.keycode_f3;
     } else {

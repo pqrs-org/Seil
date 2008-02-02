@@ -26,8 +26,6 @@ namespace org_pqrs_PCKeyboardHack {
   SYSCTL_DECL(_pckeyboardhack);
   SYSCTL_NODE(, OID_AUTO, pckeyboardhack, CTLFLAG_RW, 0, "PCKeyboardHack");
 
-  SYSCTL_PROC(_pckeyboardhack, OID_AUTO, enable_f1, CTLTYPE_INT|CTLFLAG_RW, &(config.enable_f1), 0, &sysctlFunc, "I", "Enable 'F1' Hook");
-  SYSCTL_PROC(_pckeyboardhack, OID_AUTO, enable_f2, CTLTYPE_INT|CTLFLAG_RW, &(config.enable_f2), 0, &sysctlFunc, "I", "Enable 'F2' Hook");
   SYSCTL_PROC(_pckeyboardhack, OID_AUTO, enable_f3, CTLTYPE_INT|CTLFLAG_RW, &(config.enable_f3), 0, &sysctlFunc, "I", "Enable 'F3' Hook");
   SYSCTL_PROC(_pckeyboardhack, OID_AUTO, enable_f4, CTLTYPE_INT|CTLFLAG_RW, &(config.enable_f4), 0, &sysctlFunc, "I", "Enable 'F4' Hook");
   SYSCTL_PROC(_pckeyboardhack, OID_AUTO, enable_f5, CTLTYPE_INT|CTLFLAG_RW, &(config.enable_f5), 0, &sysctlFunc, "I", "Enable 'F5' Hook");
@@ -35,8 +33,6 @@ namespace org_pqrs_PCKeyboardHack {
   SYSCTL_PROC(_pckeyboardhack, OID_AUTO, enable_jis_nfer, CTLTYPE_INT|CTLFLAG_RW, &(config.enable_jis_nfer), 0, &sysctlFunc, "I", "Enable 'JIS NFER Key' Hook");
   SYSCTL_PROC(_pckeyboardhack, OID_AUTO, enable_jis_kana, CTLTYPE_INT|CTLFLAG_RW, &(config.enable_jis_kana), 0, &sysctlFunc, "I", "Enable 'JIS KANA Key' Hook");
 
-  SYSCTL_PROC(_pckeyboardhack, OID_AUTO, keycode_f1, CTLTYPE_INT|CTLFLAG_RW, &(config.keycode_f1), 0, &sysctlFunc, "I", "Hack 'F1 Key'");
-  SYSCTL_PROC(_pckeyboardhack, OID_AUTO, keycode_f2, CTLTYPE_INT|CTLFLAG_RW, &(config.keycode_f2), 0, &sysctlFunc, "I", "Hack 'F2 Key'");
   SYSCTL_PROC(_pckeyboardhack, OID_AUTO, keycode_f3, CTLTYPE_INT|CTLFLAG_RW, &(config.keycode_f3), 0, &sysctlFunc, "I", "Hack 'F3 Key'");
   SYSCTL_PROC(_pckeyboardhack, OID_AUTO, keycode_f4, CTLTYPE_INT|CTLFLAG_RW, &(config.keycode_f4), 0, &sysctlFunc, "I", "Hack 'F4 Key'");
   SYSCTL_PROC(_pckeyboardhack, OID_AUTO, keycode_f5, CTLTYPE_INT|CTLFLAG_RW, &(config.keycode_f5), 0, &sysctlFunc, "I", "Hack 'F5 Key'");
@@ -53,8 +49,6 @@ namespace org_pqrs_PCKeyboardHack {
   {
     sysctl_register_oid(&sysctl__pckeyboardhack);
 
-    sysctl_register_oid(&sysctl__pckeyboardhack_enable_f1);
-    sysctl_register_oid(&sysctl__pckeyboardhack_enable_f2);
     sysctl_register_oid(&sysctl__pckeyboardhack_enable_f3);
     sysctl_register_oid(&sysctl__pckeyboardhack_enable_f4);
     sysctl_register_oid(&sysctl__pckeyboardhack_enable_f5);
@@ -62,8 +56,6 @@ namespace org_pqrs_PCKeyboardHack {
     sysctl_register_oid(&sysctl__pckeyboardhack_enable_jis_nfer);
     sysctl_register_oid(&sysctl__pckeyboardhack_enable_jis_kana);
 
-    sysctl_register_oid(&sysctl__pckeyboardhack_keycode_f1);
-    sysctl_register_oid(&sysctl__pckeyboardhack_keycode_f2);
     sysctl_register_oid(&sysctl__pckeyboardhack_keycode_f3);
     sysctl_register_oid(&sysctl__pckeyboardhack_keycode_f4);
     sysctl_register_oid(&sysctl__pckeyboardhack_keycode_f5);
@@ -80,8 +72,6 @@ namespace org_pqrs_PCKeyboardHack {
   {
     sysctl_unregister_oid(&sysctl__pckeyboardhack);
 
-    sysctl_unregister_oid(&sysctl__pckeyboardhack_enable_f1);
-    sysctl_unregister_oid(&sysctl__pckeyboardhack_enable_f2);
     sysctl_unregister_oid(&sysctl__pckeyboardhack_enable_f3);
     sysctl_unregister_oid(&sysctl__pckeyboardhack_enable_f4);
     sysctl_unregister_oid(&sysctl__pckeyboardhack_enable_f5);
@@ -89,8 +79,6 @@ namespace org_pqrs_PCKeyboardHack {
     sysctl_unregister_oid(&sysctl__pckeyboardhack_enable_jis_nfer);
     sysctl_unregister_oid(&sysctl__pckeyboardhack_enable_jis_kana);
 
-    sysctl_unregister_oid(&sysctl__pckeyboardhack_keycode_f1);
-    sysctl_unregister_oid(&sysctl__pckeyboardhack_keycode_f2);
     sysctl_unregister_oid(&sysctl__pckeyboardhack_keycode_f3);
     sysctl_unregister_oid(&sysctl__pckeyboardhack_keycode_f4);
     sysctl_unregister_oid(&sysctl__pckeyboardhack_keycode_f5);
