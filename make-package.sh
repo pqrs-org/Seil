@@ -22,10 +22,13 @@ sudo mkdir -p "pkgroot/$basedir"
 for ostype in Tiger Leopard; do
     sudo cp -R src/kext/${ostype}/build/Release/PCKeyboardHack.kext "pkgroot/$basedir/PCKeyboardHack.${ostype}.kext"
 done
-sudo cp -R files/scripts "pkgroot/$basedir"
 sudo cp -R files/extra "pkgroot/$basedir"
+sudo cp -R files/prefpane "pkgroot/$basedir"
+sudo cp -R files/scripts "pkgroot/$basedir"
 sudo mkdir -p "pkgroot/Library"
 sudo cp -R files/LaunchDaemons pkgroot/Library
+sudo mkdir -p "pkgroot/Library/PreferencePanes"
+sudo cp -R "prefpane/build/Release/PCKeyboardHack.prefPane" "pkgroot/Library/PreferencePanes"
 
 sudo find pkgroot -type d -print0 | xargs -0 sudo chmod 755
 sudo find pkgroot -type f -print0 | xargs -0 sudo chmod 644

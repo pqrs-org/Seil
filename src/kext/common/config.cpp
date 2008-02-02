@@ -8,13 +8,11 @@
 
 namespace org_pqrs_PCKeyboardHack {
   Config config;
-  int config_changed = 0;
 
   int sysctlFunc SYSCTL_HANDLER_ARGS
   {
     int error = sysctl_handle_int(oidp, oidp->oid_arg1, oidp->oid_arg2,  req);
     if (! error && req->newptr) {
-      config_changed = 1;
       org_pqrs_driver_PCKeyboardHack::customizeAllKeymap();
     }
     return error;
@@ -40,7 +38,6 @@ namespace org_pqrs_PCKeyboardHack {
   SYSCTL_PROC(_pckeyboardhack, OID_AUTO, keycode_jis_nfer, CTLTYPE_INT|CTLFLAG_RW, &(config.keycode_jis_nfer), 0, &sysctlFunc, "I", "Hack 'JIS NFER Key'");
   SYSCTL_PROC(_pckeyboardhack, OID_AUTO, keycode_jis_kana, CTLTYPE_INT|CTLFLAG_RW, &(config.keycode_jis_kana), 0, &sysctlFunc, "I", "Hack 'JIS KANA Key'");
 
-  SYSCTL_INT(_pckeyboardhack, OID_AUTO, changed, CTLTYPE_INT|CTLFLAG_RW, &config_changed, 0, "Setting Changed Flag");
   SYSCTL_STRING(_pckeyboardhack, OID_AUTO, version, CTLFLAG_RD, config_version, 0, "Output Version");
 
   // ----------------------------------------------------------------------
@@ -63,7 +60,6 @@ namespace org_pqrs_PCKeyboardHack {
     sysctl_register_oid(&sysctl__pckeyboardhack_keycode_jis_nfer);
     sysctl_register_oid(&sysctl__pckeyboardhack_keycode_jis_kana);
 
-    sysctl_register_oid(&sysctl__pckeyboardhack_changed);
     sysctl_register_oid(&sysctl__pckeyboardhack_version);
   }
 
@@ -86,7 +82,6 @@ namespace org_pqrs_PCKeyboardHack {
     sysctl_unregister_oid(&sysctl__pckeyboardhack_keycode_jis_nfer);
     sysctl_unregister_oid(&sysctl__pckeyboardhack_keycode_jis_kana);
 
-    sysctl_unregister_oid(&sysctl__pckeyboardhack_changed);
     sysctl_unregister_oid(&sysctl__pckeyboardhack_version);
   }
 }
