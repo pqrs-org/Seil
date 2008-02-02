@@ -31,6 +31,6 @@ for key in `sysctl pckeyboardhack 2>&1 | grep -oE '^pckeyboardhack.(enable|keyco
 done
 
 chmod 755 "$tmpfile"
-mv "$tmpfile" "$outfile"
+mv -f "$tmpfile" "$outfile"
 
 exit 0
