@@ -157,7 +157,6 @@
 
 - (void)outlineView:(NSOutlineView *)outlineView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn byItem:(id)item
 {
-  NSLog(@"setObjectValue");
   id identifier = [tableColumn identifier];
   if ([identifier isEqualToString:@"enable"]) {
     NSXMLNode *sysctl = [self getNode:item xpath:@"enable"];
