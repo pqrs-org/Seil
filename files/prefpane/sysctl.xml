@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<root>
+  <list>
+    <item>
+      <name>Function Keys</name>
+      <list>
+        <item>
+          <name>Change F3 Key</name>
+          <enable>pckeyboardhack.enable_f3</enable>
+          <keycode>pckeyboardhack.keycode_f3</keycode>
+          <default>74 (Mute)</default>
+        </item>
+        <item>
+          <name>Change F4 Key</name>
+          <enable>pckeyboardhack.enable_f4</enable>
+          <keycode>pckeyboardhack.keycode_f4</keycode>
+          <default>73 (Volume Down)</default>
+        </item>
+        <item>
+          <name>Change F5 Key</name>
+          <enable>pckeyboardhack.enable_f5</enable>
+          <keycode>pckeyboardhack.keycode_f5</keycode>
+          <default>72 (Volume Up)</default>
+        </item>
+      </list>
+    </item>
+
+    <item>
+      <name>For Japanese</name>
+      <list>
+        <item>
+          <name>Enable XFER Key</name>
+          <enable>pckeyboardhack.enable_jis_xfer</enable>
+          <keycode>pckeyboardhack.keycode_jis_xfer</keycode>
+          <default>104 (KANA)</default>
+        </item>
+        <item>
+          <name>Enable NFER Key</name>
+          <enable>pckeyboardhack.enable_jis_nfer</enable>
+          <keycode>pckeyboardhack.keycode_jis_nfer</keycode>
+          <default>102 (EISUU)</default>
+        </item>
+        <item>
+          <name>Enable KANA Key</name>
+          <enable>pckeyboardhack.enable_jis_kana</enable>
+          <keycode>pckeyboardhack.keycode_jis_kana</keycode>
+          <default>54 (Command_R)</default>
+        </item>
+      </list>
+    </item>
+  </list>
+</root>
