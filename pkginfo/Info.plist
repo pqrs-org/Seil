@@ -9,7 +9,7 @@
     <string>org.pqrs.driver.PCKeyboardHack</string>
 
     <key>CFBundleShortVersionString</key>
-    <string>1.9.9</string>
+    <string>1.9.99</string>
 
     <key>IFPkgFlagAllowBackRev</key>
     <false/>
