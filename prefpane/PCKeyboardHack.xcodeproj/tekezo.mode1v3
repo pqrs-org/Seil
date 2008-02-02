@@ -380,9 +380,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>3415CF5F0D549C39006A174A</string>
+				<string>340DF0EA0D54C5C700EDCDBC</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>3415CF600D549C39006A174A</string>
+				<string>340DF0EB0D54C5C700EDCDBC</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -516,7 +516,6 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>3415CF9A0D54A49B006A174A</string>
 		<string>/Users/tekezo/project/PCKeyboardHack/prefpane/PCKeyboardHack.xcodeproj</string>
 	</array>
 	<key>WindowString</key>

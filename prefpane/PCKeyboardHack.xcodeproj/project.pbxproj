@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3415CF660D549C4A006A174A /* AdminAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 3415CF620D549C4A006A174A /* AdminAction.h */; };
-		3415CF670D549C4A006A174A /* AdminAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 3415CF630D549C4A006A174A /* AdminAction.m */; };
-		3415CF680D549C4A006A174A /* SysctlWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 3415CF640D549C4A006A174A /* SysctlWrapper.h */; };
-		3415CF690D549C4A006A174A /* SysctlWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3415CF650D549C4A006A174A /* SysctlWrapper.m */; };
+		340DF0F10D54C67A00EDCDBC /* AdminAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 340DF0ED0D54C67A00EDCDBC /* AdminAction.h */; };
+		340DF0F20D54C67A00EDCDBC /* AdminAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 340DF0EE0D54C67A00EDCDBC /* AdminAction.m */; };
+		340DF0F30D54C67A00EDCDBC /* SysctlWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 340DF0EF0D54C67A00EDCDBC /* SysctlWrapper.h */; };
+		340DF0F40D54C67A00EDCDBC /* SysctlWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 340DF0F00D54C67A00EDCDBC /* SysctlWrapper.m */; };
 		343F9ACC0D5493BD00CA85DB /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 343F9ACB0D5493BD00CA85DB /* Security.framework */; };
 		8D202CEA0486D31800D8A456 /* PCKeyboardHack_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 32DBCFA20370C41700C91783 /* PCKeyboardHack_Prefix.pch */; };
 		8D202CEB0486D31800D8A456 /* PCKeyboardHackPref.h in Headers */ = {isa = PBXBuildFile; fileRef = F506C03C013D9D7901CA16C8 /* PCKeyboardHackPref.h */; };
@@ -28,10 +28,10 @@
 		089C167FFE841241C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		32DBCFA20370C41700C91783 /* PCKeyboardHack_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCKeyboardHack_Prefix.pch; sourceTree = "<group>"; };
-		3415CF620D549C4A006A174A /* AdminAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminAction.h; sourceTree = "<group>"; };
-		3415CF630D549C4A006A174A /* AdminAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminAction.m; sourceTree = "<group>"; };
-		3415CF640D549C4A006A174A /* SysctlWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SysctlWrapper.h; sourceTree = "<group>"; };
-		3415CF650D549C4A006A174A /* SysctlWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SysctlWrapper.m; sourceTree = "<group>"; };
+		340DF0ED0D54C67A00EDCDBC /* AdminAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdminAction.h; path = sharecode/AdminAction.h; sourceTree = "<group>"; };
+		340DF0EE0D54C67A00EDCDBC /* AdminAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AdminAction.m; path = sharecode/AdminAction.m; sourceTree = "<group>"; };
+		340DF0EF0D54C67A00EDCDBC /* SysctlWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SysctlWrapper.h; path = sharecode/SysctlWrapper.h; sourceTree = "<group>"; };
+		340DF0F00D54C67A00EDCDBC /* SysctlWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SysctlWrapper.m; path = sharecode/SysctlWrapper.m; sourceTree = "<group>"; };
 		343F9ACB0D5493BD00CA85DB /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = /System/Library/Frameworks/Security.framework; sourceTree = "<absolute>"; };
 		8D202CF70486D31800D8A456 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D202CF80486D31800D8A456 /* PCKeyboardHack.prefPane */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PCKeyboardHack.prefPane; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,10 +92,10 @@
 		08FB77AFFE84173DC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				3415CF620D549C4A006A174A /* AdminAction.h */,
-				3415CF630D549C4A006A174A /* AdminAction.m */,
-				3415CF640D549C4A006A174A /* SysctlWrapper.h */,
-				3415CF650D549C4A006A174A /* SysctlWrapper.m */,
+				340DF0ED0D54C67A00EDCDBC /* AdminAction.h */,
+				340DF0EE0D54C67A00EDCDBC /* AdminAction.m */,
+				340DF0EF0D54C67A00EDCDBC /* SysctlWrapper.h */,
+				340DF0F00D54C67A00EDCDBC /* SysctlWrapper.m */,
 				F506C03C013D9D7901CA16C8 /* PCKeyboardHackPref.h */,
 				F506C03D013D9D7901CA16C8 /* PCKeyboardHackPref.m */,
 			);
@@ -145,8 +145,8 @@
 			files = (
 				8D202CEA0486D31800D8A456 /* PCKeyboardHack_Prefix.pch in Headers */,
 				8D202CEB0486D31800D8A456 /* PCKeyboardHackPref.h in Headers */,
-				3415CF660D549C4A006A174A /* AdminAction.h in Headers */,
-				3415CF680D549C4A006A174A /* SysctlWrapper.h in Headers */,
+				340DF0F10D54C67A00EDCDBC /* AdminAction.h in Headers */,
+				340DF0F30D54C67A00EDCDBC /* SysctlWrapper.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,8 +219,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D202CF10486D31800D8A456 /* PCKeyboardHackPref.m in Sources */,
-				3415CF670D549C4A006A174A /* AdminAction.m in Sources */,
-				3415CF690D549C4A006A174A /* SysctlWrapper.m in Sources */,
+				340DF0F20D54C67A00EDCDBC /* AdminAction.m in Sources */,
+				340DF0F40D54C67A00EDCDBC /* SysctlWrapper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

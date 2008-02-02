@@ -4,6 +4,7 @@
 
 @implementation PCKeyboardHackPref
 
+// ----------------------------------------------------------------------
 - (void) loadXML
 {
   NSString *path = @"/Applications/PCKeyboardHack/prefpane/sysctl.xml";
@@ -20,6 +21,30 @@
   [_versionText setStringValue:version];
 }
 
+
+// ----------------------------------------------------------------------
+- (void) saveSetting
+{
+  char command[] = "/Applications/PCKeyboardHack/scripts/save.sh";
+  [_adminAction execCommand:command];
+}
+
+- (void) setSysctlInt:(NSString *)name value:(NSNumber *)value
+{
+  NSNumber *old = [_sysctlWrapper getInt:name];
+  if ([value isEqualToNumber:old]) return;
+
+  char command[512];
+  snprintf(command, sizeof(command), "/usr/sbin/sysctl -w '%s=%d'",
+           [name cStringUsingEncoding:NSUTF8StringEncoding],
+           [value intValue]);
+  if (! [_adminAction execCommand:command]) return;
+
+  [self saveSetting];
+}
+
+
+// ----------------------------------------------------------------------
 - (void) mainViewDidLoad
 {
   _XMLDocument = nil;
@@ -33,6 +58,7 @@
 
   [_outlineView reloadData];
 }
+
 
 // ----------------------------------------------------------------------
 // for NSOutlineView
@@ -164,14 +190,14 @@
       NSString *name = [sysctl stringValue];
       NSNumber *value = [_sysctlWrapper getInt:name];
       NSNumber *new = [[[NSNumber alloc] initWithBool:![value boolValue]] autorelease];
-      [_adminAction setSysctlInt:name value:new];
+      [self setSysctlInt:name value:new];
     }
   } else if ([identifier isEqualToString:@"keycode"]) {
     NSXMLNode *sysctl = [self getNode:item xpath:@"keycode"];
     if (sysctl) {
       NSString *name = [sysctl stringValue];
       NSNumber *new = [[[NSNumber alloc] initWithInt:[object intValue]] autorelease];
-      [_adminAction setSysctlInt:name value:new];
+      [self setSysctlInt:name value:new];
     }
   }
 }
