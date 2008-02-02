@@ -27,8 +27,6 @@ private:
   // ------------------------------------------------------------
   struct HookedKeyboard {
     IOHIKeyboard *kbd;
-    unsigned int keycode_f1;
-    unsigned int keycode_f2;
     unsigned int keycode_f3;
     unsigned int keycode_f4;
     unsigned int keycode_f5;
