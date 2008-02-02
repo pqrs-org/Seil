@@ -516,6 +516,7 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>3415CF9A0D54A49B006A174A</string>
 		<string>/Users/tekezo/project/PCKeyboardHack/prefpane/PCKeyboardHack.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
@@ -535,14 +536,12 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>PCKeyboardHackPref.m</string>
+								<string></string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -598,7 +597,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>3415CF9A0D54A49B006A174A</string>
-				<string>3415CF9B0D54A49B006A174A</string>
+				<string>340DF1100D54CB7200EDCDBC</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -609,7 +608,7 @@
 			<key>WindowToolGUID</key>
 			<string>3415CF9A0D54A49B006A174A</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>Identifier</key>
