@@ -3,10 +3,14 @@
 
 namespace org_pqrs_PCKeyboardHack {
   namespace KeyMapIndex {
-    // see IOHIDUsageTables.h
+    // see IOHIDUsageTables.h or http://www2d.biglobe.ne.jp/~msyk/keyboard/layout/usbkeycode.html
     enum KeyMapIndex {
       A = 0x04,
       E = 0x08,
+
+      CAPSLOCK = 0x27,
+      DELETE = 0x2a,
+
       JIS_KANA = 0x88,
       JIS_XFER = 0x8a,
       JIS_NFER = 0x8b,
@@ -23,6 +27,8 @@ namespace org_pqrs_PCKeyboardHack {
     enum KeyMapCode {
       A = 0, // 0x00
       E = 14, //0x0e
+
+      DELETE = 51, // 0x33
       FORWARD_DELETE = 117, // 0x75
       COMMAND_R = 54, // 0x36
 

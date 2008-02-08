@@ -32,6 +32,7 @@ org_pqrs_driver_PCKeyboardHack::HookedKeyboard::initialize(IOHIKeyboard *p)
   IOHIDKeyboard *hid = OSDynamicCast(IOHIDKeyboard, p);
   if (hid) {
     kbd = p;
+    keycode_capslock = hid->_usb_2_adb_keymap[org_pqrs_PCKeyboardHack::KeyMapIndex::CAPSLOCK];
     keycode_f3 = hid->_usb_2_adb_keymap[org_pqrs_PCKeyboardHack::KeyMapIndex::F3];
     keycode_f4 = hid->_usb_2_adb_keymap[org_pqrs_PCKeyboardHack::KeyMapIndex::F4];
     keycode_f5 = hid->_usb_2_adb_keymap[org_pqrs_PCKeyboardHack::KeyMapIndex::F5];
@@ -49,6 +50,7 @@ org_pqrs_driver_PCKeyboardHack::HookedKeyboard::terminate(void)
 
   IOHIDKeyboard *hid = OSDynamicCast(IOHIDKeyboard, kbd);
   if (hid) {
+    hid->_usb_2_adb_keymap[org_pqrs_PCKeyboardHack::KeyMapIndex::CAPSLOCK] = keycode_capslock;
     hid->_usb_2_adb_keymap[org_pqrs_PCKeyboardHack::KeyMapIndex::F3] = keycode_f3;
     hid->_usb_2_adb_keymap[org_pqrs_PCKeyboardHack::KeyMapIndex::F4] = keycode_f4;
     hid->_usb_2_adb_keymap[org_pqrs_PCKeyboardHack::KeyMapIndex::F5] = keycode_f5;
@@ -59,6 +61,20 @@ org_pqrs_driver_PCKeyboardHack::HookedKeyboard::terminate(void)
   }
 }
 
+namespace {
+  void setkeycode(IOHIDKeyboard *hid, org_pqrs_PCKeyboardHack::KeyMapIndex::KeyMapIndex index,
+                  bool enable, int replaceKeyCode, int originalKeyCode)
+  {
+    if (hid) {
+      if (enable) {
+        hid->_usb_2_adb_keymap[index] = replaceKeyCode;
+      } else {
+        hid->_usb_2_adb_keymap[index] = originalKeyCode;
+      }
+    }
+  }
+}
+
 void
 org_pqrs_driver_PCKeyboardHack::HookedKeyboard::refresh(void)
 {
@@ -66,37 +82,13 @@ org_pqrs_driver_PCKeyboardHack::HookedKeyboard::refresh(void)
 
   IOHIDKeyboard *hid = OSDynamicCast(IOHIDKeyboard, kbd);
   if (hid) {
-    if (org_pqrs_PCKeyboardHack::config.enable_f3) {
-      hid->_usb_2_adb_keymap[org_pqrs_PCKeyboardHack::KeyMapIndex::F3] = org_pqrs_PCKeyboardHack::config.keycode_f3;
-    } else {
-      hid->_usb_2_adb_keymap[org_pqrs_PCKeyboardHack::KeyMapIndex::F3] = keycode_f3;
-    }
-    if (org_pqrs_PCKeyboardHack::config.enable_f4) {
-      hid->_usb_2_adb_keymap[org_pqrs_PCKeyboardHack::KeyMapIndex::F4] = org_pqrs_PCKeyboardHack::config.keycode_f4;
-    } else {
-      hid->_usb_2_adb_keymap[org_pqrs_PCKeyboardHack::KeyMapIndex::F4] = keycode_f4;
-    }
-    if (org_pqrs_PCKeyboardHack::config.enable_f5) {
-      hid->_usb_2_adb_keymap[org_pqrs_PCKeyboardHack::KeyMapIndex::F5] = org_pqrs_PCKeyboardHack::config.keycode_f5;
-    } else {
-      hid->_usb_2_adb_keymap[org_pqrs_PCKeyboardHack::KeyMapIndex::F5] = keycode_f5;
-    }
-
-    if (org_pqrs_PCKeyboardHack::config.enable_jis_xfer) {
-      hid->_usb_2_adb_keymap[org_pqrs_PCKeyboardHack::KeyMapIndex::JIS_XFER] = org_pqrs_PCKeyboardHack::config.keycode_jis_xfer;
-    } else {
-      hid->_usb_2_adb_keymap[org_pqrs_PCKeyboardHack::KeyMapIndex::JIS_XFER] = keycode_jis_xfer;
-    }
-    if (org_pqrs_PCKeyboardHack::config.enable_jis_nfer) {
-      hid->_usb_2_adb_keymap[org_pqrs_PCKeyboardHack::KeyMapIndex::JIS_NFER] = org_pqrs_PCKeyboardHack::config.keycode_jis_nfer;
-    } else {
-      hid->_usb_2_adb_keymap[org_pqrs_PCKeyboardHack::KeyMapIndex::JIS_NFER] = keycode_jis_nfer;
-    }
-    if (org_pqrs_PCKeyboardHack::config.enable_jis_kana) {
-      hid->_usb_2_adb_keymap[org_pqrs_PCKeyboardHack::KeyMapIndex::JIS_KANA] = org_pqrs_PCKeyboardHack::config.keycode_jis_kana;
-    } else {
-      hid->_usb_2_adb_keymap[org_pqrs_PCKeyboardHack::KeyMapIndex::JIS_KANA] = keycode_jis_kana;
-    }
+    setkeycode(hid, org_pqrs_PCKeyboardHack::KeyMapIndex::CAPSLOCK, org_pqrs_PCKeyboardHack::config.enable_capslock, org_pqrs_PCKeyboardHack::config.keycode_capslock, keycode_capslock);
+    setkeycode(hid, org_pqrs_PCKeyboardHack::KeyMapIndex::F3, org_pqrs_PCKeyboardHack::config.enable_f3, org_pqrs_PCKeyboardHack::config.keycode_f3, keycode_f3);
+    setkeycode(hid, org_pqrs_PCKeyboardHack::KeyMapIndex::F4, org_pqrs_PCKeyboardHack::config.enable_f4, org_pqrs_PCKeyboardHack::config.keycode_f4, keycode_f4);
+    setkeycode(hid, org_pqrs_PCKeyboardHack::KeyMapIndex::F5, org_pqrs_PCKeyboardHack::config.enable_f5, org_pqrs_PCKeyboardHack::config.keycode_f5, keycode_f5);
+    setkeycode(hid, org_pqrs_PCKeyboardHack::KeyMapIndex::JIS_XFER, org_pqrs_PCKeyboardHack::config.enable_jis_xfer, org_pqrs_PCKeyboardHack::config.keycode_jis_xfer, keycode_jis_xfer);
+    setkeycode(hid, org_pqrs_PCKeyboardHack::KeyMapIndex::JIS_NFER, org_pqrs_PCKeyboardHack::config.enable_jis_nfer, org_pqrs_PCKeyboardHack::config.keycode_jis_nfer, keycode_jis_nfer);
+    setkeycode(hid, org_pqrs_PCKeyboardHack::KeyMapIndex::JIS_KANA, org_pqrs_PCKeyboardHack::config.enable_jis_kana, org_pqrs_PCKeyboardHack::config.keycode_jis_kana, keycode_jis_kana);
   }
 }
 
