@@ -2,7 +2,7 @@
 <root>
   <list>
     <item>
-      <name>Caps Lock</name>
+      <name>Change Caps Lock</name>
       <enable>pckeyboardhack.enable_capslock</enable>
       <keycode>pckeyboardhack.keycode_capslock</keycode>
       <default>51 (Delete)</default>

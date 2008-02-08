@@ -8,7 +8,7 @@ namespace org_pqrs_PCKeyboardHack {
       A = 0x04,
       E = 0x08,
 
-      CAPSLOCK = 0x27,
+      CAPSLOCK = 0x39,
       DELETE = 0x2a,
 
       JIS_KANA = 0x88,
