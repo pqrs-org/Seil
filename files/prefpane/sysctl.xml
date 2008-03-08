@@ -9,6 +9,20 @@
     </item>
 
     <item>
+      <name>Change Control_L</name>
+      <enable>pckeyboardhack.enable_control_l</enable>
+      <keycode>pckeyboardhack.keycode_control_l</keycode>
+      <default>55 (Command_L)</default>
+    </item>
+
+    <item>
+      <name>Change Control_R</name>
+      <enable>pckeyboardhack.enable_control_r</enable>
+      <keycode>pckeyboardhack.keycode_control_r</keycode>
+      <default>54 (Command_R)</default>
+    </item>
+
+    <item>
       <name>Function Keys</name>
       <list>
         <item>
