@@ -17,7 +17,7 @@ if [ "x$kextfile" == 'x' ]; then
     exit 1
 fi
 
-if [ $1 == 'unload' ]; then
+if [ "$1" == 'unload' ]; then
     kextunload -b org.pqrs.driver.PCKeyboardHack
 else
     kextload "$kextfile"

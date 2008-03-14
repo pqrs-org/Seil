@@ -8,7 +8,7 @@ fi
 
 # uninstall obsolute files
 rm -f "/Library/LaunchDaemons/org.pqrs.PCKeyboardHack.autosave.plist"
-rm -f "/Applications/PCKeyboardHack"
+rm -rf "/Applications/PCKeyboardHack"
 
 startup="/Library/org.pqrs/PCKeyboardHack/scripts/startup.sh"
 [ -f "$startup" ] && "$startup" quickstart
