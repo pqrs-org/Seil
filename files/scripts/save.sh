@@ -2,7 +2,7 @@
 PATH=/bin:/sbin:/usr/bin:/usr/sbin; export PATH
 
 tmpfile=`mktemp /tmp/PCKeyboardHack.XXXXXX` || exit 1
-basedir="/Applications/PCKeyboardHack"
+basedir="/Library/org.pqrs/PCKeyboardHack"
 outfile="$basedir/scripts/sysctl.sh"
 
 cat > "$tmpfile" <<EOF

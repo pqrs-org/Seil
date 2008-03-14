@@ -6,7 +6,7 @@
     <string>org.pqrs.PCKeyboardHack.load</string>
     <key>ProgramArguments</key>
     <array>
-      <string>/Applications/PCKeyboardHack/scripts/startup.sh</string>
+      <string>/Library/org.pqrs/PCKeyboardHack/scripts/startup.sh</string>
       <string>start</string>
     </array>
     <key>RunAtLoad</key>
