@@ -17,7 +17,7 @@ echo "Copy Files"
 sudo rm -rf pkgroot
 sudo mkdir -p pkgroot
 
-basedir="/Applications/PCKeyboardHack"
+basedir="/Library/org.pqrs/PCKeyboardHack"
 sudo mkdir -p "pkgroot/$basedir"
 for ostype in Tiger Leopard; do
     sudo cp -R src/kext/${ostype}/build/Release/PCKeyboardHack.kext "pkgroot/$basedir/PCKeyboardHack.${ostype}.kext"
@@ -35,8 +35,6 @@ sudo find pkgroot -type f -print0 | xargs -0 sudo chmod 644
 sudo find pkgroot -name '*.sh' -print0 | xargs -0 sudo chmod 755
 sudo chown -R root:wheel pkgroot
 
-sudo chmod 775 pkgroot/Applications
-sudo chown root:admin pkgroot/Applications
 sudo chmod 1775 pkgroot/Library
 sudo chown root:admin pkgroot/Library
 

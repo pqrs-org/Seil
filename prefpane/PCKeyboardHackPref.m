@@ -7,7 +7,7 @@
 // ----------------------------------------------------------------------
 - (void) loadXML
 {
-  NSString *path = @"/Applications/PCKeyboardHack/prefpane/sysctl.xml";
+  NSString *path = @"/Library/org.pqrs/PCKeyboardHack/prefpane/sysctl.xml";
   NSURL *url = [NSURL fileURLWithPath:path];
   _XMLDocument = [[NSXMLDocument alloc] initWithContentsOfURL:url options:0 error:NULL];
 }
@@ -25,7 +25,7 @@
 // ----------------------------------------------------------------------
 - (void) saveSetting
 {
-  char command[] = "/Applications/PCKeyboardHack/scripts/save.sh";
+  char command[] = "/Library/org.pqrs/PCKeyboardHack/scripts/save.sh";
   [_adminAction execCommand:command];
 }
 

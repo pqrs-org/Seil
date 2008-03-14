@@ -1,7 +1,7 @@
 #!/bin/sh
 PATH=/bin:/sbin:/usr/bin:/usr/sbin; export PATH
 
-basedir="/Applications/PCKeyboardHack"
+basedir="/Library/org.pqrs/PCKeyboardHack"
 kextfile=''
 uname=`uname -r`
 case "${uname%%.*}" in
@@ -18,8 +18,7 @@ if [ "x$kextfile" == 'x' ]; then
 fi
 
 if [ $1 == 'unload' ]; then
-    "$basedir/scripts/save.sh"
-    kextunload "$kextfile"
+    kextunload -b org.pqrs.driver.PCKeyboardHack
 else
     kextload "$kextfile"
     sleep 3 # wait for a while just after kextload.
