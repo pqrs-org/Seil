@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<root>
+  <list>
+    <item>
+      <name>Delete</name>
+      <keycode>51</keycode>
+    </item>
+    <item>
+      <name>Command_R</name>
+      <keycode>54</keycode>
+    </item>
+    <item>
+      <name>Command_L</name>
+      <keycode>55</keycode>
+    </item>
+    <item>
+      <name>Shift_L</name>
+      <keycode>56</keycode>
+    </item>
+    <item>
+      <name>Caps Lock</name>
+      <keycode>57</keycode>
+    </item>
+    <item>
+      <name>Option_L</name>
+      <keycode>58</keycode>
+    </item>
+    <item>
+      <name>Control_L</name>
+      <keycode>59</keycode>
+    </item>
+    <item>
+      <name>Forward Delete</name>
+      <keycode>117</keycode>
+    </item>
+    <item>
+      <name>Expose All</name>
+      <keycode>160</keycode>
+    </item>
+    <item>
+      <name>JIS EISUU</name>
+      <keycode>102</keycode>
+    </item>
+    <item>
+      <name>JIS KANA</name>
+      <keycode>104</keycode>
+    </item>
+  </list>
+</root>

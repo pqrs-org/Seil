@@ -6,6 +6,19 @@
 	<array>
 		<dict>
 			<key>CLASS</key>
+			<string>OutlineView_keycode</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>OUTLETS</key>
+			<dict>
+				<key>_outlineView</key>
+				<string>id</string>
+			</dict>
+			<key>SUPERCLASS</key>
+			<string>NSObject</string>
+		</dict>
+		<dict>
+			<key>CLASS</key>
 			<string>FirstResponder</string>
 			<key>LANGUAGE</key>
 			<string>ObjC</string>
@@ -38,13 +51,24 @@
 			<string>ObjC</string>
 			<key>OUTLETS</key>
 			<dict>
-				<key>_outlineView</key>
-				<string>id</string>
 				<key>_versionText</key>
 				<string>id</string>
 			</dict>
 			<key>SUPERCLASS</key>
 			<string>NSPreferencePane</string>
+		</dict>
+		<dict>
+			<key>CLASS</key>
+			<string>OutlineView_mixed</string>
+			<key>LANGUAGE</key>
+			<string>ObjC</string>
+			<key>OUTLETS</key>
+			<dict>
+				<key>_outlineView</key>
+				<string>id</string>
+			</dict>
+			<key>SUPERCLASS</key>
+			<string>NSObject</string>
 		</dict>
 	</array>
 	<key>IBVersion</key>

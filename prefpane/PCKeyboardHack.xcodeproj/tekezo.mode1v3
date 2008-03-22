@@ -231,6 +231,8 @@
 			<key>Layout</key>
 			<array>
 				<dict>
+					<key>BecomeActive</key>
+					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -274,6 +276,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
+									<integer>1</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -342,8 +345,6 @@
 							<string>0pt</string>
 						</dict>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -380,9 +381,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>340DF0EA0D54C5C700EDCDBC</string>
+				<string>341EAB6C0D94FF3C0026B39E</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>340DF0EB0D54C5C700EDCDBC</string>
+				<string>341EAB6D0D94FF3C0026B39E</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -597,7 +598,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>3415CF9A0D54A49B006A174A</string>
-				<string>340DF1100D54CB7200EDCDBC</string>
+				<string>341EAB6E0D94FF3C0026B39E</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
