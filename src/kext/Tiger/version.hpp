@@ -1,1 +1,1 @@
-char * const config_version = "2.99.1-Tiger";
+char * const config_version = "2.99.2-Tiger";
