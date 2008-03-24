@@ -231,8 +231,6 @@
 			<key>Layout</key>
 			<array>
 				<dict>
-					<key>BecomeActive</key>
-					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -276,7 +274,6 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>1</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -345,6 +342,8 @@
 							<string>0pt</string>
 						</dict>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -381,9 +380,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>341EAB6C0D94FF3C0026B39E</string>
+				<string>34E3AD350D9759150093739F</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>341EAB6D0D94FF3C0026B39E</string>
+				<string>34E3AD360D9759150093739F</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -517,7 +516,6 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>3415CF9A0D54A49B006A174A</string>
 		<string>/Users/tekezo/project/PCKeyboardHack/prefpane/PCKeyboardHack.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
