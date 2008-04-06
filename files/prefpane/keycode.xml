@@ -6,6 +6,10 @@
       <keycode>51</keycode>
     </item>
     <item>
+      <name>Escape</name>
+      <keycode>53</keycode>
+    </item>
+    <item>
       <name>Command_R</name>
       <keycode>54</keycode>
     </item>
