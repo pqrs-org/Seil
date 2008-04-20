@@ -3,7 +3,7 @@
 <plist version="1.0">
   <dict>
     <key>CFBundleGetInfoString</key>
-    <string>http://mac.pqrs.org/</string>
+    <string>PCKeyboardHack-3.0.1</string>
 
     <key>CFBundleIdentifier</key>
     <string>org.pqrs.driver.PCKeyboardHack</string>
