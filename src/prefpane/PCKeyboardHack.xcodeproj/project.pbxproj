@@ -15,8 +15,6 @@
 		341EAB5C0D94FE450026B39E /* OutlineView_mixed.m in Sources */ = {isa = PBXBuildFile; fileRef = 341EAB540D94FE450026B39E /* OutlineView_mixed.m */; };
 		341EAB5D0D94FE450026B39E /* PCKeyboardHackPref.h in Headers */ = {isa = PBXBuildFile; fileRef = 341EAB550D94FE450026B39E /* PCKeyboardHackPref.h */; };
 		341EAB5E0D94FE450026B39E /* PCKeyboardHackPref.m in Sources */ = {isa = PBXBuildFile; fileRef = 341EAB560D94FE450026B39E /* PCKeyboardHackPref.m */; };
-		341EAB650D94FE500026B39E /* AdminAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 341EAB5F0D94FE500026B39E /* AdminAction.h */; };
-		341EAB660D94FE500026B39E /* AdminAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 341EAB600D94FE500026B39E /* AdminAction.m */; };
 		341EAB670D94FE500026B39E /* SysctlWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 341EAB610D94FE500026B39E /* SysctlWrapper.h */; };
 		341EAB680D94FE500026B39E /* SysctlWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 341EAB620D94FE500026B39E /* SysctlWrapper.m */; };
 		341EAB690D94FE500026B39E /* XMLTreeWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 341EAB630D94FE500026B39E /* XMLTreeWrapper.h */; };
@@ -44,8 +42,6 @@
 		341EAB540D94FE450026B39E /* OutlineView_mixed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutlineView_mixed.m; sourceTree = "<group>"; };
 		341EAB550D94FE450026B39E /* PCKeyboardHackPref.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCKeyboardHackPref.h; sourceTree = "<group>"; };
 		341EAB560D94FE450026B39E /* PCKeyboardHackPref.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCKeyboardHackPref.m; sourceTree = "<group>"; };
-		341EAB5F0D94FE500026B39E /* AdminAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdminAction.h; path = sharecode/AdminAction.h; sourceTree = "<group>"; };
-		341EAB600D94FE500026B39E /* AdminAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AdminAction.m; path = sharecode/AdminAction.m; sourceTree = "<group>"; };
 		341EAB610D94FE500026B39E /* SysctlWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SysctlWrapper.h; path = sharecode/SysctlWrapper.h; sourceTree = "<group>"; };
 		341EAB620D94FE500026B39E /* SysctlWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SysctlWrapper.m; path = sharecode/SysctlWrapper.m; sourceTree = "<group>"; };
 		341EAB630D94FE500026B39E /* XMLTreeWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMLTreeWrapper.h; path = sharecode/XMLTreeWrapper.h; sourceTree = "<group>"; };
@@ -108,8 +104,6 @@
 		08FB77AFFE84173DC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				341EAB5F0D94FE500026B39E /* AdminAction.h */,
-				341EAB600D94FE500026B39E /* AdminAction.m */,
 				341EAB610D94FE500026B39E /* SysctlWrapper.h */,
 				341EAB620D94FE500026B39E /* SysctlWrapper.m */,
 				341EAB630D94FE500026B39E /* XMLTreeWrapper.h */,
@@ -180,7 +174,6 @@
 				341EAB590D94FE450026B39E /* OutlineView_keycode.h in Headers */,
 				341EAB5B0D94FE450026B39E /* OutlineView_mixed.h in Headers */,
 				341EAB5D0D94FE450026B39E /* PCKeyboardHackPref.h in Headers */,
-				341EAB650D94FE500026B39E /* AdminAction.h in Headers */,
 				341EAB670D94FE500026B39E /* SysctlWrapper.h in Headers */,
 				341EAB690D94FE500026B39E /* XMLTreeWrapper.h in Headers */,
 			);
@@ -258,7 +251,6 @@
 				341EAB5A0D94FE450026B39E /* OutlineView_keycode.m in Sources */,
 				341EAB5C0D94FE450026B39E /* OutlineView_mixed.m in Sources */,
 				341EAB5E0D94FE450026B39E /* PCKeyboardHackPref.m in Sources */,
-				341EAB660D94FE500026B39E /* AdminAction.m in Sources */,
 				341EAB680D94FE500026B39E /* SysctlWrapper.m in Sources */,
 				341EAB6A0D94FE500026B39E /* XMLTreeWrapper.m in Sources */,
 			);
