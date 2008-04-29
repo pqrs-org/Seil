@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>org.pqrs.PCKeyboardHack.sysctl_confd</string>
+    <key>ProgramArguments</key>
+    <array>
+      <string>/Library/org.pqrs/PCKeyboardHack/bin/PCKeyboardHack_sysctl_confd</string>
+    </array>
+    <key>OnDemand</key>
+    <false/>
+  </dict>
+</plist>
