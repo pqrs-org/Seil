@@ -6,7 +6,7 @@
 
 namespace {
   void sigfunc(int param) {
-    system("/Library/org.pqrs/KeyRemap4MacBook/bin/KeyRemap4MacBook_sysctl_reset terminate");
+    system("/Library/org.pqrs/PCKeyboardHack/bin/PCKeyboardHack_sysctl_reset terminate");
     exit(0);
   }
 }
@@ -18,7 +18,7 @@ main()
   signal(SIGTERM, sigfunc);
 
   for (;;) {
-    const char *name = "keyremap4macbook.initialized";
+    const char *name = "pckeyboardhack.initialized";
 
     int value;
     size_t len = sizeof(value);
@@ -30,9 +30,9 @@ main()
       goto nextLoop;
     }
 
-    system("/Library/org.pqrs/KeyRemap4MacBook/bin/KeyRemap4MacBook_sysctl_reset");
-    system("/Library/org.pqrs/KeyRemap4MacBook/bin/KeyRemap4MacBook_sysctl_set initialized 1");
-    system("/Library/org.pqrs/KeyRemap4MacBook/bin/KeyRemap4MacBook_sysctl_ctl load");
+    system("/Library/org.pqrs/PCKeyboardHack/bin/PCKeyboardHack_sysctl_reset");
+    system("/Library/org.pqrs/PCKeyboardHack/bin/PCKeyboardHack_sysctl_set initialized 1");
+    system("/Library/org.pqrs/PCKeyboardHack/bin/PCKeyboardHack_sysctl_ctl load");
 
   nextLoop:
     sleep(3);
