@@ -3,23 +3,26 @@
   <list>
     <item>
       <name>Change Caps Lock</name>
-      <enable>pckeyboardhack.enable_capslock</enable>
-      <keycode>pckeyboardhack.keycode_capslock</keycode>
-      <default>51 (Delete)</default>
+      <enable>enable_capslock</enable>
+      <keycode>keycode_capslock</keycode>
+      <default>51</default>
+      <appendix>Delete</appendix>
     </item>
 
     <item>
       <name>Change Control_L</name>
-      <enable>pckeyboardhack.enable_control_l</enable>
-      <keycode>pckeyboardhack.keycode_control_l</keycode>
-      <default>55 (Command_L)</default>
+      <enable>enable_control_l</enable>
+      <keycode>keycode_control_l</keycode>
+      <default>55</default>
+      <appendix>Command_L</appendix>
     </item>
 
     <item>
       <name>Change Control_R</name>
-      <enable>pckeyboardhack.enable_control_r</enable>
-      <keycode>pckeyboardhack.keycode_control_r</keycode>
-      <default>54 (Command_R)</default>
+      <enable>enable_control_r</enable>
+      <keycode>keycode_control_r</keycode>
+      <default>54</default>
+      <appendix>Command_R</appendix>
     </item>
 
     <item>
@@ -27,21 +30,24 @@
       <list>
         <item>
           <name>Change F3 Key</name>
-          <enable>pckeyboardhack.enable_f3</enable>
-          <keycode>pckeyboardhack.keycode_f3</keycode>
-          <default>74 (Mute)</default>
+          <enable>enable_f3</enable>
+          <keycode>keycode_f3</keycode>
+          <default>74</default>
+          <appendix>Mute</appendix>
         </item>
         <item>
           <name>Change F4 Key</name>
-          <enable>pckeyboardhack.enable_f4</enable>
-          <keycode>pckeyboardhack.keycode_f4</keycode>
-          <default>73 (Volume Down)</default>
+          <enable>enable_f4</enable>
+          <keycode>keycode_f4</keycode>
+          <default>73</default>
+          <appendix>Volume Down</appendix>
         </item>
         <item>
           <name>Change F5 Key</name>
-          <enable>pckeyboardhack.enable_f5</enable>
-          <keycode>pckeyboardhack.keycode_f5</keycode>
-          <default>72 (Volume Up)</default>
+          <enable>enable_f5</enable>
+          <keycode>keycode_f5</keycode>
+          <default>72</default>
+          <appendix>Volume Up</appendix>
         </item>
       </list>
     </item>
@@ -51,21 +57,24 @@
       <list>
         <item>
           <name>Enable XFER Key</name>
-          <enable>pckeyboardhack.enable_jis_xfer</enable>
-          <keycode>pckeyboardhack.keycode_jis_xfer</keycode>
-          <default>104 (KANA)</default>
+          <enable>enable_jis_xfer</enable>
+          <keycode>keycode_jis_xfer</keycode>
+          <default>104</default>
+          <appendix>KANA</appendix>
         </item>
         <item>
           <name>Enable NFER Key</name>
-          <enable>pckeyboardhack.enable_jis_nfer</enable>
-          <keycode>pckeyboardhack.keycode_jis_nfer</keycode>
-          <default>102 (EISUU)</default>
+          <enable>enable_jis_nfer</enable>
+          <keycode>keycode_jis_nfer</keycode>
+          <default>102</default>
+          <appendix>EISUU</appendix>
         </item>
         <item>
           <name>Enable KANA Key</name>
-          <enable>pckeyboardhack.enable_jis_kana</enable>
-          <keycode>pckeyboardhack.keycode_jis_kana</keycode>
-          <default>54 (Command_R)</default>
+          <enable>enable_jis_kana</enable>
+          <keycode>keycode_jis_kana</keycode>
+          <default>54</default>
+          <appendix>Command_R</appendix>
         </item>
       </list>
     </item>

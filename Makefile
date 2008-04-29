@@ -5,6 +5,8 @@ build:
 	$(MAKE) -C pkginfo
 	$(MAKE) -C src/kext
 	$(MAKE) -C prefpane
+	mkdir -p files/share
+	./util/make-reset.rb files/prefpane/sysctl.xml > files/share/reset
 
 clean:
 	$(MAKE) -C src/kext clean
