@@ -21,12 +21,6 @@ if [ "$1" == 'unload' ]; then
     kextunload -b org.pqrs.driver.PCKeyboardHack
 else
     kextload "$kextfile"
-    sleep 3 # wait for a while just after kextload.
-
-    sysctl="$basedir/scripts/sysctl.sh"
-    [ -f "$sysctl" ] && "$sysctl"
-
-    "$basedir/scripts/save.sh"
 fi
 
 exit 0

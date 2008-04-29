@@ -2,21 +2,25 @@
 PATH=/bin:/sbin:/usr/bin:/usr/sbin; export PATH
 
 # ----------------------------------------
+# unload
+for f in /Library/LaunchDaemons/org.pqrs.PCKeyboardHack.* /Library/LaunchAgents/org.pqrs.PCKeyboardHack.*; do
+    [ -f $f ] && launchctl unload $f 2> /dev/null
+done
+
+startup="/Applications/PCKeyboardHack/scripts/startup.sh"
+[ -f "$startup" ] && "$startup" stop
+
+startup="/Library/org.pqrs/PCKeyboardHack/scripts/startup.sh"
+[ -f "$startup" ] && "$startup" stop
+
+# ----------------------------------------
 # uninstall
-basedir="/Applications/PCKeyboardHack"
-if [ -d $basedir ]; then
-    "$basedir/scripts/unload.sh"
-    rm -rf "$basedir"
-fi
+rm -rf /Applications/PCKeyboardHack
+rm -rf /Library/org.pqrs/PCKeyboardHack
 
-basedir="/Library/org.pqrs/PCKeyboardHack"
-if [ -d $basedir ]; then
-    "$basedir/scripts/unload.sh"
-    rm -rf "$basedir"
-fi
+rm -rf /Library/PreferencePanes/PCKeyboardHack.prefPane
 
-rm -f "/Library/LaunchDaemons/org.pqrs.PCKeyboardHack.load.plist"
-rm -f "/Library/LaunchDaemons/org.pqrs.PCKeyboardHack.autosave.plist"
-rm -rf "/Library/PreferencePanes/PCKeyboardHack.prefPane"
+rm -f /Library/LaunchDaemons/org.pqrs.PCKeyboardHack.*
+rm -f /Library/LaunchAgents/org.pqrs.PCKeyboardHack.*
 
 exit 0
