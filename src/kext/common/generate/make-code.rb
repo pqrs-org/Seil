@@ -1,10 +1,14 @@
 #!/usr/bin/ruby
 
+lastName = nil
 while l = $stdin.gets
   l.strip!
 
-  if />pckeyboardhack\.(.+?)<\// =~ l then
-    entry = $1
+  if /<(enable|keycode)>(.+?)<\/(enable|keycode)>/ =~ l then
+    type = $1
+    entry = $2
+
+    lastName = entry
 
     case ARGV[0]
     when 'hpp'
@@ -30,6 +34,13 @@ while l = $stdin.gets
           print "unsigned int keycode_#{symbol};\n"
         end
       end
+    end
+  end
+
+  if /<default>(.+)<\/default>/ =~ l then
+    value = $1
+    if ARGV[0] == 'default' then
+      print "#{lastName} = #{value};\n"
     end
   end
 end

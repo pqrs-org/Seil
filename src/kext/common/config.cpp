@@ -8,6 +8,7 @@
 
 namespace org_pqrs_PCKeyboardHack {
   Config config;
+  int initialized = 0;
 
   int sysctlFunc SYSCTL_HANDLER_ARGS
   {
@@ -27,6 +28,7 @@ namespace org_pqrs_PCKeyboardHack {
 #include "generate/output/include.config_SYSCTL.cpp"
 
   SYSCTL_STRING(_pckeyboardhack, OID_AUTO, version, CTLFLAG_RD, config_version, 0, "");
+  SYSCTL_INT(_pckeyboardhack, OID_AUTO, initialized, CTLTYPE_INT|CTLFLAG_RW, &(initialized), 0, "");
 
   // ----------------------------------------------------------------------
   void
@@ -37,6 +39,7 @@ namespace org_pqrs_PCKeyboardHack {
 #include "generate/output/include.config_register.cpp"
 
     sysctl_register_oid(&sysctl__pckeyboardhack_version);
+    sysctl_register_oid(&sysctl__pckeyboardhack_initialized);
   }
 
   void
@@ -47,5 +50,6 @@ namespace org_pqrs_PCKeyboardHack {
 #include "generate/output/include.config_unregister.cpp"
 
     sysctl_unregister_oid(&sysctl__pckeyboardhack_version);
+    sysctl_unregister_oid(&sysctl__pckeyboardhack_initialized);
   }
 }

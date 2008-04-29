@@ -9,15 +9,7 @@ namespace org_pqrs_PCKeyboardHack {
 #include "generate/output/include.config.hpp"
 
     Config(void) {
-      keycode_capslock = KeyMapCode::DELETE;
-      keycode_control_l = KeyMapCode::COMMAND_L;
-      keycode_control_r = KeyMapCode::COMMAND_R;
-      keycode_f3 = KeyMapCode::VOLUME_MUTE;
-      keycode_f4 = KeyMapCode::VOLUME_DOWN;
-      keycode_f5 = KeyMapCode::VOLUME_UP;
-      keycode_jis_xfer = KeyMapCode::JIS_KANA;
-      keycode_jis_nfer = KeyMapCode::JIS_EISUU;
-      keycode_jis_kana = KeyMapCode::COMMAND_R;
+#include "generate/output/include.config.default.hpp"
     }
   };
   extern Config config;
