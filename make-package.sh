@@ -38,7 +38,7 @@ sudo cp src/sysctl_reset/build/Release/PCKeyboardHack_sysctl_reset "pkgroot/$bas
 sudo cp src/sysctl_set/build/Release/PCKeyboardHack_sysctl_set "pkgroot/$basedir/bin"
 
 sudo mkdir -p "pkgroot/Library/PreferencePanes"
-sudo cp -R "prefpane/build/Release/PCKeyboardHack.prefPane" "pkgroot/Library/PreferencePanes"
+sudo cp -R "src/prefpane/build/Release/PCKeyboardHack.prefPane" "pkgroot/Library/PreferencePanes"
 
 sudo find pkgroot -type d -print0 | xargs -0 sudo chmod 755
 sudo find pkgroot -type f -print0 | xargs -0 sudo chmod 644
