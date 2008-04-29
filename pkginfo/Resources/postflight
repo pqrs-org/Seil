@@ -1,15 +1,6 @@
 #!/bin/sh
 PATH=/bin:/sbin:/usr/bin:/usr/sbin; export PATH
 
-# move oldstyle config
-if [ -f "/Applications/PCKeyboardHack/scripts/sysctl.sh" ]; then
-    mv -f "/Applications/PCKeyboardHack/scripts/sysctl.sh" "/Library/org.pqrs/PCKeyboardHack/scripts"
-fi
-
-# uninstall obsolute files
-rm -f "/Library/LaunchDaemons/org.pqrs.PCKeyboardHack.autosave.plist"
-rm -rf "/Applications/PCKeyboardHack"
-
 startup="/Library/org.pqrs/PCKeyboardHack/scripts/startup.sh"
 [ -f "$startup" ] && "$startup" quickstart
 
