@@ -47,7 +47,8 @@
 
     NSXMLNode *sysctl = [_xmlTreeWrapper getNode:n xpath:@"enable"];
     if (sysctl) {
-      NSNumber *value = [SysctlWrapper getInt:[sysctl stringValue]];
+      NSString *entry = [NSString stringWithFormat:@"pckeyboardhack.%@", [sysctl stringValue]];
+      NSNumber *value = [SysctlWrapper getInt:entry];
       if ([value boolValue]) return TRUE;
     }
   }
@@ -84,7 +85,9 @@
 
     } else {
       [cell setImagePosition:NSImageLeft];
-      return [SysctlWrapper getInt:[sysctl stringValue]];
+
+      NSString *entry = [NSString stringWithFormat:@"pckeyboardhack.%@", [sysctl stringValue]];
+      return [SysctlWrapper getInt:entry];
     }
 
   } else if ([identifier isEqualToString:@"keycode"]) {
@@ -92,7 +95,8 @@
     if (! sysctl) {
       return nil;
     } else {
-      NSNumber *value = [SysctlWrapper getInt:[sysctl stringValue]];
+      NSString *entry = [NSString stringWithFormat:@"pckeyboardhack.%@", [sysctl stringValue]];
+      NSNumber *value = [SysctlWrapper getInt:entry];
       return value;
     }
 
@@ -101,7 +105,12 @@
     if (! node) {
       return nil;
     } else {
-      return [node stringValue];
+      NSXMLNode *appendix = [_xmlTreeWrapper getNode:item xpath:@"appendix"];
+      if (appendix) {
+        return [NSString stringWithFormat:@"%@ (%@)", [node stringValue], [appendix stringValue]];
+      } else {
+        return [node stringValue];
+      }
     }
   }
 
@@ -120,7 +129,8 @@
     NSXMLNode *sysctl = [_xmlTreeWrapper getNode:item xpath:@"enable"];
     if (sysctl) {
       NSString *name = [sysctl stringValue];
-      NSNumber *value = [SysctlWrapper getInt:name];
+      NSString *entry = [NSString stringWithFormat:@"pckeyboardhack.%@", name];
+      NSNumber *value = [SysctlWrapper getInt:entry];
       NSNumber *new = [[[NSNumber alloc] initWithBool:![value boolValue]] autorelease];
       [Common setSysctlInt:name value:new];
     }
