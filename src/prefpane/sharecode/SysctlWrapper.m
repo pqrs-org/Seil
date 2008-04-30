@@ -2,7 +2,7 @@
 
 #import "SysctlWrapper.h"
 
-@implementation SysctlWrapper
+@implementation BUNDLEPREFIX_SysctlWrapper
 
 + (NSString *) getString:(NSString *)name
 {

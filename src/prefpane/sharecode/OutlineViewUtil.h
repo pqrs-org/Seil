@@ -2,7 +2,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface OutlineViewUtil : NSObject
+@interface BUNDLEPREFIX_OutlineViewUtil : NSObject
 
 + (void) intelligentExpand:(NSOutlineView *)outlineview delegater:(id)delegater;
 

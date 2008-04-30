@@ -1,13 +1,13 @@
 // -*- Mode: objc; Coding: utf-8; indent-tabs-mode: nil; -*-
 
 #import "PCKeyboardHackPref.h"
-#import "SysctlWrapper.h"
+#import "sharecode.h"
 
-@implementation PCKeyboardHackPref
+@implementation org_pqrs_PCKeyboardHack_PCKeyboardHackPref
 
 - (void) drawVersion
 {
-  NSString *version = [SysctlWrapper getString:@"pckeyboardhack.version"];
+  NSString *version = [BUNDLEPREFIX_SysctlWrapper getString:@"pckeyboardhack.version"];
   if (! version) {
     version = @"-.-.-";
   }
