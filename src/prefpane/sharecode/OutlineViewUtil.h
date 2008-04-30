@@ -4,6 +4,6 @@
 
 @interface OutlineViewUtil : NSObject
 
-+ (void) intelligentExpand:(NSOutlineView *)outlineview;
++ (void) intelligentExpand:(NSOutlineView *)outlineview delegater:(id)delegater;
 
 @end
