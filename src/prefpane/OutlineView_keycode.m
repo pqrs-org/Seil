@@ -1,19 +1,18 @@
 // -*- Mode: objc; Coding: utf-8; indent-tabs-mode: nil; -*-
 
 #import "OutlineView_keycode.h"
-#import "SysctlWrapper.h"
-#import "Common.h"
+#import "sharecode.h"
 
-@implementation OutlineView_keycode
+@implementation org_pqrs_PCKeyboardHack_OutlineView_keycode
 
-static XMLTreeWrapper *_xmlTreeWrapper;
+static BUNDLEPREFIX_XMLTreeWrapper *_xmlTreeWrapper;
 
 - (id) init
 {
   self = [super init];
   if (! self) return self;
 
-  _xmlTreeWrapper = [[XMLTreeWrapper alloc] init];
+  _xmlTreeWrapper = [[BUNDLEPREFIX_XMLTreeWrapper alloc] init];
   if (_xmlTreeWrapper == nil) return nil;
   if (! [_xmlTreeWrapper load:@"/Library/org.pqrs/PCKeyboardHack/prefpane/keycode.xml"]) return nil;
   return self;

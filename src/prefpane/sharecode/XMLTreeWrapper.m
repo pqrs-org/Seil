@@ -2,7 +2,7 @@
 
 #import "XMLTreeWrapper.h"
 
-@implementation XMLTreeWrapper
+@implementation BUNDLEPREFIX_XMLTreeWrapper
 
 - (id) init
 {

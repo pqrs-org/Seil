@@ -2,7 +2,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface SysctlWrapper : NSObject
+@interface BUNDLEPREFIX_SysctlWrapper : NSObject
 
 // Note:
 // SysctlWrapper provides only the get methods.
