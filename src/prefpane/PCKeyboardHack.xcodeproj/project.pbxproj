@@ -20,6 +20,8 @@
 		341EAB690D94FE500026B39E /* XMLTreeWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 341EAB630D94FE500026B39E /* XMLTreeWrapper.h */; };
 		341EAB6A0D94FE500026B39E /* XMLTreeWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 341EAB640D94FE500026B39E /* XMLTreeWrapper.m */; };
 		343F9ACC0D5493BD00CA85DB /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 343F9ACB0D5493BD00CA85DB /* Security.framework */; };
+		346842F00DC87DFD0094A095 /* OutlineViewUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 346842EE0DC87DFD0094A095 /* OutlineViewUtil.h */; };
+		346842F10DC87DFD0094A095 /* OutlineViewUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 346842EF0DC87DFD0094A095 /* OutlineViewUtil.m */; };
 		8D202CEA0486D31800D8A456 /* PCKeyboardHack_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 32DBCFA20370C41700C91783 /* PCKeyboardHack_Prefix.pch */; };
 		8D202CED0486D31800D8A456 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
 		8D202CEE0486D31800D8A456 /* PCKeyboardHackPref.tiff in Resources */ = {isa = PBXBuildFile; fileRef = F506C040013D9D8001CA16C8 /* PCKeyboardHackPref.tiff */; };
@@ -47,6 +49,8 @@
 		341EAB630D94FE500026B39E /* XMLTreeWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMLTreeWrapper.h; path = sharecode/XMLTreeWrapper.h; sourceTree = "<group>"; };
 		341EAB640D94FE500026B39E /* XMLTreeWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMLTreeWrapper.m; path = sharecode/XMLTreeWrapper.m; sourceTree = "<group>"; };
 		343F9ACB0D5493BD00CA85DB /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = /System/Library/Frameworks/Security.framework; sourceTree = "<absolute>"; };
+		346842EE0DC87DFD0094A095 /* OutlineViewUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutlineViewUtil.h; path = sharecode/OutlineViewUtil.h; sourceTree = "<group>"; };
+		346842EF0DC87DFD0094A095 /* OutlineViewUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OutlineViewUtil.m; path = sharecode/OutlineViewUtil.m; sourceTree = "<group>"; };
 		8D202CF70486D31800D8A456 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D202CF80486D31800D8A456 /* PCKeyboardHack.prefPane */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PCKeyboardHack.prefPane; sourceTree = BUILT_PRODUCTS_DIR; };
 		F506C035013D953901CA16C8 /* PreferencePanes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PreferencePanes.framework; path = /System/Library/Frameworks/PreferencePanes.framework; sourceTree = "<absolute>"; };
@@ -104,6 +108,8 @@
 		08FB77AFFE84173DC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				346842EE0DC87DFD0094A095 /* OutlineViewUtil.h */,
+				346842EF0DC87DFD0094A095 /* OutlineViewUtil.m */,
 				341EAB610D94FE500026B39E /* SysctlWrapper.h */,
 				341EAB620D94FE500026B39E /* SysctlWrapper.m */,
 				341EAB630D94FE500026B39E /* XMLTreeWrapper.h */,
@@ -176,6 +182,7 @@
 				341EAB5D0D94FE450026B39E /* PCKeyboardHackPref.h in Headers */,
 				341EAB670D94FE500026B39E /* SysctlWrapper.h in Headers */,
 				341EAB690D94FE500026B39E /* XMLTreeWrapper.h in Headers */,
+				346842F00DC87DFD0094A095 /* OutlineViewUtil.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +260,7 @@
 				341EAB5E0D94FE450026B39E /* PCKeyboardHackPref.m in Sources */,
 				341EAB680D94FE500026B39E /* SysctlWrapper.m in Sources */,
 				341EAB6A0D94FE500026B39E /* XMLTreeWrapper.m in Sources */,
+				346842F10DC87DFD0094A095 /* OutlineViewUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

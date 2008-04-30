@@ -4,7 +4,7 @@
 
 @interface OutlineView_mixed : NSObject
 {
-  IBOutlet id _outlineView;
+  IBOutlet id _outlineView_mixed;
 }
 
 - (IBAction) intelligentExpand:(id)sender;
