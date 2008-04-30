@@ -22,7 +22,7 @@ static XMLTreeWrapper *_xmlTreeWrapper;
 
 - (IBAction) intelligentExpand:(id)sender
 {
-  [OutlineViewUtil intelligentExpand:_outlineView_mixed];
+  [OutlineViewUtil intelligentExpand:_outlineView_mixed delegater:self];
 }
 
 // ------------------------------------------------------------
@@ -121,6 +121,9 @@ static XMLTreeWrapper *_xmlTreeWrapper;
 
 - (void)outlineView:(NSOutlineView *)outlineView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn byItem:(id)item
 {
+  item = [_outlineView_mixed itemAtRow:[_outlineView_mixed selectedRow]];
+  //NSLog([NSString stringWithFormat:@"selectedRow %d", [_outlineView_mixed selectedRow]]);
+
   id identifier = [tableColumn identifier];
   if ([identifier isEqualToString:@"enable"]) {
     NSXMLNode *sysctl = [_xmlTreeWrapper getNode:item xpath:@"enable"];

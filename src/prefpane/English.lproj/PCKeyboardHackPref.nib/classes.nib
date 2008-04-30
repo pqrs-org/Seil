@@ -11,7 +11,7 @@
 			<string>ObjC</string>
 			<key>OUTLETS</key>
 			<dict>
-				<key>_outlineView</key>
+				<key>_outlineView_keycode</key>
 				<string>id</string>
 			</dict>
 			<key>SUPERCLASS</key>
@@ -69,7 +69,7 @@
 			<string>ObjC</string>
 			<key>OUTLETS</key>
 			<dict>
-				<key>_outlineView</key>
+				<key>_outlineView_mixed</key>
 				<string>id</string>
 			</dict>
 			<key>SUPERCLASS</key>
