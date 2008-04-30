@@ -4,8 +4,6 @@
 
 @interface OutlineView_keycode : NSObject
 {
-  XMLTreeWrapper *_xmlTreeWrapper;
-
   IBOutlet id _outlineView;
 }
 

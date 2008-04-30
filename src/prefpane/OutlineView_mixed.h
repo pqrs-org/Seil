@@ -4,9 +4,9 @@
 
 @interface OutlineView_mixed : NSObject
 {
-  XMLTreeWrapper *_xmlTreeWrapper;
-
   IBOutlet id _outlineView;
 }
+
+- (IBAction) intelligentExpand:(id)sender;
 
 @end

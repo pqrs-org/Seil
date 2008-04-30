@@ -58,6 +58,11 @@
 			<string>NSPreferencePane</string>
 		</dict>
 		<dict>
+			<key>ACTIONS</key>
+			<dict>
+				<key>intelligentExpand</key>
+				<string>id</string>
+			</dict>
 			<key>CLASS</key>
 			<string>OutlineView_mixed</string>
 			<key>LANGUAGE</key>
