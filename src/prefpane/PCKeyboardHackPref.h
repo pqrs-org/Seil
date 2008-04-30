@@ -2,7 +2,7 @@
 
 #import <PreferencePanes/PreferencePanes.h>
 
-@interface org_pqrs_PCKeyboardHack_PCKeyboardHackPref : NSPreferencePane
+@interface PCKeyboardHackPref : NSPreferencePane
 {
   IBOutlet id _versionText;
 }
