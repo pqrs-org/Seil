@@ -34,7 +34,7 @@ static XMLTreeWrapper *_xmlTreeWrapper;
         if (! [_outlineView isItemExpanded:item]) continue;
 
         [_outlineView collapseItem:item];
-        nochange = true;
+        nochange = false;
         break;
 
       } else {

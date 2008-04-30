@@ -9,4 +9,4 @@ clean:
 	rm -rf build
 
 install:
-	sudo rsync -a build/Release/PCKeyboardHack.prefPane /Library/PreferencePanes/
+	rsync -a build/Release/PCKeyboardHack.prefPane $(HOME)/Library/PreferencePanes
