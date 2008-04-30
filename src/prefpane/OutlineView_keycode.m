@@ -6,15 +6,16 @@
 
 @implementation OutlineView_keycode
 
-- (id)init
+static XMLTreeWrapper *_xmlTreeWrapper;
+
+- (id) init
 {
   self = [super init];
-  if (self) {
-    _xmlTreeWrapper = [[XMLTreeWrapper alloc] init];
-    if (_xmlTreeWrapper == nil) return nil;
-    if (! [_xmlTreeWrapper load:@"/Library/org.pqrs/PCKeyboardHack/prefpane/keycode.xml"]) return nil;
-    [_outlineView reloadData];
-  }
+  if (! self) return self;
+
+  _xmlTreeWrapper = [[XMLTreeWrapper alloc] init];
+  if (_xmlTreeWrapper == nil) return nil;
+  if (! [_xmlTreeWrapper load:@"/Library/org.pqrs/PCKeyboardHack/prefpane/keycode.xml"]) return nil;
   return self;
 }
 

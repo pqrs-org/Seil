@@ -4,8 +4,6 @@
 
 @interface PCKeyboardHackPref : NSPreferencePane
 {
-  NSXMLDocument *_XMLDocument;
-
   IBOutlet id _versionText;
 }
 

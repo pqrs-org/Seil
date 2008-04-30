@@ -6,16 +6,49 @@
 
 @implementation OutlineView_mixed
 
-- (id)init
+static XMLTreeWrapper *_xmlTreeWrapper;
+
+- (id) init
 {
   self = [super init];
-  if (self) {
-    _xmlTreeWrapper = [[XMLTreeWrapper alloc] init];
-    if (_xmlTreeWrapper == nil) return nil;
-    if (! [_xmlTreeWrapper load:@"/Library/org.pqrs/PCKeyboardHack/prefpane/sysctl.xml"]) return nil;
-    [_outlineView reloadData];
-  }
+  if (! self) return self;
+
+  _xmlTreeWrapper = [[XMLTreeWrapper alloc] init];
+  if (_xmlTreeWrapper == nil) return nil;
+  if (! [_xmlTreeWrapper load:@"/Library/org.pqrs/PCKeyboardHack/prefpane/sysctl.xml"]) return nil;
   return self;
+}
+
+- (IBAction) intelligentExpand:(id)sender
+{
+  for (;;) {
+    bool nochange = true;
+
+    int i = 0;
+    for (i = 0; i < [_outlineView numberOfRows]; ++i) {
+      id item = [_outlineView itemAtRow:i];
+      if (! [_outlineView isExpandable:item]) continue;
+
+      if ([self outlineView:_outlineView shouldCollapseItem:item]) {
+        // collapse item
+        if (! [_outlineView isItemExpanded:item]) continue;
+
+        [_outlineView collapseItem:item];
+        nochange = true;
+        break;
+
+      } else {
+        // expand item
+        if ([_outlineView isItemExpanded:item]) continue;
+
+        [_outlineView expandItem:item];
+        nochange = false;
+        break;
+      }
+    }
+
+    if (nochange) break;
+  }
 }
 
 // ------------------------------------------------------------
@@ -63,16 +96,6 @@
 
   id identifier = [tableColumn identifier];
   if ([identifier isEqualToString:@"enable"]) {
-    // ----------------------------------------
-    // autoexpand
-    if ([_outlineView isExpandable:item]) {
-      if (! [_outlineView isItemExpanded:item]) {
-        if ([self checkAnyChildrenChecked:item]) {
-          [_outlineView expandItem:item];
-        }
-      }
-    }
-
     NSXMLNode *title = [_xmlTreeWrapper getNode:item xpath:@"name"];
     if (! title) return nil;
 
