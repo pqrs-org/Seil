@@ -3,7 +3,7 @@
 #import "PCKeyboardHackPref.h"
 #import "sharecode.h"
 
-@implementation org_pqrs_PCKeyboardHack_PCKeyboardHackPref
+@implementation PCKeyboardHackPref
 
 - (void) drawVersion
 {
