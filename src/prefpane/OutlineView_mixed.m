@@ -20,9 +20,14 @@ static NSString *sysctl_ctl = @"/Library/org.pqrs/PCKeyboardHack/bin/PCKeyboardH
   return self;
 }
 
-- (IBAction) intelligentExpand:(id)sender
+- (IBAction) expandALL:(id)sender
 {
-  [BUNDLEPREFIX_OutlineViewUtil intelligentExpand:_outlineView_mixed delegater:self];
+  [BUNDLEPREFIX_OutlineViewUtil expandALL:_outlineView_mixed];
+}
+
+- (IBAction) collapseALL:(id)sender
+{
+  [BUNDLEPREFIX_OutlineViewUtil collapseALL:_outlineView_mixed delegater:self];
 }
 
 // ------------------------------------------------------------
