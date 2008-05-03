@@ -34,6 +34,18 @@
       <keycode>59</keycode>
     </item>
     <item>
+      <name>Shift_R</name>
+      <keycode>60</keycode>
+    </item>
+    <item>
+      <name>Option_R</name>
+      <keycode>61</keycode>
+    </item>
+    <item>
+      <name>Control_R</name>
+      <keycode>62</keycode>
+    </item>
+    <item>
       <name>Forward Delete</name>
       <keycode>117</keycode>
     </item>
