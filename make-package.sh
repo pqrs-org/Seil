@@ -32,6 +32,9 @@ sudo cp -R pkginfo/Resources/preflight "pkgroot/$basedir/extra/uninstall.sh"
 sudo mkdir -p "pkgroot/Library"
 sudo cp -R files/LaunchDaemons pkgroot/Library
 
+sudo mkdir -p "pkgroot/$basedir/app"
+sudo cp -R "src/util/launchd/build/Release/PCKeyboardHack_launchd.app" "pkgroot/$basedir/app"
+
 sudo mkdir -p "pkgroot/$basedir/bin"
 sudo cp src/bin/set_loginwindow/build/Release/set_loginwindow "pkgroot/$basedir/bin"
 sudo cp src/bin/sysctl_confd/build/Release/PCKeyboardHack_sysctl_confd "pkgroot/$basedir/bin"
@@ -47,9 +50,10 @@ sudo find pkgroot -type f -print0 | xargs -0 sudo chmod 644
 sudo find pkgroot -name '*.sh' -print0 | xargs -0 sudo chmod 755
 sudo chmod 4755 pkgroot/$basedir/bin/PCKeyboardHack_sysctl_reset
 sudo chmod 4755 pkgroot/$basedir/bin/PCKeyboardHack_sysctl_set
-sudo chmod 755 pkgroot/$basedir/bin/set_loginwindow
 sudo chmod 755 pkgroot/$basedir/bin/PCKeyboardHack_sysctl_confd
 sudo chmod 755 pkgroot/$basedir/bin/PCKeyboardHack_sysctl_ctl
+sudo chmod 755 pkgroot/$basedir/bin/set_loginwindow
+sudo chmod 755 pkgroot/$basedir/app/PCKeyboardHack_launchd.app/Contents/MacOS/PCKeyboardHack_launchd
 sudo chown -R root:wheel pkgroot
 
 sudo chmod 1775 pkgroot/Library
@@ -72,3 +76,8 @@ echo "Make Archive"
 
 sudo chown -R root:wheel $pkgName
 sudo tar zcf $pkgName.tar.gz $pkgName
+
+# --------------------------------------------------
+echo "Cleanup"
+sudo rm -rf pkgroot
+make -C src clean
