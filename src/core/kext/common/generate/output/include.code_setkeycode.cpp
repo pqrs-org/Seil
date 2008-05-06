@@ -1,0 +1,9 @@
+setkeycode(hid, org_pqrs_PCKeyboardHack::KeyMapIndex::CAPSLOCK, org_pqrs_PCKeyboardHack::config.enable_capslock, org_pqrs_PCKeyboardHack::config.keycode_capslock, keycode_capslock);
+setkeycode(hid, org_pqrs_PCKeyboardHack::KeyMapIndex::CONTROL_L, org_pqrs_PCKeyboardHack::config.enable_control_l, org_pqrs_PCKeyboardHack::config.keycode_control_l, keycode_control_l);
+setkeycode(hid, org_pqrs_PCKeyboardHack::KeyMapIndex::CONTROL_R, org_pqrs_PCKeyboardHack::config.enable_control_r, org_pqrs_PCKeyboardHack::config.keycode_control_r, keycode_control_r);
+setkeycode(hid, org_pqrs_PCKeyboardHack::KeyMapIndex::F3, org_pqrs_PCKeyboardHack::config.enable_f3, org_pqrs_PCKeyboardHack::config.keycode_f3, keycode_f3);
+setkeycode(hid, org_pqrs_PCKeyboardHack::KeyMapIndex::F4, org_pqrs_PCKeyboardHack::config.enable_f4, org_pqrs_PCKeyboardHack::config.keycode_f4, keycode_f4);
+setkeycode(hid, org_pqrs_PCKeyboardHack::KeyMapIndex::F5, org_pqrs_PCKeyboardHack::config.enable_f5, org_pqrs_PCKeyboardHack::config.keycode_f5, keycode_f5);
+setkeycode(hid, org_pqrs_PCKeyboardHack::KeyMapIndex::JIS_XFER, org_pqrs_PCKeyboardHack::config.enable_jis_xfer, org_pqrs_PCKeyboardHack::config.keycode_jis_xfer, keycode_jis_xfer);
+setkeycode(hid, org_pqrs_PCKeyboardHack::KeyMapIndex::JIS_NFER, org_pqrs_PCKeyboardHack::config.enable_jis_nfer, org_pqrs_PCKeyboardHack::config.keycode_jis_nfer, keycode_jis_nfer);
+setkeycode(hid, org_pqrs_PCKeyboardHack::KeyMapIndex::JIS_KANA, org_pqrs_PCKeyboardHack::config.enable_jis_kana, org_pqrs_PCKeyboardHack::config.keycode_jis_kana, keycode_jis_kana);

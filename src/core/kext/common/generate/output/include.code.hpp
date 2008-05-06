@@ -1,0 +1,9 @@
+unsigned int keycode_capslock;
+unsigned int keycode_control_l;
+unsigned int keycode_control_r;
+unsigned int keycode_f3;
+unsigned int keycode_f4;
+unsigned int keycode_f5;
+unsigned int keycode_jis_xfer;
+unsigned int keycode_jis_nfer;
+unsigned int keycode_jis_kana;
