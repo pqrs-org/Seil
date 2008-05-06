@@ -3,13 +3,13 @@
 <plist version="1.0">
   <dict>
     <key>CFBundleGetInfoString</key>
-    <string>PCKeyboardHack-4.0.0</string>
+    <string>PCKeyboardHack-4.0.1</string>
 
     <key>CFBundleIdentifier</key>
     <string>org.pqrs.driver.PCKeyboardHack</string>
 
     <key>CFBundleShortVersionString</key>
-    <string>4.0.0</string>
+    <string>4.0.1</string>
 
     <key>IFPkgFlagAllowBackRev</key>
     <false/>
