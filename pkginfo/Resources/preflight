@@ -18,6 +18,8 @@ startup="/Library/org.pqrs/PCKeyboardHack/scripts/startup.sh"
 rm -rf /Applications/PCKeyboardHack
 rm -rf /Library/org.pqrs/PCKeyboardHack
 
+rm -rf /Library/PreferencePanes/PCKeyboardHack.prefPane
+
 rm -f /Library/LaunchDaemons/org.pqrs.PCKeyboardHack.*
 rm -f /Library/LaunchAgents/org.pqrs.PCKeyboardHack.*
 
