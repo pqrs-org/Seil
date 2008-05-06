@@ -1,9 +1,0 @@
-keycode_capslock = 51;
-keycode_control_l = 55;
-keycode_control_r = 54;
-keycode_f3 = 74;
-keycode_f4 = 73;
-keycode_f5 = 72;
-keycode_jis_xfer = 104;
-keycode_jis_nfer = 102;
-keycode_jis_kana = 54;

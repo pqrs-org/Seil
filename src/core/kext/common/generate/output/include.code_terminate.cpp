@@ -1,9 +1,0 @@
-hid->_usb_2_adb_keymap[org_pqrs_PCKeyboardHack::KeyMapIndex::CAPSLOCK] = keycode_capslock;
-hid->_usb_2_adb_keymap[org_pqrs_PCKeyboardHack::KeyMapIndex::CONTROL_L] = keycode_control_l;
-hid->_usb_2_adb_keymap[org_pqrs_PCKeyboardHack::KeyMapIndex::CONTROL_R] = keycode_control_r;
-hid->_usb_2_adb_keymap[org_pqrs_PCKeyboardHack::KeyMapIndex::F3] = keycode_f3;
-hid->_usb_2_adb_keymap[org_pqrs_PCKeyboardHack::KeyMapIndex::F4] = keycode_f4;
-hid->_usb_2_adb_keymap[org_pqrs_PCKeyboardHack::KeyMapIndex::F5] = keycode_f5;
-hid->_usb_2_adb_keymap[org_pqrs_PCKeyboardHack::KeyMapIndex::JIS_XFER] = keycode_jis_xfer;
-hid->_usb_2_adb_keymap[org_pqrs_PCKeyboardHack::KeyMapIndex::JIS_NFER] = keycode_jis_nfer;
-hid->_usb_2_adb_keymap[org_pqrs_PCKeyboardHack::KeyMapIndex::JIS_KANA] = keycode_jis_kana;

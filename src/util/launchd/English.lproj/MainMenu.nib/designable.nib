@@ -8,12 +8,12 @@
 		<string key="IBDocument.HIToolboxVersion">352.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="136"/>
+			<integer value="56"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<string id="617114957">com.apple.InterfaceBuilderKit</string>
-			<string id="578961457">com.apple.InterfaceBuilder.CocoaPlugin</string>
+			<string id="609363083">com.apple.InterfaceBuilder.CocoaPlugin</string>
 		</object>
 		<object class="NSMutableArray" key="IBDocument.RootObjects" id="1048">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -32,21 +32,21 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<object class="NSMenuItem" id="694149608">
 						<reference key="NSMenu" ref="649796088"/>
-						<string key="NSTitle" id="609589324">KeyRemap4MacBook_launchd</string>
+						<string key="NSTitle" id="909814471">PCKeyboardHack_launchd</string>
 						<string key="NSKeyEquiv"/>
 						<int key="NSKeyEquivModMask">1048576</int>
 						<int key="NSMnemonicLoc">2147483647</int>
-						<object class="NSCustomResource" key="NSOnImage" id="7224179">
-							<string key="NSClassName" id="388486238">NSImage</string>
+						<object class="NSCustomResource" key="NSOnImage" id="718464432">
+							<string key="NSClassName" id="509223207">NSImage</string>
 							<string key="NSResourceName">NSMenuCheckmark</string>
 						</object>
-						<object class="NSCustomResource" key="NSMixedImage" id="735896155">
-							<reference key="NSClassName" ref="388486238"/>
+						<object class="NSCustomResource" key="NSMixedImage" id="793604301">
+							<reference key="NSClassName" ref="509223207"/>
 							<string key="NSResourceName">NSMenuMixedState</string>
 						</object>
 						<string key="NSAction">submenuAction:</string>
 						<object class="NSMenu" key="NSSubmenu" id="110575045">
-							<reference key="NSTitle" ref="609589324"/>
+							<reference key="NSTitle" ref="909814471"/>
 							<object class="NSMutableArray" key="NSMenuItems">
 								<bool key="EncodedWithXMLCoder">YES</bool>
 								<object class="NSMenuItem" id="632727374">
@@ -55,8 +55,8 @@
 									<string key="NSKeyEquiv">q</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
-									<reference key="NSOnImage" ref="7224179"/>
-									<reference key="NSMixedImage" ref="735896155"/>
+									<reference key="NSOnImage" ref="718464432"/>
+									<reference key="NSMixedImage" ref="793604301"/>
 								</object>
 							</object>
 							<string key="NSName">_NSAppleMenu</string>
@@ -181,19 +181,19 @@
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<reference ref="578961457"/>
+					<reference ref="609363083"/>
 					<reference ref="617114957"/>
 					<reference ref="617114957"/>
-					<reference ref="578961457"/>
+					<reference ref="609363083"/>
 					<integer value="1" id="9"/>
-					<reference ref="578961457"/>
+					<reference ref="609363083"/>
 					<reference ref="9"/>
 					<string>{74, 862}</string>
-					<string>{{400, 959}, {255, 20}}</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="578961457"/>
+					<string>{{400, 959}, {229, 20}}</string>
+					<reference ref="609363083"/>
+					<reference ref="609363083"/>
 					<reference ref="9"/>
-					<reference ref="578961457"/>
+					<reference ref="609363083"/>
 					<reference ref="9"/>
 					<string>{{412, 936}, {108, 23}}</string>
 				</object>
@@ -252,13 +252,13 @@
 			</object>
 		</object>
 		<int key="IBDocument.localizationMode">0</int>
-		<string key="IBDocument.LastKnownRelativeProjectPath">../../KeyRemap4MacBook_launchd.xcodeproj</string>
+		<string key="IBDocument.LastKnownRelativeProjectPath">../../PCKeyboardHack_launchd.xcodeproj</string>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<object class="NSMutableData" key="IBDocument.RunnableNib">
 			<bytes key="NS.bytes">YnBsaXN0MDDUAAEAAgADAAQABQAGAAkAClgkdmVyc2lvblQkdG9wWSRhcmNoaXZlclgkb2JqZWN0cxIA
 AYag0QAHAAhdSUIub2JqZWN0ZGF0YYABXxAPTlNLZXllZEFyY2hpdmVyrxBGAAsADAAxADUANgA8AD0A
-QQBFAEoAUABgAGcAaABpAG4AbwBwAHMAdwB4AHsAfACAAIYAiQCKAIsAjgCSAJsAngCpAK4ArwCwALEA
-tQC2ALgAuQC9AL4AwADJANMA3QDeAN8A4ADhAOIA4wDkAOcA6gD2AQIBAwEEAQUBBgEHAQgBCQEKAQsB
+QQBFAEoAUABgAGcAaABpAG4AbwBwAHMAdwB4AHsAfACAAIYAiQCKAIsAjgCSAJsAnACgAKEAowCmALEA
+tgC3ALgAuQC9AL4AwADJANMA3QDeAN8A4ADhAOIA4wDkAOcA6gD2AQIBAwEEAQUBBgEHAQgBCQEKAQsB
 DgERARRVJG51bGzfEBIADQAOAA8AEAARABIAEwAUABUAFgAXABgAGQAaABsAHAAdAB4AHwAgACEAIgAj
 ACQAJQAmACcAKAApACoAKwAsAC0ALgAvADBWTlNSb290ViRjbGFzc11OU09iamVjdHNLZXlzXxAPTlND
 bGFzc2VzVmFsdWVzXxAZTlNBY2Nlc3NpYmlsaXR5T2lkc1ZhbHVlc11OU0Nvbm5lY3Rpb25zW05TTmFt
@@ -272,36 +272,36 @@ oNIANwA4AEIAQ6MAQwBEADtcTlNNdXRhYmxlU2V0VU5TU2V00gAOAD4ARgBHgByiAEgASYAJgBfTAA4A
 SwBMAE0ATgBPWE5TU291cmNlV05TTGFiZWyAFoAKgBXYAA4AUQBSAFMAVABVAFYAVwBYAFkAWgBbAFwA
 XQBeAF9XTlNUaXRsZV8QEU5TS2V5RXF1aXZNb2RNYXNrWk5TS2V5RXF1aXZdTlNNbmVtb25pY0xvY1lO
 U09uSW1hZ2VcTlNNaXhlZEltYWdlVk5TTWVudYAUgAwSABAAAIANEn////+ADoASgAvUAA4AUQBhAGIA
-YwBkAGUAZlZOU05hbWVbTlNNZW51SXRlbXOAJoAhgCWAJFRRdWl0UXHTAA4AMgBqAGsAbABtXk5TUmVz
+YwBkAGUAZlZOU05hbWVbTlNNZW51SXRlbXOAIYAegCCAH1RRdWl0UXHTAA4AMgBqAGsAbABtXk5TUmVz
 b3VyY2VOYW1lgBGAD4AQV05TSW1hZ2VfEA9OU01lbnVDaGVja21hcmvSADcAOABxAHKiAHIAO18QEE5T
 Q3VzdG9tUmVzb3VyY2XTAA4AMgBqAGsAbAB2gBGAD4ATXxAQTlNNZW51TWl4ZWRTdGF0ZdIANwA4AHkA
 eqIAegA7Wk5TTWVudUl0ZW1adGVybWluYXRlOtIANwA4AH0AfqMAfgB/ADtfEBVOU05pYkNvbnRyb2xD
 b25uZWN0b3JeTlNOaWJDb25uZWN0b3LUAA4AgQBLAEwAggCDAB8AhV1OU0Rlc3RpbmF0aW9ugBuAGIAC
 gBrSAA4AMgAzAIiABIAZXUFwcENvbnRyb2xsZXJYZGVsZWdhdGXSADcAOACMAI2jAI0AfwA7XxAUTlNO
 aWJPdXRsZXRDb25uZWN0b3LSADcAOACPAJCjAJAAkQA7Xk5TTXV0YWJsZUFycmF5V05TQXJyYXnSAA4A
-PgCTAJSAKqYAlQCWAF8ATgCDAJqAHoAfgAuACoAYgCDSAA4AMgAzADSABIAD2gAOAJ8AUQBSAFMAVABV
-AFYAVwCgAFgAXwBkAFoApABcAF0AXgCaAKhZTlNTdWJtZW51WE5TQWN0aW9ugBSAC4AhgCKADoASgCCA
-I9QADgBRAGEAYgBjAKsArACtgCaAJ4ApgChfEBhLZXlSZW1hcDRNYWNCb29rX2xhdW5jaGRQXnN1Ym1l
-bnVBY3Rpb2460gAOAD4ARgCzgByhAE6AClxfTlNBcHBsZU1lbnXSADcAOAC3AFeiAFcAO1lBTWFpbk1l
-bnXSAA4APgBGALuAHKEAloAfW19OU01haW5NZW510gA3ADgAvwCRogCRADvSAA4APgCTAMKAKqYAHwCa
-AJYAXwAfAB+AAoAggB+AC4ACgALSAA4APgCTAMuAKqcATgAfAIMAmgBfAJYAlYAKgAKAGIAggAuAH4Ae
-0gAOAD4AkwDVgCqnANYA1wDYANkA2gDbANyALoAvgDCAMYAygDOANFQxMTExXEZpbGUncyBPd25lcl5B
-cHAgQ29udHJvbGxlclhNYWluTWVudV8QH01lbnUgKEtleVJlbWFwNE1hY0Jvb2tfbGF1bmNoZClfECRN
-ZW51IEl0ZW0gKEtleVJlbWFwNE1hY0Jvb2tfbGF1bmNoZClbQXBwbGljYXRpb27SAA4APgCTAOaAKqDS
-AA4APgCTAOmAKqDSAA4APgCTAOyAKqkATgAfAIMASQBIAJoAXwCWAJWACoACgBiAF4AJgCCAC4AfgB7S
-AA4APgCTAPiAKqkA+QD6APsA/AD9AP4A/wEAAQGAOYA6gDuAPIA9gD6AP4BAgEEQiBEBeREBdxEBeBEB
-cRAdEDkQOBP//////////dIADgA+AEYBDYAcoNIADgA+AJMBEIAqoNIADgA+AJMBE4AqoNIANwA4ARUB
-FqIBFgA7Xk5TSUJPYmplY3REYXRhAAgAGQAiACcAMQA6AD8ARABSAFQAZgD1APsBRgFNAVQBYgF0AZAB
-ngGqAbYBxAHPAd0B+QIHAhoCLAJGAlACXQJfAmECYwJlAmcCaQJrAm0CbwJxAnMCdQJ3AnkCewJ9AoAC
-ggKLApcCmQKbAqkCsgK7AsYCywLaAuMC9gL/AwoDDAMNAxYDHQMqAzADOQM7A0ADQgNEA1EDWgNiA2QD
-ZgNoA4kDkQOlA7ADvgPIA9UD3APeA+AD5QPnA+wD7gPwA/IEAwQKBBYEGAQaBBwEHgQjBCUEMgRBBEME
-RQRHBE8EYQRqBG8EggSPBJEEkwSVBKgEsQS2BMEEzATVBNwE9AUDBRQFIgUkBSYFKAUqBTMFNQU3BUUF
-TgVXBV4FdQV+BYUFlAWcBaUFpwW0BbYFuAW6BbwFvgXABckFywXNBfYGAAYJBgsGDQYPBhEGEwYVBhcG
-GQYqBiwGLgYwBjIGTQZOBl0GZgZoBmsGbQZ6BoMGiAaSBpsGnQagBqIGrga3BrwGxQbHBtQG1gbYBtoG
-3AbeBuAG6QbrBvoG/Ab+BwAHAgcEBwYHCAcRBxMHIgckByYHKAcqBywHLgcwBzUHQgdRB1oHfAejB68H
-uAe6B7sHxAfGB8cH0AfSB+UH5wfpB+sH7QfvB/EH8wf1B/cIAAgCCBUIFwgZCBsIHQgfCCEIIwglCCcI
-KQgsCC8IMgg1CDcIOQg7CEQITQhPCFAIWQhbCFwIZQhnCGgIcQh2AAAAAAAAAgIAAAAAAAABFwAAAAAA
-AAAAAAAAAAAACIU</bytes>
+PgCTAJSAKqYAXwCWAJcATgCDAJqAC4AigCOACoAYgCRfEBZQQ0tleWJvYXJkSGFja19sYXVuY2hk0gAO
+AD4ARgCegByhAE6AClxfTlNBcHBsZU1lbnXSADcAOACiAFeiAFcAO9IADgAyADMANIAEgAPaAA4ApwBR
+AFIAUwBUAFUAVgBXAKgAWABfAGQAWgCsAFwAXQBeAJoAsFlOU1N1Ym1lbnVYTlNBY3Rpb26AFIALgB6A
+JYAOgBKAJIAm1AAOAFEAYQBiAGMAswC0ALWAIYAngCmAKFBec3VibWVudUFjdGlvbjpZQU1haW5NZW51
+0gAOAD4ARgC7gByhAJeAI1tfTlNNYWluTWVuddIANwA4AL8AkaIAkQA70gAOAD4AkwDCgCqmAJcAHwCa
+AF8AHwAfgCOAAoAkgAuAAoAC0gAOAD4AkwDLgCqnAIMAmgAfAJYAlwBOAF+AGIAkgAKAIoAjgAqAC9IA
+DgA+AJMA1YAqpwDWANcA2ADZANoA2wDcgC6AL4AwgDGAMoAzgDReQXBwIENvbnRyb2xsZXJYTWFpbk1l
+bnVcRmlsZSdzIE93bmVyW0FwcGxpY2F0aW9uXxAiTWVudSBJdGVtIChQQ0tleWJvYXJkSGFja19sYXVu
+Y2hkKVQxMTExXxAdTWVudSAoUENLZXlib2FyZEhhY2tfbGF1bmNoZCnSAA4APgCTAOaAKqDSAA4APgCT
+AOmAKqDSAA4APgCTAOyAKqkAgwBIAJoAHwCWAJcATgBJAF+AGIAJgCSAAoAigCOACoAXgAvSAA4APgCT
+APiAKqkA+QD6APsA/AD9AP4A/wEAAQGAOYA6gDuAPIA9gD6AP4BAgEERAXcRAXEQHREBeRP/////////
+/RA4EIgRAXgQOdIADgA+AEYBDYAcoNIADgA+AJMBEIAqoNIADgA+AJMBE4AqoNIANwA4ARUBFqIBFgA7
+Xk5TSUJPYmplY3REYXRhAAgAGQAiACcAMQA6AD8ARABSAFQAZgD1APsBRgFNAVQBYgF0AZABngGqAbYB
+xAHPAd0B+QIHAhoCLAJGAlACXQJfAmECYwJlAmcCaQJrAm0CbwJxAnMCdQJ3AnkCewJ9AoACggKLApcC
+mQKbAqkCsgK7AsYCywLaAuMC9gL/AwoDDAMNAxYDHQMqAzADOQM7A0ADQgNEA1EDWgNiA2QDZgNoA4kD
+kQOlA7ADvgPIA9UD3APeA+AD5QPnA+wD7gPwA/IEAwQKBBYEGAQaBBwEHgQjBCUEMgRBBEMERQRHBE8E
+YQRqBG8EggSPBJEEkwSVBKgEsQS2BMEEzATVBNwE9AUDBRQFIgUkBSYFKAUqBTMFNQU3BUUFTgVXBV4F
+dQV+BYUFlAWcBaUFpwW0BbYFuAW6BbwFvgXABdkF4gXkBecF6QX2Bf8GBAYNBg8GEQY6BkQGTQZPBlEG
+UwZVBlcGWQZbBl0GbgZwBnIGdAZ2BncGhgaQBpkGmwaeBqAGrAa1BroGwwbFBtIG1AbWBtgG2gbcBt4G
+5wbpBvgG+gb8Bv4HAAcCBwQHBgcPBxEHIAciByQHJgcoByoHLAcuBz0HRgdTB18HhAeJB6kHsge0B7UH
+vgfAB8EHygfMB98H4QfjB+UH5wfpB+sH7QfvB/EH+gf8CA8IEQgTCBUIFwgZCBsIHQgfCCEIJAgnCCkI
+LAg1CDcIOQg8CD4IRwhJCEoIUwhVCFYIXwhhCGIIawhwAAAAAAAAAgIAAAAAAAABFwAAAAAAAAAAAAAA
+AAAACH8</bytes>
 		</object>
 	</data>
 </archive>

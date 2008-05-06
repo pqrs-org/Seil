@@ -1,5 +1,5 @@
 //
-// Prefix header for all source files of the 'KeyRemap4MacBook_launchd' target in the 'KeyRemap4MacBook_launchd' project
+// Prefix header for all source files of the 'PCKeyboardHack_launchd' target in the 'PCKeyboardHack_launchd' project
 //
 
 #ifdef __OBJC__

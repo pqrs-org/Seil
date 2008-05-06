@@ -7,7 +7,6 @@ all:
 
 clean:
 	$(MAKE) -C ../common/generate clean
-	xcodebuild -alltargets -configuration $(CONFIGURATION) clean
 	rm -rf build
 	rm -f *.xcodeproj/*.mode1
 	rm -f *.xcodeproj/*.mode1v3
