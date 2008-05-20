@@ -45,6 +45,11 @@
 			<string>NSObject</string>
 		</dict>
 		<dict>
+			<key>ACTIONS</key>
+			<dict>
+				<key>launchUninstaller</key>
+				<string>id</string>
+			</dict>
 			<key>CLASS</key>
 			<string>PCKeyboardHackPref</string>
 			<key>LANGUAGE</key>

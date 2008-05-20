@@ -28,6 +28,7 @@ sudo cp -R files/share "pkgroot/$basedir"
 
 sudo mkdir -p "pkgroot/$basedir/extra"
 sudo cp -R pkginfo/Resources/preflight "pkgroot/$basedir/extra/uninstall.sh"
+sudo cp -R files/extra/launchUninstaller.sh "pkgroot/$basedir/extra/"
 
 sudo mkdir -p "pkgroot/Library"
 sudo cp -R files/LaunchDaemons pkgroot/Library
