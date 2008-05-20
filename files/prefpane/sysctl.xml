@@ -31,33 +31,6 @@
     </item>
 
     <item>
-      <name>Function Keys</name>
-      <list>
-        <item>
-          <name>Change F3 Key</name>
-          <enable>enable_f3</enable>
-          <keycode>keycode_f3</keycode>
-          <default>74</default>
-          <appendix>Mute</appendix>
-        </item>
-        <item>
-          <name>Change F4 Key</name>
-          <enable>enable_f4</enable>
-          <keycode>keycode_f4</keycode>
-          <default>73</default>
-          <appendix>Volume Down</appendix>
-        </item>
-        <item>
-          <name>Change F5 Key</name>
-          <enable>enable_f5</enable>
-          <keycode>keycode_f5</keycode>
-          <default>72</default>
-          <appendix>Volume Up</appendix>
-        </item>
-      </list>
-    </item>
-
-    <item>
       <name>For Japanese</name>
       <list>
         <item>
