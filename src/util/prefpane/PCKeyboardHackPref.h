@@ -7,6 +7,7 @@
   IBOutlet id _versionText;
 }
 
+- (IBAction) launchUninstaller:(id)sender;
 - (void) mainViewDidLoad;
 
 @end
