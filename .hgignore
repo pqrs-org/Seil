@@ -8,4 +8,8 @@ pkgroot/
 .*\.xcodeproj/.*\.pbxuser
 src/core/kext/common/generate/output
 files/share/reset
+pkginfo/Info.plist$
+src/core/kext/common/Info.plist$
+src/util/launchd/Info.plist$
+src/util/prefpane/Info.plist$
 src/util/uninstaller/Info.plist$
