@@ -119,11 +119,6 @@ static NSString *sysctl_ctl = @"/Library/org.pqrs/PCKeyboardHack/bin/PCKeyboardH
   return nil;
 }
 
-- (BOOL)outlineView:(NSOutlineView *)outlineView shouldCollapseItem:(id)item
-{
-  return ! [self checkAnyChildrenChecked:item];
-}
-
 - (void)outlineView:(NSOutlineView *)outlineView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn byItem:(id)item
 {
   id identifier = [tableColumn identifier];
