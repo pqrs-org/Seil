@@ -3,6 +3,7 @@ CONFIGURATION = Release
 
 all:
 	$(MAKE) -C ../common/generate
+	./scripts/make-version.sh
 	xcodebuild -alltargets -configuration $(CONFIGURATION) MODULE_VERSION=`cat ../../../../version` CURRENT_PROJECT_VERSION=`cat ../../../../version` build
 
 clean:
