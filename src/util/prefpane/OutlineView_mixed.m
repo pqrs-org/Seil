@@ -27,7 +27,7 @@ static NSString *sysctl_ctl = @"/Library/org.pqrs/PCKeyboardHack/bin/PCKeyboardH
 
 - (IBAction) collapseALL:(id)sender
 {
-  [BUNDLEPREFIX_OutlineViewUtil collapseALL:_outlineView_mixed delegater:self];
+  [BUNDLEPREFIX_OutlineViewUtil collapseALL:_outlineView_mixed];
 }
 
 // ------------------------------------------------------------
@@ -117,11 +117,6 @@ static NSString *sysctl_ctl = @"/Library/org.pqrs/PCKeyboardHack/bin/PCKeyboardH
   }
 
   return nil;
-}
-
-- (BOOL)outlineView:(NSOutlineView *)outlineView shouldCollapseItem:(id)item
-{
-  return TRUE;
 }
 
 - (void)outlineView:(NSOutlineView *)outlineView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn byItem:(id)item
