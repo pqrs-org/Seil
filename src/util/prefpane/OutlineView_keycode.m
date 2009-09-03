@@ -19,14 +19,14 @@ static BUNDLEPREFIX_XMLTreeWrapper *_xmlTreeWrapper;
 }
 
 // ------------------------------------------------------------
-- (int) outlineView:(NSOutlineView*)outlineView numberOfChildrenOfItem:(id)item
+- (NSUInteger) outlineView:(NSOutlineView*)outlineView numberOfChildrenOfItem:(id)item
 {
   return [_xmlTreeWrapper numberOfChildren:item];
 }
 
-- (id) outlineView:(NSOutlineView*)outlineView child:(int)index ofItem:(id)item
+- (id) outlineView:(NSOutlineView*)outlineView child:(NSUInteger)index_ ofItem:(id)item
 {
-  return [_xmlTreeWrapper getChild:item index:index];
+  return [_xmlTreeWrapper getChild:item index:index_];
 }
 
 - (BOOL) outlineView:(NSOutlineView *)outlineView isItemExpandable:(id)item

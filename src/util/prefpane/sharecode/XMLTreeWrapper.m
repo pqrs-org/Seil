@@ -1,4 +1,4 @@
-// -*- Mode: objc; Coding: utf-8; indent-tabs-mode: nil; -*-
+/* -*- Mode: objc; Coding: utf-8; indent-tabs-mode: nil; -*- */
 
 #import "XMLTreeWrapper.h"
 
@@ -16,13 +16,15 @@
 {
   NSURL *url = [NSURL fileURLWithPath:path];
 
+  if (_XMLDocument) [_XMLDocument release];
+
   _XMLDocument = [[NSXMLDocument alloc] initWithContentsOfURL:url options:0 error:NULL];
   if (_XMLDocument == nil) return FALSE;
   return TRUE;
 }
 
-// ----------------------------------------------------------------------
-// for NSOutlineView
+/* ---------------------------------------------------------------------- */
+/* for NSOutlineView */
 - (id) normalizeItem:(id)item
 {
   if (! _XMLDocument) return nil;
@@ -33,7 +35,7 @@
   return item;
 }
 
-- (int) numberOfChildren:(id)item
+- (NSUInteger) numberOfChildren:(id)item
 {
   item = [self normalizeItem:item];
   if (! item) return 0;
@@ -42,13 +44,13 @@
   return [nodes count];
 }
 
-- (id) getChild:(id)item index:(int)index
+- (id) getChild:(id)item index:(NSUInteger)index_
 {
   item = [self normalizeItem:item];
   if (! item) return nil;
 
   NSArray *nodes = [item nodesForXPath:@"list/item" error:NULL];
-  return [nodes objectAtIndex:index];
+  return [nodes objectAtIndex:index_];
 }
 
 - (BOOL) isItemExpandable:(id)item
@@ -66,6 +68,11 @@
   if ([a count] == 0) return nil;
 
   return [a objectAtIndex:0];
+}
+
+- (NSXMLElement *) getRoot
+{
+  return [_XMLDocument rootElement];
 }
 
 @end

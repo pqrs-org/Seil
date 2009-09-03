@@ -31,14 +31,14 @@ static NSString *sysctl_ctl = @"/Library/org.pqrs/PCKeyboardHack/bin/PCKeyboardH
 }
 
 // ------------------------------------------------------------
-- (int) outlineView:(NSOutlineView*)outlineView numberOfChildrenOfItem:(id)item
+- (NSUInteger) outlineView:(NSOutlineView*)outlineView numberOfChildrenOfItem:(id)item
 {
   return [_xmlTreeWrapper numberOfChildren:item];
 }
 
-- (id) outlineView:(NSOutlineView*)outlineView child:(int)index ofItem:(id)item
+- (id) outlineView:(NSOutlineView*)outlineView child:(NSUInteger)index_ ofItem:(id)item
 {
-  return [_xmlTreeWrapper getChild:item index:index];
+  return [_xmlTreeWrapper getChild:item index:index_];
 }
 
 - (BOOL) outlineView:(NSOutlineView *)outlineView isItemExpandable:(id)item
@@ -54,7 +54,10 @@ static NSString *sysctl_ctl = @"/Library/org.pqrs/PCKeyboardHack/bin/PCKeyboardH
 
   NSEnumerator *enumerator = [a objectEnumerator];
   NSXMLNode *n;
-  while (n = [enumerator nextObject]) {
+  for (;;) {
+    n = [enumerator nextObject];
+    if (! n) break;
+
     if ([self checkAnyChildrenChecked:n]) return TRUE;
 
     NSXMLNode *sysctl = [_xmlTreeWrapper getNode:n xpath:@"enable"];
