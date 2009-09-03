@@ -1,17 +1,15 @@
 syntax: regexp
 .*\.pkg/
 .*\.gz
-pkgroot/
+^pkgroot/
 .*/build/
 .*\.xcodeproj/.*\.mode1
 .*\.xcodeproj/.*\.mode1v3
 .*\.xcodeproj/.*\.pbxuser
-src/core/kext/common/generate/output
-src/core/kext/Leopard/version.hpp
-src/core/kext/Tiger/version.hpp
-files/share/reset
-pkginfo/Info.plist$
-src/core/kext/common/Info.plist$
-src/util/launchd/Info.plist$
-src/util/prefpane/Info.plist$
-src/util/uninstaller/Info.plist$
+^src/core/kext/common/generate/output$
+^src/core/kext/SnowLeopard/version.hpp$
+^files/share/reset$
+^pkginfo/Info.plist$
+^src/core/kext/common/Info.plist$
+^src/util/prefpane/Info.plist$
+^src/util/uninstaller/Info.plist$

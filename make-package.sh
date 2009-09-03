@@ -5,8 +5,7 @@ version=$(cat version)
 packagemaker=/Developer/Applications/Utilities/PackageMaker.app/Contents/MacOS/PackageMaker
 pkgName="PCKeyboardHack-${version}.pkg"
 
-echo "char * const config_version = \"$version-Tiger\";" > src/core/kext/Tiger/version.hpp
-echo "char * const config_version = \"$version-Leopard\";" > src/core/kext/Leopard/version.hpp
+echo "char * const config_version = \"$version-SnowLeopard\";" > src/core/kext/SnowLeopard/version.hpp
 
 make clean build || exit $?
 
@@ -19,7 +18,7 @@ sudo mkdir -p pkgroot
 
 basedir="/Library/org.pqrs/PCKeyboardHack"
 sudo mkdir -p "pkgroot/$basedir"
-for ostype in Tiger Leopard; do
+for ostype in SnowLeopard; do
     sudo cp -R src/core/kext/${ostype}/build/Release/PCKeyboardHack.kext "pkgroot/$basedir/PCKeyboardHack.${ostype}.kext"
 done
 sudo cp -R files/prefpane "pkgroot/$basedir"
@@ -31,14 +30,13 @@ sudo cp -R pkginfo/Resources/preflight "pkgroot/$basedir/extra/uninstall.sh"
 sudo cp -R files/extra/launchUninstaller.sh "pkgroot/$basedir/extra/"
 
 sudo mkdir -p "pkgroot/Library"
+sudo cp -R files/LaunchAgents pkgroot/Library
 sudo cp -R files/LaunchDaemons pkgroot/Library
 
 sudo mkdir -p "pkgroot/$basedir/app"
-sudo cp -R "src/util/launchd/build/Release/PCKeyboardHack_launchd.app" "pkgroot/$basedir/app"
 sudo cp -R "src/util/uninstaller/build/Release/uninstaller.app" "pkgroot/$basedir/app"
 
 sudo mkdir -p "pkgroot/$basedir/bin"
-sudo cp src/bin/set_loginwindow/build/Release/set_loginwindow "pkgroot/$basedir/bin"
 sudo cp src/bin/sysctl_confd/build/Release/PCKeyboardHack_sysctl_confd "pkgroot/$basedir/bin"
 sudo cp src/bin/sysctl_ctl/build/Release/PCKeyboardHack_sysctl_ctl "pkgroot/$basedir/bin"
 sudo cp src/bin/sysctl_reset/build/Release/PCKeyboardHack_sysctl_reset "pkgroot/$basedir/bin"
@@ -56,8 +54,6 @@ sudo chmod 4755 pkgroot/$basedir/bin/PCKeyboardHack_sysctl_set
 sudo chmod 4755 pkgroot/$basedir/bin/uninstall
 sudo chmod 755 pkgroot/$basedir/bin/PCKeyboardHack_sysctl_confd
 sudo chmod 755 pkgroot/$basedir/bin/PCKeyboardHack_sysctl_ctl
-sudo chmod 755 pkgroot/$basedir/bin/set_loginwindow
-sudo chmod 755 pkgroot/$basedir/app/PCKeyboardHack_launchd.app/Contents/MacOS/PCKeyboardHack_launchd
 sudo chmod 755 pkgroot/$basedir/app/uninstaller.app/Contents/MacOS/uninstaller
 sudo chown -R root:wheel pkgroot
 
