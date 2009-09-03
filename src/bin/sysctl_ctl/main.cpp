@@ -177,7 +177,6 @@ main(int argc, char **argv)
 
   CFPreferencesAppSynchronize(applicationID);
 
-finish:
   if (isSuccess) {
     fprintf(stderr, "[DONE]\n");
   } else {
