@@ -37,8 +37,8 @@ private:
   static HookedKeyboard *new_hookedKeyboard(void);
   static HookedKeyboard *search_hookedKeyboard(const IOHIKeyboard *kbd);
 
-  static bool notifier_hookKeyboard(org_pqrs_driver_PCKeyboardHack *self, void *ref, IOService *newService);
-  static bool notifier_unhookKeyboard(org_pqrs_driver_PCKeyboardHack *self, void *ref, IOService *newService);
+  static bool notifierfunc_hookKeyboard(void *target, void *refCon, IOService *newService, IONotifier* notifier);
+  static bool notifierfunc_unhookKeyboard(void *target, void *refCon, IOService *newService, IONotifier* notifier);
 
   static bool customizeKeyMap(IOHIKeyboard *kbd);
   static bool restoreKeyMap(IOHIKeyboard *kbd);
