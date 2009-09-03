@@ -44,7 +44,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		08FB7794FE84155DC02AAC07 /* KeyRemap4MacBook_sysctlutil */ = {
+		08FB7794FE84155DC02AAC07 /* PCKeyboardHack_sysctlutil */ = {
 			isa = PBXGroup;
 			children = (
 				343AB0850DC1C9C700101796 /* Framework */,
@@ -52,7 +52,7 @@
 				C6859E8C029090F304C91782 /* Documentation */,
 				1AB674ADFE9D54B511CA2CBB /* Products */,
 			);
-			name = KeyRemap4MacBook_sysctlutil;
+			name = PCKeyboardHack_sysctlutil;
 			sourceTree = "<group>";
 		};
 		08FB7795FE84155DC02AAC07 /* Source */ = {
@@ -104,7 +104,7 @@
 			);
 			name = PCKeyboardHack_sysctl_reset;
 			productInstallPath = "$(HOME)/bin";
-			productName = KeyRemap4MacBook_sysctlutil;
+			productName = PCKeyboardHack_sysctlutil;
 			productReference = 8DD76F6C0486A84900D96B5E /* PCKeyboardHack_sysctl_reset */;
 			productType = "com.apple.product-type.tool";
 		};
@@ -116,7 +116,7 @@
 			buildConfigurationList = 1DEB923508733DC60010E9CD /* Build configuration list for PBXProject "PCKeyboardHack_sysctl_reset" */;
 			compatibilityVersion = "Xcode 3.2";
 			hasScannedForEncodings = 1;
-			mainGroup = 08FB7794FE84155DC02AAC07 /* KeyRemap4MacBook_sysctlutil */;
+			mainGroup = 08FB7794FE84155DC02AAC07 /* PCKeyboardHack_sysctlutil */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
