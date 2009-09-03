@@ -2,4 +2,4 @@
 
 ostype=$(basename $(pwd))
 version=$(cat ../../../../version)
-echo "char * const config_version = \"$version-$ostype\";" > version.hpp
+echo "char config_version[] = \"$version-$ostype\";" > version.hpp

@@ -113,21 +113,21 @@ org_pqrs_driver_PCKeyboardHack::start(IOService *provider)
   IOLog("PCKeyboardHack::start\n");
   if (!res) { return res; }
 
-  keyboardNotifier = addNotification(gIOMatchedNotification,
-                                     serviceMatching("IOHIKeyboard"),
-                                     ((IOServiceNotificationHandler)&(org_pqrs_driver_PCKeyboardHack::notifier_hookKeyboard)),
-                                     this, NULL, 0);
+  keyboardNotifier = addMatchingNotification(gIOMatchedNotification,
+                                             serviceMatching("IOHIKeyboard"),
+                                             org_pqrs_driver_PCKeyboardHack::notifierfunc_hookKeyboard,
+                                             this, NULL, 0);
   if (keyboardNotifier == NULL) {
-    IOLog("[PCKeyboardHack ERROR] addNotification(gIOMatchedNotification)\n");
+    IOLog("[PCKeyboardHack ERROR] addMatchingNotification(gIOMatchedNotification)\n");
     return false;
   }
 
-  terminatedNotifier = addNotification(gIOTerminatedNotification,
-                                       serviceMatching("IOHIKeyboard"),
-                                       ((IOServiceNotificationHandler)&(org_pqrs_driver_PCKeyboardHack::notifier_unhookKeyboard)),
-                                       this, NULL, 0);
+  terminatedNotifier = addMatchingNotification(gIOTerminatedNotification,
+                                               serviceMatching("IOHIKeyboard"),
+                                               org_pqrs_driver_PCKeyboardHack::notifierfunc_unhookKeyboard,
+                                               this, NULL, 0);
   if (terminatedNotifier == NULL) {
-    IOLog("[PCKeyboardHack ERROR] addNotification(gIOTerminatedNotification)\n");
+    IOLog("[PCKeyboardHack ERROR] addMatchingNotification(gIOTerminatedNotification)\n");
     return false;
   }
 
@@ -183,7 +183,7 @@ org_pqrs_driver_PCKeyboardHack::search_hookedKeyboard(const IOHIKeyboard *kbd)
 
 // ----------------------------------------------------------------------
 bool
-org_pqrs_driver_PCKeyboardHack::notifier_hookKeyboard(org_pqrs_driver_PCKeyboardHack *self, void *ref, IOService *newService)
+org_pqrs_driver_PCKeyboardHack::notifierfunc_hookKeyboard(void *target, void *refCon, IOService *newService, IONotifier* notifier)
 {
   IOLog("PCKeyboardHack::notifier_hookKeyboard\n");
 
@@ -192,7 +192,7 @@ org_pqrs_driver_PCKeyboardHack::notifier_hookKeyboard(org_pqrs_driver_PCKeyboard
 }
 
 bool
-org_pqrs_driver_PCKeyboardHack::notifier_unhookKeyboard(org_pqrs_driver_PCKeyboardHack *self, void *ref, IOService *newService)
+org_pqrs_driver_PCKeyboardHack::notifierfunc_unhookKeyboard(void *target, void *refCon, IOService *newService, IONotifier* notifier)
 {
   IOLog("PCKeyboardHack::notifier_unhookKeyboard\n");
 
@@ -226,7 +226,7 @@ org_pqrs_driver_PCKeyboardHack::restoreKeyMap(IOHIKeyboard *kbd)
   HookedKeyboard *p = search_hookedKeyboard(kbd);
   if (! p) return false;
 
-  IOLog("PCKeyboardHack::restoreKeyMap 0x%x\n", kbd);
+  IOLog("PCKeyboardHack::restoreKeyMap %p\n", kbd);
   p->terminate();
   return true;
 }

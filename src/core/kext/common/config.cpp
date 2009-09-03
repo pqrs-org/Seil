@@ -10,7 +10,7 @@ namespace org_pqrs_PCKeyboardHack {
   Config config;
   int initialized = 0;
 
-  int sysctlFunc SYSCTL_HANDLER_ARGS
+  static int sysctlFunc SYSCTL_HANDLER_ARGS
   {
     int error = sysctl_handle_int(oidp, oidp->oid_arg1, oidp->oid_arg2,  req);
     if (! error && req->newptr) {
