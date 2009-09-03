@@ -1,5 +1,7 @@
 #!/bin/sh
 
+basedir=`dirname $0`
+
 check_find() {
     pattern="$1"
 
@@ -9,7 +11,16 @@ check_find() {
     fi
 }
 
-for f in `find ../* -name 'project.pbxproj'`; do
+check_noexist() {
+    pattern="$1"
+
+    if [ `grep -c "$pattern" $f` -ne 0 ]; then
+        echo "[ERROR] Appear pattern: $pattern"
+        exit 1
+    fi
+}
+
+for f in `find $basedir/../* -name 'project.pbxproj'`; do
     echo "Check $f"
 
     check_find 'objectVersion = 46'
@@ -31,4 +42,6 @@ for f in `find ../* -name 'project.pbxproj'`; do
     check_find 'GCC_WARN_UNUSED_VARIABLE = YES;'
     check_find 'SDKROOT = macosx10.6;'
     check_find 'VALID_ARCHS = "i386 x86_64";'
+
+    check_noexist 'GCC_WARN_PROTOTYPE_CONVERSION'
 done

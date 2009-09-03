@@ -41,7 +41,6 @@ sudo cp src/bin/sysctl_confd/build/Release/PCKeyboardHack_sysctl_confd "pkgroot/
 sudo cp src/bin/sysctl_ctl/build/Release/PCKeyboardHack_sysctl_ctl "pkgroot/$basedir/bin"
 sudo cp src/bin/sysctl_reset/build/Release/PCKeyboardHack_sysctl_reset "pkgroot/$basedir/bin"
 sudo cp src/bin/sysctl_set/build/Release/PCKeyboardHack_sysctl_set "pkgroot/$basedir/bin"
-sudo cp src/bin/uninstall/build/Release/uninstall "pkgroot/$basedir/bin"
 
 sudo mkdir -p "pkgroot/Library/PreferencePanes"
 sudo cp -R "src/util/prefpane/build/Release/PCKeyboardHack.prefPane" "pkgroot/Library/PreferencePanes"
@@ -51,7 +50,6 @@ sudo find pkgroot -type f -print0 | xargs -0 sudo chmod 644
 sudo find pkgroot -name '*.sh' -print0 | xargs -0 sudo chmod 755
 sudo chmod 4755 pkgroot/$basedir/bin/PCKeyboardHack_sysctl_reset
 sudo chmod 4755 pkgroot/$basedir/bin/PCKeyboardHack_sysctl_set
-sudo chmod 4755 pkgroot/$basedir/bin/uninstall
 sudo chmod 755 pkgroot/$basedir/bin/PCKeyboardHack_sysctl_confd
 sudo chmod 755 pkgroot/$basedir/bin/PCKeyboardHack_sysctl_ctl
 sudo chmod 755 pkgroot/$basedir/app/uninstaller.app/Contents/MacOS/uninstaller
