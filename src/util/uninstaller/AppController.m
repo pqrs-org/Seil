@@ -1,9 +1,11 @@
+#include <Security/Security.h>
 #import "AppController.h"
+#import "sharecode/AdminAction.h"
 
 @implementation AppController
 
 static NSString *appName = @"PCKeyboardHack";
-static NSString *uninstallCommand = @"/Library/org.pqrs/PCKeyboardHack/bin/uninstall";
+static char uninstallCommand[] = "/Library/org.pqrs/PCKeyboardHack/extra/uninstall.sh";
 
 - (void) setMessage
 {
@@ -13,12 +15,12 @@ static NSString *uninstallCommand = @"/Library/org.pqrs/PCKeyboardHack/bin/unins
 // ----------------------------------------------------------------------
 - (IBAction) uninstall:(id)sender
 {
-  NSTask *task = [[NSTask alloc] init];
-  [task setLaunchPath:uninstallCommand];
-  [task launch];
-  [task waitUntilExit];
-
-  NSRunAlertPanel(@"Uninstaller", [NSString stringWithFormat:@"%@ is uninstalled.", appName], @"OK", nil, nil);
+  BOOL result = [AdminAction execCommand:uninstallCommand];
+  if (result) {
+    NSRunAlertPanel(@"Uninstaller", [NSString stringWithFormat:@"%@ is uninstalled.", appName], @"OK", nil, nil);
+  } else {
+    NSRunAlertPanel(@"Uninstaller", [NSString stringWithFormat:@"Failed to uninstall %@.", appName], @"OK", nil, nil);
+  }
   [NSApp terminate:self];
 }
 
