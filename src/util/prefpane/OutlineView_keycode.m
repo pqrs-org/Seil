@@ -24,9 +24,9 @@ static BUNDLEPREFIX_XMLTreeWrapper *_xmlTreeWrapper;
   return [_xmlTreeWrapper numberOfChildren:item];
 }
 
-- (id) outlineView:(NSOutlineView*)outlineView child:(NSUInteger)index_ ofItem:(id)item
+- (id) outlineView:(NSOutlineView*)outlineView child:(NSUInteger)idx ofItem:(id)item
 {
-  return [_xmlTreeWrapper getChild:item index:index_];
+  return [_xmlTreeWrapper getChild:item index:idx];
 }
 
 - (BOOL) outlineView:(NSOutlineView *)outlineView isItemExpandable:(id)item

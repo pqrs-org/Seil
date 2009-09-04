@@ -44,13 +44,13 @@
   return [nodes count];
 }
 
-- (id) getChild:(id)item index:(NSUInteger)index_
+- (id) getChild:(id)item index:(NSUInteger)idx
 {
   item = [self normalizeItem:item];
   if (! item) return nil;
 
   NSArray *nodes = [item nodesForXPath:@"list/item" error:NULL];
-  return [nodes objectAtIndex:index_];
+  return [nodes objectAtIndex:idx];
 }
 
 - (BOOL) isItemExpandable:(id)item
