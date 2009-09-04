@@ -75,6 +75,8 @@ echo "Make Archive"
 
 sudo chown -R root:wheel $pkgName
 sudo tar zcf $pkgName.tar.gz $pkgName
+sudo rm -rf $pkgName
+tar zxf $pkgName.tar.gz
 
 # --------------------------------------------------
 echo "Cleanup"
