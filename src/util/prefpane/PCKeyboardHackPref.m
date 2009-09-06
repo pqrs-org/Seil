@@ -1,7 +1,8 @@
 // -*- Mode: objc; Coding: utf-8; indent-tabs-mode: nil; -*-
 
 #import "PCKeyboardHackPref.h"
-#import "sharecode.h"
+#import "Common.h"
+#import "SysctlWrapper.h"
 
 @implementation PCKeyboardHackPref
 
@@ -9,7 +10,7 @@ static NSString *launchUninstallerCommand = @"/Library/org.pqrs/PCKeyboardHack/e
 
 - (void) drawVersion
 {
-  NSString *version = [BUNDLEPREFIX_SysctlWrapper getString:@"pckeyboardhack.version"];
+  NSString *version = [BUNDLEPREFIX(SysctlWrapper) getString:@"pckeyboardhack.version"];
   if (! version) {
     version = @"-.-.-";
   }
@@ -19,7 +20,7 @@ static NSString *launchUninstallerCommand = @"/Library/org.pqrs/PCKeyboardHack/e
 // ----------------------------------------------------------------------
 - (IBAction) launchUninstaller:(id)sender
 {
-  [BUNDLEPREFIX_Common getExecResult:launchUninstallerCommand args:[NSArray arrayWithObjects:@"force", nil]];
+  [BUNDLEPREFIX(Common) getExecResult:launchUninstallerCommand args:[NSArray arrayWithObjects:@"force", nil]];
 }
 
 // ----------------------------------------------------------------------
