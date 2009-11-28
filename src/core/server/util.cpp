@@ -1,18 +1,18 @@
-#include <pthread.h>
 #include <sys/types.h>
 #include <sys/sysctl.h>
 #include <stdlib.h>
 #include <string>
 #include "util.h"
+#include "Mutex.hpp"
 
 namespace {
-  Util::Mutex mutex_sysctl;
+  Mutex mutex_sysctl;
 }
 
 void
 sysctl_reset(void)
 {
-  Util::Mutex::ScopedLock lk(mutex_sysctl);
+  Mutex::ScopedLock lk(mutex_sysctl);
 
   system("/Library/org.pqrs/PCKeyboardHack/bin/PCKeyboardHack_sysctl_reset terminate");
 }
@@ -20,7 +20,7 @@ sysctl_reset(void)
 void
 sysctl_load(void)
 {
-  Util::Mutex::ScopedLock lk(mutex_sysctl);
+  Mutex::ScopedLock lk(mutex_sysctl);
 
   // --------------------------------------------------
   // check already initialized
