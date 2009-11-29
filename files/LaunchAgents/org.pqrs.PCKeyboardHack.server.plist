@@ -6,7 +6,7 @@
     <string>org.pqrs.PCKeyboardHack.sysctl_confd</string>
     <key>ProgramArguments</key>
     <array>
-      <string>/Library/org.pqrs/PCKeyboardHack/bin/PCKeyboardHack_sysctl_confd</string>
+      <string>/Library/org.pqrs/PCKeyboardHack/app/PCKeyboardHack_server.app/Contents/MacOS/PCKeyboardHack_server</string>
     </array>
     <key>OnDemand</key>
     <false/>

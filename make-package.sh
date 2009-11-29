@@ -34,10 +34,10 @@ sudo cp -R files/LaunchAgents pkgroot/Library
 sudo cp -R files/LaunchDaemons pkgroot/Library
 
 sudo mkdir -p "pkgroot/$basedir/app"
+sudo cp -R "src/core/server/build/Release/PCKeyboardHack_server.app" "pkgroot/$basedir/app"
 sudo cp -R "src/util/uninstaller/build/Release/uninstaller.app" "pkgroot/$basedir/app"
 
 sudo mkdir -p "pkgroot/$basedir/bin"
-sudo cp src/bin/sysctl_confd/build/Release/PCKeyboardHack_sysctl_confd "pkgroot/$basedir/bin"
 sudo cp src/bin/sysctl_ctl/build/Release/PCKeyboardHack_sysctl_ctl "pkgroot/$basedir/bin"
 sudo cp src/bin/sysctl_reset/build/Release/PCKeyboardHack_sysctl_reset "pkgroot/$basedir/bin"
 sudo cp src/bin/sysctl_set/build/Release/PCKeyboardHack_sysctl_set "pkgroot/$basedir/bin"
@@ -50,8 +50,8 @@ sudo find pkgroot -type f -print0 | xargs -0 sudo chmod 644
 sudo find pkgroot -name '*.sh' -print0 | xargs -0 sudo chmod 755
 sudo chmod 4755 pkgroot/$basedir/bin/PCKeyboardHack_sysctl_reset
 sudo chmod 4755 pkgroot/$basedir/bin/PCKeyboardHack_sysctl_set
-sudo chmod 755 pkgroot/$basedir/bin/PCKeyboardHack_sysctl_confd
 sudo chmod 755 pkgroot/$basedir/bin/PCKeyboardHack_sysctl_ctl
+sudo chmod 755 pkgroot/$basedir/app/PCKeyboardHack_server.app/Contents/MacOS/PCKeyboardHack_server
 sudo chmod 755 pkgroot/$basedir/app/uninstaller.app/Contents/MacOS/uninstaller
 sudo chown -R root:wheel pkgroot
 
