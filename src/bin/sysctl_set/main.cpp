@@ -22,7 +22,7 @@ namespace {
 
 
 int
-main(int argc, char **argv)
+main(int argc, char** argv)
 {
   if (argc != 3) {
     fprintf(stderr, "Usage: %s key value\n", argv[0]);
@@ -30,7 +30,6 @@ main(int argc, char **argv)
   }
 
   if (! verifyUser()) {
-    fprintf(stderr, "Permission denied\n");
     return 1;
   }
 
@@ -47,8 +46,6 @@ main(int argc, char **argv)
     perror("sysctl");
     return 1;
   }
-
-  fprintf(stderr, "%s -> %d\n", name, value);
 
   return 0;
 }
