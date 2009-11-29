@@ -3,7 +3,7 @@
 <plist version="1.0">
   <dict>
     <key>Label</key>
-    <string>org.pqrs.PCKeyboardHack.sysctl_confd</string>
+    <string>org.pqrs.PCKeyboardHack.server</string>
     <key>ProgramArguments</key>
     <array>
       <string>/Library/org.pqrs/PCKeyboardHack/app/PCKeyboardHack_server.app/Contents/MacOS/PCKeyboardHack_server</string>
