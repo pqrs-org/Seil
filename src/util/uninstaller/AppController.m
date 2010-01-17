@@ -3,7 +3,7 @@
 
 @implementation AppController
 
-static NSString *appName = @"PCKeyboardHack";
+static NSString* appName = @"PCKeyboardHack";
 static char uninstallCommand[] = "/Library/org.pqrs/PCKeyboardHack/extra/uninstall.sh";
 
 - (void) setMessage
@@ -24,7 +24,7 @@ static char uninstallCommand[] = "/Library/org.pqrs/PCKeyboardHack/extra/uninsta
 }
 
 // ----------------------------------------------------------------------
-- (void) applicationDidFinishLaunching:(NSNotification *)notification
+- (void) applicationDidFinishLaunching:(NSNotification*)notification
 {
   [self setMessage];
 }

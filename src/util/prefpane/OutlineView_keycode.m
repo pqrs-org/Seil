@@ -5,7 +5,7 @@
 
 @implementation org_pqrs_PCKeyboardHack_OutlineView_keycode
 
-static BUNDLEPREFIX(XMLTreeWrapper) *_xmlTreeWrapper;
+static BUNDLEPREFIX(XMLTreeWrapper) * _xmlTreeWrapper;
 
 - (id) init
 {
@@ -29,18 +29,18 @@ static BUNDLEPREFIX(XMLTreeWrapper) *_xmlTreeWrapper;
   return [_xmlTreeWrapper getChild:item index:idx];
 }
 
-- (BOOL) outlineView:(NSOutlineView *)outlineView isItemExpandable:(id)item
+- (BOOL) outlineView:(NSOutlineView*)outlineView isItemExpandable:(id)item
 {
   return [_xmlTreeWrapper isItemExpandable:item];
 }
 
-- (id)outlineView:(NSOutlineView*)outlineView objectValueForTableColumn:(NSTableColumn *)tableColumn byItem:(id)item
+- (id) outlineView:(NSOutlineView*)outlineView objectValueForTableColumn:(NSTableColumn*)tableColumn byItem:(id)item
 {
   id identifier = [tableColumn identifier];
 
   if ([identifier isEqualToString:@"name"] ||
       [identifier isEqualToString:@"keycode"]) {
-    NSXMLNode *node = [_xmlTreeWrapper getNode:item xpath:identifier];
+    NSXMLNode* node = [_xmlTreeWrapper getNode:item xpath:identifier];
     if (! node) return nil;
 
     return [node stringValue];
@@ -49,7 +49,7 @@ static BUNDLEPREFIX(XMLTreeWrapper) *_xmlTreeWrapper;
   return nil;
 }
 
-- (BOOL)outlineView:(NSOutlineView *)outlineView shouldCollapseItem:(id)item
+- (BOOL) outlineView:(NSOutlineView*)outlineView shouldCollapseItem:(id)item
 {
   return false;
 }

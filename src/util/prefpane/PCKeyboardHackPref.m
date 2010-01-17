@@ -6,11 +6,11 @@
 
 @implementation PCKeyboardHackPref
 
-static NSString *launchUninstallerCommand = @"/Library/org.pqrs/PCKeyboardHack/extra/launchUninstaller.sh";
+static NSString* launchUninstallerCommand = @"/Library/org.pqrs/PCKeyboardHack/extra/launchUninstaller.sh";
 
 - (void) drawVersion
 {
-  NSString *version = [BUNDLEPREFIX(SysctlWrapper) getString:@"pckeyboardhack.version"];
+  NSString* version = [BUNDLEPREFIX(SysctlWrapper) getString:@"pckeyboardhack.version"];
   if (! version) {
     version = @"-.-.-";
   }
