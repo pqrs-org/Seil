@@ -13,7 +13,9 @@ rm -rf $workdir/.hg*
 find $workdir -name '.DS_Store' -print0 | xargs -0 rm -f
 
 # archive
-tar czf $name.tar.gz -C $tmpdir $name
+(cd $tmpdir; zip -r $name.zip $name)
+mv $tmpdir/$name.zip .
+chmod 644 $name.zip
 
 # purge tmpdir
 rm -rf $tmpdir
