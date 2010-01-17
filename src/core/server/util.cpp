@@ -24,7 +24,7 @@ sysctl_load(void)
 
   // --------------------------------------------------
   // check already initialized
-  const char *name = "pckeyboardhack.initialized";
+  const char* name = "pckeyboardhack.initialized";
 
   int value;
   size_t len = sizeof(value);

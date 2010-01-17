@@ -46,20 +46,20 @@
 }
 
 // ------------------------------------------------------------
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+- (void) applicationDidFinishLaunching:(NSNotification*)aNotification {
   [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver:self
-                                                      selector:@selector(observer_NSWorkspaceSessionDidBecomeActiveNotification:)
-                                                      name:NSWorkspaceSessionDidBecomeActiveNotification
-                                                      object:nil];
+                                                         selector:@selector(observer_NSWorkspaceSessionDidBecomeActiveNotification:)
+                                                             name:NSWorkspaceSessionDidBecomeActiveNotification
+                                                           object:nil];
 
   [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver:self
-                                                      selector:@selector(observer_NSWorkspaceSessionDidResignActiveNotification:)
-                                                      name:NSWorkspaceSessionDidResignActiveNotification
-                                                      object:nil];
+                                                         selector:@selector(observer_NSWorkspaceSessionDidResignActiveNotification:)
+                                                             name:NSWorkspaceSessionDidResignActiveNotification
+                                                           object:nil];
 
   // ------------------------------------------------------------
   sysctl_reset();
-  [NSThread detachNewThreadSelector:@selector(configThreadMain) toTarget:self withObject:nil];
+  [NSThread detachNewThreadSelector:@selector(configThreadMain)toTarget:self withObject:nil];
 }
 
 - (void) applicationWillTerminate:(NSNotification*)aNotification {
