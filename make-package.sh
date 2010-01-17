@@ -74,9 +74,10 @@ sudo $packagemaker -build \
 echo "Make Archive"
 
 sudo chown -R root:wheel $pkgName
-sudo tar zcf $pkgName.tar.gz $pkgName
+sudo zip -r $pkgName.zip $pkgName
 sudo rm -rf $pkgName
-tar zxf $pkgName.tar.gz
+sudo chmod 644 $pkgName.zip
+unzip $pkgName.zip
 
 # --------------------------------------------------
 echo "Cleanup"
