@@ -19,7 +19,7 @@ namespace {
   std::map<std::string, int> map_reset;
 
   void
-  save(const char *name)
+  save(const char* name)
   {
     if (! dict_sysctl) return;
 
@@ -33,7 +33,7 @@ namespace {
     CFStringRef key = CFStringCreateWithCString(NULL, name, kCFStringEncodingUTF8);
     CFNumberRef val = CFNumberCreate(NULL, kCFNumberIntType, &value);
 
-    typeof(map_reset.end()) it = map_reset.find(name);
+    std::map<std::string, int>::iterator it = map_reset.find(name);
     if (it == map_reset.end()) return;
     CFNumberRef defaultval = CFNumberCreate(NULL, kCFNumberIntType, &(it->second));
 
@@ -43,7 +43,7 @@ namespace {
   }
 
   void
-  load(const char *name)
+  load(const char* name)
   {
     if (! dict_sysctl) return;
     CFStringRef key = CFStringCreateWithCString(NULL, name, kCFStringEncodingUTF8);
@@ -60,7 +60,7 @@ namespace {
   }
 
   void
-  scanLines(const char *filename, void (*func)(const char *))
+  scanLines(const char* filename, void (* func)(const char*))
   {
     std::ifstream ifs(filename);
     if (! ifs) return;
@@ -70,8 +70,8 @@ namespace {
 
       ifs.getline(line, sizeof(line));
 
-      const char *tag[] = { "enable", "keycode", NULL };
-      for (int i = 0; ; ++i) {
+      const char* tag[] = { "enable", "keycode", NULL };
+      for (int i = 0;; ++i) {
         if (tag[i] == NULL) break;
 
         char sysctl_begin[512];
@@ -79,9 +79,9 @@ namespace {
         snprintf(sysctl_begin, sizeof(sysctl_begin), "<%s>", tag[i]);
         snprintf(sysctl_end, sizeof(sysctl_end), "</%s>", tag[i]);
 
-        char *begin = strstr(line, sysctl_begin);
+        char* begin = strstr(line, sysctl_begin);
         if (! begin) continue;
-        char *end = strstr(line, sysctl_end);
+        char* end = strstr(line, sysctl_end);
         if (! end) continue;
 
         begin += strlen(sysctl_begin);
@@ -103,7 +103,7 @@ namespace {
 
       ifs.getline(line, sizeof(line));
 
-      char *p = strchr(line, ' ');
+      char* p = strchr(line, ' ');
       if (! p) continue;
       *p = '\0';
 
@@ -116,15 +116,15 @@ namespace {
   }
 
   bool
-  saveToFile(const char **targetFiles)
+  saveToFile(const char** targetFiles)
   {
     if (! makeMapReset()) return false;
 
     dict_sysctl = CFDictionaryCreateMutable(NULL, 0, NULL, NULL);
     if (! dict_sysctl) return false;
 
-    for (int i = 0; ; ++i) {
-      const char *filename = targetFiles[i];
+    for (int i = 0;; ++i) {
+      const char* filename = targetFiles[i];
       if (! filename) break;
       scanLines(filename, save);
     }
@@ -135,13 +135,13 @@ namespace {
   }
 
   bool
-  loadFromFile(const char **targetFiles)
+  loadFromFile(const char** targetFiles)
   {
-    dict_sysctl = reinterpret_cast<CFMutableDictionaryRef>(const_cast<void *>(CFPreferencesCopyAppValue(CFSTR("sysctl"), applicationID)));
+    dict_sysctl = reinterpret_cast<CFMutableDictionaryRef>(const_cast<void*>(CFPreferencesCopyAppValue(CFSTR("sysctl"), applicationID)));
     if (! dict_sysctl) return false;
 
-    for (int i = 0; ; ++i) {
-      const char *filename = targetFiles[i];
+    for (int i = 0;; ++i) {
+      const char* filename = targetFiles[i];
       if (! filename) break;
       scanLines(filename, load);
     }
@@ -153,7 +153,7 @@ namespace {
 
 
 int
-main(int argc, char **argv)
+main(int argc, char** argv)
 {
   if (argc == 1) {
     fprintf(stderr, "Usage: %s (save|load) [params]\n", argv[0]);
@@ -162,7 +162,7 @@ main(int argc, char **argv)
 
   bool isSuccess = false;
   if ((strcmp(argv[1], "save") == 0) || (strcmp(argv[1], "load") == 0)) {
-    const char *targetFiles[] = {
+    const char* targetFiles[] = {
       "/Library/org.pqrs/PCKeyboardHack/prefpane/sysctl.xml",
       NULL,
     };
