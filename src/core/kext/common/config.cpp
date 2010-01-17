@@ -28,7 +28,7 @@ namespace org_pqrs_PCKeyboardHack {
 #include "generate/output/include.config_SYSCTL.cpp"
 
   SYSCTL_STRING(_pckeyboardhack, OID_AUTO, version, CTLFLAG_RD, config_version, 0, "");
-  SYSCTL_INT(_pckeyboardhack, OID_AUTO, initialized, CTLTYPE_INT|CTLFLAG_RW, &(initialized), 0, "");
+  SYSCTL_INT(_pckeyboardhack, OID_AUTO, initialized, CTLTYPE_INT | CTLFLAG_RW, &(initialized), 0, "");
 
   // ----------------------------------------------------------------------
   void
