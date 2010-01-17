@@ -21,16 +21,6 @@ static NSString* sysctl_ctl = @"/Library/org.pqrs/PCKeyboardHack/bin/PCKeyboardH
   return self;
 }
 
-- (IBAction) expandALL:(id)sender
-{
-  [_outlineView_mixed expandItem:nil expandChildren:YES];
-}
-
-- (IBAction) collapseALL:(id)sender
-{
-  [_outlineView_mixed collapseItem:nil collapseChildren:YES];
-}
-
 // ------------------------------------------------------------
 - (NSUInteger) outlineView:(NSOutlineView*)outlineView numberOfChildrenOfItem:(id)item
 {

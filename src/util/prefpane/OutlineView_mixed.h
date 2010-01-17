@@ -6,7 +6,4 @@
   IBOutlet id _outlineView_mixed;
 }
 
-- (IBAction) expandALL:(id)sender;
-- (IBAction) collapseALL:(id)sender;
-
 @end
