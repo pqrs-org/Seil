@@ -27,6 +27,7 @@ static NSString* launchUninstallerCommand = @"/Library/org.pqrs/PCKeyboardHack/e
 - (void) mainViewDidLoad
 {
   [self drawVersion];
+  [_outlineView_mixed expandItem:nil expandChildren:YES];
 }
 
 @end
