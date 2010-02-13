@@ -31,6 +31,19 @@ namespace {
     return isvalid;
   }
 
+  bool
+  isKextExists(void)
+  {
+    const char* name = "pckeyboardhack.initialized";
+
+    int value;
+    size_t len = sizeof(value);
+    int error = sysctlbyname(name, &value, &len, NULL, 0);
+    if (error) return false;
+
+    return true;
+  }
+
   void
   set(const char* name, int value)
   {
@@ -40,7 +53,7 @@ namespace {
     size_t oldlen = 0;
     size_t newlen = sizeof(value);
     if (sysctlbyname(entry, NULL, &oldlen, &value, newlen) == -1) {
-      perror("sysctl");
+      perror("sysctl_reset set");
     }
   }
 }
@@ -50,6 +63,11 @@ int
 main(int argc, char** argv)
 {
   if (! verifyUser()) {
+    return 1;
+  }
+
+  if (! isKextExists()) {
+    std::cerr << "PCKeyboardHack: kext is not yet loaded" << std::endl;
     return 1;
   }
 
