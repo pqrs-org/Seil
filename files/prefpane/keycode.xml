@@ -54,6 +54,10 @@
       <keycode>160</keycode>
     </item>
     <item>
+      <name>PC Application Key</name>
+      <keycode>110</keycode>
+    </item>
+    <item>
       <name>JIS EISUU</name>
       <keycode>102</keycode>
     </item>
