@@ -65,5 +65,9 @@
       <name>JIS KANA</name>
       <keycode>104</keycode>
     </item>
+    <item>
+      <name>Power</name>
+      <keycode>127</keycode>
+    </item>
   </list>
 </root>
