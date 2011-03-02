@@ -40,6 +40,8 @@ private:
   static bool notifierfunc_hookKeyboard(void* target, void* refCon, IOService* newService, IONotifier* notifier);
   static bool notifierfunc_unhookKeyboard(void* target, void* refCon, IOService* newService, IONotifier* notifier);
 
+  static bool isTargetDevice(IOHIKeyboard* kbd);
+
   static bool customizeKeyMap(IOHIKeyboard* kbd);
   static bool restoreKeyMap(IOHIKeyboard* kbd);
 

@@ -183,11 +183,54 @@ org_pqrs_driver_PCKeyboardHack::search_hookedKeyboard(const IOHIKeyboard* kbd)
 
 // ----------------------------------------------------------------------
 bool
+org_pqrs_driver_PCKeyboardHack::isTargetDevice(IOHIKeyboard* kbd)
+{
+  if (! kbd) return false;
+
+  // ------------------------------------------------------------
+  uint32_t vendorID = 0;
+  uint32_t productID = 0;
+
+  IORegistryEntry* dev = kbd;
+
+  while (dev) {
+    const OSNumber* vid = NULL;
+    vid = OSDynamicCast(OSNumber, dev->getProperty(kIOHIDVendorIDKey));
+
+    const OSNumber* pid = NULL;
+    pid = OSDynamicCast(OSNumber, dev->getProperty(kIOHIDProductIDKey));
+
+    if (vid && pid) {
+      vendorID  = vid->unsigned32BitValue();
+      productID = pid->unsigned32BitValue();
+
+      goto finish;
+    }
+
+    // check parent property.
+    dev = dev->getParentEntry(IORegistryEntry::getPlane(kIOServicePlane));
+  }
+
+finish:
+  enum {
+    VENDOR_LOGITECH = 0x046d,
+    PRODUCT_LOGITECH_G700_LASER_MOUSE = 0xc06b,
+  };
+
+  if (vendorID == VENDOR_LOGITECH && productID == PRODUCT_LOGITECH_G700_LASER_MOUSE) {
+    IOLog("vendorID:0x%04x, productID:0x%04x (skipped)\n", vendorID, productID);
+  }
+
+  return true;
+}
+
+bool
 org_pqrs_driver_PCKeyboardHack::notifierfunc_hookKeyboard(void* target, void* refCon, IOService* newService, IONotifier* notifier)
 {
   IOLog("PCKeyboardHack::notifier_hookKeyboard\n");
 
   IOHIKeyboard* kbd = OSDynamicCast(IOHIKeyboard, newService);
+  if (! isTargetDevice(kbd)) return true;
   return customizeKeyMap(kbd);
 }
 
@@ -197,6 +240,7 @@ org_pqrs_driver_PCKeyboardHack::notifierfunc_unhookKeyboard(void* target, void* 
   IOLog("PCKeyboardHack::notifier_unhookKeyboard\n");
 
   IOHIKeyboard* kbd = OSDynamicCast(IOHIKeyboard, newService);
+  if (! isTargetDevice(kbd)) return true;
   return restoreKeyMap(kbd);
 }
 
