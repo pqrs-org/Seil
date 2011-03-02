@@ -219,6 +219,7 @@ finish:
 
   if (vendorID == VENDOR_LOGITECH && productID == PRODUCT_LOGITECH_G700_LASER_MOUSE) {
     IOLog("vendorID:0x%04x, productID:0x%04x (skipped)\n", vendorID, productID);
+    return false;
   }
 
   return true;
