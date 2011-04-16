@@ -14,14 +14,15 @@
 @synthesize window;
 
 - (void) configThreadMain {
-  NSAutoreleasePool* pool = [[NSAutoreleasePool alloc] init];
-
   for (;;) {
-    sysctl_load();
-    sleep(1);
+    NSAutoreleasePool* pool = [[NSAutoreleasePool alloc] init];
+    {
+      sysctl_load();
+      sleep(1);
+    }
+    [pool drain];
   }
 
-  [pool drain];
   [NSThread exit];
 }
 
