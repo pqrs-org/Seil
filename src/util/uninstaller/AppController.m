@@ -14,7 +14,7 @@ static char uninstallCommand[] = "/Library/org.pqrs/PCKeyboardHack/extra/uninsta
 // ----------------------------------------------------------------------
 - (IBAction) uninstall:(id)sender
 {
-  BOOL result = [BUNDLEPREFIX(AdminAction) execCommand:uninstallCommand];
+  BOOL result = [BUNDLEPREFIX (AdminAction) execCommand:uninstallCommand];
   if (result) {
     NSRunAlertPanel(@"Uninstaller", [NSString stringWithFormat:@"%@ is uninstalled.", appName], @"OK", nil, nil);
   } else {
