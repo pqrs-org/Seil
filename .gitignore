@@ -1,6 +1,7 @@
 *.pkg/
 *.zip
 pkgroot/
+build/
 xcuserdata/
 *.mode1
 *.mode1v3
