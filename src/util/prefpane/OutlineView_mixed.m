@@ -15,7 +15,7 @@ static NSString* sysctl_ctl = @"/Library/org.pqrs/PCKeyboardHack/bin/PCKeyboardH
   self = [super init];
   if (! self) return self;
 
-  _xmlTreeWrapper = [[BUNDLEPREFIX(XMLTreeWrapper) alloc] init];
+  _xmlTreeWrapper = [[BUNDLEPREFIX (XMLTreeWrapper) alloc] init];
   if (_xmlTreeWrapper == nil) return nil;
   if (! [_xmlTreeWrapper load:@"/Library/org.pqrs/PCKeyboardHack/prefpane/sysctl.xml"]) return nil;
   return self;
@@ -54,7 +54,7 @@ static NSString* sysctl_ctl = @"/Library/org.pqrs/PCKeyboardHack/bin/PCKeyboardH
     NSXMLNode* sysctl = [_xmlTreeWrapper getNode:n xpath:@"enable"];
     if (sysctl) {
       NSString* entry = [NSString stringWithFormat:@"pckeyboardhack.%@", [sysctl stringValue]];
-      NSNumber* value = [BUNDLEPREFIX(SysctlWrapper) getInt:entry];
+      NSNumber* value = [BUNDLEPREFIX (SysctlWrapper) getInt:entry];
       if ([value boolValue]) return TRUE;
     }
   }
@@ -83,7 +83,7 @@ static NSString* sysctl_ctl = @"/Library/org.pqrs/PCKeyboardHack/bin/PCKeyboardH
       [cell setImagePosition:NSImageLeft];
 
       NSString* entry = [NSString stringWithFormat:@"pckeyboardhack.%@", [sysctl stringValue]];
-      return [BUNDLEPREFIX(SysctlWrapper) getInt:entry];
+      return [BUNDLEPREFIX (SysctlWrapper) getInt:entry];
     }
 
   } else if ([identifier isEqualToString:@"keycode"]) {
@@ -92,7 +92,7 @@ static NSString* sysctl_ctl = @"/Library/org.pqrs/PCKeyboardHack/bin/PCKeyboardH
       return nil;
     } else {
       NSString* entry = [NSString stringWithFormat:@"pckeyboardhack.%@", [sysctl stringValue]];
-      NSNumber* value = [BUNDLEPREFIX(SysctlWrapper) getInt:entry];
+      NSNumber* value = [BUNDLEPREFIX (SysctlWrapper) getInt:entry];
       return value;
     }
 
@@ -121,16 +121,16 @@ static NSString* sysctl_ctl = @"/Library/org.pqrs/PCKeyboardHack/bin/PCKeyboardH
     if (sysctl) {
       NSString* name = [sysctl stringValue];
       NSString* entry = [NSString stringWithFormat:@"pckeyboardhack.%@", name];
-      NSNumber* value = [BUNDLEPREFIX(SysctlWrapper) getInt:entry];
+      NSNumber* value = [BUNDLEPREFIX (SysctlWrapper) getInt:entry];
       NSNumber* new = [[[NSNumber alloc] initWithBool:! [value boolValue]] autorelease];
-      [BUNDLEPREFIX(SysctlWrapper) setSysctlInt:@"pckeyboardhack" name:name value:new sysctl_set:sysctl_set sysctl_ctl:sysctl_ctl];
+      [BUNDLEPREFIX (SysctlWrapper) setSysctlInt:@"pckeyboardhack" name:name value:new sysctl_set:sysctl_set sysctl_ctl:sysctl_ctl];
     }
   } else if ([identifier isEqualToString:@"keycode"]) {
     NSXMLNode* sysctl = [_xmlTreeWrapper getNode:item xpath:@"keycode"];
     if (sysctl) {
       NSString* name = [sysctl stringValue];
       NSNumber* new = [[[NSNumber alloc] initWithInt:[object intValue]] autorelease];
-      [BUNDLEPREFIX(SysctlWrapper) setSysctlInt:@"pckeyboardhack" name:name value:new sysctl_set:sysctl_set sysctl_ctl:sysctl_ctl];
+      [BUNDLEPREFIX (SysctlWrapper) setSysctlInt:@"pckeyboardhack" name:name value:new sysctl_set:sysctl_set sysctl_ctl:sysctl_ctl];
     }
   }
 }

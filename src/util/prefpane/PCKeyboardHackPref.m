@@ -10,7 +10,7 @@ static NSString* launchUninstallerCommand = @"/Library/org.pqrs/PCKeyboardHack/e
 
 - (void) drawVersion
 {
-  NSString* version = [BUNDLEPREFIX(SysctlWrapper) getString:@"pckeyboardhack.version"];
+  NSString* version = [BUNDLEPREFIX (SysctlWrapper) getString:@"pckeyboardhack.version"];
   if (! version) {
     version = @"-.-.-";
   }
@@ -20,7 +20,7 @@ static NSString* launchUninstallerCommand = @"/Library/org.pqrs/PCKeyboardHack/e
 // ----------------------------------------------------------------------
 - (IBAction) launchUninstaller:(id)sender
 {
-  [BUNDLEPREFIX(Common) getExecResult:launchUninstallerCommand args:[NSArray arrayWithObjects:@"force", nil]];
+  [BUNDLEPREFIX (Common) getExecResult:launchUninstallerCommand args:[NSArray arrayWithObjects:@"force", nil]];
 }
 
 // ----------------------------------------------------------------------

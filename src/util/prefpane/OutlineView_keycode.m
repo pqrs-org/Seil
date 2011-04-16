@@ -12,7 +12,7 @@ static BUNDLEPREFIX(XMLTreeWrapper) * _xmlTreeWrapper;
   self = [super init];
   if (! self) return self;
 
-  _xmlTreeWrapper = [[BUNDLEPREFIX(XMLTreeWrapper) alloc] init];
+  _xmlTreeWrapper = [[BUNDLEPREFIX (XMLTreeWrapper) alloc] init];
   if (_xmlTreeWrapper == nil) return nil;
   if (! [_xmlTreeWrapper load:@"/Library/org.pqrs/PCKeyboardHack/prefpane/keycode.xml"]) return nil;
   return self;
