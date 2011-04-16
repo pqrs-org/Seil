@@ -15,7 +15,6 @@
 		34DA85FA0D06E4CB00AE69E6 /* PCKeyboardHack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34DA85F30D06E4CB00AE69E6 /* PCKeyboardHack.cpp */; };
 		34DA85FB0D06E4CB00AE69E6 /* PCKeyboardHack.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 34DA85F40D06E4CB00AE69E6 /* PCKeyboardHack.hpp */; };
 		34DA86010D06E4EA00AE69E6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 34DA85FE0D06E4EA00AE69E6 /* InfoPlist.strings */; };
-		34DA86020D06E4EA00AE69E6 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34DA86000D06E4EA00AE69E6 /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -139,7 +138,11 @@
 			isa = PBXProject;
 			buildConfigurationList = 1DEB91DD08733DB10010E9CD /* Build configuration list for PBXProject "PCKeyboardHack" */;
 			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+			);
 			mainGroup = 089C166AFE841209C02AAC07 /* PCKeyboardHack */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -155,7 +158,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				34DA86010D06E4EA00AE69E6 /* InfoPlist.strings in Resources */,
-				34DA86020D06E4EA00AE69E6 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,8 +217,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				GCC_ENABLE_OBJC_GC = supported;
 				GCC_ENABLE_KERNEL_DEVELOPMENT = YES;
+				GCC_ENABLE_OBJC_GC = supported;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
