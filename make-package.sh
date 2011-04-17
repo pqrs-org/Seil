@@ -62,13 +62,14 @@ sudo chown root:admin pkgroot/Library
 echo "Exec PackageMaker"
 
 sudo rm -rf $pkgName
-sudo $packagemaker -build \
-    -p $pkgName \
-    -f pkgroot \
-    -ds \
-    -r pkginfo/Resources \
-    -i pkginfo/Info.plist \
-    -d pkginfo/Description.plist
+sudo $packagemaker \
+    --root pkgroot \
+    --info pkginfo/Info.plist \
+    --resources pkginfo/Resources \
+    --title "PCKeyboardHack $version" \
+    --no-recommend \
+    --no-relocate \
+    --out $pkgName
 
 # --------------------------------------------------
 echo "Make Archive"
