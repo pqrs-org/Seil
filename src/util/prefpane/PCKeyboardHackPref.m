@@ -1,8 +1,8 @@
 // -*- Mode: objc; Coding: utf-8; indent-tabs-mode: nil; -*-
 
 #import "PCKeyboardHackPref.h"
-#import "Common.h"
 #import "SysctlWrapper.h"
+#include <stdlib.h>
 
 @implementation PCKeyboardHackPref
 
@@ -20,7 +20,7 @@ static NSString* launchUninstallerCommand = @"/Library/org.pqrs/PCKeyboardHack/e
 // ----------------------------------------------------------------------
 - (IBAction) launchUninstaller:(id)sender
 {
-  [BUNDLEPREFIX (Common) getExecResult:launchUninstallerCommand args:[NSArray arrayWithObjects:@"force", nil]];
+  system([launchUninstallerCommand UTF8String]);
 }
 
 // ----------------------------------------------------------------------
