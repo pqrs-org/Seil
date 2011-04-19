@@ -46,6 +46,10 @@
       <keycode>62</keycode>
     </item>
     <item>
+      <name>Fn</name>
+      <keycode>63</keycode>
+    </item>
+    <item>
       <name>Forward Delete</name>
       <keycode>117</keycode>
     </item>
