@@ -1,5 +1,7 @@
 // -*- Mode: c++; indent-tabs-mode: nil; -*-
 
+// The original code was written by YASUDA Yoshinori.
+
 #include "base.hpp"
 #include "PCKeyboardHack.hpp"
 #include "config.hpp"
