@@ -2,7 +2,7 @@
 <root>
   <list>
     <item>
-      <name>Caps Lock, Control</name>
+      <name>Caps Lock</name>
       <list>
         <item>
           <name>Change Caps Lock</name>
@@ -10,22 +10,6 @@
           <keycode>keycode_capslock</keycode>
           <default>51</default>
           <appendix>Delete</appendix>
-        </item>
-
-        <item>
-          <name>Change Control_L</name>
-          <enable>enable_control_l</enable>
-          <keycode>keycode_control_l</keycode>
-          <default>55</default>
-          <appendix>Command_L</appendix>
-        </item>
-
-        <item>
-          <name>Change Control_R</name>
-          <enable>enable_control_r</enable>
-          <keycode>keycode_control_r</keycode>
-          <default>54</default>
-          <appendix>Command_R</appendix>
         </item>
       </list>
     </item>
