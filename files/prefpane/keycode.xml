@@ -62,6 +62,10 @@
       <keycode>110</keycode>
     </item>
     <item>
+      <name>§ Key</name>
+      <keycode>10</keycode>
+    </item>
+    <item>
       <name>JIS EISUU</name>
       <keycode>102</keycode>
     </item>
