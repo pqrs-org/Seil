@@ -1,7 +1,7 @@
 // -*- indent-tabs-mode: nil; -*-
 
-#ifndef _PCKeyboardHack_h
-#define _PCKeyboardHack_h
+#ifndef DRIVER_HPP
+#define DRIVER_HPP
 
 #include "base.hpp"
 

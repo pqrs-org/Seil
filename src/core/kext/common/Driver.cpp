@@ -3,7 +3,7 @@
 // The original code was written by YASUDA Yoshinori.
 
 #include "base.hpp"
-#include "PCKeyboardHack.hpp"
+#include "Driver.hpp"
 #include "config.hpp"
 #include "keymap.hpp"
 

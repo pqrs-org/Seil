@@ -1,17 +1,10 @@
 #include "UserClient_kext.hpp"
-#include "CommonData.hpp"
-#include "Config.hpp"
-#include "RemapClass.hpp"
-#include "util/GlobalLock.hpp"
 
 #define super IOUserClient
 
-OSDefineMetaClassAndStructors(org_pqrs_driver_KeyRemap4MacBook_UserClient_kext, IOUserClient)
+OSDefineMetaClassAndStructors(org_pqrs_driver_PCKeyboardHack_UserClient_kext, IOUserClient)
 
-OSAsyncReference64 org_pqrs_driver_KeyRemap4MacBook_UserClient_kext::asyncref_;
-bool org_pqrs_driver_KeyRemap4MacBook_UserClient_kext::notification_enabled_ = false;
-
-IOExternalMethodDispatch org_pqrs_driver_KeyRemap4MacBook_UserClient_kext::methods_[BRIDGE_USERCLIENT__END__] = {
+IOExternalMethodDispatch org_pqrs_driver_PCKeyboardHack_UserClient_kext::methods_[BRIDGE_USERCLIENT__END__] = {
   { // BRIDGE_USERCLIENT_OPEN
     reinterpret_cast<IOExternalMethodAction>(&static_callback_open), // Method pointer.
     0,                                                               // No scalar input values.
@@ -33,19 +26,12 @@ IOExternalMethodDispatch org_pqrs_driver_KeyRemap4MacBook_UserClient_kext::metho
     1,                                                                                     // One scalar output value.
     0,                                                                                     // No struct output value.
   },
-  { // BRIDGE_USERCLIENT_NOTIFICATION_FROM_KEXT
-    reinterpret_cast<IOExternalMethodAction>(&static_callback_notification_from_kext), // Method pointer.
-    0,                                                                                 // No scalar input values.
-    0,                                                                                 // No struct input value.
-    0,                                                                                 // No scalar output values.
-    0                                                                                  // No struct output value.
-  }
 };
 
 // ============================================================
 // initWithTask is called as a result of the user process calling IOServiceOpen.
 bool
-org_pqrs_driver_KeyRemap4MacBook_UserClient_kext::initWithTask(task_t owningTask, void* securityToken, UInt32 type)
+org_pqrs_driver_PCKeyboardHack_UserClient_kext::initWithTask(task_t owningTask, void* securityToken, UInt32 type)
 {
   if (clientHasPrivilege(owningTask, kIOClientPrivilegeLocalUser) != KERN_SUCCESS) {
     IOLOG_ERROR("UserClient_kext::initWithTask clientHasPrivilege failed\n");
@@ -60,20 +46,14 @@ org_pqrs_driver_KeyRemap4MacBook_UserClient_kext::initWithTask(task_t owningTask
   task_     = owningTask;
   provider_ = NULL;
 
-  // Don't change static values here. (For example, notification_enabled_)
-  // initWithTask is called by each IOServiceOpen.
-  //
-  // If IOService is opened, other client will be failed.
-  // Changing static values by other IOServiceOpen may destroy the current connection.
-
   return true;
 }
 
 // start is called after initWithTask as a result of the user process calling IOServiceOpen.
 bool
-org_pqrs_driver_KeyRemap4MacBook_UserClient_kext::start(IOService* provider)
+org_pqrs_driver_PCKeyboardHack_UserClient_kext::start(IOService* provider)
 {
-  provider_ = OSDynamicCast(org_pqrs_driver_KeyRemap4MacBook, provider);
+  provider_ = OSDynamicCast(org_pqrs_driver_PCKeyboardHack, provider);
   if (! provider_) {
     IOLOG_ERROR("UserClient_kext::start provider == NULL\n");
     return false;
@@ -91,7 +71,7 @@ org_pqrs_driver_KeyRemap4MacBook_UserClient_kext::start(IOService* provider)
 }
 
 void
-org_pqrs_driver_KeyRemap4MacBook_UserClient_kext::stop(IOService* provider)
+org_pqrs_driver_PCKeyboardHack_UserClient_kext::stop(IOService* provider)
 {
   super::stop(provider);
   provider_ = NULL;
@@ -99,7 +79,7 @@ org_pqrs_driver_KeyRemap4MacBook_UserClient_kext::stop(IOService* provider)
 
 // clientClose is called as a result of the user process calling IOServiceClose.
 IOReturn
-org_pqrs_driver_KeyRemap4MacBook_UserClient_kext::clientClose(void)
+org_pqrs_driver_PCKeyboardHack_UserClient_kext::clientClose(void)
 {
   // Defensive coding in case the user process called IOServiceClose
   // without calling BRIDGE_USERCLIENT_CLOSE first.
@@ -120,7 +100,7 @@ org_pqrs_driver_KeyRemap4MacBook_UserClient_kext::clientClose(void)
 }
 
 bool
-org_pqrs_driver_KeyRemap4MacBook_UserClient_kext::didTerminate(IOService* provider, IOOptionBits options, bool* defer)
+org_pqrs_driver_PCKeyboardHack_UserClient_kext::didTerminate(IOService* provider, IOOptionBits options, bool* defer)
 {
   // If all pending I/O has been terminated, close our provider. If I/O is still outstanding, set defer to true
   // and the user client will not have stop called on it.
@@ -131,8 +111,8 @@ org_pqrs_driver_KeyRemap4MacBook_UserClient_kext::didTerminate(IOService* provid
 }
 
 IOReturn
-org_pqrs_driver_KeyRemap4MacBook_UserClient_kext::externalMethod(uint32_t selector, IOExternalMethodArguments* arguments,
-                                                                 IOExternalMethodDispatch* dispatch, OSObject* target, void* reference)
+org_pqrs_driver_PCKeyboardHack_UserClient_kext::externalMethod(uint32_t selector, IOExternalMethodArguments* arguments,
+                                                               IOExternalMethodDispatch* dispatch, OSObject* target, void* reference)
 {
   if (selector < static_cast<uint32_t>(BRIDGE_USERCLIENT__END__)) {
     dispatch = &(methods_[selector]);
@@ -148,18 +128,15 @@ org_pqrs_driver_KeyRemap4MacBook_UserClient_kext::externalMethod(uint32_t select
 
 // ======================================================================
 IOReturn
-org_pqrs_driver_KeyRemap4MacBook_UserClient_kext::static_callback_open(org_pqrs_driver_KeyRemap4MacBook_UserClient_kext* target, void* reference, IOExternalMethodArguments* arguments)
+org_pqrs_driver_PCKeyboardHack_UserClient_kext::static_callback_open(org_pqrs_driver_PCKeyboardHack_UserClient_kext* target, void* reference, IOExternalMethodArguments* arguments)
 {
   if (! target) return kIOReturnBadArgument;
   return target->callback_open();
 }
 
 IOReturn
-org_pqrs_driver_KeyRemap4MacBook_UserClient_kext::callback_open(void)
+org_pqrs_driver_PCKeyboardHack_UserClient_kext::callback_open(void)
 {
-  org_pqrs_KeyRemap4MacBook::GlobalLock::ScopedLock lk;
-  if (! lk) return kIOReturnCannotLock;
-
   if (provider_ == NULL || isInactive()) {
     // Return an error if we don't have a provider. This could happen if the user process
     // called callback_open without calling IOServiceOpen first. Or, the user client could be
@@ -180,18 +157,15 @@ org_pqrs_driver_KeyRemap4MacBook_UserClient_kext::callback_open(void)
 
 // ----------------------------------------------------------------------
 IOReturn
-org_pqrs_driver_KeyRemap4MacBook_UserClient_kext::static_callback_close(org_pqrs_driver_KeyRemap4MacBook_UserClient_kext* target, void* reference, IOExternalMethodArguments* arguments)
+org_pqrs_driver_PCKeyboardHack_UserClient_kext::static_callback_close(org_pqrs_driver_PCKeyboardHack_UserClient_kext* target, void* reference, IOExternalMethodArguments* arguments)
 {
   if (! target) return kIOReturnBadArgument;
   return target->callback_close();
 }
 
 IOReturn
-org_pqrs_driver_KeyRemap4MacBook_UserClient_kext::callback_close(void)
+org_pqrs_driver_PCKeyboardHack_UserClient_kext::callback_close(void)
 {
-  org_pqrs_KeyRemap4MacBook::GlobalLock::ScopedLock lk;
-  if (! lk) return kIOReturnCannotLock;
-
   if (! provider_) {
     // Return an error if we don't have a provider. This could happen if the user process
     // called callback_close without calling IOServiceOpen first.
@@ -208,10 +182,6 @@ org_pqrs_driver_KeyRemap4MacBook_UserClient_kext::callback_close(void)
     return kIOReturnNotOpen;
   }
 
-  notification_enabled_ = false;
-
-  org_pqrs_KeyRemap4MacBook::Config::set_initialized(false);
-
   // Make sure we're the one who opened our provider before we tell it to close.
   provider_->close(this);
 
@@ -220,183 +190,37 @@ org_pqrs_driver_KeyRemap4MacBook_UserClient_kext::callback_close(void)
 
 // ----------------------------------------------------------------------
 IOReturn
-org_pqrs_driver_KeyRemap4MacBook_UserClient_kext::static_callback_synchronized_communication(org_pqrs_driver_KeyRemap4MacBook_UserClient_kext* target, void* reference, IOExternalMethodArguments* arguments)
+org_pqrs_driver_PCKeyboardHack_UserClient_kext::static_callback_synchronized_communication(org_pqrs_driver_PCKeyboardHack_UserClient_kext* target, void* reference, IOExternalMethodArguments* arguments)
 {
   if (! target) return kIOReturnBadArgument;
   return target->callback_synchronized_communication(static_cast<const BridgeUserClientStruct*>(arguments->structureInput), &arguments->scalarOutput[0]);
 }
 
 IOReturn
-org_pqrs_driver_KeyRemap4MacBook_UserClient_kext::callback_synchronized_communication(const BridgeUserClientStruct* inputdata, uint64_t* outputdata)
+org_pqrs_driver_PCKeyboardHack_UserClient_kext::callback_synchronized_communication(const BridgeUserClientStruct* inputdata, uint64_t* outputdata)
 {
-  org_pqrs_KeyRemap4MacBook::GlobalLock::ScopedLock lk;
-  if (! lk) return kIOReturnCannotLock;
-
-  IOReturn result = kIOReturnSuccess;
-  IOMemoryDescriptor* memorydescriptor = NULL;
-
   if (! inputdata || ! outputdata) {
-    result = kIOReturnBadArgument;
     IOLOG_ERROR("UserClient_kext::callback_synchronized_communication kIOReturnBadArgument\n");
-    goto finish;
+    return kIOReturnBadArgument;
   }
 
   if (provider_ == NULL || isInactive()) {
     // Return an error if we don't have a provider. This could happen if the user process
     // called callback_synchronized_communication without calling IOServiceOpen first.
     // Or, the user client could be in the process of being terminated and is thus inactive.
-    result = kIOReturnNotAttached;
     IOLOG_ERROR("UserClient_kext::callback_synchronized_communication kIOReturnNotAttached\n");
-    goto finish;
-  }
-
-  if (! provider_->isOpen(this)) {
-    // Return an error if we do not have the driver open. This could happen if the user process
-    // did not call callback_open before calling this function.
-    result = kIOReturnNotOpen;
-    IOLOG_ERROR("UserClient_kext::callback_synchronized_communication kIOReturnNotOpen\n");
-    goto finish;
-  }
-
-  memorydescriptor = IOMemoryDescriptor::withAddressRange(inputdata->data, inputdata->size, kIODirectionNone, task_);
-  if (! memorydescriptor) {
-    result = kIOReturnVMError;
-    IOLOG_ERROR("UserClient_kext::callback_synchronized_communication kIOReturnVMError\n");
-    goto finish;
-  }
-
-  // wire it and make sure we can write it
-  result = memorydescriptor->prepare(kIODirectionOutIn);
-  if (kIOReturnSuccess != result) {
-    IOLOG_ERROR("UserClient_kext::callback_synchronized_communication IOMemoryDescriptor::prepare failed(0x%x)\n", result);
-    goto finish;
-  }
-
-  {
-    // this map() will create a mapping in the users (the client of this IOUserClient) address space.
-    IOMemoryMap* memorymap = memorydescriptor->map();
-    if (! memorymap) {
-      result = kIOReturnVMError;
-      IOLOG_ERROR("UserClient_kext::callback_synchronized_communication IOMemoryDescriptor::map failed\n");
-
-    } else {
-      mach_vm_address_t address = memorymap->getAddress();
-      handle_synchronized_communication(inputdata->type, inputdata->option, address, inputdata->size, outputdata);
-      memorymap->release();
-    }
-  }
-
-  // Done with the I/O now.
-  memorydescriptor->complete(kIODirectionOutIn);
-
-finish:
-  if (memorydescriptor) {
-    memorydescriptor->release();
-  }
-
-  return result;
-}
-
-// ------------------------------------------------------------
-IOReturn
-org_pqrs_driver_KeyRemap4MacBook_UserClient_kext::static_callback_notification_from_kext(org_pqrs_driver_KeyRemap4MacBook_UserClient_kext* target, void* reference, IOExternalMethodArguments* arguments)
-{
-  if (! target) return kIOReturnBadArgument;
-  return target->callback_notification_from_kext(arguments->asyncReference);
-}
-
-IOReturn
-org_pqrs_driver_KeyRemap4MacBook_UserClient_kext::callback_notification_from_kext(OSAsyncReference64 asyncReference)
-{
-  org_pqrs_KeyRemap4MacBook::GlobalLock::ScopedLock lk;
-  if (! lk) return kIOReturnCannotLock;
-
-  if (provider_ == NULL || isInactive()) {
-    // Return an error if we don't have a provider. This could happen if the user process
-    // called callback_notification_from_kext without calling IOServiceOpen first.
-    // Or, the user client could be in the process of being terminated and is thus inactive.
-    IOLOG_ERROR("UserClient_kext::callback_notification_from_kext kIOReturnNotAttached\n");
     return kIOReturnNotAttached;
   }
 
   if (! provider_->isOpen(this)) {
     // Return an error if we do not have the driver open. This could happen if the user process
     // did not call callback_open before calling this function.
-    IOLOG_ERROR("UserClient_kext::callback_notification_from_kext kIOReturnNotOpen\n");
+    IOLOG_ERROR("UserClient_kext::callback_synchronized_communication kIOReturnNotOpen\n");
     return kIOReturnNotOpen;
   }
 
-  // ----------------------------------------
-  bcopy(asyncReference, asyncref_, sizeof(OSAsyncReference64));
-  notification_enabled_ = true;
+  // --------------------------------------------------
+  IOLOG_INFO("capslock_enabled = %d, capslock_keycode = %d\n", inputdata->capslock_enabled, inputdata->capslock_keycode);
+
   return kIOReturnSuccess;
-}
-
-void
-org_pqrs_driver_KeyRemap4MacBook_UserClient_kext::send_notification_to_userspace(uint32_t type, uint32_t option)
-{
-  if (notification_enabled_) {
-    io_user_reference_t args[] = { type, option };
-    sendAsyncResult64(asyncref_, kIOReturnSuccess, args, 2);
-  }
-}
-
-// ------------------------------------------------------------
-void
-org_pqrs_driver_KeyRemap4MacBook_UserClient_kext::handle_synchronized_communication(uint32_t type, uint32_t option, mach_vm_address_t address, mach_vm_size_t size, uint64_t* outputdata)
-{
-  *outputdata = BRIDGE_USERCLIENT_SYNCHRONIZED_COMMUNICATION_RETURN_ERROR_GENERIC;
-
-  switch (type) {
-    case BRIDGE_USERCLIENT_TYPE_SET_REMAPCLASSES_INITIALIZE_VECTOR:
-    {
-      org_pqrs_KeyRemap4MacBook::Config::set_initialized(false);
-
-      const uint32_t* initialize_vector = reinterpret_cast<uint32_t*>(address);
-      if (initialize_vector) {
-        if (org_pqrs_KeyRemap4MacBook::RemapClassManager::load_remapclasses_initialize_vector(initialize_vector, size)) {
-          *outputdata = BRIDGE_USERCLIENT_SYNCHRONIZED_COMMUNICATION_RETURN_SUCCESS;
-        }
-      }
-      break;
-    }
-
-    case BRIDGE_USERCLIENT_TYPE_SET_CONFIG:
-    {
-      const int32_t* config = reinterpret_cast<int32_t*>(address);
-      if (config) {
-        if (org_pqrs_KeyRemap4MacBook::RemapClassManager::set_config(config, size)) {
-          org_pqrs_KeyRemap4MacBook::Config::set_initialized(true);
-          *outputdata = BRIDGE_USERCLIENT_SYNCHRONIZED_COMMUNICATION_RETURN_SUCCESS;
-        }
-      }
-      break;
-    }
-
-    case BRIDGE_USERCLIENT_TYPE_GET_STATUS_MESSAGE:
-    {
-      const char* statusmessage = org_pqrs_KeyRemap4MacBook::CommonData::get_statusmessage(option);
-      char* p = reinterpret_cast<char*>(address);
-
-      if (statusmessage && p) {
-        strlcpy(p, statusmessage, static_cast<size_t>(size));
-        *outputdata = BRIDGE_USERCLIENT_SYNCHRONIZED_COMMUNICATION_RETURN_SUCCESS;
-      }
-      break;
-    }
-
-    case BRIDGE_USERCLIENT_TYPE_SET_WORKSPACEDATA:
-    {
-      if (size != sizeof(BridgeWorkSpaceData)) {
-        IOLOG_ERROR("BRIDGE_USERCLIENT_TYPE_SET_ESSENTIAL_CONFIG wrong 'size' parameter\n");
-      } else {
-        BridgeWorkSpaceData* p = reinterpret_cast<BridgeWorkSpaceData*>(address);
-        if (p) {
-          org_pqrs_KeyRemap4MacBook::CommonData::setcurrent_workspacedata(*p);
-          *outputdata = BRIDGE_USERCLIENT_SYNCHRONIZED_COMMUNICATION_RETURN_SUCCESS;
-        }
-      }
-      break;
-    }
-  }
 }

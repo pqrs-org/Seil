@@ -4,6 +4,18 @@
 #include <sys/types.h>
 #include <mach/mach_types.h>
 
+enum {
+  BRIDGE_USERCLIENT_OPEN,
+  BRIDGE_USERCLIENT_CLOSE,
+  BRIDGE_USERCLIENT_SYNCHRONIZED_COMMUNICATION,
+  BRIDGE_USERCLIENT__END__,
+};
+
+enum {
+  BRIDGE_USERCLIENT_SYNCHRONIZED_COMMUNICATION_RETURN_SUCCESS = 0,
+  BRIDGE_USERCLIENT_SYNCHRONIZED_COMMUNICATION_RETURN_ERROR_GENERIC = 1,
+};
+
 // 64bit alignment.
 struct BridgeUserClientStruct {
   uint8_t capslock_enabled;
@@ -20,6 +32,6 @@ struct BridgeUserClientStruct {
 };
 // STATIC_ASSERT for sizeof(struct BridgeUserClientStruct).
 // We need to make this value same in kext and userspace.
-enum { STATIC_ASSERT__sizeof_BridgeUserClientStruct = 1 / (sizeof(struct BridgeUserClientStruct) == 32) };
+enum { STATIC_ASSERT__sizeof_BridgeUserClientStruct = 1 / (sizeof(struct BridgeUserClientStruct) == 8) };
 
 #endif

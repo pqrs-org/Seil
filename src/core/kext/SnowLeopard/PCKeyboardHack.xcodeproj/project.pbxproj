@@ -14,9 +14,10 @@
 		34DA85F70D06E4CB00AE69E6 /* config.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34DA85F00D06E4CB00AE69E6 /* config.cpp */; };
 		34DA85F80D06E4CB00AE69E6 /* config.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 34DA85F10D06E4CB00AE69E6 /* config.hpp */; };
 		34DA85F90D06E4CB00AE69E6 /* keymap.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 34DA85F20D06E4CB00AE69E6 /* keymap.hpp */; };
-		34DA85FA0D06E4CB00AE69E6 /* PCKeyboardHack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34DA85F30D06E4CB00AE69E6 /* PCKeyboardHack.cpp */; };
-		34DA85FB0D06E4CB00AE69E6 /* PCKeyboardHack.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 34DA85F40D06E4CB00AE69E6 /* PCKeyboardHack.hpp */; };
 		34DA86010D06E4EA00AE69E6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 34DA85FE0D06E4EA00AE69E6 /* InfoPlist.strings */; };
+		34E5916913D5D6B700CD64CB /* bridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 34E5916813D5D6B700CD64CB /* bridge.h */; };
+		34E5917413D5D81A00CD64CB /* Driver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34E5917213D5D81A00CD64CB /* Driver.cpp */; };
+		34E5917513D5D81A00CD64CB /* Driver.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 34E5917313D5D81A00CD64CB /* Driver.hpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,10 +29,11 @@
 		34DA85F00D06E4CB00AE69E6 /* config.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = config.cpp; path = ../common/config.cpp; sourceTree = SOURCE_ROOT; };
 		34DA85F10D06E4CB00AE69E6 /* config.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = config.hpp; path = ../common/config.hpp; sourceTree = SOURCE_ROOT; };
 		34DA85F20D06E4CB00AE69E6 /* keymap.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = keymap.hpp; path = ../common/keymap.hpp; sourceTree = SOURCE_ROOT; };
-		34DA85F30D06E4CB00AE69E6 /* PCKeyboardHack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PCKeyboardHack.cpp; path = ../common/PCKeyboardHack.cpp; sourceTree = SOURCE_ROOT; };
-		34DA85F40D06E4CB00AE69E6 /* PCKeyboardHack.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = PCKeyboardHack.hpp; path = ../common/PCKeyboardHack.hpp; sourceTree = SOURCE_ROOT; };
 		34DA85FF0D06E4EA00AE69E6 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = InfoPlist.strings; sourceTree = "<group>"; };
 		34DA86000D06E4EA00AE69E6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../common/Info.plist; sourceTree = SOURCE_ROOT; };
+		34E5916813D5D6B700CD64CB /* bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bridge.h; path = ../../bridge/bridge.h; sourceTree = "<group>"; };
+		34E5917213D5D81A00CD64CB /* Driver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Driver.cpp; path = ../common/Driver.cpp; sourceTree = "<group>"; };
+		34E5917313D5D81A00CD64CB /* Driver.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Driver.hpp; path = ../common/Driver.hpp; sourceTree = "<group>"; };
 		8DA8362C06AD9B9200E5AC22 /* Kernel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kernel.framework; path = /System/Library/Frameworks/Kernel.framework; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
@@ -77,13 +79,14 @@
 		247142CAFF3F8F9811CA285C /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				34E5917213D5D81A00CD64CB /* Driver.cpp */,
+				34E5917313D5D81A00CD64CB /* Driver.hpp */,
+				34E5916813D5D6B700CD64CB /* bridge.h */,
 				340442AE0D124729005721A2 /* version.hpp */,
 				34DA85EF0D06E4CB00AE69E6 /* base.hpp */,
 				34DA85F00D06E4CB00AE69E6 /* config.cpp */,
 				34DA85F10D06E4CB00AE69E6 /* config.hpp */,
 				34DA85F20D06E4CB00AE69E6 /* keymap.hpp */,
-				34DA85F30D06E4CB00AE69E6 /* PCKeyboardHack.cpp */,
-				34DA85F40D06E4CB00AE69E6 /* PCKeyboardHack.hpp */,
 				34A88F4513D5D0280057C423 /* UserClient_kext.cpp */,
 				34A88F4613D5D0280057C423 /* UserClient_kext.hpp */,
 			);
@@ -109,9 +112,10 @@
 				34DA85F60D06E4CB00AE69E6 /* base.hpp in Headers */,
 				34DA85F80D06E4CB00AE69E6 /* config.hpp in Headers */,
 				34DA85F90D06E4CB00AE69E6 /* keymap.hpp in Headers */,
-				34DA85FB0D06E4CB00AE69E6 /* PCKeyboardHack.hpp in Headers */,
 				340442AF0D124729005721A2 /* version.hpp in Headers */,
 				34A88F4813D5D0280057C423 /* UserClient_kext.hpp in Headers */,
+				34E5916913D5D6B700CD64CB /* bridge.h in Headers */,
+				34E5917513D5D81A00CD64CB /* Driver.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,8 +190,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				34DA85F70D06E4CB00AE69E6 /* config.cpp in Sources */,
-				34DA85FA0D06E4CB00AE69E6 /* PCKeyboardHack.cpp in Sources */,
 				34A88F4713D5D0280057C423 /* UserClient_kext.cpp in Sources */,
+				34E5917413D5D81A00CD64CB /* Driver.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

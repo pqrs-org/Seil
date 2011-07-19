@@ -2,7 +2,7 @@
 #include <sys/sysctl.h>
 
 #include "base.hpp"
-#include "PCKeyboardHack.hpp"
+#include "Driver.hpp"
 #include "config.hpp"
 #include "version.hpp"
 

@@ -10,4 +10,8 @@
 //YY:07/12/05
 #undef protected
 
+#define IOLOG_ERROR(...)  IOLog("PCKeyboardHack --Error-- " __VA_ARGS__)
+#define IOLOG_INFO(...)   IOLog("PCKeyboardHack --Info-- "  __VA_ARGS__)
+#define IOLOG_WARN(...)   IOLog("PCKeyboardHack --Warn-- "  __VA_ARGS__)
+
 #endif
