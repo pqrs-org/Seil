@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		340442AF0D124729005721A2 /* version.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 340442AE0D124729005721A2 /* version.hpp */; };
+		34A88F4713D5D0280057C423 /* UserClient_kext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34A88F4513D5D0280057C423 /* UserClient_kext.cpp */; };
+		34A88F4813D5D0280057C423 /* UserClient_kext.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 34A88F4613D5D0280057C423 /* UserClient_kext.hpp */; };
 		34DA85F60D06E4CB00AE69E6 /* base.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 34DA85EF0D06E4CB00AE69E6 /* base.hpp */; };
 		34DA85F70D06E4CB00AE69E6 /* config.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34DA85F00D06E4CB00AE69E6 /* config.cpp */; };
 		34DA85F80D06E4CB00AE69E6 /* config.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 34DA85F10D06E4CB00AE69E6 /* config.hpp */; };
@@ -20,6 +22,8 @@
 /* Begin PBXFileReference section */
 		32D94FD00562CBF700B6AF17 /* PCKeyboardHack.kext */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PCKeyboardHack.kext; sourceTree = BUILT_PRODUCTS_DIR; };
 		340442AE0D124729005721A2 /* version.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = version.hpp; sourceTree = "<group>"; };
+		34A88F4513D5D0280057C423 /* UserClient_kext.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UserClient_kext.cpp; path = ../common/UserClient_kext.cpp; sourceTree = "<group>"; };
+		34A88F4613D5D0280057C423 /* UserClient_kext.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = UserClient_kext.hpp; path = ../common/UserClient_kext.hpp; sourceTree = "<group>"; };
 		34DA85EF0D06E4CB00AE69E6 /* base.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = base.hpp; path = ../common/base.hpp; sourceTree = SOURCE_ROOT; };
 		34DA85F00D06E4CB00AE69E6 /* config.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = config.cpp; path = ../common/config.cpp; sourceTree = SOURCE_ROOT; };
 		34DA85F10D06E4CB00AE69E6 /* config.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = config.hpp; path = ../common/config.hpp; sourceTree = SOURCE_ROOT; };
@@ -80,6 +84,8 @@
 				34DA85F20D06E4CB00AE69E6 /* keymap.hpp */,
 				34DA85F30D06E4CB00AE69E6 /* PCKeyboardHack.cpp */,
 				34DA85F40D06E4CB00AE69E6 /* PCKeyboardHack.hpp */,
+				34A88F4513D5D0280057C423 /* UserClient_kext.cpp */,
+				34A88F4613D5D0280057C423 /* UserClient_kext.hpp */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -105,6 +111,7 @@
 				34DA85F90D06E4CB00AE69E6 /* keymap.hpp in Headers */,
 				34DA85FB0D06E4CB00AE69E6 /* PCKeyboardHack.hpp in Headers */,
 				340442AF0D124729005721A2 /* version.hpp in Headers */,
+				34A88F4813D5D0280057C423 /* UserClient_kext.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +187,7 @@
 			files = (
 				34DA85F70D06E4CB00AE69E6 /* config.cpp in Sources */,
 				34DA85FA0D06E4CB00AE69E6 /* PCKeyboardHack.cpp in Sources */,
+				34A88F4713D5D0280057C423 /* UserClient_kext.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
