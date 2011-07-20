@@ -1,89 +1,61 @@
 <?xml version="1.0"?>
 <root>
   <list>
-    <item>
-      <name>Delete</name>
-      <keycode>51</keycode>
-    </item>
-    <item>
-      <name>Escape</name>
-      <keycode>53</keycode>
-    </item>
-    <item>
-      <name>Command_R</name>
-      <keycode>54</keycode>
-    </item>
-    <item>
-      <name>Command_L</name>
-      <keycode>55</keycode>
-    </item>
-    <item>
-      <name>Shift_L</name>
-      <keycode>56</keycode>
-    </item>
-    <item>
-      <name>Caps Lock</name>
-      <keycode>57</keycode>
-    </item>
-    <item>
-      <name>Option_L</name>
-      <keycode>58</keycode>
-    </item>
-    <item>
-      <name>Control_L</name>
-      <keycode>59</keycode>
-    </item>
-    <item>
-      <name>Shift_R</name>
-      <keycode>60</keycode>
-    </item>
-    <item>
-      <name>Option_R</name>
-      <keycode>61</keycode>
-    </item>
-    <item>
-      <name>Control_R</name>
-      <keycode>62</keycode>
-    </item>
-    <item>
-      <name>Fn</name>
-      <keycode>63</keycode>
-    </item>
-    <item>
-      <name>Forward Delete</name>
-      <keycode>117</keycode>
-    </item>
+    <item><name>Delete</name><keycode>51</keycode></item>
+    <item><name>Escape</name><keycode>53</keycode></item>
+    <item><name>Forward Delete</name><keycode>117</keycode></item>
+
+    <item><name>------------------------------------------------------------</name><keycode>-----</keycode></item>
+
+    <item><name>Caps Lock</name><keycode>57</keycode></item>
+    <item><name>Command_L</name><keycode>55</keycode></item>
+    <item><name>Command_R</name><keycode>54</keycode></item>
+    <item><name>Control_L</name><keycode>59</keycode></item>
+    <item><name>Control_R</name><keycode>62</keycode></item>
+    <item><name>Fn</name><keycode>63</keycode></item>
+    <item><name>Option_L</name><keycode>58</keycode></item>
+    <item><name>Option_R</name><keycode>61</keycode></item>
+    <item><name>Shift_L</name><keycode>56</keycode></item>
+    <item><name>Shift_R</name><keycode>60</keycode></item>
+
+    <item><name>------------------------------------------------------------</name><keycode>-----</keycode></item>
+
+    <item><name>Backquote(`)</name><keycode>50</keycode></item>
+
+    <item><name>------------------------------------------------------------</name><keycode>-----</keycode></item>
+
     <item><name>F1</name><keycode>122</keycode></item>
     <item><name>F2</name><keycode>120</keycode></item>
     <item><name>F3</name><keycode>99</keycode></item>
     <item><name>F4</name><keycode>118</keycode></item>
     <item><name>F5</name><keycode>96</keycode></item>
+    <item><name>F6</name><keycode>97</keycode></item>
+    <item><name>F7</name><keycode>98</keycode></item>
+    <item><name>F8</name><keycode>100</keycode></item>
+    <item><name>F9</name><keycode>101</keycode></item>
+    <item><name>F10</name><keycode>109</keycode></item>
+    <item><name>F11</name><keycode>103</keycode></item>
+    <item><name>F12</name><keycode>111</keycode></item>
+
+    <item><name>------------------------------------------------------------</name><keycode>-----</keycode></item>
+
     <item><name>Volume Up</name><keycode>72</keycode></item>
     <item><name>Volume Down</name><keycode>73</keycode></item>
     <item><name>Volume Mute</name><keycode>74</keycode></item>
-    <item>
-      <name>Expose All</name>
-      <keycode>160</keycode>
-    </item>
-    <item>
-      <name>PC Application Key</name>
-      <keycode>110</keycode>
-    </item>
-    <item>
-      <name>§ Key</name>
-      <keycode>10</keycode>
-    </item>
-    <item>
-      <name>JIS EISUU</name>
-      <keycode>102</keycode>
-    </item>
-    <item>
-      <name>JIS KANA</name>
-      <keycode>104</keycode>
-    </item>
-    <item>
-      <name>Power</name>
-      <keycode>127</keycode>
-    </item>
+
+    <item><name>Power</name><keycode>127</keycode></item>
+
+    <item><name>Dashboard</name><keycode>130</keycode></item>
+    <item><name>Expose</name><keycode>160</keycode></item>
+
+    <item><name>------------------------------------------------------------</name><keycode>-----</keycode></item>
+
+    <item><name>PC Application Key</name><keycode>110</keycode></item>
+
+    <item><name>§ Key</name><keycode>10</keycode></item>
+
+    <item><name>JIS EISUU</name><keycode>102</keycode></item>
+    <item><name>JIS KANA</name><keycode>104</keycode></item>
+
   </list>
 </root>
