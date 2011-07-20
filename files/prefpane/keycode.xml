@@ -53,6 +53,14 @@
       <name>Forward Delete</name>
       <keycode>117</keycode>
     </item>
+    <item><name>F1</name><keycode>122</keycode></item>
+    <item><name>F2</name><keycode>120</keycode></item>
+    <item><name>F3</name><keycode>99</keycode></item>
+    <item><name>F4</name><keycode>118</keycode></item>
+    <item><name>F5</name><keycode>96</keycode></item>
+    <item><name>Volume Up</name><keycode>72</keycode></item>
+    <item><name>Volume Down</name><keycode>73</keycode></item>
+    <item><name>Volume Mute</name><keycode>74</keycode></item>
     <item>
       <name>Expose All</name>
       <keycode>160</keycode>
