@@ -2,11 +2,12 @@
 CONFIGURATION = Release
 
 all:
+	$(MAKE) -C ../../../../pkginfo
 	xcodebuild -alltargets -configuration $(CONFIGURATION) MODULE_VERSION=`cat ../../../../version` CURRENT_PROJECT_VERSION=`cat ../../../../version` build
 
 clean:
-	$(MAKE) -C ../common/generate clean
 	rm -rf build
+	rm -f Info.plist
 	rm -f *.xcodeproj/*.mode1
 	rm -f *.xcodeproj/*.mode1v3
 	rm -f *.xcodeproj/*.pbxuser
