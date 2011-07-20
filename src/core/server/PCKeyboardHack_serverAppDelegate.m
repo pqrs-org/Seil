@@ -7,23 +7,97 @@
 //
 
 #import "PCKeyboardHack_serverAppDelegate.h"
-#include "util.h"
+#import "UserClient_userspace.h"
 
 @implementation PCKeyboardHack_serverAppDelegate
 
 @synthesize window;
 
-- (void) configThreadMain {
-  for (;;) {
-    NSAutoreleasePool* pool = [[NSAutoreleasePool alloc] init];
-    {
-      sysctl_load();
-      sleep(1);
-    }
-    [pool drain];
+- (void) send_config_to_kext {
+}
+
+// ------------------------------------------------------------
+static void observer_IONotification(void* refcon, io_iterator_t iterator) {
+  NSLog(@"observer_IONotification");
+
+  PCKeyboardHack_serverAppDelegate* self = refcon;
+  if (! self) {
+    NSLog(@"[ERROR] observer_IONotification refcon == nil\n");
+    return;
   }
 
-  [NSThread exit];
+  for (;;) {
+    io_object_t obj = IOIteratorNext(iterator);
+    if (! obj) break;
+
+    IOObjectRelease(obj);
+  }
+  // Do not release iterator.
+
+  // = Documentation of IOKit =
+  // - Introduction to Accessing Hardware From Applications
+  //   - Finding and Accessing Devices
+  //
+  // In the case of IOServiceAddMatchingNotification, make sure you release the iterator only if you’re also ready to stop receiving notifications:
+  // When you release the iterator you receive from IOServiceAddMatchingNotification, you also disable the notification.
+
+  // ------------------------------------------------------------
+  // [UserClient_userspace refresh_connection] may fail by kIOReturnExclusiveAccess
+  // when NSWorkspaceSessionDidBecomeActiveNotification.
+  // So, we retry the connection some times.
+  for (int retrycount = 0; retrycount < 10; ++retrycount) {
+    [UserClient_userspace refresh_connection];
+    if ([UserClient_userspace connected]) break;
+
+    [NSThread sleepForTimeInterval:0.5];
+  }
+
+  [self send_config_to_kext];
+}
+
+- (void) unregisterIONotification {
+  if (notifyport_) {
+    if (loopsource_) {
+      CFRunLoopSourceInvalidate(loopsource_);
+      loopsource_ = nil;
+    }
+    IONotificationPortDestroy(notifyport_);
+    notifyport_ = nil;
+  }
+}
+
+- (void) registerIONotification {
+  [self unregisterIONotification];
+
+  notifyport_ = IONotificationPortCreate(kIOMasterPortDefault);
+  if (! notifyport_) {
+    NSLog(@"[ERROR] IONotificationPortCreate failed\n");
+    return;
+  }
+
+  // ----------------------------------------------------------------------
+  io_iterator_t it;
+  kern_return_t kernResult;
+
+  kernResult = IOServiceAddMatchingNotification(notifyport_,
+                                                kIOMatchedNotification,
+                                                IOServiceNameMatching("org_pqrs_driver_PCKeyboardHack"),
+                                                &observer_IONotification,
+                                                self,
+                                                &it);
+  if (kernResult != kIOReturnSuccess) {
+    NSLog(@"[ERROR] IOServiceAddMatchingNotification failed");
+    return;
+  }
+  observer_IONotification(self, it);
+
+  // ----------------------------------------------------------------------
+  loopsource_ = IONotificationPortGetRunLoopSource(notifyport_);
+  if (! loopsource_) {
+    NSLog(@"[ERROR] IONotificationPortGetRunLoopSource failed");
+    return;
+  }
+  CFRunLoopAddSource(CFRunLoopGetCurrent(), loopsource_, kCFRunLoopDefaultMode);
 }
 
 // ------------------------------------------------------------
@@ -31,23 +105,22 @@
 {
   NSLog(@"observer_NSWorkspaceSessionDidBecomeActiveNotification");
 
-  // Note: The console user is "real login user" or "loginwindow",
-  //       when NSWorkspaceSessionDidBecomeActiveNotification, NSWorkspaceSessionDidResignActiveNotification are called.
-  sysctl_reset();
-  sysctl_load();
+  [self registerIONotification];
 }
 
 - (void) observer_NSWorkspaceSessionDidResignActiveNotification:(NSNotification*)notification
 {
   NSLog(@"observer_NSWorkspaceSessionDidResignActiveNotification");
 
-  // Note: The console user is "real login user" or "loginwindow",
-  //       when NSWorkspaceSessionDidBecomeActiveNotification, NSWorkspaceSessionDidResignActiveNotification are called.
-  sysctl_reset();
+  [self unregisterIONotification];
+  [UserClient_userspace disconnect_from_kext];
 }
 
 // ------------------------------------------------------------
 - (void) applicationDidFinishLaunching:(NSNotification*)aNotification {
+  [self registerIONotification];
+
+  // ------------------------------------------------------------
   [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver:self
                                                          selector:@selector(observer_NSWorkspaceSessionDidBecomeActiveNotification:)
                                                              name:NSWorkspaceSessionDidBecomeActiveNotification
@@ -57,15 +130,6 @@
                                                          selector:@selector(observer_NSWorkspaceSessionDidResignActiveNotification:)
                                                              name:NSWorkspaceSessionDidResignActiveNotification
                                                            object:nil];
-
-  // ------------------------------------------------------------
-  sysctl_reset();
-  [NSThread detachNewThreadSelector:@selector(configThreadMain)toTarget:self withObject:nil];
-}
-
-- (void) applicationWillTerminate:(NSNotification*)aNotification {
-  NSLog(@"applicationWillTerminate");
-  sysctl_reset();
 }
 
 @end

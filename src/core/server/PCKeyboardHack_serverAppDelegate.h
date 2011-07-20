@@ -10,6 +10,10 @@
 
 @interface PCKeyboardHack_serverAppDelegate : NSObject <NSApplicationDelegate> {
   NSWindow* window;
+
+  // for IONotification
+  IONotificationPortRef notifyport_;
+  CFRunLoopSourceRef loopsource_;
 }
 
 @property (assign) IBOutlet NSWindow* window;
