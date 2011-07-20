@@ -18,6 +18,8 @@ public:
   virtual bool start(IOService* provider);
   virtual void stop(IOService* provider);
 
+  static void setConfiguration(BridgeUserClientStruct& newval);
+
 private:
   // see IOHIDUsageTables.h or http://www2d.biglobe.ne.jp/~msyk/keyboard/layout/usbkeycode.html
   class KeyMapIndex {
@@ -44,14 +46,18 @@ private:
   };
 
   // ------------------------------------------------------------
-  struct HookedKeyboard {
-    IOHIKeyboard* kbd;
-
-    unsigned int originalKeyCode[BRIDGE_KEY_INDEX__END__];
+  class HookedKeyboard {
+  public:
+    HookedKeyboard(void) : kbd_(NULL) {}
 
     void initialize(IOHIKeyboard* p);
     void terminate(void);
     void refresh(void);
+    IOHIKeyboard* get(void) { return kbd_; }
+
+  private:
+    IOHIKeyboard* kbd_;
+    unsigned int originalKeyCode_[BRIDGE_KEY_INDEX__END__];
   };
 
   // ------------------------------------------------------------
@@ -65,7 +71,6 @@ private:
 
   static bool customizeKeyMap(IOHIKeyboard* kbd);
   static bool restoreKeyMap(IOHIKeyboard* kbd);
-  static void customizeAllKeymap(void);
 
   static HookedKeyboard hookedKeyboard_[MAXNUM_KEYBOARD];
   static BridgeUserClientStruct configuration_;
