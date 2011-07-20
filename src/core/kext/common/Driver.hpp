@@ -55,7 +55,6 @@ private:
     void terminate(void);
     void refresh(void);
   };
-  static HookedKeyboard hookedKeyboard[MAXNUM_KEYBOARD];
 
   // ------------------------------------------------------------
   static HookedKeyboard* new_hookedKeyboard(void);
@@ -69,10 +68,11 @@ private:
   static bool customizeKeyMap(IOHIKeyboard* kbd);
   static bool restoreKeyMap(IOHIKeyboard* kbd);
 
+  static HookedKeyboard hookedKeyboard_[MAXNUM_KEYBOARD];
   static BridgeUserClientStruct configuration_;
 
-  IONotifier* keyboardNotifier;
-  IONotifier* terminatedNotifier;
+  IONotifier* keyboardNotifier_;
+  IONotifier* terminatedNotifier_;
 };
 
 #endif

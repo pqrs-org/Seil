@@ -5,7 +5,8 @@
 #include "base.hpp"
 #include "Driver.hpp"
 
-org_pqrs_driver_PCKeyboardHack::HookedKeyboard org_pqrs_driver_PCKeyboardHack::hookedKeyboard[MAXNUM_KEYBOARD];
+org_pqrs_driver_PCKeyboardHack::HookedKeyboard org_pqrs_driver_PCKeyboardHack::hookedKeyboard_[MAXNUM_KEYBOARD];
+BridgeUserClientStruct org_pqrs_driver_PCKeyboardHack::configuration_;
 
 // ----------------------------------------------------------------------
 // http://developer.apple.com/documentation/DeviceDrivers/Conceptual/WritingDeviceDriver/CPluPlusRuntime/chapter_2_section_3.html
@@ -20,7 +21,7 @@ OSDefineMetaClassAndStructors(org_pqrs_driver_PCKeyboardHack, IOService)
 void
 org_pqrs_driver_PCKeyboardHack::customizeAllKeymap(void) {
   for (int i = 0; i < MAXNUM_KEYBOARD; i++) {
-    hookedKeyboard[i].refresh();
+    hookedKeyboard_[i].refresh();
   }
 }
 
@@ -92,7 +93,7 @@ org_pqrs_driver_PCKeyboardHack::init(OSDictionary* dict)
   bool res = super::init(dict);
 
   for (int i = 0; i < MAXNUM_KEYBOARD; ++i) {
-    hookedKeyboard[i].kbd = NULL;
+    hookedKeyboard_[i].kbd = NULL;
   }
 
   memset(&configuration_, 0, sizeof(configuration_));
@@ -122,20 +123,20 @@ org_pqrs_driver_PCKeyboardHack::start(IOService* provider)
   IOLog("PCKeyboardHack::start\n");
   if (! res) { return res; }
 
-  keyboardNotifier = addMatchingNotification(gIOMatchedNotification,
-                                             serviceMatching("IOHIKeyboard"),
-                                             org_pqrs_driver_PCKeyboardHack::notifierfunc_hookKeyboard,
-                                             this, NULL, 0);
-  if (keyboardNotifier == NULL) {
+  keyboardNotifier_ = addMatchingNotification(gIOMatchedNotification,
+                                              serviceMatching("IOHIKeyboard"),
+                                              org_pqrs_driver_PCKeyboardHack::notifierfunc_hookKeyboard,
+                                              this, NULL, 0);
+  if (keyboardNotifier_ == NULL) {
     IOLog("[PCKeyboardHack ERROR] addMatchingNotification(gIOMatchedNotification)\n");
     return false;
   }
 
-  terminatedNotifier = addMatchingNotification(gIOTerminatedNotification,
-                                               serviceMatching("IOHIKeyboard"),
-                                               org_pqrs_driver_PCKeyboardHack::notifierfunc_unhookKeyboard,
-                                               this, NULL, 0);
-  if (terminatedNotifier == NULL) {
+  terminatedNotifier_ = addMatchingNotification(gIOTerminatedNotification,
+                                                serviceMatching("IOHIKeyboard"),
+                                                org_pqrs_driver_PCKeyboardHack::notifierfunc_unhookKeyboard,
+                                                this, NULL, 0);
+  if (terminatedNotifier_ == NULL) {
     IOLog("[PCKeyboardHack ERROR] addMatchingNotification(gIOTerminatedNotification)\n");
     return false;
   }
@@ -147,16 +148,16 @@ void
 org_pqrs_driver_PCKeyboardHack::stop(IOService* provider)
 {
   for (int i = 0; i < MAXNUM_KEYBOARD; ++i) {
-    if (hookedKeyboard[i].kbd != NULL) {
-      restoreKeyMap(hookedKeyboard[i].kbd);
+    if (hookedKeyboard_[i].kbd != NULL) {
+      restoreKeyMap(hookedKeyboard_[i].kbd);
     }
   }
 
-  if (keyboardNotifier) {
-    keyboardNotifier->remove();
+  if (keyboardNotifier_) {
+    keyboardNotifier_->remove();
   }
-  if (terminatedNotifier) {
-    terminatedNotifier->remove();
+  if (terminatedNotifier_) {
+    terminatedNotifier_->remove();
   }
 
   IOLog("PCKeyboardHack::stop\n");
@@ -169,8 +170,8 @@ org_pqrs_driver_PCKeyboardHack::HookedKeyboard*
 org_pqrs_driver_PCKeyboardHack::new_hookedKeyboard(void)
 {
   for (int i = 0; i < MAXNUM_KEYBOARD; ++i) {
-    if (hookedKeyboard[i].kbd == NULL) {
-      return hookedKeyboard + i;
+    if (hookedKeyboard_[i].kbd == NULL) {
+      return hookedKeyboard_ + i;
     }
   }
   return NULL;
@@ -183,8 +184,8 @@ org_pqrs_driver_PCKeyboardHack::search_hookedKeyboard(const IOHIKeyboard* kbd)
     return NULL;
   }
   for (int i = 0; i < MAXNUM_KEYBOARD; ++i) {
-    if (hookedKeyboard[i].kbd == kbd) {
-      return hookedKeyboard + i;
+    if (hookedKeyboard_[i].kbd == kbd) {
+      return hookedKeyboard_ + i;
     }
   }
   return NULL;
