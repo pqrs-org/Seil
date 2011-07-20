@@ -4,8 +4,6 @@
 
 #include "base.hpp"
 #include "Driver.hpp"
-#include "config.hpp"
-#include "keymap.hpp"
 
 org_pqrs_driver_PCKeyboardHack::HookedKeyboard org_pqrs_driver_PCKeyboardHack::hookedKeyboard[MAXNUM_KEYBOARD];
 
@@ -32,10 +30,18 @@ void
 org_pqrs_driver_PCKeyboardHack::HookedKeyboard::initialize(IOHIKeyboard* p)
 {
   IOHIDKeyboard* hid = OSDynamicCast(IOHIDKeyboard, p);
+
   if (hid) {
     kbd = p;
-#include "generate/output/include.code_initialize.cpp"
+
+    for (int i = 0; i < BRIDGE_KEY_INDEX__END__; ++i) {
+      KeyMapIndex::Value idx = KeyMapIndex::bridgeKeyindexToValue(i);
+      if (idx != KeyMapIndex::NONE) {
+        originalKeyCode[i] = hid->_usb_2_adb_keymap[idx];
+      }
+    }
   }
+
   refresh();
 }
 
@@ -46,22 +52,14 @@ org_pqrs_driver_PCKeyboardHack::HookedKeyboard::terminate(void)
 
   IOHIDKeyboard* hid = OSDynamicCast(IOHIDKeyboard, kbd);
   if (hid) {
-#include "generate/output/include.code_terminate.cpp"
-    kbd = NULL;
-  }
-}
-
-namespace {
-  void setkeycode(IOHIDKeyboard* hid, org_pqrs_PCKeyboardHack::KeyMapIndex::KeyMapIndex index,
-                  bool enable, int replaceKeyCode, int originalKeyCode)
-  {
-    if (hid) {
-      if (enable) {
-        hid->_usb_2_adb_keymap[index] = replaceKeyCode;
-      } else {
-        hid->_usb_2_adb_keymap[index] = originalKeyCode;
+    for (int i = 0; i < BRIDGE_KEY_INDEX__END__; ++i) {
+      KeyMapIndex::Value idx = KeyMapIndex::bridgeKeyindexToValue(i);
+      if (idx != KeyMapIndex::NONE) {
+        hid->_usb_2_adb_keymap[idx] = originalKeyCode[i];
       }
     }
+
+    kbd = NULL;
   }
 }
 
@@ -72,7 +70,16 @@ org_pqrs_driver_PCKeyboardHack::HookedKeyboard::refresh(void)
 
   IOHIDKeyboard* hid = OSDynamicCast(IOHIDKeyboard, kbd);
   if (hid) {
-#include "generate/output/include.code_setkeycode.cpp"
+    for (int i = 0; i < BRIDGE_KEY_INDEX__END__; ++i) {
+      KeyMapIndex::Value idx = KeyMapIndex::bridgeKeyindexToValue(i);
+      if (idx != KeyMapIndex::NONE) {
+        if (configuration_.enabled[i]) {
+          hid->_usb_2_adb_keymap[idx] = configuration_.keycode[i];
+        } else {
+          hid->_usb_2_adb_keymap[idx] = originalKeyCode[i];
+        }
+      }
+    }
   }
 }
 
@@ -83,11 +90,12 @@ org_pqrs_driver_PCKeyboardHack::init(OSDictionary* dict)
   IOLog("PCKeyboardHack::init\n");
 
   bool res = super::init(dict);
-  org_pqrs_PCKeyboardHack::sysctl_register();
 
   for (int i = 0; i < MAXNUM_KEYBOARD; ++i) {
     hookedKeyboard[i].kbd = NULL;
   }
+
+  memset(&configuration_, 0, sizeof(configuration_));
 
   return res;
 }
@@ -97,7 +105,6 @@ org_pqrs_driver_PCKeyboardHack::free(void)
 {
   IOLog("PCKeyboardHack::free\n");
 
-  org_pqrs_PCKeyboardHack::sysctl_unregister();
   super::free();
 }
 

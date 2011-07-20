@@ -220,7 +220,7 @@ org_pqrs_driver_PCKeyboardHack_UserClient_kext::callback_synchronized_communicat
   }
 
   // --------------------------------------------------
-  IOLOG_INFO("capslock_enabled = %d, capslock_keycode = %d\n", inputdata->capslock_enabled, inputdata->capslock_keycode);
+  // IOLOG_INFO("capslock_enabled = %d, capslock_keycode = %d\n", inputdata->capslock_enabled, inputdata->capslock_keycode);
 
   return kIOReturnSuccess;
 }
