@@ -58,8 +58,8 @@ private:
   static HookedKeyboard* new_hookedKeyboard(void);
   static HookedKeyboard* search_hookedKeyboard(const IOHIKeyboard* kbd);
 
-  static bool notifierfunc_hookKeyboard(void* target, void* refCon, IOService* newService, IONotifier* notifier);
-  static bool notifierfunc_unhookKeyboard(void* target, void* refCon, IOService* newService, IONotifier* notifier);
+  static bool IOHIKeyboard_gIOMatchedNotification_callback(void* target, void* refCon, IOService* newService, IONotifier* notifier);
+  static bool IOHIKeyboard_gIOTerminatedNotification_callback(void* target, void* refCon, IOService* newService, IONotifier* notifier);
 
   static bool isTargetDevice(IOHIKeyboard* kbd);
 
@@ -70,8 +70,8 @@ private:
   static HookedKeyboard hookedKeyboard_[MAXNUM_KEYBOARD];
   static BridgeUserClientStruct configuration_;
 
-  IONotifier* keyboardNotifier_;
-  IONotifier* terminatedNotifier_;
+  IONotifier* notifier_hookKeyboard_;
+  IONotifier* notifier_unhookKeyboard_;
 };
 
 #endif

@@ -124,21 +124,21 @@ org_pqrs_driver_PCKeyboardHack::start(IOService* provider)
   bool res = super::start(provider);
   if (! res) { return res; }
 
-  keyboardNotifier_ = addMatchingNotification(gIOMatchedNotification,
-                                              serviceMatching("IOHIKeyboard"),
-                                              org_pqrs_driver_PCKeyboardHack::notifierfunc_hookKeyboard,
-                                              this, NULL, 0);
-  if (keyboardNotifier_ == NULL) {
-    IOLOG_ERROR("addMatchingNotification(gIOMatchedNotification)\n");
+  notifier_hookKeyboard_ = addMatchingNotification(gIOMatchedNotification,
+                                                   serviceMatching("IOHIKeyboard"),
+                                                   org_pqrs_driver_PCKeyboardHack::IOHIKeyboard_gIOMatchedNotification_callback,
+                                                   this, NULL, 0);
+  if (notifier_hookKeyboard_ == NULL) {
+    IOLOG_ERROR("initialize_notification notifier_hookKeyboard_ == NULL\n");
     return false;
   }
 
-  terminatedNotifier_ = addMatchingNotification(gIOTerminatedNotification,
-                                                serviceMatching("IOHIKeyboard"),
-                                                org_pqrs_driver_PCKeyboardHack::notifierfunc_unhookKeyboard,
-                                                this, NULL, 0);
-  if (terminatedNotifier_ == NULL) {
-    IOLOG_ERROR("addMatchingNotification(gIOTerminatedNotification)\n");
+  notifier_unhookKeyboard_ = addMatchingNotification(gIOTerminatedNotification,
+                                                     serviceMatching("IOHIKeyboard"),
+                                                     org_pqrs_driver_PCKeyboardHack::IOHIKeyboard_gIOTerminatedNotification_callback,
+                                                     this, NULL, 0);
+  if (notifier_unhookKeyboard_ == NULL) {
+    IOLOG_ERROR("initialize_notification notifier_unhookKeyboard_ == NULL\n");
     return false;
   }
 
@@ -156,12 +156,8 @@ org_pqrs_driver_PCKeyboardHack::stop(IOService* provider)
     }
   }
 
-  if (keyboardNotifier_) {
-    keyboardNotifier_->remove();
-  }
-  if (terminatedNotifier_) {
-    terminatedNotifier_->remove();
-  }
+  if (notifier_hookKeyboard_) notifier_hookKeyboard_->remove();
+  if (notifier_unhookKeyboard_) notifier_unhookKeyboard_->remove();
 
   super::stop(provider);
 }
@@ -238,7 +234,7 @@ finish:
 }
 
 bool
-org_pqrs_driver_PCKeyboardHack::notifierfunc_hookKeyboard(void* target, void* refCon, IOService* newService, IONotifier* notifier)
+org_pqrs_driver_PCKeyboardHack::IOHIKeyboard_gIOMatchedNotification_callback(void* target, void* refCon, IOService* newService, IONotifier* notifier)
 {
   // IOLOG_INFO("notifier_hookKeyboard\n");
 
@@ -248,7 +244,7 @@ org_pqrs_driver_PCKeyboardHack::notifierfunc_hookKeyboard(void* target, void* re
 }
 
 bool
-org_pqrs_driver_PCKeyboardHack::notifierfunc_unhookKeyboard(void* target, void* refCon, IOService* newService, IONotifier* notifier)
+org_pqrs_driver_PCKeyboardHack::IOHIKeyboard_gIOTerminatedNotification_callback(void* target, void* refCon, IOService* newService, IONotifier* notifier)
 {
   // IOLOG_INFO("notifier_unhookKeyboard\n");
 
