@@ -18,8 +18,6 @@ public:
   virtual bool start(IOService* provider);
   virtual void stop(IOService* provider);
 
-  static void customizeAllKeymap(void);
-
 private:
   // see IOHIDUsageTables.h or http://www2d.biglobe.ne.jp/~msyk/keyboard/layout/usbkeycode.html
   class KeyMapIndex {
@@ -67,6 +65,7 @@ private:
 
   static bool customizeKeyMap(IOHIKeyboard* kbd);
   static bool restoreKeyMap(IOHIKeyboard* kbd);
+  static void customizeAllKeymap(void);
 
   static HookedKeyboard hookedKeyboard_[MAXNUM_KEYBOARD];
   static BridgeUserClientStruct configuration_;

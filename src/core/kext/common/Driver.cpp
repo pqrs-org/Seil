@@ -88,7 +88,7 @@ org_pqrs_driver_PCKeyboardHack::HookedKeyboard::refresh(void)
 bool
 org_pqrs_driver_PCKeyboardHack::init(OSDictionary* dict)
 {
-  IOLog("PCKeyboardHack::init\n");
+  IOLOG_INFO("init\n");
 
   bool res = super::init(dict);
 
@@ -104,7 +104,7 @@ org_pqrs_driver_PCKeyboardHack::init(OSDictionary* dict)
 void
 org_pqrs_driver_PCKeyboardHack::free(void)
 {
-  IOLog("PCKeyboardHack::free\n");
+  IOLOG_INFO("free\n");
 
   super::free();
 }
@@ -119,8 +119,9 @@ org_pqrs_driver_PCKeyboardHack::probe(IOService* provider, SInt32* score)
 bool
 org_pqrs_driver_PCKeyboardHack::start(IOService* provider)
 {
+  IOLOG_INFO("start\n");
+
   bool res = super::start(provider);
-  IOLog("PCKeyboardHack::start\n");
   if (! res) { return res; }
 
   keyboardNotifier_ = addMatchingNotification(gIOMatchedNotification,
@@ -128,7 +129,7 @@ org_pqrs_driver_PCKeyboardHack::start(IOService* provider)
                                               org_pqrs_driver_PCKeyboardHack::notifierfunc_hookKeyboard,
                                               this, NULL, 0);
   if (keyboardNotifier_ == NULL) {
-    IOLog("[PCKeyboardHack ERROR] addMatchingNotification(gIOMatchedNotification)\n");
+    IOLOG_ERROR("addMatchingNotification(gIOMatchedNotification)\n");
     return false;
   }
 
@@ -137,7 +138,7 @@ org_pqrs_driver_PCKeyboardHack::start(IOService* provider)
                                                 org_pqrs_driver_PCKeyboardHack::notifierfunc_unhookKeyboard,
                                                 this, NULL, 0);
   if (terminatedNotifier_ == NULL) {
-    IOLog("[PCKeyboardHack ERROR] addMatchingNotification(gIOTerminatedNotification)\n");
+    IOLOG_ERROR("addMatchingNotification(gIOTerminatedNotification)\n");
     return false;
   }
 
@@ -147,6 +148,8 @@ org_pqrs_driver_PCKeyboardHack::start(IOService* provider)
 void
 org_pqrs_driver_PCKeyboardHack::stop(IOService* provider)
 {
+  IOLOG_INFO("stop\n");
+
   for (int i = 0; i < MAXNUM_KEYBOARD; ++i) {
     if (hookedKeyboard_[i].kbd != NULL) {
       restoreKeyMap(hookedKeyboard_[i].kbd);
@@ -160,7 +163,6 @@ org_pqrs_driver_PCKeyboardHack::stop(IOService* provider)
     terminatedNotifier_->remove();
   }
 
-  IOLog("PCKeyboardHack::stop\n");
   super::stop(provider);
 }
 
@@ -228,7 +230,7 @@ finish:
   };
 
   if (vendorID == VENDOR_LOGITECH && productID == PRODUCT_LOGITECH_G700_LASER_MOUSE) {
-    IOLog("vendorID:0x%04x, productID:0x%04x (skipped)\n", vendorID, productID);
+    IOLOG_INFO("vendorID:0x%04x, productID:0x%04x (skipped)\n", vendorID, productID);
     return false;
   }
 
@@ -238,7 +240,7 @@ finish:
 bool
 org_pqrs_driver_PCKeyboardHack::notifierfunc_hookKeyboard(void* target, void* refCon, IOService* newService, IONotifier* notifier)
 {
-  IOLog("PCKeyboardHack::notifier_hookKeyboard\n");
+  // IOLOG_INFO("notifier_hookKeyboard\n");
 
   IOHIKeyboard* kbd = OSDynamicCast(IOHIKeyboard, newService);
   if (! isTargetDevice(kbd)) return true;
@@ -248,7 +250,7 @@ org_pqrs_driver_PCKeyboardHack::notifierfunc_hookKeyboard(void* target, void* re
 bool
 org_pqrs_driver_PCKeyboardHack::notifierfunc_unhookKeyboard(void* target, void* refCon, IOService* newService, IONotifier* notifier)
 {
-  IOLog("PCKeyboardHack::notifier_unhookKeyboard\n");
+  // IOLOG_INFO("notifier_unhookKeyboard\n");
 
   IOHIKeyboard* kbd = OSDynamicCast(IOHIKeyboard, newService);
   if (! isTargetDevice(kbd)) return true;
@@ -261,7 +263,7 @@ org_pqrs_driver_PCKeyboardHack::customizeKeyMap(IOHIKeyboard* kbd)
   if (! kbd) return false;
 
   const char* name = kbd->getName();
-  IOLog("PCKeyboardHack::customizeKeymap name = %s\n", name);
+  // IOLOG_INFO("customizeKeymap name = %s\n", name);
 
   // AppleADBKeyboard == PowerBook, IOHIKeyboard == MacBook, MacBook Pro, Mac mini, ...
   if (strcmp(name, "IOHIDKeyboard") != 0 && strcmp(name, "AppleADBKeyboard") != 0) return false;
@@ -281,7 +283,7 @@ org_pqrs_driver_PCKeyboardHack::restoreKeyMap(IOHIKeyboard* kbd)
   HookedKeyboard* p = search_hookedKeyboard(kbd);
   if (! p) return false;
 
-  IOLog("PCKeyboardHack::restoreKeyMap %p\n", kbd);
+  // IOLOG_INFO("restoreKeyMap %p\n", kbd);
   p->terminate();
   return true;
 }
