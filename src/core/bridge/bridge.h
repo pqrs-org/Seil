@@ -16,22 +16,21 @@ enum {
   BRIDGE_USERCLIENT_SYNCHRONIZED_COMMUNICATION_RETURN_ERROR_GENERIC = 1,
 };
 
+enum {
+  BRIDGE_KEY_INDEX_CAPSLOCK,
+  BRIDGE_KEY_INDEX_JIS_KANA,
+  BRIDGE_KEY_INDEX_JIS_NFER,
+  BRIDGE_KEY_INDEX_JIS_XFER,
+  BRIDGE_KEY_INDEX__END__,
+};
+
 // 64bit alignment.
 struct BridgeUserClientStruct {
-  uint8_t capslock_enabled;
-  uint8_t capslock_keycode;
-
-  uint8_t jis_xfer_enabled;
-  uint8_t jis_xfer_keycode;
-
-  uint8_t jis_nfer_enabled;
-  uint8_t jis_nfer_keycode;
-
-  uint8_t jis_kana_enabled;
-  uint8_t jis_kana_keycode;
+  uint8_t enabled[BRIDGE_KEY_INDEX__END__];
+  uint8_t keycode[BRIDGE_KEY_INDEX__END__];
 };
 // STATIC_ASSERT for sizeof(struct BridgeUserClientStruct).
 // We need to make this value same in kext and userspace.
-enum { STATIC_ASSERT__sizeof_BridgeUserClientStruct = 1 / (sizeof(struct BridgeUserClientStruct) == 8) };
+enum { STATIC_ASSERT__sizeof_BridgeUserClientStruct = 1 / (sizeof(struct BridgeUserClientStruct) == BRIDGE_KEY_INDEX__END__ * 2) };
 
 #endif
