@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3441868810502E9F003E6E77 /* AdminAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 3441868710502E9F003E6E77 /* AdminAction.m */; };
+		3419BD6513D8710800029E73 /* AdminAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 3419BD6413D8710800029E73 /* AdminAction.m */; };
 		3475AADF105020F400486BD4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3475AADE105020F400486BD4 /* Security.framework */; };
 		349B4CFE0DE2B371007CC17E /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 349B4CFD0DE2B371007CC17E /* AppController.m */; };
 		8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MainMenu.nib */; };
@@ -25,8 +25,8 @@
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32CA4F630368D1EE00C91783 /* uninstaller_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uninstaller_Prefix.pch; sourceTree = "<group>"; };
-		3441868610502E9F003E6E77 /* AdminAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AdminAction.h; path = ../prefpane/sharecode/AdminAction.h; sourceTree = SOURCE_ROOT; };
-		3441868710502E9F003E6E77 /* AdminAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AdminAction.m; path = ../prefpane/sharecode/AdminAction.m; sourceTree = SOURCE_ROOT; };
+		3419BD6313D8710800029E73 /* AdminAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminAction.h; sourceTree = "<group>"; };
+		3419BD6413D8710800029E73 /* AdminAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminAction.m; sourceTree = "<group>"; };
 		3475AADE105020F400486BD4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = /System/Library/Frameworks/Security.framework; sourceTree = "<absolute>"; };
 		349B4CFC0DE2B371007CC17E /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
 		349B4CFD0DE2B371007CC17E /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
@@ -50,8 +50,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				3441868610502E9F003E6E77 /* AdminAction.h */,
-				3441868710502E9F003E6E77 /* AdminAction.m */,
+				3419BD6313D8710800029E73 /* AdminAction.h */,
+				3419BD6413D8710800029E73 /* AdminAction.m */,
 				349B4CFC0DE2B371007CC17E /* AppController.h */,
 				349B4CFD0DE2B371007CC17E /* AppController.m */,
 			);
@@ -186,7 +186,7 @@
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				349B4CFE0DE2B371007CC17E /* AppController.m in Sources */,
-				3441868810502E9F003E6E77 /* AdminAction.m in Sources */,
+				3419BD6513D8710800029E73 /* AdminAction.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
