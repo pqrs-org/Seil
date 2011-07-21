@@ -7,6 +7,7 @@
 //
 
 #import "PCKeyboardHack_serverAppDelegate.h"
+#import "PCKeyboardHackKeys.h"
 #import "UserClient_userspace.h"
 #import "PreferencesManager.h"
 #include "bridge.h"
@@ -120,6 +121,11 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
 }
 
 // ------------------------------------------------------------
+- (void) observer_PreferencesChanged:(NSNotification*)notification {
+  [self send_config_to_kext];
+}
+
+// ------------------------------------------------------------
 - (void) observer_NSWorkspaceSessionDidBecomeActiveNotification:(NSNotification*)notification
 {
   NSLog(@"observer_NSWorkspaceSessionDidBecomeActiveNotification");
@@ -149,6 +155,11 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
                                                          selector:@selector(observer_NSWorkspaceSessionDidResignActiveNotification:)
                                                              name:NSWorkspaceSessionDidResignActiveNotification
                                                            object:nil];
+
+  [[NSDistributedNotificationCenter defaultCenter] addObserver:self
+                                                      selector:@selector(observer_PreferencesChanged:)
+                                                          name:kPCKeyboardHackPreferencesChangedNotification
+                                                        object:kPCKeyboardHackNotificationKey];
 }
 
 @end
