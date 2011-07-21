@@ -17,31 +17,12 @@ static PreferencesManager* global_instance = nil;
 }
 
 // ----------------------------------------
-- (void) addToDefault:(NSXMLElement*)element
-{
-  for (NSXMLElement* e in [element elementsForName : @"identifier"]) {
-    NSXMLNode* attr_default = [e attributeForName:@"default"];
-    if (! attr_default) continue;
-
-    [default_ setObject:[NSNumber numberWithInt:[[attr_default stringValue] intValue]] forKey:[e stringValue]];
-  }
-
-  for (NSXMLElement* e in [element elementsForName : @"list"]) {
-    [self addToDefault:e];
-  }
-  for (NSXMLElement* e in [element elementsForName : @"item"]) {
-    [self addToDefault:e];
-  }
-}
-
 - (void) setDefault
 {
-  NSString* xmlpath = @"/Library/org.pqrs/PCKeyboardHack/prefpane/number.xml";
-  NSURL* xmlurl = [NSURL fileURLWithPath:xmlpath];
-  NSXMLDocument* xmldocument = [[[NSXMLDocument alloc] initWithContentsOfURL:xmlurl options:0 error:NULL] autorelease];
-  if (xmldocument) {
-    [self addToDefault:[xmldocument rootElement]];
-  }
+  [default_ setObject:[NSNumber numberWithInt:51]  forKey:@"keycode_capslock"];
+  [default_ setObject:[NSNumber numberWithInt:54]  forKey:@"keycode_jis_kana"];
+  [default_ setObject:[NSNumber numberWithInt:102] forKey:@"keycode_jis_nfer"];
+  [default_ setObject:[NSNumber numberWithInt:104] forKey:@"keycode_jis_xfer"];
 }
 
 // ----------------------------------------
