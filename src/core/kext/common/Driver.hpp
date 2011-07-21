@@ -18,7 +18,7 @@ public:
   virtual bool start(IOService* provider);
   virtual void stop(IOService* provider);
 
-  static void setConfiguration(BridgeUserClientStruct& newval);
+  static void setConfiguration(const BridgeUserClientStruct& newval);
 
 private:
   // see IOHIDUsageTables.h or http://www2d.biglobe.ne.jp/~msyk/keyboard/layout/usbkeycode.html

@@ -273,7 +273,7 @@ org_pqrs_driver_PCKeyboardHack::restoreKeyMap(IOHIKeyboard* kbd)
 }
 
 void
-org_pqrs_driver_PCKeyboardHack::setConfiguration(BridgeUserClientStruct& newval)
+org_pqrs_driver_PCKeyboardHack::setConfiguration(const BridgeUserClientStruct& newval)
 {
   configuration_ = newval;
 
