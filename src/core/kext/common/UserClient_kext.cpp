@@ -182,6 +182,8 @@ org_pqrs_driver_PCKeyboardHack_UserClient_kext::callback_close(void)
     return kIOReturnNotOpen;
   }
 
+  org_pqrs_driver_PCKeyboardHack::unsetConfiguration();
+
   // Make sure we're the one who opened our provider before we tell it to close.
   provider_->close(this);
 

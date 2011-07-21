@@ -283,3 +283,15 @@ org_pqrs_driver_PCKeyboardHack::setConfiguration(const BridgeUserClientStruct& n
     hookedKeyboard_[i].refresh();
   }
 }
+
+void
+org_pqrs_driver_PCKeyboardHack::unsetConfiguration(void)
+{
+  memset(&configuration_, 0, sizeof(configuration_));
+
+  // ----------------------------------------------------------------------
+  // refresh all devices.
+  for (int i = 0; i < MAXNUM_KEYBOARD; i++) {
+    hookedKeyboard_[i].refresh();
+  }
+}
