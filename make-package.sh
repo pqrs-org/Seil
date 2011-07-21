@@ -16,7 +16,7 @@ sudo mkdir -p pkgroot
 
 basedir="/Library/org.pqrs/PCKeyboardHack"
 sudo mkdir -p "pkgroot/$basedir"
-for ostype in SnowLeopard; do
+for ostype in 10.6 10.7; do
     sudo cp -R src/core/kext/${ostype}/build/Release/PCKeyboardHack.kext "pkgroot/$basedir/PCKeyboardHack.${ostype}.kext"
 done
 sudo cp -R files/prefpane "pkgroot/$basedir"

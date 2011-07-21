@@ -6,7 +6,10 @@ kextfile=''
 uname=`uname -r`
 case "${uname%%.*}" in
     10)
-        kextfile="$basedir/PCKeyboardHack.SnowLeopard.kext"
+        kextfile="$basedir/PCKeyboardHack.10.6.kext"
+        ;;
+    11)
+        kextfile="$basedir/PCKeyboardHack.10.7.kext"
         ;;
 esac
 
