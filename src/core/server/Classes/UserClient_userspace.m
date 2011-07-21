@@ -70,7 +70,7 @@ static UserClient_userspace* global_instance = nil;
       continue;
     }
 
-    connect_ = YES;
+    connected = YES;
   }
 
   IOObjectRelease(iterator);

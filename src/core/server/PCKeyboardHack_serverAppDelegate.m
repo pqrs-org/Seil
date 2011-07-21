@@ -8,12 +8,31 @@
 
 #import "PCKeyboardHack_serverAppDelegate.h"
 #import "UserClient_userspace.h"
+#import "PreferencesManager.h"
+#include "bridge.h"
 
 @implementation PCKeyboardHack_serverAppDelegate
 
 @synthesize window;
 
 - (void) send_config_to_kext {
+  PreferencesManager* preferencesmanager = [PreferencesManager getInstance];
+
+  struct BridgeUserClientStruct bridgestruct;
+
+  bridgestruct.enabled[BRIDGE_KEY_INDEX_CAPSLOCK] = [preferencesmanager value:@"enable_capslock"];
+  bridgestruct.keycode[BRIDGE_KEY_INDEX_CAPSLOCK] = [preferencesmanager value:@"keycode_capslock"];
+
+  bridgestruct.enabled[BRIDGE_KEY_INDEX_JIS_KANA] = [preferencesmanager value:@"enable_jis_kana"];
+  bridgestruct.keycode[BRIDGE_KEY_INDEX_JIS_KANA] = [preferencesmanager value:@"keycode_jis_kana"];
+
+  bridgestruct.enabled[BRIDGE_KEY_INDEX_JIS_NFER] = [preferencesmanager value:@"enable_jis_nfer"];
+  bridgestruct.keycode[BRIDGE_KEY_INDEX_JIS_NFER] = [preferencesmanager value:@"keycode_jis_nfer"];
+
+  bridgestruct.enabled[BRIDGE_KEY_INDEX_JIS_XFER] = [preferencesmanager value:@"enable_jis_xfer"];
+  bridgestruct.keycode[BRIDGE_KEY_INDEX_JIS_XFER] = [preferencesmanager value:@"keycode_jis_xfer"];
+
+  [UserClient_userspace synchronized_communication:&bridgestruct];
 }
 
 // ------------------------------------------------------------
