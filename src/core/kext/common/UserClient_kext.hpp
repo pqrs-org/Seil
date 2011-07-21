@@ -34,7 +34,7 @@ private:
   IOReturn callback_close(void);
 
   static IOReturn static_callback_synchronized_communication(org_pqrs_driver_PCKeyboardHack_UserClient_kext* target, void* reference, IOExternalMethodArguments* arguments);
-  IOReturn callback_synchronized_communication(const BridgeUserClientStruct* inputdata, uint64_t* outputdata);
+  IOReturn callback_synchronized_communication(const BridgeUserClientStruct* inputdata);
 
   // ------------------------------------------------------------
   org_pqrs_driver_PCKeyboardHack* provider_;

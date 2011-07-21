@@ -23,7 +23,7 @@ IOExternalMethodDispatch org_pqrs_driver_PCKeyboardHack_UserClient_kext::methods
     reinterpret_cast<IOExternalMethodAction>(&static_callback_synchronized_communication), // Method pointer.
     0,                                                                                     // No scalar input values.
     sizeof(BridgeUserClientStruct),                                                        // The size of the input struct.
-    1,                                                                                     // One scalar output value.
+    0,                                                                                     // No scalar output value.
     0,                                                                                     // No struct output value.
   },
 };
@@ -195,13 +195,13 @@ IOReturn
 org_pqrs_driver_PCKeyboardHack_UserClient_kext::static_callback_synchronized_communication(org_pqrs_driver_PCKeyboardHack_UserClient_kext* target, void* reference, IOExternalMethodArguments* arguments)
 {
   if (! target) return kIOReturnBadArgument;
-  return target->callback_synchronized_communication(static_cast<const BridgeUserClientStruct*>(arguments->structureInput), &arguments->scalarOutput[0]);
+  return target->callback_synchronized_communication(static_cast<const BridgeUserClientStruct*>(arguments->structureInput));
 }
 
 IOReturn
-org_pqrs_driver_PCKeyboardHack_UserClient_kext::callback_synchronized_communication(const BridgeUserClientStruct* inputdata, uint64_t* outputdata)
+org_pqrs_driver_PCKeyboardHack_UserClient_kext::callback_synchronized_communication(const BridgeUserClientStruct* inputdata)
 {
-  if (! inputdata || ! outputdata) {
+  if (! inputdata) {
     IOLOG_ERROR("UserClient_kext::callback_synchronized_communication kIOReturnBadArgument\n");
     return kIOReturnBadArgument;
   }
