@@ -129,6 +129,9 @@ org_pqrs_driver_PCKeyboardHack::start(IOService* provider)
     return false;
   }
 
+  // Publish ourselves so clients can find us
+  registerService();
+
   return res;
 }
 
