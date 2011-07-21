@@ -33,7 +33,7 @@ static UserClient_userspace* global_instance = nil;
 {
   io_iterator_t iterator;
 
-  kern_return_t kernResult = IOServiceGetMatchingServices(kIOMasterPortDefault, IOServiceMatching("org_pqrs_driver_KeyRemap4MacBook"), &iterator);
+  kern_return_t kernResult = IOServiceGetMatchingServices(kIOMasterPortDefault, IOServiceMatching("org_pqrs_driver_PCKeyboardHack"), &iterator);
   if (kernResult != KERN_SUCCESS) {
     NSLog(@"[ERROR] IOServiceGetMatchingServices returned 0x%08x\n\n", kernResult);
     return;

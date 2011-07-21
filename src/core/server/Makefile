@@ -17,4 +17,4 @@ xcode:
 
 run:
 	-launchctl unload /Library/LaunchAgents/org.pqrs.PCKeyboardHack.server.plist 2>/dev/null
-	./build/Release/PCKeyboardHack_server
+	./build/Release/PCKeyboardHack_server.app/Contents/MacOS/PCKeyboardHack_server
