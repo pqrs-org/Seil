@@ -91,7 +91,7 @@ static BUNDLEPREFIX(XMLTreeWrapper) * _xmlTreeWrapper;
       NSString* name = [sysctl stringValue];
       int value = [[client_ proxy] value:name];
       value = ! value;
-      [[client_ proxy] setValueForName:value forName:identifier];
+      [[client_ proxy] setValueForName:value forName:name];
     }
   } else if ([identifier isEqualToString:@"keycode"]) {
     NSXMLNode* sysctl = [_xmlTreeWrapper getNode:item xpath:@"keycode"];
