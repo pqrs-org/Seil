@@ -1,7 +1,6 @@
 // -*- Mode: objc; Coding: utf-8; indent-tabs-mode: nil; -*-
 
 #import "PCKeyboardHackPref.h"
-#import "SysctlWrapper.h"
 #include <stdlib.h>
 
 @implementation PCKeyboardHackPref
@@ -10,7 +9,7 @@ static NSString* launchUninstallerCommand = @"/Library/org.pqrs/PCKeyboardHack/e
 
 - (void) drawVersion
 {
-  NSString* version = [BUNDLEPREFIX (SysctlWrapper) getString:@"pckeyboardhack.version"];
+  NSString* version = [[client_ proxy] preferencepane_version];
   if (! version) {
     version = @"-.-.-";
   }
