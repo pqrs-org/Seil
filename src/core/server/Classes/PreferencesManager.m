@@ -75,9 +75,14 @@ static PreferencesManager* global_instance = nil;
 // ----------------------------------------------------------------------
 - (int) value:(NSString*)name
 {
-  NSNumber* number = [[NSUserDefaults standardUserDefaults] objectForKey:name];
-  if (number) {
-    return [number intValue];
+  NSString* identifier = @"sysctl";
+
+  NSDictionary* dict = [[NSUserDefaults standardUserDefaults] dictionaryForKey:identifier];
+  if (dict) {
+    NSNumber* number = [dict objectForKey:name];
+    if (number) {
+      return [number intValue];
+    }
   }
   return [self defaultValue:name];
 }
@@ -94,8 +99,34 @@ static PreferencesManager* global_instance = nil;
 
 - (void) setValueForName:(int)newval forName:(NSString*)name
 {
-  [[NSUserDefaults standardUserDefaults] setInteger:newval forKey:name];
+  NSString* identifier = @"sysctl";
+
+  NSMutableDictionary* md = nil;
+
+  NSDictionary* dict = [[NSUserDefaults standardUserDefaults] dictionaryForKey:identifier];
+  if (dict) {
+    md = [NSMutableDictionary dictionaryWithDictionary:dict];
+  } else {
+    md = [[NSMutableDictionary new] autorelease];
+  }
+  if (! md) return;
+
+  int defaultvalue = 0;
+  NSNumber* defaultnumber = [default_ objectForKey:name];
+  if (defaultnumber) {
+    defaultvalue = [defaultnumber intValue];
+  }
+
+  if (newval == defaultvalue) {
+    [md removeObjectForKey:name];
+  } else {
+    [md setObject:[NSNumber numberWithInt:newval] forKey:name];
+  }
+
+  [[NSUserDefaults standardUserDefaults] setObject:md forKey:identifier];
   //[[NSUserDefaults standardUserDefaults] synchronize];
+
+  [[NSDistributedNotificationCenter defaultCenter] postNotificationName:kPCKeyboardHackPreferencesChangedNotification object:kPCKeyboardHackNotificationKey];
 }
 
 // ----------------------------------------------------------------------
