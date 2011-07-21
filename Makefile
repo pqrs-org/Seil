@@ -4,8 +4,6 @@ all:
 build:
 	$(MAKE) -C pkginfo
 	$(MAKE) -C src
-	mkdir -p files/share
-	./util/make-reset.rb files/prefpane/sysctl.xml > files/share/reset
 
 clean:
 	$(MAKE) -C src clean

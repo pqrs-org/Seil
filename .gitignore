@@ -7,9 +7,6 @@ xcuserdata/
 *.mode1
 *.mode1v3
 *.pbxuser
-src/core/kext/common/generate/output
-src/core/kext/SnowLeopard/version.hpp
-files/share/reset
 pkginfo/Info.plist
 src/core/kext/common/Info.plist
 src/core/server/Info.plist

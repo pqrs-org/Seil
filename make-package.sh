@@ -5,8 +5,6 @@ version=$(cat version)
 packagemaker=/Developer/Applications/Utilities/PackageMaker.app/Contents/MacOS/PackageMaker
 pkgName="PCKeyboardHack-${version}.pkg"
 
-echo "char * const config_version = \"$version-SnowLeopard\";" > src/core/kext/SnowLeopard/version.hpp
-
 make clean build || exit $?
 
 # --------------------------------------------------
@@ -23,7 +21,6 @@ for ostype in SnowLeopard; do
 done
 sudo cp -R files/prefpane "pkgroot/$basedir"
 sudo cp -R files/scripts "pkgroot/$basedir"
-sudo cp -R files/share "pkgroot/$basedir"
 
 sudo mkdir -p "pkgroot/$basedir/extra"
 sudo cp -R pkginfo/Resources/preflight "pkgroot/$basedir/extra/uninstall.sh"
