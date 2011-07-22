@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		344FC26213D953DE00C593F2 /* ostype.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 344FC26113D953DE00C593F2 /* ostype.hpp */; };
 		34A88F4713D5D0280057C423 /* UserClient_kext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34A88F4513D5D0280057C423 /* UserClient_kext.cpp */; };
 		34A88F4813D5D0280057C423 /* UserClient_kext.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 34A88F4613D5D0280057C423 /* UserClient_kext.hpp */; };
 		34DA85F60D06E4CB00AE69E6 /* base.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 34DA85EF0D06E4CB00AE69E6 /* base.hpp */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		32D94FD00562CBF700B6AF17 /* PCKeyboardHack.kext */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PCKeyboardHack.kext; sourceTree = BUILT_PRODUCTS_DIR; };
+		344FC26113D953DE00C593F2 /* ostype.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ostype.hpp; sourceTree = "<group>"; };
 		34A88F4513D5D0280057C423 /* UserClient_kext.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UserClient_kext.cpp; path = ../common/UserClient_kext.cpp; sourceTree = "<group>"; };
 		34A88F4613D5D0280057C423 /* UserClient_kext.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = UserClient_kext.hpp; path = ../common/UserClient_kext.hpp; sourceTree = "<group>"; };
 		34DA85EF0D06E4CB00AE69E6 /* base.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = base.hpp; path = ../common/base.hpp; sourceTree = SOURCE_ROOT; };
@@ -71,6 +73,7 @@
 		247142CAFF3F8F9811CA285C /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				344FC26113D953DE00C593F2 /* ostype.hpp */,
 				34E5917213D5D81A00CD64CB /* Driver.cpp */,
 				34E5917313D5D81A00CD64CB /* Driver.hpp */,
 				34E5916813D5D6B700CD64CB /* bridge.h */,
@@ -101,6 +104,7 @@
 				34A88F4813D5D0280057C423 /* UserClient_kext.hpp in Headers */,
 				34E5916913D5D6B700CD64CB /* bridge.h in Headers */,
 				34E5917513D5D81A00CD64CB /* Driver.hpp in Headers */,
+				344FC26213D953DE00C593F2 /* ostype.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

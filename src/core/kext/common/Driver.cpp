@@ -4,6 +4,7 @@
 
 #include "base.hpp"
 #include "Driver.hpp"
+#include "ostype.hpp"
 
 org_pqrs_driver_PCKeyboardHack::HookedKeyboard org_pqrs_driver_PCKeyboardHack::hookedKeyboard_[MAXNUM_KEYBOARD];
 BridgeUserClientStruct org_pqrs_driver_PCKeyboardHack::configuration_;
@@ -79,7 +80,7 @@ org_pqrs_driver_PCKeyboardHack::HookedKeyboard::refresh(void)
 bool
 org_pqrs_driver_PCKeyboardHack::init(OSDictionary* dict)
 {
-  IOLOG_INFO("init\n");
+  IOLOG_INFO("init %s\n", ostype);
 
   bool res = super::init(dict);
 
@@ -272,12 +273,13 @@ org_pqrs_driver_PCKeyboardHack::restoreKeyMap(IOHIKeyboard* kbd)
   return true;
 }
 
+// ----------------------------------------------------------------------
 void
 org_pqrs_driver_PCKeyboardHack::setConfiguration(const BridgeUserClientStruct& newval)
 {
   configuration_ = newval;
 
-  // ----------------------------------------------------------------------
+  // ----------------------------------------
   // refresh all devices.
   for (int i = 0; i < MAXNUM_KEYBOARD; i++) {
     hookedKeyboard_[i].refresh();
@@ -287,11 +289,7 @@ org_pqrs_driver_PCKeyboardHack::setConfiguration(const BridgeUserClientStruct& n
 void
 org_pqrs_driver_PCKeyboardHack::unsetConfiguration(void)
 {
-  memset(&configuration_, 0, sizeof(configuration_));
-
-  // ----------------------------------------------------------------------
-  // refresh all devices.
-  for (int i = 0; i < MAXNUM_KEYBOARD; i++) {
-    hookedKeyboard_[i].refresh();
-  }
+  BridgeUserClientStruct newval;
+  memset(&newval, 0, sizeof(newval));
+  setConfiguration(newval);
 }
