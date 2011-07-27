@@ -8,8 +8,25 @@
           <name>Change Caps Lock</name>
           <enable>enable_capslock</enable>
           <keycode>keycode_capslock</keycode>
-          <default>51</default>
-          <appendix>Delete</appendix>
+        </item>
+      </list>
+    </item>
+
+    <item>
+      <name>Other Keys</name>
+      <appendix>We recommend you to use KeyRemap4MacBook for these keys.</appendix>
+      <appendix>Use these items if you're using Sticky Keys in Universal Access.</appendix>
+      <list>
+        <item>
+          <name>Change Control_L</name>
+          <enable>enable_control_l</enable>
+          <keycode>keycode_control_l</keycode>
+        </item>
+
+        <item>
+          <name>Change Control_R</name>
+          <enable>enable_control_r</enable>
+          <keycode>keycode_control_r</keycode>
         </item>
       </list>
     </item>
@@ -21,22 +38,16 @@
           <name>Enable XFER Key</name>
           <enable>enable_jis_xfer</enable>
           <keycode>keycode_jis_xfer</keycode>
-          <default>104</default>
-          <appendix>KANA</appendix>
         </item>
         <item>
           <name>Enable NFER Key</name>
           <enable>enable_jis_nfer</enable>
           <keycode>keycode_jis_nfer</keycode>
-          <default>102</default>
-          <appendix>EISUU</appendix>
         </item>
         <item>
           <name>Enable KANA Key</name>
           <enable>enable_jis_kana</enable>
           <keycode>keycode_jis_kana</keycode>
-          <default>54</default>
-          <appendix>Command_R</appendix>
         </item>
       </list>
     </item>
