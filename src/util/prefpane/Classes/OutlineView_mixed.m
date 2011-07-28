@@ -80,6 +80,15 @@
       int value = [[client_ proxy] value:enable];
       value = ! value;
       [[client_ proxy] setValueForName:value forName:enable];
+    } else {
+      // expand/collapse tree
+      if ([outlineView isExpandable:item]) {
+        if ([outlineView isItemExpanded:item]) {
+          [outlineView collapseItem:item];
+        } else {
+          [outlineView expandItem:item];
+        }
+      }
     }
 
   } else if ([identifier isEqualToString:@"keycode"]) {
