@@ -12,7 +12,7 @@
 
 - (void) loadXML
 {
-  NSString* xmlpath = @"/Library/org.pqrs/PCKeyboardHack/prefpane/keycode.xml";
+  NSString* xmlpath = @"/Library/org.pqrs/PCKeyboardHack/prefpane/known.xml";
   NSURL* url = [NSURL fileURLWithPath:xmlpath];
   NSError* error = nil;
   NSXMLDocument* xmldocument = [[[NSXMLDocument alloc] initWithContentsOfURL:url options:0 error:&error] autorelease];
