@@ -12,9 +12,6 @@
 		3419BD7F13D8735100029E73 /* PCKeyboardHackClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3419BD7D13D8735100029E73 /* PCKeyboardHackClient.m */; };
 		341EAB5D0D94FE450026B39E /* PCKeyboardHackPref.h in Headers */ = {isa = PBXBuildFile; fileRef = 341EAB550D94FE450026B39E /* PCKeyboardHackPref.h */; };
 		341EAB5E0D94FE450026B39E /* PCKeyboardHackPref.m in Sources */ = {isa = PBXBuildFile; fileRef = 341EAB560D94FE450026B39E /* PCKeyboardHackPref.m */; };
-		341EAB690D94FE500026B39E /* XMLTreeWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 341EAB630D94FE500026B39E /* XMLTreeWrapper.h */; };
-		341EAB6A0D94FE500026B39E /* XMLTreeWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 341EAB640D94FE500026B39E /* XMLTreeWrapper.m */; };
-		343F9ACC0D5493BD00CA85DB /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 343F9ACB0D5493BD00CA85DB /* Security.framework */; };
 		34CE28D913E1A09C006E6698 /* OutlineView.h in Headers */ = {isa = PBXBuildFile; fileRef = 34CE28D713E1A09C006E6698 /* OutlineView.h */; };
 		34CE28DA13E1A09C006E6698 /* OutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 34CE28D813E1A09C006E6698 /* OutlineView.m */; };
 		34CE28DD13E1A17C006E6698 /* OutlineView_keycode.h in Headers */ = {isa = PBXBuildFile; fileRef = 34CE28DB13E1A17C006E6698 /* OutlineView_keycode.h */; };
@@ -40,9 +37,6 @@
 		3419BD7D13D8735100029E73 /* PCKeyboardHackClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCKeyboardHackClient.m; sourceTree = "<group>"; };
 		341EAB550D94FE450026B39E /* PCKeyboardHackPref.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCKeyboardHackPref.h; sourceTree = "<group>"; };
 		341EAB560D94FE450026B39E /* PCKeyboardHackPref.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCKeyboardHackPref.m; sourceTree = "<group>"; };
-		341EAB630D94FE500026B39E /* XMLTreeWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLTreeWrapper.h; sourceTree = "<group>"; };
-		341EAB640D94FE500026B39E /* XMLTreeWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLTreeWrapper.m; sourceTree = "<group>"; };
-		343F9ACB0D5493BD00CA85DB /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = /System/Library/Frameworks/Security.framework; sourceTree = "<absolute>"; };
 		34CE28D713E1A09C006E6698 /* OutlineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutlineView.h; path = Classes/OutlineView.h; sourceTree = "<group>"; };
 		34CE28D813E1A09C006E6698 /* OutlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OutlineView.m; path = Classes/OutlineView.m; sourceTree = "<group>"; };
 		34CE28DB13E1A17C006E6698 /* OutlineView_keycode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutlineView_keycode.h; path = Classes/OutlineView_keycode.h; sourceTree = "<group>"; };
@@ -63,7 +57,6 @@
 			files = (
 				8D202CF30486D31800D8A456 /* Cocoa.framework in Frameworks */,
 				8D202CF40486D31800D8A456 /* PreferencePanes.framework in Frameworks */,
-				343F9ACC0D5493BD00CA85DB /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,7 +78,6 @@
 		089C1671FE841209C02AAC07 /* Frameworks and Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				343F9ACB0D5493BD00CA85DB /* Security.framework */,
 				1058C7ACFEA557BF11CA2CBB /* Linked Frameworks */,
 				1058C7AEFEA557BF11CA2CBB /* Other Frameworks */,
 			);
@@ -117,7 +109,6 @@
 				3419BD7913D8734700029E73 /* PCKeyboardHackKeys.h */,
 				341EAB550D94FE450026B39E /* PCKeyboardHackPref.h */,
 				341EAB560D94FE450026B39E /* PCKeyboardHackPref.m */,
-				34A482AB0D94EDC1002CF803 /* sharecode */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -156,15 +147,6 @@
 			name = "Other Sources";
 			sourceTree = "<group>";
 		};
-		34A482AB0D94EDC1002CF803 /* sharecode */ = {
-			isa = PBXGroup;
-			children = (
-				341EAB630D94FE500026B39E /* XMLTreeWrapper.h */,
-				341EAB640D94FE500026B39E /* XMLTreeWrapper.m */,
-			);
-			path = sharecode;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -174,7 +156,6 @@
 			files = (
 				8D202CEA0486D31800D8A456 /* PCKeyboardHack_Prefix.pch in Headers */,
 				341EAB5D0D94FE450026B39E /* PCKeyboardHackPref.h in Headers */,
-				341EAB690D94FE500026B39E /* XMLTreeWrapper.h in Headers */,
 				3419BD7A13D8734700029E73 /* PCKeyboardHackKeys.h in Headers */,
 				3419BD7E13D8735100029E73 /* PCKeyboardHackClient.h in Headers */,
 				34CE28D913E1A09C006E6698 /* OutlineView.h in Headers */,
@@ -259,7 +240,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				341EAB5E0D94FE450026B39E /* PCKeyboardHackPref.m in Sources */,
-				341EAB6A0D94FE500026B39E /* XMLTreeWrapper.m in Sources */,
 				3419BD7F13D8735100029E73 /* PCKeyboardHackClient.m in Sources */,
 				34CE28DA13E1A09C006E6698 /* OutlineView.m in Sources */,
 				34CE28DE13E1A17C006E6698 /* OutlineView_keycode.m in Sources */,
