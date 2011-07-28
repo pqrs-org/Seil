@@ -27,6 +27,13 @@ static NSString* launchUninstallerCommand = @"/Library/org.pqrs/PCKeyboardHack/e
 {
   [self drawVersion];
   [outlineView_mixed_ initialExpandCollapseTree];
+
+  // For some reason, launchd does not start PCKeyboardHack_server permanently.
+  // (And we can recover it by reloading plist.)
+  //
+  // However, calling launchctl in Terminal.app is not familiar for everyone.
+  // Therefore, we call launchctl at prefpane.
+  system("/bin/launchctl load -w /Library/LaunchAgents/org.pqrs.PCKeyboardHack.server.plist 2> /dev/null");
 }
 
 @end
