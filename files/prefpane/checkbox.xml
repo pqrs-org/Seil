@@ -12,8 +12,12 @@
 
   <item>
     <name>Other Keys</name>
-    <appendix>We recommend you to use KeyRemap4MacBook for these keys.</appendix>
-    <appendix>Use these items if you're using Sticky Keys in Universal Access.</appendix>
+    <item>
+      <name>Note:</name>
+      <appendix>If you're using Sticky Keys in Universal Access,</appendix>
+      <appendix>these items help you.</appendix>
+      <appendix>Otherwise use KeyRemap4MacBook to modify these keys.</appendix>
+    </item>
     <item>
       <name>Change Control_L</name>
       <enable>enable_control_l</enable>

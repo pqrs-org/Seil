@@ -99,4 +99,19 @@
   }
 }
 
+- (CGFloat) outlineView:(NSOutlineView*)outlineView heightOfRowByItem:(id)item
+{
+  CGFloat height = [outlineView rowHeight];
+
+  NSNumber* number = [item objectForKey:@"height"];
+  if (number) {
+    CGFloat newheight = [outlineView rowHeight] * [number intValue];
+    if (newheight > height) {
+      height = newheight;
+    }
+  }
+
+  return height;
+}
+
 @end

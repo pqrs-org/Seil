@@ -122,7 +122,7 @@
 																	<bool key="EncodedWithXMLCoder">YES</bool>
 																	<object class="NSTableColumn" id="1019937728">
 																		<string key="NSIdentifier">enable</string>
-																		<double key="NSWidth">281</double>
+																		<double key="NSWidth">362</double>
 																		<double key="NSMinWidth">16</double>
 																		<double key="NSMaxWidth">1000</double>
 																		<object class="NSTableHeaderCell" key="NSHeaderCell">
@@ -172,7 +172,7 @@
 																	</object>
 																	<object class="NSTableColumn" id="861513542">
 																		<string key="NSIdentifier">default</string>
-																		<double key="NSWidth">166</double>
+																		<double key="NSWidth">150</double>
 																		<double key="NSMinWidth">10</double>
 																		<double key="NSMaxWidth">3.4028234663852886e+38</double>
 																		<object class="NSTableHeaderCell" key="NSHeaderCell">
@@ -215,7 +215,7 @@
 																	</object>
 																	<object class="NSTableColumn" id="269834430">
 																		<string key="NSIdentifier">keycode</string>
-																		<double key="NSWidth">115</double>
+																		<double key="NSWidth">50</double>
 																		<double key="NSMinWidth">40</double>
 																		<double key="NSMaxWidth">1000</double>
 																		<object class="NSTableHeaderCell" key="NSHeaderCell">

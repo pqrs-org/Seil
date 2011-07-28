@@ -13,6 +13,8 @@
 - (NSMutableDictionary*) parseItemTag:(NSXMLElement*)item
 {
   NSMutableDictionary* dict = [[NSMutableDictionary new] autorelease];
+  NSMutableString* name = [[NSMutableString new] autorelease];
+  int height = 0;
 
   NSUInteger count = [item childCount];
   for (NSUInteger i = 0; i < count; ++i) {
@@ -28,11 +30,23 @@
       [children addObject:child];
       [dict setObject:children forKey:@"children"];
 
+    } else if ([[e name] isEqualToString:@"name"]) {
+      [name appendString:[e stringValue]];
+      ++height;
+
+    } else if ([[e name] isEqualToString:@"appendix"]) {
+      [name appendString:@"\n  "];
+      [name appendString:[e stringValue]];
+      ++height;
+
     } else {
       NSString* value = [[e stringValue] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
       [dict setObject:value forKey:[e name]];
     }
   }
+
+  [dict setObject:name forKey:@"name"];
+  [dict setObject:[NSNumber numberWithInt:height] forKey:@"height"];
 
   return dict;
 }
