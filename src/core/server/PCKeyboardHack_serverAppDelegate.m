@@ -21,17 +21,23 @@
 
   struct BridgeUserClientStruct bridgestruct;
 
-  bridgestruct.enabled[BRIDGE_KEY_INDEX_CAPSLOCK] = [preferencesmanager value:@"enable_capslock"];
-  bridgestruct.keycode[BRIDGE_KEY_INDEX_CAPSLOCK] = [preferencesmanager value:@"keycode_capslock"];
+  bridgestruct.enabled[BRIDGE_KEY_INDEX_CAPSLOCK]  = [preferencesmanager value:@"enable_capslock"];
+  bridgestruct.keycode[BRIDGE_KEY_INDEX_CAPSLOCK]  = [preferencesmanager value:@"keycode_capslock"];
 
-  bridgestruct.enabled[BRIDGE_KEY_INDEX_JIS_KANA] = [preferencesmanager value:@"enable_jis_kana"];
-  bridgestruct.keycode[BRIDGE_KEY_INDEX_JIS_KANA] = [preferencesmanager value:@"keycode_jis_kana"];
+  bridgestruct.enabled[BRIDGE_KEY_INDEX_JIS_KANA]  = [preferencesmanager value:@"enable_jis_kana"];
+  bridgestruct.keycode[BRIDGE_KEY_INDEX_JIS_KANA]  = [preferencesmanager value:@"keycode_jis_kana"];
 
-  bridgestruct.enabled[BRIDGE_KEY_INDEX_JIS_NFER] = [preferencesmanager value:@"enable_jis_nfer"];
-  bridgestruct.keycode[BRIDGE_KEY_INDEX_JIS_NFER] = [preferencesmanager value:@"keycode_jis_nfer"];
+  bridgestruct.enabled[BRIDGE_KEY_INDEX_JIS_NFER]  = [preferencesmanager value:@"enable_jis_nfer"];
+  bridgestruct.keycode[BRIDGE_KEY_INDEX_JIS_NFER]  = [preferencesmanager value:@"keycode_jis_nfer"];
 
-  bridgestruct.enabled[BRIDGE_KEY_INDEX_JIS_XFER] = [preferencesmanager value:@"enable_jis_xfer"];
-  bridgestruct.keycode[BRIDGE_KEY_INDEX_JIS_XFER] = [preferencesmanager value:@"keycode_jis_xfer"];
+  bridgestruct.enabled[BRIDGE_KEY_INDEX_JIS_XFER]  = [preferencesmanager value:@"enable_jis_xfer"];
+  bridgestruct.keycode[BRIDGE_KEY_INDEX_JIS_XFER]  = [preferencesmanager value:@"keycode_jis_xfer"];
+
+  bridgestruct.enabled[BRIDGE_KEY_INDEX_CONTROL_L] = [preferencesmanager value:@"enable_control_l"];
+  bridgestruct.keycode[BRIDGE_KEY_INDEX_CONTROL_L] = [preferencesmanager value:@"keycode_control_l"];
+
+  bridgestruct.enabled[BRIDGE_KEY_INDEX_CONTROL_R] = [preferencesmanager value:@"enable_control_r"];
+  bridgestruct.keycode[BRIDGE_KEY_INDEX_CONTROL_R] = [preferencesmanager value:@"keycode_control_r"];
 
   [UserClient_userspace synchronized_communication:&bridgestruct];
 }

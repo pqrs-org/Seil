@@ -20,6 +20,8 @@ static PreferencesManager* global_instance = nil;
 - (void) setDefault
 {
   [default_ setObject:[NSNumber numberWithInt:51]  forKey:@"keycode_capslock"];
+  [default_ setObject:[NSNumber numberWithInt:59]  forKey:@"keycode_control_l"];
+  [default_ setObject:[NSNumber numberWithInt:62]  forKey:@"keycode_control_r"];
   [default_ setObject:[NSNumber numberWithInt:54]  forKey:@"keycode_jis_kana"];
   [default_ setObject:[NSNumber numberWithInt:102] forKey:@"keycode_jis_nfer"];
   [default_ setObject:[NSNumber numberWithInt:104] forKey:@"keycode_jis_xfer"];

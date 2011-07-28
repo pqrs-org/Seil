@@ -26,18 +26,22 @@ private:
   class KeyMapIndex {
   public:
     enum Value {
-      NONE     = 0, // NONE must be a unique value in this enum.
-      CAPSLOCK = 0x39,
-      JIS_KANA = 0x88,
-      JIS_NFER = 0x8b,
-      JIS_XFER = 0x8a,
+      NONE      = 0, // NONE must be a unique value in this enum.
+      CAPSLOCK  = 0x39,
+      JIS_KANA  = 0x88,
+      JIS_NFER  = 0x8b,
+      JIS_XFER  = 0x8a,
+      CONTROL_L = 0xe0,
+      CONTROL_R = 0xe4,
     };
     static Value bridgeKeyindexToValue(int bridgeKeyIndex) {
       switch (bridgeKeyIndex) {
-        case BRIDGE_KEY_INDEX_CAPSLOCK: return CAPSLOCK;
-        case BRIDGE_KEY_INDEX_JIS_KANA: return JIS_KANA;
-        case BRIDGE_KEY_INDEX_JIS_NFER: return JIS_NFER;
-        case BRIDGE_KEY_INDEX_JIS_XFER: return JIS_XFER;
+        case BRIDGE_KEY_INDEX_CAPSLOCK:  return CAPSLOCK;
+        case BRIDGE_KEY_INDEX_JIS_KANA:  return JIS_KANA;
+        case BRIDGE_KEY_INDEX_JIS_NFER:  return JIS_NFER;
+        case BRIDGE_KEY_INDEX_JIS_XFER:  return JIS_XFER;
+        case BRIDGE_KEY_INDEX_CONTROL_L: return CONTROL_L;
+        case BRIDGE_KEY_INDEX_CONTROL_R: return CONTROL_R;
       }
       return NONE;
     }
