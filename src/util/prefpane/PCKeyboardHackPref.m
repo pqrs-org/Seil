@@ -13,7 +13,7 @@ static NSString* launchUninstallerCommand = @"/Library/org.pqrs/PCKeyboardHack/e
   if (! version) {
     version = @"-.-.-";
   }
-  [_versionText setStringValue:version];
+  [versionText_ setStringValue:version];
 }
 
 // ----------------------------------------------------------------------
@@ -26,7 +26,7 @@ static NSString* launchUninstallerCommand = @"/Library/org.pqrs/PCKeyboardHack/e
 - (void) mainViewDidLoad
 {
   [self drawVersion];
-  [_outlineView_mixed expandItem:nil expandChildren:YES];
+  [outlineView_mixed_ initialExpandCollapseTree];
 }
 
 @end

@@ -8,6 +8,9 @@
 {
   IBOutlet org_pqrs_PCKeyboardHack_Client* client_;
   IBOutlet org_pqrs_PCKeyboardHack_OutlineView_keycode* outlineview_keycode_;
+  IBOutlet id outlineview_;
 }
+
+- (void) initialExpandCollapseTree;
 
 @end

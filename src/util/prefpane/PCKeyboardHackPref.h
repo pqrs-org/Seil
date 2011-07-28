@@ -2,11 +2,12 @@
 
 #import <PreferencePanes/PreferencePanes.h>
 #import "PCKeyboardHackClient.h"
+#import "OutlineView_mixed.h"
 
 @interface PCKeyboardHackPref : NSPreferencePane
 {
-  IBOutlet id _versionText;
-  IBOutlet id _outlineView_mixed;
+  IBOutlet id versionText_;
+  IBOutlet org_pqrs_PCKeyboardHack_OutlineView_mixed* outlineView_mixed_;
   IBOutlet org_pqrs_PCKeyboardHack_Client* client_;
 }
 

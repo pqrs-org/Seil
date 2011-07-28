@@ -3,8 +3,6 @@
 #import "OutlineView.h"
 
 @interface org_pqrs_PCKeyboardHack_OutlineView_keycode : org_pqrs_PCKeyboardHack_OutlineView
-{
-}
 
 - (NSString*) getKeyName:(int)keycode;
 

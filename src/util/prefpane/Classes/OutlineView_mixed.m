@@ -15,6 +15,17 @@
   return self;
 }
 
+- (void) initialExpandCollapseTree
+{
+  for (NSDictionary* dict in datasource_) {
+    if ([[dict objectForKey:@"expand"] isEqualToString:@"true"]) {
+      [outlineview_ expandItem:dict];
+    } else {
+      [outlineview_ collapseItem:dict];
+    }
+  }
+}
+
 // ------------------------------------------------------------
 - (id) outlineView:(NSOutlineView*)outlineView objectValueForTableColumn:(NSTableColumn*)tableColumn byItem:(id)item
 {

@@ -2,6 +2,7 @@
 <root>
   <item>
     <name>Caps Lock</name>
+    <expand>true</expand>
     <item>
       <name>Change Caps Lock</name>
       <enable>enable_capslock</enable>
@@ -28,6 +29,7 @@
 
   <item>
     <name>For Japanese</name>
+    <expand>true</expand>
     <item>
       <name>Enable XFER Key</name>
       <enable>enable_jis_xfer</enable>

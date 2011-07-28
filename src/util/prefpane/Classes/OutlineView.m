@@ -119,9 +119,4 @@
   return [item objectForKey:identifier];
 }
 
-- (BOOL) outlineView:(NSOutlineView*)outlineView shouldCollapseItem:(id)item
-{
-  return NO;
-}
-
 @end
