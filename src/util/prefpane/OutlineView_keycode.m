@@ -33,7 +33,8 @@
       NSXMLElement* e = [self castToNSXMLElement:[item childAtIndex:j]];
       if (! e) continue;
 
-      [dict setObject:[e stringValue] forKey:[e name]];
+      NSString* value = [[e stringValue] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+      [dict setObject:value forKey:[e name]];
     }
 
     if ([dict count] > 0) {
@@ -59,6 +60,18 @@
   [keycode_ release];
 
   [super dealloc];
+}
+
+- (NSString*) getKeyName:(int)keycode
+{
+  NSString* keycodestring = [NSString stringWithFormat:@"%d", keycode];
+
+  for (NSDictionary* dict in keycode_) {
+    if ([keycodestring isEqualToString:[dict objectForKey:@"keycode"]]) {
+      return [dict objectForKey:@"name"];
+    }
+  }
+  return nil;
 }
 
 // ------------------------------------------------------------

@@ -6,4 +6,6 @@
   NSMutableArray* keycode_;
 }
 
+- (NSString*) getKeyName:(int)keycode;
+
 @end

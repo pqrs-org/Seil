@@ -66,16 +66,15 @@ static BUNDLEPREFIX(XMLTreeWrapper) * _xmlTreeWrapper;
     }
 
   } else if ([identifier isEqualToString:@"default"]) {
-    NSXMLNode* node = [_xmlTreeWrapper getNode:item xpath:@"default"];
-    if (! node) {
+    NSXMLNode* sysctl = [_xmlTreeWrapper getNode:item xpath:@"keycode"];
+
+    if (! sysctl) {
       return nil;
     } else {
-      NSXMLNode* appendix = [_xmlTreeWrapper getNode:item xpath:@"appendix"];
-      if (appendix) {
-        return [NSString stringWithFormat:@"%@ (%@)", [node stringValue], [appendix stringValue]];
-      } else {
-        return [node stringValue];
-      }
+      int keycodevalue = [[client_ proxy] defaultValue:[sysctl stringValue]];
+      NSString* keycodename = [outlineview_keycode_ getKeyName:keycodevalue];
+
+      return [NSString stringWithFormat:@"%d (%@)", keycodevalue, keycodename];
     }
   }
 
