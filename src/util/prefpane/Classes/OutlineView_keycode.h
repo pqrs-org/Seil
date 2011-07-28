@@ -1,9 +1,9 @@
 // -*- Mode: objc; Coding: utf-8; indent-tabs-mode: nil; -*-
 #import <Cocoa/Cocoa.h>
+#import "OutlineView.h"
 
-@interface org_pqrs_PCKeyboardHack_OutlineView_keycode : NSObject
+@interface org_pqrs_PCKeyboardHack_OutlineView_keycode : org_pqrs_PCKeyboardHack_OutlineView
 {
-  NSMutableArray* keycode_;
 }
 
 - (NSString*) getKeyName:(int)keycode;

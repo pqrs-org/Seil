@@ -1,8 +1,8 @@
 // -*- Mode: objc; Coding: utf-8; indent-tabs-mode: nil; -*-
 
-#import "XMLParser.h"
+#import "OutlineView.h"
 
-@implementation org_pqrs_PCKeyboardHack_XMLParser
+@implementation org_pqrs_PCKeyboardHack_OutlineView
 
 - (NSXMLElement*) castToNSXMLElement:(NSXMLNode*)node
 {
@@ -73,6 +73,55 @@
   [datasource_ release];
 
   [super dealloc];
+}
+
+// ------------------------------------------------------------
+- (NSUInteger) outlineView:(NSOutlineView*)outlineView numberOfChildrenOfItem:(id)item
+{
+  NSArray* a = nil;
+
+  // root object
+  if (! item) {
+    a = datasource_;
+  } else {
+    a = [item objectForKey:@"children"];
+  }
+
+  if (! a) return 0;
+  return [a count];
+}
+
+- (id) outlineView:(NSOutlineView*)outlineView child:(NSUInteger)idx ofItem:(id)item
+{
+  NSArray* a = nil;
+
+  // root object
+  if (! item) {
+    a = datasource_;
+  } else {
+    a = [item objectForKey:@"children"];
+  }
+
+  if (! a) return nil;
+  if (idx >= [a count]) return nil;
+  return [a objectAtIndex:idx];
+}
+
+- (BOOL) outlineView:(NSOutlineView*)outlineView isItemExpandable:(id)item
+{
+  NSArray* a = [item objectForKey:@"children"];
+  return a ? YES : NO;
+}
+
+- (id) outlineView:(NSOutlineView*)outlineView objectValueForTableColumn:(NSTableColumn*)tableColumn byItem:(id)item
+{
+  NSString* identifier = [tableColumn identifier];
+  return [item objectForKey:identifier];
+}
+
+- (BOOL) outlineView:(NSOutlineView*)outlineView shouldCollapseItem:(id)item
+{
+  return NO;
 }
 
 @end
