@@ -3,7 +3,7 @@
 
 @interface org_pqrs_PCKeyboardHack_OutlineView_keycode : NSObject
 {
-  IBOutlet id _outlineView_keycode;
+  NSMutableArray* keycode_;
 }
 
 @end
