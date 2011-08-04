@@ -14,8 +14,10 @@
     <name>Other Keys</name>
     <item>
       <name>Note:</name>
-      <appendix>If you're using Sticky Keys in Universal Access,</appendix>
-      <appendix>these items help you.</appendix>
+      <appendix>These items help you if the following conditions:</appendix>
+      <appendix>* If you want to swap Caps Lock and other key.</appendix>
+      <appendix>* If you're using Sticky Keys in Universal Access.</appendix>
+      <appendix></appendix>
       <appendix>Otherwise use KeyRemap4MacBook to modify these keys.</appendix>
     </item>
     <item>
