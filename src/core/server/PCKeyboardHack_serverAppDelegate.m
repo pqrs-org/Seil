@@ -20,6 +20,7 @@
   PreferencesManager* preferencesmanager = [PreferencesManager getInstance];
 
   struct BridgeUserClientStruct bridgestruct;
+  memset(&bridgestruct, 0, sizeof(bridgestruct));
 
   bridgestruct.enabled[BRIDGE_KEY_INDEX_CAPSLOCK]  = [preferencesmanager value:@"enable_capslock"];
   bridgestruct.keycode[BRIDGE_KEY_INDEX_CAPSLOCK]  = [preferencesmanager value:@"keycode_capslock"];
@@ -33,11 +34,29 @@
   bridgestruct.enabled[BRIDGE_KEY_INDEX_JIS_XFER]  = [preferencesmanager value:@"enable_jis_xfer"];
   bridgestruct.keycode[BRIDGE_KEY_INDEX_JIS_XFER]  = [preferencesmanager value:@"keycode_jis_xfer"];
 
+  bridgestruct.enabled[BRIDGE_KEY_INDEX_COMMAND_L] = [preferencesmanager value:@"enable_command_l"];
+  bridgestruct.keycode[BRIDGE_KEY_INDEX_COMMAND_L] = [preferencesmanager value:@"keycode_command_l"];
+
+  bridgestruct.enabled[BRIDGE_KEY_INDEX_COMMAND_R] = [preferencesmanager value:@"enable_command_r"];
+  bridgestruct.keycode[BRIDGE_KEY_INDEX_COMMAND_R] = [preferencesmanager value:@"keycode_command_r"];
+
   bridgestruct.enabled[BRIDGE_KEY_INDEX_CONTROL_L] = [preferencesmanager value:@"enable_control_l"];
   bridgestruct.keycode[BRIDGE_KEY_INDEX_CONTROL_L] = [preferencesmanager value:@"keycode_control_l"];
 
   bridgestruct.enabled[BRIDGE_KEY_INDEX_CONTROL_R] = [preferencesmanager value:@"enable_control_r"];
   bridgestruct.keycode[BRIDGE_KEY_INDEX_CONTROL_R] = [preferencesmanager value:@"keycode_control_r"];
+
+  bridgestruct.enabled[BRIDGE_KEY_INDEX_OPTION_L]  = [preferencesmanager value:@"enable_option_l"];
+  bridgestruct.keycode[BRIDGE_KEY_INDEX_OPTION_L]  = [preferencesmanager value:@"keycode_option_l"];
+
+  bridgestruct.enabled[BRIDGE_KEY_INDEX_OPTION_R]  = [preferencesmanager value:@"enable_option_r"];
+  bridgestruct.keycode[BRIDGE_KEY_INDEX_OPTION_R]  = [preferencesmanager value:@"keycode_option_r"];
+
+  bridgestruct.enabled[BRIDGE_KEY_INDEX_SHIFT_L]   = [preferencesmanager value:@"enable_shift_l"];
+  bridgestruct.keycode[BRIDGE_KEY_INDEX_SHIFT_L]   = [preferencesmanager value:@"keycode_shift_l"];
+
+  bridgestruct.enabled[BRIDGE_KEY_INDEX_SHIFT_R]   = [preferencesmanager value:@"enable_shift_r"];
+  bridgestruct.keycode[BRIDGE_KEY_INDEX_SHIFT_R]   = [preferencesmanager value:@"keycode_shift_r"];
 
   [UserClient_userspace synchronized_communication:&bridgestruct];
 }

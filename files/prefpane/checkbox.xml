@@ -20,17 +20,49 @@
       <appendix></appendix>
       <appendix>Otherwise use KeyRemap4MacBook to modify these keys.</appendix>
     </item>
+    <item><name>----------------------------------------</name></item>
+    <item>
+      <name>Change Command_L</name>
+      <enable>enable_command_l</enable>
+      <keycode>keycode_command_l</keycode>
+    </item>
+    <item>
+      <name>Change Command_R</name>
+      <enable>enable_command_r</enable>
+      <keycode>keycode_command_r</keycode>
+    </item>
     <item>
       <name>Change Control_L</name>
       <enable>enable_control_l</enable>
       <keycode>keycode_control_l</keycode>
     </item>
-
     <item>
       <name>Change Control_R</name>
       <enable>enable_control_r</enable>
       <keycode>keycode_control_r</keycode>
     </item>
+    <!-- fn key is not in _usb_2_adb_keymap -->
+    <item>
+      <name>Change Option_L</name>
+      <enable>enable_option_l</enable>
+      <keycode>keycode_option_l</keycode>
+    </item>
+    <item>
+      <name>Change Option_R</name>
+      <enable>enable_option_r</enable>
+      <keycode>keycode_option_r</keycode>
+    </item>
+    <item>
+      <name>Change Shift_L</name>
+      <enable>enable_shift_l</enable>
+      <keycode>keycode_shift_l</keycode>
+    </item>
+    <item>
+      <name>Change Shift_R</name>
+      <enable>enable_shift_r</enable>
+      <keycode>keycode_shift_r</keycode>
+    </item>
+    <item><name>----------------------------------------</name></item>
   </item>
 
   <item>

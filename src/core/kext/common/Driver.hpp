@@ -27,12 +27,18 @@ private:
   public:
     enum Value {
       NONE      = 0, // NONE must be a unique value in this enum.
-      CAPSLOCK  = 0x39,
+      CAPSLOCK  = kHIDUsage_KeyboardCapsLock,
       JIS_KANA  = 0x88,
       JIS_NFER  = 0x8b,
       JIS_XFER  = 0x8a,
-      CONTROL_L = 0xe0,
-      CONTROL_R = 0xe4,
+      COMMAND_L = kHIDUsage_KeyboardLeftGUI,
+      COMMAND_R = kHIDUsage_KeyboardRightGUI,
+      CONTROL_L = kHIDUsage_KeyboardLeftControl,
+      CONTROL_R = kHIDUsage_KeyboardRightControl,
+      OPTION_L  = kHIDUsage_KeyboardLeftAlt,
+      OPTION_R  = kHIDUsage_KeyboardRightAlt,
+      SHIFT_L   = kHIDUsage_KeyboardLeftShift,
+      SHIFT_R   = kHIDUsage_KeyboardRightShift,
     };
     static Value bridgeKeyindexToValue(int bridgeKeyIndex) {
       switch (bridgeKeyIndex) {
@@ -40,8 +46,14 @@ private:
         case BRIDGE_KEY_INDEX_JIS_KANA:  return JIS_KANA;
         case BRIDGE_KEY_INDEX_JIS_NFER:  return JIS_NFER;
         case BRIDGE_KEY_INDEX_JIS_XFER:  return JIS_XFER;
+        case BRIDGE_KEY_INDEX_COMMAND_L: return COMMAND_L;
+        case BRIDGE_KEY_INDEX_COMMAND_R: return COMMAND_R;
         case BRIDGE_KEY_INDEX_CONTROL_L: return CONTROL_L;
         case BRIDGE_KEY_INDEX_CONTROL_R: return CONTROL_R;
+        case BRIDGE_KEY_INDEX_OPTION_L:  return OPTION_L;
+        case BRIDGE_KEY_INDEX_OPTION_R:  return OPTION_R;
+        case BRIDGE_KEY_INDEX_SHIFT_L:   return SHIFT_L;
+        case BRIDGE_KEY_INDEX_SHIFT_R:   return SHIFT_R;
       }
       return NONE;
     }

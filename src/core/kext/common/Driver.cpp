@@ -33,6 +33,13 @@ org_pqrs_driver_PCKeyboardHack::HookedKeyboard::initialize(IOHIKeyboard* p)
         originalKeyCode_[i] = hid->_usb_2_adb_keymap[idx];
       }
     }
+
+#if 0
+    // Dump _usb_2_adb_keymap
+    for (size_t i = 0; i < sizeof(hid->_usb_2_adb_keymap) / sizeof(hid->_usb_2_adb_keymap[0]); ++i) {
+      IOLOG_INFO("%d = %d\n", static_cast<int>(i), hid->_usb_2_adb_keymap[i]);
+    }
+#endif
   }
 
   refresh();
