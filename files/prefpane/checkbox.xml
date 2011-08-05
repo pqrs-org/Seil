@@ -63,6 +63,11 @@
       <keycode>keycode_shift_r</keycode>
     </item>
     <item><name>----------------------------------------</name></item>
+    <item>
+      <name>Change Escape</name>
+      <enable>enable_escape</enable>
+      <keycode>keycode_escape</keycode>
+    </item>
   </item>
 
   <item>

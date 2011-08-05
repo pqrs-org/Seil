@@ -60,6 +60,9 @@
   bridgeconfig.config[BRIDGE_KEY_INDEX_SHIFT_R].enabled   = [preferencesmanager value:@"enable_shift_r"];
   bridgeconfig.config[BRIDGE_KEY_INDEX_SHIFT_R].keycode   = [preferencesmanager value:@"keycode_shift_r"];
 
+  bridgeconfig.config[BRIDGE_KEY_INDEX_ESCAPE].enabled    = [preferencesmanager value:@"enable_escape"];
+  bridgeconfig.config[BRIDGE_KEY_INDEX_ESCAPE].keycode    = [preferencesmanager value:@"keycode_escape"];
+
   struct BridgeUserClientStruct bridgestruct;
   bridgestruct.data   = (uintptr_t)(&bridgeconfig);
   bridgestruct.size   = sizeof(bridgeconfig);
