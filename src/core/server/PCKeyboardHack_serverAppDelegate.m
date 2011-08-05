@@ -8,6 +8,7 @@
 
 #import "PCKeyboardHack_serverAppDelegate.h"
 #import "PCKeyboardHackKeys.h"
+#import "PCKeyboardHackNSDistributedNotificationCenter.h"
 #import "UserClient_userspace.h"
 #import "PreferencesManager.h"
 #include "bridge.h"
@@ -198,10 +199,9 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
                                                              name:NSWorkspaceSessionDidResignActiveNotification
                                                            object:nil];
 
-  [[NSDistributedNotificationCenter defaultCenter] addObserver:self
-                                                      selector:@selector(observer_PreferencesChanged:)
-                                                          name:kPCKeyboardHackPreferencesChangedNotification
-                                                        object:kPCKeyboardHackNotificationKey];
+  [org_pqrs_PCKeyboardHack_NSDistributedNotificationCenter addObserver:self
+                                                              selector:@selector(observer_PreferencesChanged:)
+                                                                  name:kPCKeyboardHackPreferencesChangedNotification];
 }
 
 @end

@@ -1,5 +1,6 @@
 #import "PreferencesManager.h"
 #import "PCKeyboardHackKeys.h"
+#import "PCKeyboardHackNSDistributedNotificationCenter.h"
 #include <sys/time.h>
 
 static PreferencesManager* global_instance = nil;
@@ -51,7 +52,7 @@ static PreferencesManager* global_instance = nil;
     [serverconnection_ setRootObject:self];
     [serverconnection_ registerName:kPCKeyboardHackConnectionName];
 
-    [[NSDistributedNotificationCenter defaultCenter] postNotificationName:kPCKeyboardHackServerLaunchedNotification object:kPCKeyboardHackNotificationKey];
+    [org_pqrs_PCKeyboardHack_NSDistributedNotificationCenter postNotificationName:kPCKeyboardHackServerLaunchedNotification userInfo:nil];
   }
 
   return self;
@@ -119,7 +120,7 @@ static PreferencesManager* global_instance = nil;
   [[NSUserDefaults standardUserDefaults] setObject:md forKey:identifier];
   //[[NSUserDefaults standardUserDefaults] synchronize];
 
-  [[NSDistributedNotificationCenter defaultCenter] postNotificationName:kPCKeyboardHackPreferencesChangedNotification object:kPCKeyboardHackNotificationKey];
+  [org_pqrs_PCKeyboardHack_NSDistributedNotificationCenter postNotificationName:kPCKeyboardHackPreferencesChangedNotification userInfo:nil];
 }
 
 // ----------------------------------------------------------------------

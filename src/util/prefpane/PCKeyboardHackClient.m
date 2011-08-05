@@ -1,5 +1,6 @@
 #import "PCKeyboardHackClient.h"
 #import "PCKeyboardHackKeys.h"
+#import "PCKeyboardHackNSDistributedNotificationCenter.h"
 
 @implementation org_pqrs_PCKeyboardHack_Client
 
@@ -33,10 +34,9 @@
                                                  name:NSConnectionDidDieNotification
                                                object:nil];
 
-    [[NSDistributedNotificationCenter defaultCenter] addObserver:self
-                                                        selector:@selector(observer_serverLaunched:)
-                                                            name:kPCKeyboardHackServerLaunchedNotification
-                                                          object:kPCKeyboardHackNotificationKey];
+    [org_pqrs_PCKeyboardHack_NSDistributedNotificationCenter addObserver:self
+                                                                selector:@selector(observer_serverLaunched:)
+                                                                    name:kPCKeyboardHackServerLaunchedNotification];
 
     [self refresh_connection];
   }
