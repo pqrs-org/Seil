@@ -201,28 +201,86 @@ org_pqrs_driver_PCKeyboardHack_UserClient_kext::static_callback_synchronized_com
 IOReturn
 org_pqrs_driver_PCKeyboardHack_UserClient_kext::callback_synchronized_communication(const BridgeUserClientStruct* inputdata)
 {
+  IOReturn result = kIOReturnSuccess;
+  IOMemoryDescriptor* memorydescriptor = NULL;
+
   if (! inputdata) {
+    result = kIOReturnBadArgument;
     IOLOG_ERROR("UserClient_kext::callback_synchronized_communication kIOReturnBadArgument\n");
-    return kIOReturnBadArgument;
+    goto finish;
   }
 
   if (provider_ == NULL || isInactive()) {
     // Return an error if we don't have a provider. This could happen if the user process
     // called callback_synchronized_communication without calling IOServiceOpen first.
     // Or, the user client could be in the process of being terminated and is thus inactive.
+    result = kIOReturnNotAttached;
     IOLOG_ERROR("UserClient_kext::callback_synchronized_communication kIOReturnNotAttached\n");
-    return kIOReturnNotAttached;
+    goto finish;
   }
 
   if (! provider_->isOpen(this)) {
     // Return an error if we do not have the driver open. This could happen if the user process
     // did not call callback_open before calling this function.
+    result = kIOReturnNotOpen;
     IOLOG_ERROR("UserClient_kext::callback_synchronized_communication kIOReturnNotOpen\n");
-    return kIOReturnNotOpen;
+    goto finish;
   }
 
-  // --------------------------------------------------
-  org_pqrs_driver_PCKeyboardHack::setConfiguration(*inputdata);
+  memorydescriptor = IOMemoryDescriptor::withAddressRange(inputdata->data, inputdata->size, kIODirectionNone, task_);
+  if (! memorydescriptor) {
+    result = kIOReturnVMError;
+    IOLOG_ERROR("UserClient_kext::callback_synchronized_communication kIOReturnVMError\n");
+    goto finish;
+  }
 
-  return kIOReturnSuccess;
+  // wire it and make sure we can write it
+  result = memorydescriptor->prepare(kIODirectionOutIn);
+  if (kIOReturnSuccess != result) {
+    IOLOG_ERROR("UserClient_kext::callback_synchronized_communication IOMemoryDescriptor::prepare failed(0x%x)\n", result);
+    goto finish;
+  }
+
+  {
+    // this map() will create a mapping in the users (the client of this IOUserClient) address space.
+    IOMemoryMap* memorymap = memorydescriptor->map();
+    if (! memorymap) {
+      result = kIOReturnVMError;
+      IOLOG_ERROR("UserClient_kext::callback_synchronized_communication IOMemoryDescriptor::map failed\n");
+
+    } else {
+      mach_vm_address_t address = memorymap->getAddress();
+      handle_synchronized_communication(address, inputdata->size);
+      memorymap->release();
+    }
+  }
+
+  // Done with the I/O now.
+  memorydescriptor->complete(kIODirectionOutIn);
+
+finish:
+  if (memorydescriptor) {
+    memorydescriptor->release();
+  }
+
+  return result;
+}
+
+void
+org_pqrs_driver_PCKeyboardHack_UserClient_kext::handle_synchronized_communication(mach_vm_address_t address, mach_vm_size_t size)
+{
+  if (size != sizeof(BridgeConfig)) {
+    IOLOG_ERROR("UserClient_kext::handle_synchronized_communication invalid size:%d\n", static_cast<int>(size));
+    return;
+  }
+
+  const BridgeConfig* bridgeconfig = reinterpret_cast<const BridgeConfig*>(address);
+  if (bridgeconfig) {
+    if (bridgeconfig->version != BRIDGE_CONFIG_VERSION) {
+      IOLOG_ERROR("UserClient_kext::handle_synchronized_communication invalid version:%d\n",
+                  static_cast<int>(bridgeconfig->version));
+      return;
+    }
+    org_pqrs_driver_PCKeyboardHack::setConfiguration(*bridgeconfig);
+  }
 }

@@ -19,45 +19,50 @@
 - (void) send_config_to_kext {
   PreferencesManager* preferencesmanager = [PreferencesManager getInstance];
 
+  struct BridgeConfig bridgeconfig;
+  memset(&bridgeconfig, 0, sizeof(bridgeconfig));
+
+  bridgeconfig.version = BRIDGE_CONFIG_VERSION;
+
+  bridgeconfig.config[BRIDGE_KEY_INDEX_CAPSLOCK].enabled  = [preferencesmanager value:@"enable_capslock"];
+  bridgeconfig.config[BRIDGE_KEY_INDEX_CAPSLOCK].keycode  = [preferencesmanager value:@"keycode_capslock"];
+
+  bridgeconfig.config[BRIDGE_KEY_INDEX_JIS_KANA].enabled  = [preferencesmanager value:@"enable_jis_kana"];
+  bridgeconfig.config[BRIDGE_KEY_INDEX_JIS_KANA].keycode  = [preferencesmanager value:@"keycode_jis_kana"];
+
+  bridgeconfig.config[BRIDGE_KEY_INDEX_JIS_NFER].enabled  = [preferencesmanager value:@"enable_jis_nfer"];
+  bridgeconfig.config[BRIDGE_KEY_INDEX_JIS_NFER].keycode  = [preferencesmanager value:@"keycode_jis_nfer"];
+
+  bridgeconfig.config[BRIDGE_KEY_INDEX_JIS_XFER].enabled  = [preferencesmanager value:@"enable_jis_xfer"];
+  bridgeconfig.config[BRIDGE_KEY_INDEX_JIS_XFER].keycode  = [preferencesmanager value:@"keycode_jis_xfer"];
+
+  bridgeconfig.config[BRIDGE_KEY_INDEX_COMMAND_L].enabled = [preferencesmanager value:@"enable_command_l"];
+  bridgeconfig.config[BRIDGE_KEY_INDEX_COMMAND_L].keycode = [preferencesmanager value:@"keycode_command_l"];
+
+  bridgeconfig.config[BRIDGE_KEY_INDEX_COMMAND_R].enabled = [preferencesmanager value:@"enable_command_r"];
+  bridgeconfig.config[BRIDGE_KEY_INDEX_COMMAND_R].keycode = [preferencesmanager value:@"keycode_command_r"];
+
+  bridgeconfig.config[BRIDGE_KEY_INDEX_CONTROL_L].enabled = [preferencesmanager value:@"enable_control_l"];
+  bridgeconfig.config[BRIDGE_KEY_INDEX_CONTROL_L].keycode = [preferencesmanager value:@"keycode_control_l"];
+
+  bridgeconfig.config[BRIDGE_KEY_INDEX_CONTROL_R].enabled = [preferencesmanager value:@"enable_control_r"];
+  bridgeconfig.config[BRIDGE_KEY_INDEX_CONTROL_R].keycode = [preferencesmanager value:@"keycode_control_r"];
+
+  bridgeconfig.config[BRIDGE_KEY_INDEX_OPTION_L].enabled  = [preferencesmanager value:@"enable_option_l"];
+  bridgeconfig.config[BRIDGE_KEY_INDEX_OPTION_L].keycode  = [preferencesmanager value:@"keycode_option_l"];
+
+  bridgeconfig.config[BRIDGE_KEY_INDEX_OPTION_R].enabled  = [preferencesmanager value:@"enable_option_r"];
+  bridgeconfig.config[BRIDGE_KEY_INDEX_OPTION_R].keycode  = [preferencesmanager value:@"keycode_option_r"];
+
+  bridgeconfig.config[BRIDGE_KEY_INDEX_SHIFT_L].enabled   = [preferencesmanager value:@"enable_shift_l"];
+  bridgeconfig.config[BRIDGE_KEY_INDEX_SHIFT_L].keycode   = [preferencesmanager value:@"keycode_shift_l"];
+
+  bridgeconfig.config[BRIDGE_KEY_INDEX_SHIFT_R].enabled   = [preferencesmanager value:@"enable_shift_r"];
+  bridgeconfig.config[BRIDGE_KEY_INDEX_SHIFT_R].keycode   = [preferencesmanager value:@"keycode_shift_r"];
+
   struct BridgeUserClientStruct bridgestruct;
-  memset(&bridgestruct, 0, sizeof(bridgestruct));
-
-  bridgestruct.enabled[BRIDGE_KEY_INDEX_CAPSLOCK]  = [preferencesmanager value:@"enable_capslock"];
-  bridgestruct.keycode[BRIDGE_KEY_INDEX_CAPSLOCK]  = [preferencesmanager value:@"keycode_capslock"];
-
-  bridgestruct.enabled[BRIDGE_KEY_INDEX_JIS_KANA]  = [preferencesmanager value:@"enable_jis_kana"];
-  bridgestruct.keycode[BRIDGE_KEY_INDEX_JIS_KANA]  = [preferencesmanager value:@"keycode_jis_kana"];
-
-  bridgestruct.enabled[BRIDGE_KEY_INDEX_JIS_NFER]  = [preferencesmanager value:@"enable_jis_nfer"];
-  bridgestruct.keycode[BRIDGE_KEY_INDEX_JIS_NFER]  = [preferencesmanager value:@"keycode_jis_nfer"];
-
-  bridgestruct.enabled[BRIDGE_KEY_INDEX_JIS_XFER]  = [preferencesmanager value:@"enable_jis_xfer"];
-  bridgestruct.keycode[BRIDGE_KEY_INDEX_JIS_XFER]  = [preferencesmanager value:@"keycode_jis_xfer"];
-
-  bridgestruct.enabled[BRIDGE_KEY_INDEX_COMMAND_L] = [preferencesmanager value:@"enable_command_l"];
-  bridgestruct.keycode[BRIDGE_KEY_INDEX_COMMAND_L] = [preferencesmanager value:@"keycode_command_l"];
-
-  bridgestruct.enabled[BRIDGE_KEY_INDEX_COMMAND_R] = [preferencesmanager value:@"enable_command_r"];
-  bridgestruct.keycode[BRIDGE_KEY_INDEX_COMMAND_R] = [preferencesmanager value:@"keycode_command_r"];
-
-  bridgestruct.enabled[BRIDGE_KEY_INDEX_CONTROL_L] = [preferencesmanager value:@"enable_control_l"];
-  bridgestruct.keycode[BRIDGE_KEY_INDEX_CONTROL_L] = [preferencesmanager value:@"keycode_control_l"];
-
-  bridgestruct.enabled[BRIDGE_KEY_INDEX_CONTROL_R] = [preferencesmanager value:@"enable_control_r"];
-  bridgestruct.keycode[BRIDGE_KEY_INDEX_CONTROL_R] = [preferencesmanager value:@"keycode_control_r"];
-
-  bridgestruct.enabled[BRIDGE_KEY_INDEX_OPTION_L]  = [preferencesmanager value:@"enable_option_l"];
-  bridgestruct.keycode[BRIDGE_KEY_INDEX_OPTION_L]  = [preferencesmanager value:@"keycode_option_l"];
-
-  bridgestruct.enabled[BRIDGE_KEY_INDEX_OPTION_R]  = [preferencesmanager value:@"enable_option_r"];
-  bridgestruct.keycode[BRIDGE_KEY_INDEX_OPTION_R]  = [preferencesmanager value:@"keycode_option_r"];
-
-  bridgestruct.enabled[BRIDGE_KEY_INDEX_SHIFT_L]   = [preferencesmanager value:@"enable_shift_l"];
-  bridgestruct.keycode[BRIDGE_KEY_INDEX_SHIFT_L]   = [preferencesmanager value:@"keycode_shift_l"];
-
-  bridgestruct.enabled[BRIDGE_KEY_INDEX_SHIFT_R]   = [preferencesmanager value:@"enable_shift_r"];
-  bridgestruct.keycode[BRIDGE_KEY_INDEX_SHIFT_R]   = [preferencesmanager value:@"keycode_shift_r"];
-
+  bridgestruct.data   = (uintptr_t)(&bridgeconfig);
+  bridgestruct.size   = sizeof(bridgeconfig);
   [UserClient_userspace synchronized_communication:&bridgestruct];
 }
 

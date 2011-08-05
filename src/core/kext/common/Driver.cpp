@@ -7,7 +7,7 @@
 #include "ostype.hpp"
 
 org_pqrs_driver_PCKeyboardHack::HookedKeyboard org_pqrs_driver_PCKeyboardHack::hookedKeyboard_[MAXNUM_KEYBOARD];
-BridgeUserClientStruct org_pqrs_driver_PCKeyboardHack::configuration_;
+BridgeConfig org_pqrs_driver_PCKeyboardHack::configuration_;
 
 // ----------------------------------------------------------------------
 // http://developer.apple.com/documentation/DeviceDrivers/Conceptual/WritingDeviceDriver/CPluPlusRuntime/chapter_2_section_3.html
@@ -73,8 +73,8 @@ org_pqrs_driver_PCKeyboardHack::HookedKeyboard::refresh(void)
     for (int i = 0; i < BRIDGE_KEY_INDEX__END__; ++i) {
       KeyMapIndex::Value idx = KeyMapIndex::bridgeKeyindexToValue(i);
       if (idx != KeyMapIndex::NONE) {
-        if (configuration_.enabled[i]) {
-          hid->_usb_2_adb_keymap[idx] = configuration_.keycode[i];
+        if (configuration_.config[i].enabled) {
+          hid->_usb_2_adb_keymap[idx] = configuration_.config[i].keycode;
         } else {
           hid->_usb_2_adb_keymap[idx] = originalKeyCode_[i];
         }
@@ -282,7 +282,7 @@ org_pqrs_driver_PCKeyboardHack::restoreKeyMap(IOHIKeyboard* kbd)
 
 // ----------------------------------------------------------------------
 void
-org_pqrs_driver_PCKeyboardHack::setConfiguration(const BridgeUserClientStruct& newval)
+org_pqrs_driver_PCKeyboardHack::setConfiguration(const BridgeConfig& newval)
 {
   configuration_ = newval;
 
@@ -296,7 +296,7 @@ org_pqrs_driver_PCKeyboardHack::setConfiguration(const BridgeUserClientStruct& n
 void
 org_pqrs_driver_PCKeyboardHack::unsetConfiguration(void)
 {
-  BridgeUserClientStruct newval;
+  BridgeConfig newval;
   memset(&newval, 0, sizeof(newval));
   setConfiguration(newval);
 }

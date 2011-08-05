@@ -18,7 +18,7 @@ public:
   virtual bool start(IOService* provider);
   virtual void stop(IOService* provider);
 
-  static void setConfiguration(const BridgeUserClientStruct& newval);
+  static void setConfiguration(const BridgeConfig& newval);
   static void unsetConfiguration(void);
 
 private:
@@ -90,7 +90,7 @@ private:
   static bool restoreKeyMap(IOHIKeyboard* kbd);
 
   static HookedKeyboard hookedKeyboard_[MAXNUM_KEYBOARD];
-  static BridgeUserClientStruct configuration_;
+  static BridgeConfig configuration_;
 
   IONotifier* notifier_hookKeyboard_;
   IONotifier* notifier_unhookKeyboard_;
