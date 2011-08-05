@@ -78,6 +78,11 @@
       <enable>enable_return</enable>
       <keycode>keycode_return</keycode>
     </item>
+    <item>
+      <name>Change Keypad Enter</name>
+      <enable>enable_enter</enable>
+      <keycode>keycode_enter</keycode>
+    </item>
   </item>
 
   <item>

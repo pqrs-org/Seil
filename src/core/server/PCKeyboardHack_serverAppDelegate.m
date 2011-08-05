@@ -69,6 +69,9 @@
   bridgeconfig.config[BRIDGE_KEY_INDEX_RETURN].enabled    = [preferencesmanager value:@"enable_return"];
   bridgeconfig.config[BRIDGE_KEY_INDEX_RETURN].keycode    = [preferencesmanager value:@"keycode_return"];
 
+  bridgeconfig.config[BRIDGE_KEY_INDEX_ENTER].enabled     = [preferencesmanager value:@"enable_enter"];
+  bridgeconfig.config[BRIDGE_KEY_INDEX_ENTER].keycode     = [preferencesmanager value:@"keycode_enter"];
+
   struct BridgeUserClientStruct bridgestruct;
   bridgestruct.data   = (uintptr_t)(&bridgeconfig);
   bridgestruct.size   = sizeof(bridgeconfig);

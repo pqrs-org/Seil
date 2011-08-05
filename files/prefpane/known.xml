@@ -51,8 +51,8 @@
 
   <item><name>------------------------------------------------------------</name><keycode>-----</keycode></item>
 
-  <item><name>PC Application Key</name><keycode>110</keycode></item>
-  <item><name>Clear</name><keycode>71</keycode></item>
+  <item><name>Keypad Clear</name><keycode>71</keycode></item>
+  <item><name>Keypad Enter</name><keycode>76</keycode></item>
 
   <item><name>§ Key</name><keycode>10</keycode></item>
 
@@ -61,4 +61,6 @@
   <item><name>JIS Colon</name><keycode>39</keycode></item>
   <item><name>JIS Yen</name><keycode>93</keycode></item>
   <item><name>JIS Underscore</name><keycode>94</keycode></item>
+
+  <item><name>PC Application Key</name><keycode>110</keycode></item>
 </root>
