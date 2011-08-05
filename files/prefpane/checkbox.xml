@@ -68,6 +68,11 @@
       <enable>enable_escape</enable>
       <keycode>keycode_escape</keycode>
     </item>
+    <item>
+      <name>Change Delete</name>
+      <enable>enable_delete</enable>
+      <keycode>keycode_delete</keycode>
+    </item>
   </item>
 
   <item>

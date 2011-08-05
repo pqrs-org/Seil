@@ -32,6 +32,7 @@ static PreferencesManager* global_instance = nil;
   [default_ setObject:[NSNumber numberWithInt:56]  forKey:@"keycode_shift_l"];
   [default_ setObject:[NSNumber numberWithInt:60]  forKey:@"keycode_shift_r"];
   [default_ setObject:[NSNumber numberWithInt:53]  forKey:@"keycode_escape"];
+  [default_ setObject:[NSNumber numberWithInt:51]  forKey:@"keycode_delete"];
 }
 
 // ----------------------------------------

@@ -63,6 +63,9 @@
   bridgeconfig.config[BRIDGE_KEY_INDEX_ESCAPE].enabled    = [preferencesmanager value:@"enable_escape"];
   bridgeconfig.config[BRIDGE_KEY_INDEX_ESCAPE].keycode    = [preferencesmanager value:@"keycode_escape"];
 
+  bridgeconfig.config[BRIDGE_KEY_INDEX_DELETE].enabled    = [preferencesmanager value:@"enable_delete"];
+  bridgeconfig.config[BRIDGE_KEY_INDEX_DELETE].keycode    = [preferencesmanager value:@"keycode_delete"];
+
   struct BridgeUserClientStruct bridgestruct;
   bridgestruct.data   = (uintptr_t)(&bridgeconfig);
   bridgestruct.size   = sizeof(bridgeconfig);

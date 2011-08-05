@@ -40,6 +40,7 @@ private:
       SHIFT_L   = kHIDUsage_KeyboardLeftShift,
       SHIFT_R   = kHIDUsage_KeyboardRightShift,
       ESCAPE    = kHIDUsage_KeyboardEscape,
+      DELETE    = kHIDUsage_KeyboardDeleteOrBackspace,
     };
     static Value bridgeKeyindexToValue(int bridgeKeyIndex) {
       switch (bridgeKeyIndex) {
@@ -56,6 +57,7 @@ private:
         case BRIDGE_KEY_INDEX_SHIFT_L:   return SHIFT_L;
         case BRIDGE_KEY_INDEX_SHIFT_R:   return SHIFT_R;
         case BRIDGE_KEY_INDEX_ESCAPE:    return ESCAPE;
+        case BRIDGE_KEY_INDEX_DELETE:    return DELETE;
       }
       return NONE;
     }
