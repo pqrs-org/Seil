@@ -79,14 +79,14 @@
     <name>For Japanese</name>
     <expand>true</expand>
     <item>
-      <name>Enable XFER Key</name>
-      <enable>enable_jis_xfer</enable>
-      <keycode>keycode_jis_xfer</keycode>
-    </item>
-    <item>
       <name>Enable NFER Key</name>
       <enable>enable_jis_nfer</enable>
       <keycode>keycode_jis_nfer</keycode>
+    </item>
+    <item>
+      <name>Enable XFER Key</name>
+      <enable>enable_jis_xfer</enable>
+      <keycode>keycode_jis_xfer</keycode>
     </item>
     <item>
       <name>Enable KANA Key</name>
