@@ -3,6 +3,7 @@
   <item><name>Delete</name><keycode>51</keycode></item>
   <item><name>Escape</name><keycode>53</keycode></item>
   <item><name>Forward Delete</name><keycode>117</keycode></item>
+  <item><name>Return</name><keycode>36</keycode></item>
 
   <item><name>------------------------------------------------------------</name><keycode>-----</keycode></item>
 

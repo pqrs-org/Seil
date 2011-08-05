@@ -66,6 +66,9 @@
   bridgeconfig.config[BRIDGE_KEY_INDEX_DELETE].enabled    = [preferencesmanager value:@"enable_delete"];
   bridgeconfig.config[BRIDGE_KEY_INDEX_DELETE].keycode    = [preferencesmanager value:@"keycode_delete"];
 
+  bridgeconfig.config[BRIDGE_KEY_INDEX_RETURN].enabled    = [preferencesmanager value:@"enable_return"];
+  bridgeconfig.config[BRIDGE_KEY_INDEX_RETURN].keycode    = [preferencesmanager value:@"keycode_return"];
+
   struct BridgeUserClientStruct bridgestruct;
   bridgestruct.data   = (uintptr_t)(&bridgeconfig);
   bridgestruct.size   = sizeof(bridgeconfig);
