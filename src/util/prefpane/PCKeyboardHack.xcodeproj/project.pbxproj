@@ -12,6 +12,8 @@
 		3419BD7F13D8735100029E73 /* PCKeyboardHackClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3419BD7D13D8735100029E73 /* PCKeyboardHackClient.m */; };
 		341EAB5D0D94FE450026B39E /* PCKeyboardHackPref.h in Headers */ = {isa = PBXBuildFile; fileRef = 341EAB550D94FE450026B39E /* PCKeyboardHackPref.h */; };
 		341EAB5E0D94FE450026B39E /* PCKeyboardHackPref.m in Sources */ = {isa = PBXBuildFile; fileRef = 341EAB560D94FE450026B39E /* PCKeyboardHackPref.m */; };
+		3481610F13EC4934000B43B0 /* PCKeyboardHackNSDistributedNotificationCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3481610D13EC4934000B43B0 /* PCKeyboardHackNSDistributedNotificationCenter.h */; };
+		3481611013EC4934000B43B0 /* PCKeyboardHackNSDistributedNotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3481610E13EC4934000B43B0 /* PCKeyboardHackNSDistributedNotificationCenter.m */; };
 		34CE28D913E1A09C006E6698 /* OutlineView.h in Headers */ = {isa = PBXBuildFile; fileRef = 34CE28D713E1A09C006E6698 /* OutlineView.h */; };
 		34CE28DA13E1A09C006E6698 /* OutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 34CE28D813E1A09C006E6698 /* OutlineView.m */; };
 		34CE28DD13E1A17C006E6698 /* OutlineView_keycode.h in Headers */ = {isa = PBXBuildFile; fileRef = 34CE28DB13E1A17C006E6698 /* OutlineView_keycode.h */; };
@@ -37,6 +39,8 @@
 		3419BD7D13D8735100029E73 /* PCKeyboardHackClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCKeyboardHackClient.m; sourceTree = "<group>"; };
 		341EAB550D94FE450026B39E /* PCKeyboardHackPref.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCKeyboardHackPref.h; sourceTree = "<group>"; };
 		341EAB560D94FE450026B39E /* PCKeyboardHackPref.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCKeyboardHackPref.m; sourceTree = "<group>"; };
+		3481610D13EC4934000B43B0 /* PCKeyboardHackNSDistributedNotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PCKeyboardHackNSDistributedNotificationCenter.h; path = ../../share/PCKeyboardHackNSDistributedNotificationCenter.h; sourceTree = "<group>"; };
+		3481610E13EC4934000B43B0 /* PCKeyboardHackNSDistributedNotificationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PCKeyboardHackNSDistributedNotificationCenter.m; path = ../../share/PCKeyboardHackNSDistributedNotificationCenter.m; sourceTree = "<group>"; };
 		34CE28D713E1A09C006E6698 /* OutlineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutlineView.h; path = Classes/OutlineView.h; sourceTree = "<group>"; };
 		34CE28D813E1A09C006E6698 /* OutlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OutlineView.m; path = Classes/OutlineView.m; sourceTree = "<group>"; };
 		34CE28DB13E1A17C006E6698 /* OutlineView_keycode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutlineView_keycode.h; path = Classes/OutlineView_keycode.h; sourceTree = "<group>"; };
@@ -107,6 +111,8 @@
 				3419BD7C13D8735100029E73 /* PCKeyboardHackClient.h */,
 				3419BD7D13D8735100029E73 /* PCKeyboardHackClient.m */,
 				3419BD7913D8734700029E73 /* PCKeyboardHackKeys.h */,
+				3481610D13EC4934000B43B0 /* PCKeyboardHackNSDistributedNotificationCenter.h */,
+				3481610E13EC4934000B43B0 /* PCKeyboardHackNSDistributedNotificationCenter.m */,
 				341EAB550D94FE450026B39E /* PCKeyboardHackPref.h */,
 				341EAB560D94FE450026B39E /* PCKeyboardHackPref.m */,
 			);
@@ -161,6 +167,7 @@
 				34CE28D913E1A09C006E6698 /* OutlineView.h in Headers */,
 				34CE28DD13E1A17C006E6698 /* OutlineView_keycode.h in Headers */,
 				34CE28E113E1A4D5006E6698 /* OutlineView_mixed.h in Headers */,
+				3481610F13EC4934000B43B0 /* PCKeyboardHackNSDistributedNotificationCenter.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +251,7 @@
 				34CE28DA13E1A09C006E6698 /* OutlineView.m in Sources */,
 				34CE28DE13E1A17C006E6698 /* OutlineView_keycode.m in Sources */,
 				34CE28E213E1A4D5006E6698 /* OutlineView_mixed.m in Sources */,
+				3481611013EC4934000B43B0 /* PCKeyboardHackNSDistributedNotificationCenter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
