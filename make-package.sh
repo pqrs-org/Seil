@@ -31,7 +31,7 @@ sudo cp -R files/LaunchAgents pkgroot/Library
 sudo cp -R files/LaunchDaemons pkgroot/Library
 
 sudo mkdir -p "pkgroot/$basedir/app"
-sudo cp -R "src/core/server/build/Release/PCKeyboardHack_server.app" "pkgroot/$basedir/app"
+sudo cp -R "src/core/server/build/Release/PCKeyboardHack.app" "pkgroot/$basedir/app"
 sudo cp -R "src/util/uninstaller/build/Release/uninstaller.app" "pkgroot/$basedir/app"
 
 sudo mkdir -p "pkgroot/Library/PreferencePanes"
@@ -40,7 +40,7 @@ sudo cp -R "src/util/prefpane/build/Release/PCKeyboardHack.prefPane" "pkgroot/Li
 sudo find pkgroot -type d -print0 | xargs -0 sudo chmod 755
 sudo find pkgroot -type f -print0 | xargs -0 sudo chmod 644
 sudo find pkgroot -name '*.sh' -print0 | xargs -0 sudo chmod 755
-sudo chmod 755 pkgroot/$basedir/app/PCKeyboardHack_server.app/Contents/MacOS/PCKeyboardHack_server
+sudo chmod 755 pkgroot/$basedir/app/PCKeyboardHack.app/Contents/MacOS/PCKeyboardHack
 sudo chmod 755 pkgroot/$basedir/app/uninstaller.app/Contents/MacOS/uninstaller
 sudo chown -R root:wheel pkgroot
 

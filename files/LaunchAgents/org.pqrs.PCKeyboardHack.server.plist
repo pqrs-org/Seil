@@ -6,7 +6,7 @@
     <string>org.pqrs.PCKeyboardHack.server</string>
     <key>ProgramArguments</key>
     <array>
-      <string>/Library/org.pqrs/PCKeyboardHack/app/PCKeyboardHack_server.app/Contents/MacOS/PCKeyboardHack_server</string>
+      <string>/Library/org.pqrs/PCKeyboardHack/app/PCKeyboardHack.app/Contents/MacOS/PCKeyboardHack</string>
     </array>
     <key>KeepAlive</key>
     <true/>
