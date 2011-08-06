@@ -124,6 +124,22 @@ static PreferencesManager* global_instance = nil;
 }
 
 // ----------------------------------------------------------------------
+- (NSInteger) checkForUpdatesMode
+{
+  // If the key does not exist, treat as "The stable release only".
+  if (! [[NSUserDefaults standardUserDefaults] objectForKey:@"isCheckUpdate"]) {
+    return 1;
+  }
+  return [[NSUserDefaults standardUserDefaults] integerForKey:@"isCheckUpdate"];
+}
+
+- (void) setCheckForUpdatesMode:(NSInteger)newval
+{
+  [[NSUserDefaults standardUserDefaults] setInteger:newval forKey:@"isCheckUpdate"];
+  //[[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+// ----------------------------------------------------------------------
 - (NSString*) preferencepane_version
 {
   return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
