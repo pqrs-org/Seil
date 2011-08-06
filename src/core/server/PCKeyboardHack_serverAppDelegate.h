@@ -1,3 +1,4 @@
+// -*- Mode: objc; Coding: utf-8; indent-tabs-mode: nil; -*-
 //
 //  PCKeyboardHack_serverAppDelegate.h
 //  PCKeyboardHack_server
@@ -7,9 +8,11 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "Sparkle/SUUpdater.h"
 
 @interface PCKeyboardHack_serverAppDelegate : NSObject <NSApplicationDelegate> {
   NSWindow* window;
+  IBOutlet SUUpdater* suupdater_;
 
   // for IONotification
   IONotificationPortRef notifyport_;
