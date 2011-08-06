@@ -3,7 +3,8 @@
 version=$(cat version)
 
 packagemaker=/Developer/Applications/Utilities/PackageMaker.app/Contents/MacOS/PackageMaker
-pkgName="PCKeyboardHack-${version}.pkg"
+pkgName="PCKeyboardHack.pkg"
+archiveName="PCKeyboardHack-${version}.pkg.zip"
 
 make clean build || exit $?
 
@@ -64,10 +65,10 @@ sudo $packagemaker \
 echo "Make Archive"
 
 sudo chown -R root:wheel $pkgName
-sudo zip -r $pkgName.zip $pkgName
+sudo zip -r $archiveName $pkgName
 sudo rm -rf $pkgName
-sudo chmod 644 $pkgName.zip
-unzip $pkgName.zip
+sudo chmod 644 $archiveName
+unzip $archiveName
 
 # --------------------------------------------------
 echo "Cleanup"
