@@ -239,6 +239,8 @@
 																						<string>allowsFloats</string>
 																						<string>formatterBehavior</string>
 																						<string>locale</string>
+																						<string>maximum</string>
+																						<string>minimum</string>
 																					</object>
 																					<object class="NSMutableArray" key="dict.values">
 																						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -247,6 +249,8 @@
 																						<object class="NSLocale">
 																							<string key="NS.identifier"/>
 																						</object>
+																						<real value="255"/>
+																						<real value="0.0"/>
 																					</object>
 																				</object>
 																				<string key="NS.positiveformat">#</string>
@@ -263,15 +267,8 @@
 																						<reference key="dict.values" ref="0"/>
 																					</object>
 																				</object>
-																				<object class="NSDecimalNumberPlaceholder" key="NS.min" id="644713158">
-																					<int key="NS.exponent">0</int>
-																					<int key="NS.length">0</int>
-																					<bool key="NS.negative">YES</bool>
-																					<bool key="NS.compact">NO</bool>
-																					<int key="NS.mantissa.bo">1</int>
-																					<bytes key="NS.mantissa">AAAAAAAAAAAAAAAAAAAAAA</bytes>
-																				</object>
-																				<reference key="NS.max" ref="644713158"/>
+																				<real value="0.0" key="NS.min"/>
+																				<real value="255" key="NS.max"/>
 																				<object class="NSDecimalNumberHandler" key="NS.rounding">
 																					<int key="NS.roundingmode">3</int>
 																					<bool key="NS.raise.overflow">YES</bool>
