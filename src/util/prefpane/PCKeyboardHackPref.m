@@ -45,6 +45,7 @@ static NSString* launchUninstallerCommand = @"/Library/org.pqrs/PCKeyboardHack/e
 - (void) mainViewDidLoad
 {
   [self drawVersion];
+  [self setCheckUpdateState];
   [outlineView_mixed_ initialExpandCollapseTree];
 
   // For some reason, launchd does not start PCKeyboardHack server process permanently.
