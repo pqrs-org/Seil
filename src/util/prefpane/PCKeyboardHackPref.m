@@ -1,6 +1,8 @@
 // -*- Mode: objc; Coding: utf-8; indent-tabs-mode: nil; -*-
 
 #import "PCKeyboardHackPref.h"
+#import "PCKeyboardHackKeys.h"
+#import "PCKeyboardHackNSDistributedNotificationCenter.h"
 #include <stdlib.h>
 
 @implementation PCKeyboardHackPref
@@ -14,6 +16,23 @@ static NSString* launchUninstallerCommand = @"/Library/org.pqrs/PCKeyboardHack/e
     version = @"-.-.-";
   }
   [versionText_ setStringValue:version];
+}
+
+// ----------------------------------------------------------------------
+- (void) setCheckUpdateState
+{
+  [popup_checkupdate_ selectItemAtIndex:[[client_ proxy] checkForUpdatesMode]];
+}
+
+- (IBAction) changeCheckUpdate:(id)sender
+{
+  [[client_ proxy] setCheckForUpdatesMode:[popup_checkupdate_ indexOfSelectedItem]];
+  [self setCheckUpdateState];
+}
+
+- (IBAction) checkUpdateNow:(id)sender
+{
+  [org_pqrs_PCKeyboardHack_NSDistributedNotificationCenter postNotificationName:kPCKeyboardHackCheckForUpdatesNotification userInfo:nil];
 }
 
 // ----------------------------------------------------------------------

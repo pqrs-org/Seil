@@ -6,11 +6,14 @@
 
 @interface PCKeyboardHackPref : NSPreferencePane
 {
-  IBOutlet id versionText_;
+  IBOutlet NSTextField* versionText_;
+  IBOutlet NSPopUpButton* popup_checkupdate_;
   IBOutlet org_pqrs_PCKeyboardHack_OutlineView_mixed* outlineView_mixed_;
   IBOutlet org_pqrs_PCKeyboardHack_Client* client_;
 }
 
+- (IBAction) changeCheckUpdate:(id)sender;
+- (IBAction) checkUpdateNow:(id)sender;
 - (IBAction) launchUninstaller:(id)sender;
 - (void) mainViewDidLoad;
 

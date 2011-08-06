@@ -5,6 +5,7 @@
 #define kPCKeyboardHackNotificationKey                @"org.pqrs.PCKeyboardHack.notification"
 #define kPCKeyboardHackServerLaunchedNotification     @"serverLaunched"
 #define kPCKeyboardHackPreferencesChangedNotification @"preferencesChanged"
+#define kPCKeyboardHackCheckForUpdatesNotification    @"checkForUpdates"
 
 // ------------------------------------------------------------
 // for NSConnection
