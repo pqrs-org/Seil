@@ -41,8 +41,11 @@ sudo cp -R "src/util/prefpane/build/Release/PCKeyboardHack.prefPane" "pkgroot/Li
 sudo find pkgroot -type d -print0 | xargs -0 sudo chmod 755
 sudo find pkgroot -type f -print0 | xargs -0 sudo chmod 644
 sudo find pkgroot -name '*.sh' -print0 | xargs -0 sudo chmod 755
-sudo chmod 755 pkgroot/$basedir/app/PCKeyboardHack.app/Contents/MacOS/PCKeyboardHack
-sudo chmod 755 pkgroot/$basedir/app/uninstaller.app/Contents/MacOS/uninstaller
+for file in `sudo find pkgroot -type f`; do
+    if ./pkginfo/is-mach-o.sh "$file"; then
+        sudo chmod 755 "$file"
+    fi
+done
 sudo chown -R root:wheel pkgroot
 
 sudo chmod 1775 pkgroot/Library
