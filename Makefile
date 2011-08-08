@@ -7,9 +7,9 @@ build:
 
 clean:
 	$(MAKE) -C src clean
-	sudo rm -rf pkgroot
-	sudo rm -rf *.pkg
-	sudo rm -rf *.zip
+	rm -rf pkgroot
+	rm -rf *.pkg
+	rm -rf *.zip
 
 source:
 	./make-source.sh
