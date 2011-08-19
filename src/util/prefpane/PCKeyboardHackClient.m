@@ -52,6 +52,10 @@
 
 - (void) dealloc
 {
+  // Call removeObserver first because observer may refresh connection.
+  [org_pqrs_PCKeyboardHack_NSDistributedNotificationCenter removeObserver:self];
+  [[NSNotificationCenter defaultCenter] removeObserver:self];
+
   [proxy release];
 
   [super dealloc];
