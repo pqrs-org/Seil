@@ -164,8 +164,14 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
 }
 
 // ------------------------------------------------------------
-- (void) observer_PreferencesChanged:(NSNotification*)notification {
-  [self send_config_to_kext];
+- (void) distributedObserver_PreferencesChanged:(NSNotification*)notification {
+  // [NSAutoreleasePool drain] is never called from NSDistributedNotificationCenter.
+  // Therefore, we need to make own NSAutoreleasePool.
+  NSAutoreleasePool* pool = [NSAutoreleasePool new];
+  {
+    [self send_config_to_kext];
+  }
+  [pool drain];
 }
 
 // ------------------------------------------------------------
@@ -227,9 +233,15 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
   }
 }
 
-- (void) observer_checkForUpdates:(NSNotification*)aNotification
+- (void) distributedObserver_checkForUpdates:(NSNotification*)aNotification
 {
-  [self checkForUpdates:NO];
+  // [NSAutoreleasePool drain] is never called from NSDistributedNotificationCenter.
+  // Therefore, we need to make own NSAutoreleasePool.
+  NSAutoreleasePool* pool = [NSAutoreleasePool new];
+  {
+    [self checkForUpdates:NO];
+  }
+  [pool drain];
 }
 
 // ------------------------------------------------------------
@@ -248,11 +260,11 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
                                                            object:nil];
 
   [org_pqrs_PCKeyboardHack_NSDistributedNotificationCenter addObserver:self
-                                                              selector:@selector(observer_PreferencesChanged:)
+                                                              selector:@selector(distributedObserver_PreferencesChanged:)
                                                                   name:kPCKeyboardHackPreferencesChangedNotification];
 
   [org_pqrs_PCKeyboardHack_NSDistributedNotificationCenter addObserver:self
-                                                              selector:@selector(observer_checkForUpdates:)
+                                                              selector:@selector(distributedObserver_checkForUpdates:)
                                                                   name:kPCKeyboardHackCheckForUpdatesNotification];
   [self checkForUpdates:YES];
 }
