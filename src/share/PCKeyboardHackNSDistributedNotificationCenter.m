@@ -23,11 +23,23 @@
                                             suspensionBehavior:NSNotificationSuspensionBehaviorDeliverImmediately];
 }
 
++ (void) removeObserver:(id)notificationObserver
+{
+  [[NSDistributedNotificationCenter defaultCenter] removeObserver:notificationObserver];
+}
+
 + (void) removeObserver:(id)notificationObserver name:(NSString*)notificationName
+{
+  [org_pqrs_PCKeyboardHack_NSDistributedNotificationCenter removeObserver:notificationObserver
+                                                                     name:notificationName
+                                                                   object:kPCKeyboardHackNotificationKey];
+}
+
++ (void) removeObserver:(id)notificationObserver name:(NSString*)notificationName object:(NSString*)notificationSender
 {
   [[NSDistributedNotificationCenter defaultCenter] removeObserver:notificationObserver
                                                              name:notificationName
-                                                           object:kPCKeyboardHackNotificationKey];
+                                                           object:notificationSender];
 }
 
 + (void) postNotificationName:(NSString*)notificationName userInfo:(NSDictionary*)userInfo

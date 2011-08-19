@@ -269,4 +269,12 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
   [self checkForUpdates:YES];
 }
 
+- (void) dealloc
+{
+  [org_pqrs_PCKeyboardHack_NSDistributedNotificationCenter removeObserver:self];
+  [[NSNotificationCenter defaultCenter] removeObserver:self];
+
+  [super dealloc];
+}
+
 @end
