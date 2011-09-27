@@ -1,6 +1,20 @@
 #!/bin/sh
 PATH=/bin:/sbin:/usr/bin:/usr/sbin; export PATH
 
+# ------------------------------------------------------------
+# set file permissions
+for f in \
+    /Library/LaunchAgents/org.pqrs.PCKeyboardHack.server.plist \
+    /Library/LaunchDaemons/org.pqrs.PCKeyboardHack.load.plist \
+    /Library/PreferencePanes/PCKeyboardHack.prefPane \
+    /Library/org.pqrs \
+    ; do
+    echo "set file permissions: $f"
+    sh /Library/org.pqrs/PCKeyboardHack/extra/setpermissions.sh "$f"
+done
+
+# ------------------------------------------------------------
+# load kext
 startup="/Library/org.pqrs/PCKeyboardHack/scripts/startup.sh"
 [ -f "$startup" ] && "$startup" quickstart
 

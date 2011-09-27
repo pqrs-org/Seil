@@ -21,31 +21,39 @@ for ostype in 10.6 10.7; do
     cp -R src/core/kext/${ostype}/build/Release/PCKeyboardHack.kext "pkgroot/$basedir/PCKeyboardHack.${ostype}.kext"
 done
 cp -R files/prefpane "pkgroot/$basedir"
-cp -R files/scripts "pkgroot/$basedir"
+cp -R files/scripts  "pkgroot/$basedir"
 
-mkdir -p "pkgroot/$basedir/extra"
-cp -R pkginfo/Resources/preflight "pkgroot/$basedir/extra/uninstall.sh"
+mkdir -p                               "pkgroot/$basedir/extra"
+cp -R pkginfo/Resources/preflight      "pkgroot/$basedir/extra/uninstall.sh"
 cp -R files/extra/launchUninstaller.sh "pkgroot/$basedir/extra/"
+cp -R files/extra/setpermissions.sh    "pkgroot/$basedir/extra/"
 
-mkdir -p "pkgroot/Library"
-cp -R files/LaunchAgents pkgroot/Library
-cp -R files/LaunchDaemons pkgroot/Library
+mkdir -p                  "pkgroot/Library"
+cp -R files/LaunchAgents  "pkgroot/Library"
+cp -R files/LaunchDaemons "pkgroot/Library"
 
-mkdir -p "pkgroot/$basedir/app"
-cp -R "src/core/server/build/Release/PCKeyboardHack.app" "pkgroot/$basedir/app"
+mkdir -p                                                   "pkgroot/$basedir/app"
+cp -R "src/core/server/build/Release/PCKeyboardHack.app"   "pkgroot/$basedir/app"
 cp -R "src/util/uninstaller/build/Release/uninstaller.app" "pkgroot/$basedir/app"
 
-mkdir -p "pkgroot/Library/PreferencePanes"
+mkdir -p                                                        "pkgroot/Library/PreferencePanes"
 cp -R "src/util/prefpane/build/Release/PCKeyboardHack.prefPane" "pkgroot/Library/PreferencePanes"
 
-find pkgroot -type d -print0 | xargs -0 chmod 755
-find pkgroot -type f -print0 | xargs -0 chmod 644
-find pkgroot -name '*.sh' -print0 | xargs -0 chmod 755
-for file in `find pkgroot -type f`; do
-    if ./pkginfo/is-mach-o.sh "$file"; then
-        chmod 755 "$file"
-    fi
-done
+# Setting file permissions.
+#
+# Note:
+#   If target files are already exists in system disk,
+#   PackageMaker uses their permissions.
+#
+#   For example:
+#     If /Library/org.pqrs permission is 0777 by accidental reasons,
+#     the directory permission will be 0777 in Archive.bom
+#     even if we set this directory permission to 0755 by setpermissions.sh.
+#
+#   Then, we need to repair file permissions in postflight script.
+#   Please also see postflight.
+#
+sh "files/extra/setpermissions.sh" pkgroot
 
 # --------------------------------------------------
 echo "Exec PackageMaker"
