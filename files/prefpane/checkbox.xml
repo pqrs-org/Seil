@@ -86,6 +86,16 @@
   </item>
 
   <item>
+    <name>For ADB Keyboard</name>
+    <expand>false</expand>
+    <item>
+      <name>Change Power Key</name>
+      <enable>enable_adb_keyboard_power</enable>
+      <keycode>keycode_adb_keyboard_power</keycode>
+    </item>
+  </item>
+
+  <item>
     <name>For Japanese</name>
     <expand>true</expand>
     <item>

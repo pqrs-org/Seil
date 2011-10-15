@@ -36,6 +36,7 @@ static PreferencesManager* global_instance = nil;
   [default_ setObject:[NSNumber numberWithInt:51]  forKey:@"keycode_delete"];
   [default_ setObject:[NSNumber numberWithInt:36]  forKey:@"keycode_return"];
   [default_ setObject:[NSNumber numberWithInt:76]  forKey:@"keycode_enter"];
+  [default_ setObject:[NSNumber numberWithInt:127] forKey:@"keycode_adb_keyboard_power"];
 }
 
 // ----------------------------------------

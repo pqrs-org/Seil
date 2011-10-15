@@ -40,6 +40,8 @@ org_pqrs_driver_PCKeyboardHack::HookedKeyboard::initialize(IOHIKeyboard* p)
       IOLOG_INFO("%d = %d\n", static_cast<int>(i), hid->_usb_2_adb_keymap[i]);
     }
 #endif
+
+    IOLOG_INFO("%d = %d\n", kHIDUsage_KeyboardPower, hid->_usb_2_adb_keymap[kHIDUsage_KeyboardPower]);
   }
 
   refresh();
