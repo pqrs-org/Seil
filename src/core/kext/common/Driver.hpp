@@ -28,9 +28,11 @@ private:
     enum Value {
       NONE               = 0, // NONE must be a unique value in this enum.
       CAPSLOCK           = kHIDUsage_KeyboardCapsLock,
-      JIS_KANA           = 0x88,
-      JIS_NFER           = 0x8b,
-      JIS_XFER           = 0x8a,
+      INT1               = kHIDUsage_KeyboardInternational1,
+      JIS_KANA           = 0x88, // International2
+      JIS_NFER           = 0x8b, // International5
+      JIS_XFER           = 0x8a, // International4
+      INT6               = kHIDUsage_KeyboardInternational6,
       COMMAND_L          = kHIDUsage_KeyboardLeftGUI,
       COMMAND_R          = kHIDUsage_KeyboardRightGUI,
       CONTROL_L          = kHIDUsage_KeyboardLeftControl,
@@ -51,6 +53,7 @@ private:
         case BRIDGE_KEY_INDEX_JIS_KANA:           return JIS_KANA;
         case BRIDGE_KEY_INDEX_JIS_NFER:           return JIS_NFER;
         case BRIDGE_KEY_INDEX_JIS_XFER:           return JIS_XFER;
+        case BRIDGE_KEY_INDEX_INT6:               return INT6;
         case BRIDGE_KEY_INDEX_COMMAND_L:          return COMMAND_L;
         case BRIDGE_KEY_INDEX_COMMAND_R:          return COMMAND_R;
         case BRIDGE_KEY_INDEX_CONTROL_L:          return CONTROL_L;

@@ -24,6 +24,7 @@ static PreferencesManager* global_instance = nil;
   [default_ setObject:[NSNumber numberWithInt:54]  forKey:@"keycode_jis_kana"];
   [default_ setObject:[NSNumber numberWithInt:102] forKey:@"keycode_jis_nfer"];
   [default_ setObject:[NSNumber numberWithInt:104] forKey:@"keycode_jis_xfer"];
+  [default_ setObject:[NSNumber numberWithInt:76]  forKey:@"keycode_int6"];
   [default_ setObject:[NSNumber numberWithInt:55]  forKey:@"keycode_command_l"];
   [default_ setObject:[NSNumber numberWithInt:54]  forKey:@"keycode_command_r"];
   [default_ setObject:[NSNumber numberWithInt:59]  forKey:@"keycode_control_l"];

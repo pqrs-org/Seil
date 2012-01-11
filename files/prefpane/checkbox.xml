@@ -96,6 +96,16 @@
   </item>
 
   <item>
+    <name>International Keys</name>
+    <expand>true</expand>
+    <item>
+      <name>Enable International 6 Key</name>
+      <enable>enable_int6</enable>
+      <keycode>keycode_int6</keycode>
+    </item>
+  </item>
+
+  <item>
     <name>For Japanese</name>
     <expand>true</expand>
     <item>
@@ -114,4 +124,5 @@
       <keycode>keycode_jis_kana</keycode>
     </item>
   </item>
+
 </root>

@@ -37,6 +37,9 @@
   bridgeconfig.config[BRIDGE_KEY_INDEX_JIS_XFER].enabled           = [preferencesmanager value:@"enable_jis_xfer"];
   bridgeconfig.config[BRIDGE_KEY_INDEX_JIS_XFER].keycode           = [preferencesmanager value:@"keycode_jis_xfer"];
 
+  bridgeconfig.config[BRIDGE_KEY_INDEX_INT6].enabled               = [preferencesmanager value:@"enable_int6"];
+  bridgeconfig.config[BRIDGE_KEY_INDEX_INT6].keycode               = [preferencesmanager value:@"keycode_int6"];
+
   bridgeconfig.config[BRIDGE_KEY_INDEX_COMMAND_L].enabled          = [preferencesmanager value:@"enable_command_l"];
   bridgeconfig.config[BRIDGE_KEY_INDEX_COMMAND_L].keycode          = [preferencesmanager value:@"keycode_command_l"];
 
