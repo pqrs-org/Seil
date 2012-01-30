@@ -8,6 +8,7 @@ xcuserdata/
 *.mode1v3
 *.pbxuser
 pkginfo/Info.plist
+src/core/autogen/output
 src/core/kext/common/Info.plist
 src/core/server/Info.plist
 src/util/prefpane/Info.plist

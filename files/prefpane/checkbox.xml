@@ -7,6 +7,7 @@
       <name>Change Caps Lock</name>
       <enable>enable_capslock</enable>
       <keycode>keycode_capslock</keycode>
+      <kHIDUsage>kHIDUsage_KeyboardCapsLock</kHIDUsage>
     </item>
   </item>
 
@@ -25,63 +26,75 @@
       <name>Change Command_L</name>
       <enable>enable_command_l</enable>
       <keycode>keycode_command_l</keycode>
+      <kHIDUsage>kHIDUsage_KeyboardLeftGUI</kHIDUsage>
     </item>
     <item>
       <name>Change Command_R</name>
       <enable>enable_command_r</enable>
       <keycode>keycode_command_r</keycode>
+      <kHIDUsage>kHIDUsage_KeyboardRightGUI</kHIDUsage>
     </item>
     <item>
       <name>Change Control_L</name>
       <enable>enable_control_l</enable>
       <keycode>keycode_control_l</keycode>
+      <kHIDUsage>kHIDUsage_KeyboardLeftControl</kHIDUsage>
     </item>
     <item>
       <name>Change Control_R</name>
       <enable>enable_control_r</enable>
       <keycode>keycode_control_r</keycode>
+      <kHIDUsage>kHIDUsage_KeyboardRightControl</kHIDUsage>
     </item>
     <!-- fn key is not in _usb_2_adb_keymap -->
     <item>
       <name>Change Option_L</name>
       <enable>enable_option_l</enable>
       <keycode>keycode_option_l</keycode>
+      <kHIDUsage>kHIDUsage_KeyboardLeftAlt</kHIDUsage>
     </item>
     <item>
       <name>Change Option_R</name>
       <enable>enable_option_r</enable>
       <keycode>keycode_option_r</keycode>
+      <kHIDUsage>kHIDUsage_KeyboardRightAlt</kHIDUsage>
     </item>
     <item>
       <name>Change Shift_L</name>
       <enable>enable_shift_l</enable>
       <keycode>keycode_shift_l</keycode>
+      <kHIDUsage>kHIDUsage_KeyboardLeftShift</kHIDUsage>
     </item>
     <item>
       <name>Change Shift_R</name>
       <enable>enable_shift_r</enable>
       <keycode>keycode_shift_r</keycode>
+      <kHIDUsage>kHIDUsage_KeyboardRightShift</kHIDUsage>
     </item>
     <item><name>----------------------------------------</name></item>
     <item>
       <name>Change Escape</name>
       <enable>enable_escape</enable>
       <keycode>keycode_escape</keycode>
+      <kHIDUsage>kHIDUsage_KeyboardEscape</kHIDUsage>
     </item>
     <item>
       <name>Change Delete</name>
       <enable>enable_delete</enable>
       <keycode>keycode_delete</keycode>
+      <kHIDUsage>kHIDUsage_KeyboardDeleteOrBackspace</kHIDUsage>
     </item>
     <item>
       <name>Change Return</name>
       <enable>enable_return</enable>
       <keycode>keycode_return</keycode>
+      <kHIDUsage>kHIDUsage_KeyboardReturnOrEnter</kHIDUsage>
     </item>
     <item>
       <name>Change Keypad Enter</name>
       <enable>enable_enter</enable>
       <keycode>keycode_enter</keycode>
+      <kHIDUsage>kHIDUsage_KeypadEnter</kHIDUsage>
     </item>
   </item>
 
@@ -92,6 +105,7 @@
       <name>Change Power Key</name>
       <enable>enable_adb_keyboard_power</enable>
       <keycode>keycode_adb_keyboard_power</keycode>
+      <kHIDUsage>kHIDUsage_KeyboardPower</kHIDUsage>
     </item>
   </item>
 
@@ -102,6 +116,7 @@
       <name>Enable International 6 Key</name>
       <enable>enable_int6</enable>
       <keycode>keycode_int6</keycode>
+      <kHIDUsage>kHIDUsage_KeyboardInternational6</kHIDUsage>
     </item>
   </item>
 
@@ -112,16 +127,19 @@
       <name>Enable NFER Key on PC keyboard</name>
       <enable>enable_jis_nfer</enable>
       <keycode>keycode_jis_nfer</keycode>
+      <kHIDUsage>International5</kHIDUsage>
     </item>
     <item>
       <name>Enable XFER Key on PC keyboard</name>
       <enable>enable_jis_xfer</enable>
       <keycode>keycode_jis_xfer</keycode>
+      <kHIDUsage>International4</kHIDUsage>
     </item>
     <item>
       <name>Enable KATAKANA Key on PC keyboard</name>
       <enable>enable_jis_kana</enable>
       <keycode>keycode_jis_kana</keycode>
+      <kHIDUsage>International2</kHIDUsage>
     </item>
   </item>
 
