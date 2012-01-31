@@ -48,6 +48,13 @@ org_pqrs_driver_PCKeyboardHack::HookedKeyboard::initialize(IOHIKeyboard* p)
 void
 org_pqrs_driver_PCKeyboardHack::HookedKeyboard::terminate(void)
 {
+  restore();
+  kbd_ = NULL;
+}
+
+void
+org_pqrs_driver_PCKeyboardHack::HookedKeyboard::restore(void)
+{
   if (! kbd_) return;
 
   IOHIDKeyboard* hid = OSDynamicCast(IOHIDKeyboard, kbd_);
@@ -58,8 +65,6 @@ org_pqrs_driver_PCKeyboardHack::HookedKeyboard::terminate(void)
         hid->_usb_2_adb_keymap[idx] = originalKeyCode_[i];
       }
     }
-
-    kbd_ = NULL;
   }
 }
 
@@ -68,6 +73,15 @@ org_pqrs_driver_PCKeyboardHack::HookedKeyboard::refresh(void)
 {
   if (! kbd_) return;
 
+  // Some settings change the same _usb_2_adb_keymap.
+  //   For example:
+  //     Both "International 4 Key" and "For Japanese > XFER Key on PC keyboard" change
+  //     kHIDUsage_KeyboardInternational4.
+  //
+  // Therefore, we restore original key code at first.
+  // Then we change key code for enabled keys.
+  restore();
+
   IOHIDKeyboard* hid = OSDynamicCast(IOHIDKeyboard, kbd_);
   if (hid) {
     for (int i = 0; i < BRIDGE_KEY_INDEX__END__; ++i) {
@@ -75,8 +89,6 @@ org_pqrs_driver_PCKeyboardHack::HookedKeyboard::refresh(void)
       if (idx != KeyMapIndex::NONE) {
         if (configuration_.config[i].enabled) {
           hid->_usb_2_adb_keymap[idx] = configuration_.config[i].keycode;
-        } else {
-          hid->_usb_2_adb_keymap[idx] = originalKeyCode_[i];
         }
       }
     }

@@ -51,6 +51,8 @@ private:
     IOHIKeyboard* get(void) { return kbd_; }
 
   private:
+    void restore(void);
+
     IOHIKeyboard* kbd_;
     unsigned int originalKeyCode_[BRIDGE_KEY_INDEX__END__];
   };
