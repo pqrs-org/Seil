@@ -114,6 +114,7 @@
   <item>
     <name>Keys on Non-Apple Keyboards</name>
     <expand>true</expand>
+    <item><name>----------------------------------------</name></item>
     <item>
       <name>Enable International 1 Key</name>
       <enable>enable_int1</enable>
@@ -177,12 +178,83 @@
       <kHIDUsage>kHIDUsage_KeyboardInternational9</kHIDUsage>
       <default>76</default>
     </item>
+    <item><name>----------------------------------------</name></item>
     <item>
       <name>Change ADB Power Key</name>
       <enable>enable_adb_keyboard_power</enable>
       <keycode>keycode_adb_keyboard_power</keycode>
       <kHIDUsage>kHIDUsage_KeyboardPower</kHIDUsage>
       <default>127</default>
+    </item>
+    <item>
+      <name>Enable Again Key</name>
+      <enable>enable_again</enable>
+      <keycode>keycode_again</keycode>
+      <kHIDUsage>kHIDUsage_KeyboardAgain</kHIDUsage>
+      <default>111</default>
+    </item>
+    <item>
+      <name>Enable Copy Key</name>
+      <enable>enable_copy</enable>
+      <keycode>keycode_copy</keycode>
+      <kHIDUsage>kHIDUsage_KeyboardCopy</kHIDUsage>
+      <default>111</default>
+    </item>
+    <item>
+      <name>Enable Cut Key</name>
+      <enable>enable_cut</enable>
+      <keycode>keycode_cut</keycode>
+      <kHIDUsage>kHIDUsage_KeyboardCut</kHIDUsage>
+      <default>111</default>
+    </item>
+    <item>
+      <name>Enable Execute Key</name>
+      <enable>enable_execute</enable>
+      <keycode>keycode_execute</keycode>
+      <kHIDUsage>kHIDUsage_KeyboardExecute</kHIDUsage>
+      <default>111</default>
+    </item>
+    <item>
+      <name>Enable Find Key</name>
+      <enable>enable_find</enable>
+      <keycode>keycode_find</keycode>
+      <kHIDUsage>kHIDUsage_KeyboardFind</kHIDUsage>
+      <default>111</default>
+    </item>
+    <item>
+      <name>Enable Menu Key</name>
+      <enable>enable_menu</enable>
+      <keycode>keycode_menu</keycode>
+      <kHIDUsage>kHIDUsage_KeyboardMenu</kHIDUsage>
+      <default>111</default>
+    </item>
+    <item>
+      <name>Enable Paste Key</name>
+      <enable>enable_paste</enable>
+      <keycode>keycode_paste</keycode>
+      <kHIDUsage>kHIDUsage_KeyboardPaste</kHIDUsage>
+      <default>111</default>
+    </item>
+    <item>
+      <name>Enable Select Key</name>
+      <enable>enable_select</enable>
+      <keycode>keycode_select</keycode>
+      <kHIDUsage>kHIDUsage_KeyboardSelect</kHIDUsage>
+      <default>111</default>
+    </item>
+    <item>
+      <name>Enable Stop Key</name>
+      <enable>enable_stop</enable>
+      <keycode>keycode_stop</keycode>
+      <kHIDUsage>kHIDUsage_KeyboardStop</kHIDUsage>
+      <default>111</default>
+    </item>
+    <item>
+      <name>Enable Undo Key</name>
+      <enable>enable_undo</enable>
+      <keycode>keycode_undo</keycode>
+      <kHIDUsage>kHIDUsage_KeyboardUndo</kHIDUsage>
+      <default>111</default>
     </item>
   </item>
 
