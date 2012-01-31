@@ -54,6 +54,7 @@
   <item><name>Power</name><keycode>127</keycode></item>
 
   <item><name>Dashboard</name><keycode>130</keycode></item>
+  <item><name>Launchpad</name><keycode>131</keycode></item>
   <item><name>Expose</name><keycode>160</keycode></item>
 
   <item><name>------------------------------------------------------------</name><keycode>-----</keycode></item>
