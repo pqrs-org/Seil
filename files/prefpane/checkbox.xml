@@ -8,6 +8,7 @@
       <enable>enable_capslock</enable>
       <keycode>keycode_capslock</keycode>
       <kHIDUsage>kHIDUsage_KeyboardCapsLock</kHIDUsage>
+      <default>51</default>
     </item>
   </item>
 
@@ -27,24 +28,28 @@
       <enable>enable_command_l</enable>
       <keycode>keycode_command_l</keycode>
       <kHIDUsage>kHIDUsage_KeyboardLeftGUI</kHIDUsage>
+      <default>55</default>
     </item>
     <item>
       <name>Change Command_R</name>
       <enable>enable_command_r</enable>
       <keycode>keycode_command_r</keycode>
       <kHIDUsage>kHIDUsage_KeyboardRightGUI</kHIDUsage>
+      <default>54</default>
     </item>
     <item>
       <name>Change Control_L</name>
       <enable>enable_control_l</enable>
       <keycode>keycode_control_l</keycode>
       <kHIDUsage>kHIDUsage_KeyboardLeftControl</kHIDUsage>
+      <default>59</default>
     </item>
     <item>
       <name>Change Control_R</name>
       <enable>enable_control_r</enable>
       <keycode>keycode_control_r</keycode>
       <kHIDUsage>kHIDUsage_KeyboardRightControl</kHIDUsage>
+      <default>62</default>
     </item>
     <!-- fn key is not in _usb_2_adb_keymap -->
     <item>
@@ -52,24 +57,28 @@
       <enable>enable_option_l</enable>
       <keycode>keycode_option_l</keycode>
       <kHIDUsage>kHIDUsage_KeyboardLeftAlt</kHIDUsage>
+      <default>58</default>
     </item>
     <item>
       <name>Change Option_R</name>
       <enable>enable_option_r</enable>
       <keycode>keycode_option_r</keycode>
       <kHIDUsage>kHIDUsage_KeyboardRightAlt</kHIDUsage>
+      <default>61</default>
     </item>
     <item>
       <name>Change Shift_L</name>
       <enable>enable_shift_l</enable>
       <keycode>keycode_shift_l</keycode>
       <kHIDUsage>kHIDUsage_KeyboardLeftShift</kHIDUsage>
+      <default>56</default>
     </item>
     <item>
       <name>Change Shift_R</name>
       <enable>enable_shift_r</enable>
       <keycode>keycode_shift_r</keycode>
       <kHIDUsage>kHIDUsage_KeyboardRightShift</kHIDUsage>
+      <default>60</default>
     </item>
     <item><name>----------------------------------------</name></item>
     <item>
@@ -77,24 +86,28 @@
       <enable>enable_escape</enable>
       <keycode>keycode_escape</keycode>
       <kHIDUsage>kHIDUsage_KeyboardEscape</kHIDUsage>
+      <default>53</default>
     </item>
     <item>
       <name>Change Delete</name>
       <enable>enable_delete</enable>
       <keycode>keycode_delete</keycode>
       <kHIDUsage>kHIDUsage_KeyboardDeleteOrBackspace</kHIDUsage>
+      <default>51</default>
     </item>
     <item>
       <name>Change Return</name>
       <enable>enable_return</enable>
       <keycode>keycode_return</keycode>
       <kHIDUsage>kHIDUsage_KeyboardReturnOrEnter</kHIDUsage>
+      <default>36</default>
     </item>
     <item>
       <name>Change Keypad Enter</name>
       <enable>enable_enter</enable>
       <keycode>keycode_enter</keycode>
       <kHIDUsage>kHIDUsage_KeypadEnter</kHIDUsage>
+      <default>76</default>
     </item>
   </item>
 
@@ -106,6 +119,7 @@
       <enable>enable_adb_keyboard_power</enable>
       <keycode>keycode_adb_keyboard_power</keycode>
       <kHIDUsage>kHIDUsage_KeyboardPower</kHIDUsage>
+      <default>127</default>
     </item>
   </item>
 
@@ -117,6 +131,7 @@
       <enable>enable_int6</enable>
       <keycode>keycode_int6</keycode>
       <kHIDUsage>kHIDUsage_KeyboardInternational6</kHIDUsage>
+      <default>76</default>
     </item>
   </item>
 
@@ -128,18 +143,21 @@
       <enable>enable_jis_nfer</enable>
       <keycode>keycode_jis_nfer</keycode>
       <kHIDUsage>kHIDUsage_KeyboardInternational5</kHIDUsage>
+      <default>102</default>
     </item>
     <item>
       <name>Enable XFER Key on PC keyboard</name>
       <enable>enable_jis_xfer</enable>
       <keycode>keycode_jis_xfer</keycode>
       <kHIDUsage>kHIDUsage_KeyboardInternational4</kHIDUsage>
+      <default>104</default>
     </item>
     <item>
       <name>Enable KATAKANA Key on PC keyboard</name>
       <enable>enable_jis_kana</enable>
       <keycode>keycode_jis_kana</keycode>
       <kHIDUsage>kHIDUsage_KeyboardInternational2</kHIDUsage>
+      <default>54</default>
     </item>
   </item>
 

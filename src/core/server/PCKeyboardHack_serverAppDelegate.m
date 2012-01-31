@@ -25,59 +25,7 @@
 
   bridgeconfig.version = BRIDGE_CONFIG_VERSION;
 
-  bridgeconfig.config[BRIDGE_KEY_INDEX_CAPSLOCK].enabled           = [preferencesmanager value:@"enable_capslock"];
-  bridgeconfig.config[BRIDGE_KEY_INDEX_CAPSLOCK].keycode           = [preferencesmanager value:@"keycode_capslock"];
-
-  bridgeconfig.config[BRIDGE_KEY_INDEX_JIS_KANA].enabled           = [preferencesmanager value:@"enable_jis_kana"];
-  bridgeconfig.config[BRIDGE_KEY_INDEX_JIS_KANA].keycode           = [preferencesmanager value:@"keycode_jis_kana"];
-
-  bridgeconfig.config[BRIDGE_KEY_INDEX_JIS_NFER].enabled           = [preferencesmanager value:@"enable_jis_nfer"];
-  bridgeconfig.config[BRIDGE_KEY_INDEX_JIS_NFER].keycode           = [preferencesmanager value:@"keycode_jis_nfer"];
-
-  bridgeconfig.config[BRIDGE_KEY_INDEX_JIS_XFER].enabled           = [preferencesmanager value:@"enable_jis_xfer"];
-  bridgeconfig.config[BRIDGE_KEY_INDEX_JIS_XFER].keycode           = [preferencesmanager value:@"keycode_jis_xfer"];
-
-  bridgeconfig.config[BRIDGE_KEY_INDEX_INT6].enabled               = [preferencesmanager value:@"enable_int6"];
-  bridgeconfig.config[BRIDGE_KEY_INDEX_INT6].keycode               = [preferencesmanager value:@"keycode_int6"];
-
-  bridgeconfig.config[BRIDGE_KEY_INDEX_COMMAND_L].enabled          = [preferencesmanager value:@"enable_command_l"];
-  bridgeconfig.config[BRIDGE_KEY_INDEX_COMMAND_L].keycode          = [preferencesmanager value:@"keycode_command_l"];
-
-  bridgeconfig.config[BRIDGE_KEY_INDEX_COMMAND_R].enabled          = [preferencesmanager value:@"enable_command_r"];
-  bridgeconfig.config[BRIDGE_KEY_INDEX_COMMAND_R].keycode          = [preferencesmanager value:@"keycode_command_r"];
-
-  bridgeconfig.config[BRIDGE_KEY_INDEX_CONTROL_L].enabled          = [preferencesmanager value:@"enable_control_l"];
-  bridgeconfig.config[BRIDGE_KEY_INDEX_CONTROL_L].keycode          = [preferencesmanager value:@"keycode_control_l"];
-
-  bridgeconfig.config[BRIDGE_KEY_INDEX_CONTROL_R].enabled          = [preferencesmanager value:@"enable_control_r"];
-  bridgeconfig.config[BRIDGE_KEY_INDEX_CONTROL_R].keycode          = [preferencesmanager value:@"keycode_control_r"];
-
-  bridgeconfig.config[BRIDGE_KEY_INDEX_OPTION_L].enabled           = [preferencesmanager value:@"enable_option_l"];
-  bridgeconfig.config[BRIDGE_KEY_INDEX_OPTION_L].keycode           = [preferencesmanager value:@"keycode_option_l"];
-
-  bridgeconfig.config[BRIDGE_KEY_INDEX_OPTION_R].enabled           = [preferencesmanager value:@"enable_option_r"];
-  bridgeconfig.config[BRIDGE_KEY_INDEX_OPTION_R].keycode           = [preferencesmanager value:@"keycode_option_r"];
-
-  bridgeconfig.config[BRIDGE_KEY_INDEX_SHIFT_L].enabled            = [preferencesmanager value:@"enable_shift_l"];
-  bridgeconfig.config[BRIDGE_KEY_INDEX_SHIFT_L].keycode            = [preferencesmanager value:@"keycode_shift_l"];
-
-  bridgeconfig.config[BRIDGE_KEY_INDEX_SHIFT_R].enabled            = [preferencesmanager value:@"enable_shift_r"];
-  bridgeconfig.config[BRIDGE_KEY_INDEX_SHIFT_R].keycode            = [preferencesmanager value:@"keycode_shift_r"];
-
-  bridgeconfig.config[BRIDGE_KEY_INDEX_ESCAPE].enabled             = [preferencesmanager value:@"enable_escape"];
-  bridgeconfig.config[BRIDGE_KEY_INDEX_ESCAPE].keycode             = [preferencesmanager value:@"keycode_escape"];
-
-  bridgeconfig.config[BRIDGE_KEY_INDEX_DELETE].enabled             = [preferencesmanager value:@"enable_delete"];
-  bridgeconfig.config[BRIDGE_KEY_INDEX_DELETE].keycode             = [preferencesmanager value:@"keycode_delete"];
-
-  bridgeconfig.config[BRIDGE_KEY_INDEX_RETURN].enabled             = [preferencesmanager value:@"enable_return"];
-  bridgeconfig.config[BRIDGE_KEY_INDEX_RETURN].keycode             = [preferencesmanager value:@"keycode_return"];
-
-  bridgeconfig.config[BRIDGE_KEY_INDEX_ENTER].enabled              = [preferencesmanager value:@"enable_enter"];
-  bridgeconfig.config[BRIDGE_KEY_INDEX_ENTER].keycode              = [preferencesmanager value:@"keycode_enter"];
-
-  bridgeconfig.config[BRIDGE_KEY_INDEX_ADB_KEYBOARD_POWER].enabled = [preferencesmanager value:@"enable_adb_keyboard_power"];
-  bridgeconfig.config[BRIDGE_KEY_INDEX_ADB_KEYBOARD_POWER].keycode = [preferencesmanager value:@"keycode_adb_keyboard_power"];
+#include "bridgeconfig_config.h"
 
   struct BridgeUserClientStruct bridgestruct;
   bridgestruct.data   = (uintptr_t)(&bridgeconfig);

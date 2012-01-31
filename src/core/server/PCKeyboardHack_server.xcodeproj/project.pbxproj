@@ -49,6 +49,8 @@
 		343420C813D7466E000DBD3E /* PCKeyboardHackKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PCKeyboardHackKeys.h; path = ../../share/PCKeyboardHackKeys.h; sourceTree = "<group>"; };
 		343420CA13D74C16000DBD3E /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		347A7DA714D7927F0034D71E /* BRIDGE_KEY_INDEX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BRIDGE_KEY_INDEX.h; path = ../autogen/output/BRIDGE_KEY_INDEX.h; sourceTree = "<group>"; };
+		347A7DA814D795160034D71E /* bridgeconfig_config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bridgeconfig_config.h; path = ../autogen/output/bridgeconfig_config.h; sourceTree = "<group>"; };
+		347A7DA914D796D50034D71E /* setDefault.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = setDefault.h; path = ../autogen/output/setDefault.h; sourceTree = "<group>"; };
 		3481610613EC48CB000B43B0 /* PCKeyboardHackNSDistributedNotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PCKeyboardHackNSDistributedNotificationCenter.h; path = ../../share/PCKeyboardHackNSDistributedNotificationCenter.h; sourceTree = "<group>"; };
 		3481610713EC48CB000B43B0 /* PCKeyboardHackNSDistributedNotificationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PCKeyboardHackNSDistributedNotificationCenter.m; path = ../../share/PCKeyboardHackNSDistributedNotificationCenter.m; sourceTree = "<group>"; };
 		34D2910213ED96A3002A224E /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Frameworks/Sparkle.framework; sourceTree = "<group>"; };
@@ -168,6 +170,8 @@
 		347A7DA514D792730034D71E /* autogen */ = {
 			isa = PBXGroup;
 			children = (
+				347A7DA914D796D50034D71E /* setDefault.h */,
+				347A7DA814D795160034D71E /* bridgeconfig_config.h */,
 				347A7DA714D7927F0034D71E /* BRIDGE_KEY_INDEX.h */,
 			);
 			name = autogen;

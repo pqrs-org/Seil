@@ -20,6 +20,7 @@ $outfile = {
   :KeyMapIndex_Value                 => open('output/KeyMapIndex_Value.hpp.tmp', 'w'),
   :KeyMapIndex_bridgeKeyindexToValue => open('output/KeyMapIndex_bridgeKeyindexToValue.hpp.tmp', 'w'),
   :bridgeconfig_config               => open('output/bridgeconfig_config.h.tmp', 'w'),
+  :setDefault                        => open('output/setDefault.h.tmp', 'w'),
 }
 
 ARGV.each do |xmlpath|
@@ -36,6 +37,9 @@ ARGV.each do |xmlpath|
       kHIDUsage = REXML::XPath.first(item, './kHIDUsage')
       next if kHIDUsage.nil?
 
+      default = REXML::XPath.first(item, './default')
+      next if default.nil?
+
       identifier = enable.text.gsub(/enable_/, '').upcase
       $outfile[:BRIDGE_KEY_INDEX] << "BRIDGE_KEY_INDEX_#{identifier},\n"
       $outfile[:KeyMapIndex_Value] << "#{identifier} = #{kHIDUsage.text},\n"
@@ -43,6 +47,8 @@ ARGV.each do |xmlpath|
 
       $outfile[:bridgeconfig_config] << "bridgeconfig.config[BRIDGE_KEY_INDEX_#{identifier}].enabled = [preferencesmanager value:@\"#{enable.text}\"];\n"
       $outfile[:bridgeconfig_config] << "bridgeconfig.config[BRIDGE_KEY_INDEX_#{identifier}].keycode = [preferencesmanager value:@\"#{keycode.text}\"];\n"
+
+      $outfile[:setDefault] << "[default_ setObject:[NSNumber numberWithInt:#{default.text}] forKey:@\"#{keycode.text}\"];\n"
     end
   end
 end
