@@ -6,7 +6,8 @@
 
 enum {
   // Version 1: initial version.
-  BRIDGE_CONFIG_VERSION = 1,
+  // Version 2: changed to use autogen code (BRIDGE_KEY_INDEX.h).
+  BRIDGE_CONFIG_VERSION = 2,
 };
 
 enum {
