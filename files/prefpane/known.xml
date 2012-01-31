@@ -37,6 +37,13 @@
   <item><name>F10</name><keycode>109</keycode></item>
   <item><name>F11</name><keycode>103</keycode></item>
   <item><name>F12</name><keycode>111</keycode></item>
+  <item><name>F13</name><keycode>105</keycode></item>
+  <item><name>F14</name><keycode>107</keycode></item>
+  <item><name>F15</name><keycode>113</keycode></item>
+  <item><name>F16</name><keycode>106</keycode></item>
+  <item><name>F17</name><keycode>64</keycode></item>
+  <item><name>F18</name><keycode>79</keycode></item>
+  <item><name>F19</name><keycode>80</keycode></item>
 
   <item><name>------------------------------------------------------------</name><keycode>-----</keycode></item>
 
