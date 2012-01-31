@@ -19,6 +19,7 @@ $outfile = {
   :BRIDGE_KEY_INDEX                  => open('output/BRIDGE_KEY_INDEX.h.tmp', 'w'),
   :KeyMapIndex_Value                 => open('output/KeyMapIndex_Value.hpp.tmp', 'w'),
   :KeyMapIndex_bridgeKeyindexToValue => open('output/KeyMapIndex_bridgeKeyindexToValue.hpp.tmp', 'w'),
+  :bridgeconfig_config               => open('output/bridgeconfig_config.h.tmp', 'w'),
 }
 
 ARGV.each do |xmlpath|
@@ -29,6 +30,9 @@ ARGV.each do |xmlpath|
       enable = REXML::XPath.first(item, './enable')
       next if enable.nil?
 
+      keycode = REXML::XPath.first(item, './keycode')
+      next if keycode.nil?
+
       kHIDUsage = REXML::XPath.first(item, './kHIDUsage')
       next if kHIDUsage.nil?
 
@@ -36,6 +40,9 @@ ARGV.each do |xmlpath|
       $outfile[:BRIDGE_KEY_INDEX] << "BRIDGE_KEY_INDEX_#{identifier},\n"
       $outfile[:KeyMapIndex_Value] << "#{identifier} = #{kHIDUsage.text},\n"
       $outfile[:KeyMapIndex_bridgeKeyindexToValue] << "case BRIDGE_KEY_INDEX_#{identifier}: return #{identifier};\n"
+
+      $outfile[:bridgeconfig_config] << "bridgeconfig.config[BRIDGE_KEY_INDEX_#{identifier}].enabled = [preferencesmanager value:@\"#{enable.text}\"];\n"
+      $outfile[:bridgeconfig_config] << "bridgeconfig.config[BRIDGE_KEY_INDEX_#{identifier}].keycode = [preferencesmanager value:@\"#{keycode.text}\"];\n"
     end
   end
 end
