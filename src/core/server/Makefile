@@ -2,9 +2,11 @@
 CONFIGURATION = Release
 
 all:
+	$(MAKE) -C ../autogen
 	xcodebuild -alltargets -configuration $(CONFIGURATION) build
 
 clean:
+	$(MAKE) -C ../autogen clean
 	rm -rf build
 	rm -f *.xcodeproj/*.mode1
 	rm -f *.xcodeproj/*.mode1v3
