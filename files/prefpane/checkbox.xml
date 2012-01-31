@@ -112,26 +112,77 @@
   </item>
 
   <item>
-    <name>For ADB Keyboard</name>
-    <expand>false</expand>
-    <item>
-      <name>Change Power Key</name>
-      <enable>enable_adb_keyboard_power</enable>
-      <keycode>keycode_adb_keyboard_power</keycode>
-      <kHIDUsage>kHIDUsage_KeyboardPower</kHIDUsage>
-      <default>127</default>
-    </item>
-  </item>
-
-  <item>
-    <name>International Keys</name>
+    <name>Keys on Non-Apple Keyboards</name>
     <expand>true</expand>
+    <item>
+      <name>Enable International 1 Key</name>
+      <enable>enable_int1</enable>
+      <keycode>keycode_int1</keycode>
+      <kHIDUsage>kHIDUsage_KeyboardInternational1</kHIDUsage>
+      <default>76</default>
+    </item>
+    <item>
+      <name>Enable International 2 Key</name>
+      <enable>enable_int2</enable>
+      <keycode>keycode_int2</keycode>
+      <kHIDUsage>kHIDUsage_KeyboardInternational2</kHIDUsage>
+      <default>76</default>
+    </item>
+    <item>
+      <name>Enable International 3 Key</name>
+      <enable>enable_int3</enable>
+      <keycode>keycode_int3</keycode>
+      <kHIDUsage>kHIDUsage_KeyboardInternational3</kHIDUsage>
+      <default>76</default>
+    </item>
+    <item>
+      <name>Enable International 4 Key</name>
+      <enable>enable_int4</enable>
+      <keycode>keycode_int4</keycode>
+      <kHIDUsage>kHIDUsage_KeyboardInternational4</kHIDUsage>
+      <default>76</default>
+    </item>
+    <item>
+      <name>Enable International 5 Key</name>
+      <enable>enable_int5</enable>
+      <keycode>keycode_int5</keycode>
+      <kHIDUsage>kHIDUsage_KeyboardInternational5</kHIDUsage>
+      <default>76</default>
+    </item>
     <item>
       <name>Enable International 6 Key</name>
       <enable>enable_int6</enable>
       <keycode>keycode_int6</keycode>
       <kHIDUsage>kHIDUsage_KeyboardInternational6</kHIDUsage>
       <default>76</default>
+    </item>
+    <item>
+      <name>Enable International 7 Key</name>
+      <enable>enable_int7</enable>
+      <keycode>keycode_int7</keycode>
+      <kHIDUsage>kHIDUsage_KeyboardInternational7</kHIDUsage>
+      <default>76</default>
+    </item>
+    <item>
+      <name>Enable International 8 Key</name>
+      <enable>enable_int8</enable>
+      <keycode>keycode_int8</keycode>
+      <kHIDUsage>kHIDUsage_KeyboardInternational8</kHIDUsage>
+      <default>76</default>
+    </item>
+    <item>
+      <name>Enable International 9 Key</name>
+      <enable>enable_int9</enable>
+      <keycode>keycode_int9</keycode>
+      <kHIDUsage>kHIDUsage_KeyboardInternational9</kHIDUsage>
+      <default>76</default>
+    </item>
+    <item>
+      <name>Change ADB Power Key</name>
+      <enable>enable_adb_keyboard_power</enable>
+      <keycode>keycode_adb_keyboard_power</keycode>
+      <kHIDUsage>kHIDUsage_KeyboardPower</kHIDUsage>
+      <default>127</default>
     </item>
   </item>
 
