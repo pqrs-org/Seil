@@ -3,6 +3,7 @@ CONFIGURATION = Release
 
 all:
 	$(MAKE) -C ../../../../pkginfo
+	$(MAKE) -C ../../autogen
 	xcodebuild -alltargets -configuration $(CONFIGURATION) MODULE_VERSION=`cat ../../../../version` CURRENT_PROJECT_VERSION=`cat ../../../../version` build
 
 clean:

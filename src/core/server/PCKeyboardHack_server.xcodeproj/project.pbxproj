@@ -48,6 +48,7 @@
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		343420C813D7466E000DBD3E /* PCKeyboardHackKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PCKeyboardHackKeys.h; path = ../../share/PCKeyboardHackKeys.h; sourceTree = "<group>"; };
 		343420CA13D74C16000DBD3E /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		347A7DA714D7927F0034D71E /* BRIDGE_KEY_INDEX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BRIDGE_KEY_INDEX.h; path = ../autogen/output/BRIDGE_KEY_INDEX.h; sourceTree = "<group>"; };
 		3481610613EC48CB000B43B0 /* PCKeyboardHackNSDistributedNotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PCKeyboardHackNSDistributedNotificationCenter.h; path = ../../share/PCKeyboardHackNSDistributedNotificationCenter.h; sourceTree = "<group>"; };
 		3481610713EC48CB000B43B0 /* PCKeyboardHackNSDistributedNotificationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PCKeyboardHackNSDistributedNotificationCenter.m; path = ../../share/PCKeyboardHackNSDistributedNotificationCenter.m; sourceTree = "<group>"; };
 		34D2910213ED96A3002A224E /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Frameworks/Sparkle.framework; sourceTree = "<group>"; };
@@ -79,6 +80,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				347A7DA514D792730034D71E /* autogen */,
 				34F9652613D742EB0081D1F3 /* bridge.h */,
 				256AC3D80F4B6AC300CF3369 /* PCKeyboardHack_serverAppDelegate.h */,
 				256AC3D90F4B6AC300CF3369 /* PCKeyboardHack_serverAppDelegate.m */,
@@ -161,6 +163,14 @@
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		347A7DA514D792730034D71E /* autogen */ = {
+			isa = PBXGroup;
+			children = (
+				347A7DA714D7927F0034D71E /* BRIDGE_KEY_INDEX.h */,
+			);
+			name = autogen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

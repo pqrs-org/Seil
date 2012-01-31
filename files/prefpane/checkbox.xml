@@ -127,19 +127,19 @@
       <name>Enable NFER Key on PC keyboard</name>
       <enable>enable_jis_nfer</enable>
       <keycode>keycode_jis_nfer</keycode>
-      <kHIDUsage>International5</kHIDUsage>
+      <kHIDUsage>kHIDUsage_KeyboardInternational5</kHIDUsage>
     </item>
     <item>
       <name>Enable XFER Key on PC keyboard</name>
       <enable>enable_jis_xfer</enable>
       <keycode>keycode_jis_xfer</keycode>
-      <kHIDUsage>International4</kHIDUsage>
+      <kHIDUsage>kHIDUsage_KeyboardInternational4</kHIDUsage>
     </item>
     <item>
       <name>Enable KATAKANA Key on PC keyboard</name>
       <enable>enable_jis_kana</enable>
       <keycode>keycode_jis_kana</keycode>
-      <kHIDUsage>International2</kHIDUsage>
+      <kHIDUsage>kHIDUsage_KeyboardInternational2</kHIDUsage>
     </item>
   </item>
 

@@ -17,8 +17,8 @@ end
 # ============================================================
 $outfile = {
   :BRIDGE_KEY_INDEX                  => open('output/BRIDGE_KEY_INDEX.h.tmp', 'w'),
-  :KeyMapIndex_Value                 => open('output/KeyMapIndex_Value.cpp.tmp', 'w'),
-  :KeyMapIndex_bridgeKeyindexToValue => open('output/KeyMapIndex_bridgeKeyindexToValue.cpp.tmp', 'w'),
+  :KeyMapIndex_Value                 => open('output/KeyMapIndex_Value.hpp.tmp', 'w'),
+  :KeyMapIndex_bridgeKeyindexToValue => open('output/KeyMapIndex_bridgeKeyindexToValue.hpp.tmp', 'w'),
 }
 
 ARGV.each do |xmlpath|
