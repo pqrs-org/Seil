@@ -16,6 +16,7 @@ end
 
 # ============================================================
 $outfile = {
+  :BRIDGE_KEY_INDEX                  => open('output/BRIDGE_KEY_INDEX.h.tmp', 'w'),
   :KeyMapIndex_Value                 => open('output/KeyMapIndex_Value.cpp.tmp', 'w'),
   :KeyMapIndex_bridgeKeyindexToValue => open('output/KeyMapIndex_bridgeKeyindexToValue.cpp.tmp', 'w'),
 }
@@ -32,6 +33,7 @@ ARGV.each do |xmlpath|
       next if kHIDUsage.nil?
 
       identifier = enable.text.gsub(/enable_/, '').upcase
+      $outfile[:BRIDGE_KEY_INDEX] << "BRIDGE_KEY_INDEX_#{identifier},\n"
       $outfile[:KeyMapIndex_Value] << "#{identifier} = #{kHIDUsage.text},\n"
       $outfile[:KeyMapIndex_bridgeKeyindexToValue] << "case BRIDGE_KEY_INDEX_#{identifier}: return #{identifier};\n"
     end
