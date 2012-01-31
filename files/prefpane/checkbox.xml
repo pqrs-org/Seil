@@ -114,7 +114,6 @@
   <item>
     <name>Keys on Non-Apple Keyboards</name>
     <expand>true</expand>
-    <item><name>----------------------------------------</name></item>
     <item>
       <name>Enable International 1 Key</name>
       <enable>enable_int1</enable>
