@@ -2,7 +2,7 @@
 
 version=$(cat version)
 
-packagemaker=/Developer/Applications/Utilities/PackageMaker.app/Contents/MacOS/PackageMaker
+packagemaker=/Applications/Utilities/PackageMaker.app/Contents/MacOS/PackageMaker
 pkgName="PCKeyboardHack.pkg"
 archiveName="PCKeyboardHack-${version}.pkg.zip"
 
