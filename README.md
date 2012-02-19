@@ -2,7 +2,8 @@ PCKeyboardHack
 ==============
 
 PCKeyboardHack applies a patch to a keyboard driver.
-You can change CapsLock behavior, and activate dead keys on non-Apple keyboard.
+You can change CapsLock behavior. (For example, changing CapsLock to Delete Key.)
+And it can activate International Keys on Non-Apple keyboard.
 
 
 System requirements
