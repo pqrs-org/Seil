@@ -6,10 +6,7 @@ build:
 	$(MAKE) -C src
 
 clean:
-	$(MAKE) -C src clean
-	rm -rf pkgroot
-	rm -rf *.pkg
-	rm -rf *.zip
+	git clean -f -x -d
 
 source:
 	./make-source.sh
