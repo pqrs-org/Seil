@@ -177,6 +177,7 @@
       <kHIDUsage>kHIDUsage_KeyboardInternational9</kHIDUsage>
       <default>76</default>
     </item>
+    <item><name>----------------------------------------</name></item>
     <item>
       <name>Enable LANG1 Key</name>
       <enable>enable_lang1</enable>
