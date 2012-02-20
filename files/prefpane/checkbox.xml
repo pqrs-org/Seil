@@ -177,6 +177,69 @@
       <kHIDUsage>kHIDUsage_KeyboardInternational9</kHIDUsage>
       <default>76</default>
     </item>
+    <item>
+      <name>Enable LANG1 Key</name>
+      <enable>enable_lang1</enable>
+      <keycode>keycode_lang1</keycode>
+      <kHIDUsage>kHIDUsage_KeyboardLANG1</kHIDUsage>
+      <default>76</default>
+    </item>
+    <item>
+      <name>Enable LANG2 Key</name>
+      <enable>enable_lang2</enable>
+      <keycode>keycode_lang2</keycode>
+      <kHIDUsage>kHIDUsage_KeyboardLANG2</kHIDUsage>
+      <default>76</default>
+    </item>
+    <item>
+      <name>Enable LANG3 Key</name>
+      <enable>enable_lang3</enable>
+      <keycode>keycode_lang3</keycode>
+      <kHIDUsage>kHIDUsage_KeyboardLANG3</kHIDUsage>
+      <default>76</default>
+    </item>
+    <item>
+      <name>Enable LANG4 Key</name>
+      <enable>enable_lang4</enable>
+      <keycode>keycode_lang4</keycode>
+      <kHIDUsage>kHIDUsage_KeyboardLANG4</kHIDUsage>
+      <default>76</default>
+    </item>
+    <item>
+      <name>Enable LANG5 Key</name>
+      <enable>enable_lang5</enable>
+      <keycode>keycode_lang5</keycode>
+      <kHIDUsage>kHIDUsage_KeyboardLANG5</kHIDUsage>
+      <default>76</default>
+    </item>
+    <item>
+      <name>Enable LANG6 Key</name>
+      <enable>enable_lang6</enable>
+      <keycode>keycode_lang6</keycode>
+      <kHIDUsage>kHIDUsage_KeyboardLANG6</kHIDUsage>
+      <default>76</default>
+    </item>
+    <item>
+      <name>Enable LANG7 Key</name>
+      <enable>enable_lang7</enable>
+      <keycode>keycode_lang7</keycode>
+      <kHIDUsage>kHIDUsage_KeyboardLANG7</kHIDUsage>
+      <default>76</default>
+    </item>
+    <item>
+      <name>Enable LANG8 Key</name>
+      <enable>enable_lang8</enable>
+      <keycode>keycode_lang8</keycode>
+      <kHIDUsage>kHIDUsage_KeyboardLANG8</kHIDUsage>
+      <default>76</default>
+    </item>
+    <item>
+      <name>Enable LANG9 Key</name>
+      <enable>enable_lang9</enable>
+      <keycode>keycode_lang9</keycode>
+      <kHIDUsage>kHIDUsage_KeyboardLANG9</kHIDUsage>
+      <default>76</default>
+    </item>
     <item><name>----------------------------------------</name></item>
     <item>
       <name>Change ADB Power Key</name>
