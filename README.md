@@ -34,7 +34,7 @@ Getting source code.
 Execute a following command in Terminal.app.
 
 <pre>
-git clone https://github.com/tekezo/PCKeyboardHack.git
+git clone --depth 10 https://github.com/tekezo/PCKeyboardHack.git
 </pre>
 
 ### Step2
