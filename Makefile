@@ -7,6 +7,3 @@ build:
 
 clean:
 	git clean -f -x -d
-
-source:
-	./make-source.sh

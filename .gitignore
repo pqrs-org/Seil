@@ -1,6 +1,7 @@
 .DS_Store
 *.pkg/
 *.zip
+*.dmg
 pkgroot/
 build/
 xcuserdata/

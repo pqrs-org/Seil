@@ -4,7 +4,7 @@ version=$(cat version)
 
 packagemaker=/Applications/Utilities/PackageMaker.app/Contents/MacOS/PackageMaker
 pkgName="PCKeyboardHack.pkg"
-archiveName="PCKeyboardHack-${version}.pkg.zip"
+archiveName="PCKeyboardHack-${version}"
 
 make clean build || exit $?
 
@@ -58,7 +58,8 @@ sh "files/extra/setpermissions.sh" pkgroot
 # --------------------------------------------------
 echo "Exec PackageMaker"
 
-rm -rf $pkgName
+rm -rf $archiveName/$pkgName
+mkdir $archiveName
 
 # Note: Don't add --no-recommend option.
 # It breaks /Library permission.
@@ -71,11 +72,16 @@ $packagemaker \
     --resources pkginfo/Resources \
     --title "PCKeyboardHack $version" \
     --no-relocate \
-    --out $pkgName
+    --out $archiveName/$pkgName
 
 # --------------------------------------------------
 echo "Make Archive"
 
-zip -X -r $archiveName $pkgName
-rm -rf $pkgName
-chmod 644 $archiveName
+# Note:
+# Some third vendor archiver fails to extract zip archive.
+# Therefore, we use dmg instead of zip.
+
+rm -f $archiveName.dmg
+hdiutil create -nospotlight $archiveName.dmg -srcfolder $archiveName
+rm -rf $archiveName
+chmod 644 $archiveName.dmg
