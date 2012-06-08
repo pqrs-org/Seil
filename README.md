@@ -45,5 +45,5 @@ cd PCKeyboardHack
 make
 </pre>
 
-Then, PCKeyboardHack-VERSION.pkg.zip has been created in the current directory.
+Then, PCKeyboardHack-VERSION.dmg has been created in the current directory.
 It's a distributable package.
