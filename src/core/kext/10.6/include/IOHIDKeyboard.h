@@ -26,11 +26,11 @@
 #define _IOKIT_HID_IOHIDKEYBOARD_H
 
 #include <IOKit/hidsystem/IOHIDTypes.h>
-#include "IOHIKeyboard.h"
-#include "IOHIDDevice.h"
+#include <IOKit/hidsystem/IOHIKeyboard.h>
+#include <IOKit/hid/IOHIDDevice.h>
 #include "IOHIDConsumer.h"
-#include "IOHIDElement.h"
-#include "IOHIDEventService.h"
+#include <IOKit/hid/IOHIDElement.h>
+#include <IOKit/hidevent/IOHIDEventService.h>
 #include "IOHIDFamilyPrivate.h"
 
 enum {
