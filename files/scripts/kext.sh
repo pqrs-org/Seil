@@ -11,6 +11,9 @@ case "${uname%%.*}" in
     11)
         kextfile="$basedir/PCKeyboardHack.10.7.kext"
         ;;
+    12)
+        kextfile="$basedir/PCKeyboardHack.10.7.kext" # Temporary fix to allow 10.8 to use 10.7's kext
+        ;;
 esac
 
 if [ "x$kextfile" == 'x' ]; then
