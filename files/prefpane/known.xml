@@ -59,6 +59,7 @@
 
   <item><name>------------------------------------------------------------</name><keycode>-----</keycode></item>
 
+  <item><name>Keypad Dot</name><keycode>65</keycode></item>
   <item><name>Keypad Clear</name><keycode>71</keycode></item>
   <item><name>Keypad Enter</name><keycode>76</keycode></item>
 
