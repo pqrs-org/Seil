@@ -23,6 +23,9 @@ rm -rf /Library/PreferencePanes/PCKeyboardHack.prefPane
 rm -f /Library/LaunchDaemons/org.pqrs.PCKeyboardHack.*
 rm -f /Library/LaunchAgents/org.pqrs.PCKeyboardHack.*
 
-rm -rf /tmp/PCKeyboardHack_uninstaller.*
+# Don't remove uninstaller because
+# this script is also called from uninstaller and
+# we need to keep PCKeyboardHackUninstaller.icns while uninstaller is running.
+# rm -rf /tmp/PCKeyboardHack_uninstaller.*
 
 exit 0
