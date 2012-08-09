@@ -62,7 +62,7 @@ rm -rf $archiveName/$pkgName
 mkdir $archiveName
 
 # Note: Don't add --no-recommend option.
-# It breaks /Library permission.
+# It might break /Library permission.
 # (It overwrites /Library permission with pkgroot/Library permission.)
 # - Mac OS X 10.6: /Library is 1775
 # - Mac OS X 10.7: /Library is 0755
