@@ -5,11 +5,11 @@ basedir="/Library/org.pqrs/PCKeyboardHack"
 kextfile=''
 uname=`uname -r`
 case "${uname%%.*}" in
-    10)
-        kextfile="$basedir/PCKeyboardHack.10.6.kext"
-        ;;
     11)
         kextfile="$basedir/PCKeyboardHack.10.7.kext"
+        ;;
+    12)
+        kextfile="$basedir/PCKeyboardHack.10.8.kext"
         ;;
 esac
 
