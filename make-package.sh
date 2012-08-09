@@ -17,7 +17,7 @@ mkdir -p pkgroot
 
 basedir="/Library/org.pqrs/PCKeyboardHack"
 mkdir -p "pkgroot/$basedir"
-for ostype in 10.6 10.7; do
+for ostype in 10.7 10.8; do
     cp -R src/core/kext/${ostype}/build/Release/PCKeyboardHack.kext "pkgroot/$basedir/PCKeyboardHack.${ostype}.kext"
 done
 cp -R files/prefpane "pkgroot/$basedir"
@@ -34,7 +34,7 @@ cp -R files/LaunchDaemons "pkgroot/Library"
 
 mkdir -p                                                   "pkgroot/$basedir/app"
 cp -R "src/core/server/build/Release/PCKeyboardHack.app"   "pkgroot/$basedir/app"
-cp -R "src/util/uninstaller/build/Release/uninstaller.app" "pkgroot/$basedir/app"
+cp -R "src/util/uninstaller/automator/PCKeyboardHackUninstaller.app" "pkgroot/$basedir/app"
 
 mkdir -p                                                        "pkgroot/Library/PreferencePanes"
 cp -R "src/util/prefpane/build/Release/PCKeyboardHack.prefPane" "pkgroot/Library/PreferencePanes"
@@ -66,6 +66,7 @@ mkdir $archiveName
 # (It overwrites /Library permission with pkgroot/Library permission.)
 # - Mac OS X 10.6: /Library is 1775
 # - Mac OS X 10.7: /Library is 0755
+# - Mac OS X 10.8: /Library is 40755
 $packagemaker \
     --root pkgroot \
     --info pkginfo/Info.plist \
