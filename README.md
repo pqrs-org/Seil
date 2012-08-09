@@ -10,18 +10,18 @@ And it can activate International Keys on Non-Apple keyboard.
 System requirements
 -------------------
 
-Mac OS X 10.6 or higher.
+Mac OS X 10.7 or higher.
 
-If you require PCKeyboardHack for Mac OS X 10.5.x, use PCKeyboardHack 5.1.0.
-
+* If you require PCKeyboardHack for OS X 10.5, use PCKeyboardHack 5.1.0.
+* If you require PCKeyboardHack for OS X 10.6, use PCKeyboardHack 7.4.0.
 
 How to build
 ------------
 
 Requirements:
 
-* OS X 10.7
-* Xcode 4.3+
+* OS X 10.8
+* Xcode 4.4+
 * Command Line Tools for Xcode
 * Auxiliary Tools for Xcode
 
