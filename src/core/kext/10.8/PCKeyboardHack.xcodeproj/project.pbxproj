@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		344FC26213D953DE00C593F2 /* ostype.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 344FC26113D953DE00C593F2 /* ostype.hpp */; };
-		347A7D9314D78EE50034D71E /* BRIDGE_KEY_INDEX.h in Headers */ = {isa = PBXBuildFile; fileRef = 347A7D9014D78EE50034D71E /* BRIDGE_KEY_INDEX.h */; };
-		347A7D9414D78EE50034D71E /* KeyMapIndex_bridgeKeyindexToValue.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 347A7D9114D78EE50034D71E /* KeyMapIndex_bridgeKeyindexToValue.hpp */; };
-		347A7D9514D78EE50034D71E /* KeyMapIndex_Value.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 347A7D9214D78EE50034D71E /* KeyMapIndex_Value.hpp */; };
+		3426045013D9540500A299D2 /* ostype.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 3426044F13D9540500A299D2 /* ostype.hpp */; };
+		347A7D9E14D790FD0034D71E /* BRIDGE_KEY_INDEX.h in Headers */ = {isa = PBXBuildFile; fileRef = 347A7D9B14D790FD0034D71E /* BRIDGE_KEY_INDEX.h */; };
+		347A7D9F14D790FD0034D71E /* KeyMapIndex_bridgeKeyindexToValue.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 347A7D9C14D790FD0034D71E /* KeyMapIndex_bridgeKeyindexToValue.hpp */; };
+		347A7DA014D790FD0034D71E /* KeyMapIndex_Value.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 347A7D9D14D790FD0034D71E /* KeyMapIndex_Value.hpp */; };
 		34A88F4713D5D0280057C423 /* UserClient_kext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34A88F4513D5D0280057C423 /* UserClient_kext.cpp */; };
 		34A88F4813D5D0280057C423 /* UserClient_kext.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 34A88F4613D5D0280057C423 /* UserClient_kext.hpp */; };
 		34DA85F60D06E4CB00AE69E6 /* base.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 34DA85EF0D06E4CB00AE69E6 /* base.hpp */; };
@@ -22,10 +22,10 @@
 
 /* Begin PBXFileReference section */
 		32D94FD00562CBF700B6AF17 /* PCKeyboardHack.kext */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PCKeyboardHack.kext; sourceTree = BUILT_PRODUCTS_DIR; };
-		344FC26113D953DE00C593F2 /* ostype.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ostype.hpp; sourceTree = "<group>"; };
-		347A7D9014D78EE50034D71E /* BRIDGE_KEY_INDEX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BRIDGE_KEY_INDEX.h; path = ../../autogen/output/BRIDGE_KEY_INDEX.h; sourceTree = "<group>"; };
-		347A7D9114D78EE50034D71E /* KeyMapIndex_bridgeKeyindexToValue.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = KeyMapIndex_bridgeKeyindexToValue.hpp; path = ../../autogen/output/KeyMapIndex_bridgeKeyindexToValue.hpp; sourceTree = "<group>"; };
-		347A7D9214D78EE50034D71E /* KeyMapIndex_Value.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = KeyMapIndex_Value.hpp; path = ../../autogen/output/KeyMapIndex_Value.hpp; sourceTree = "<group>"; };
+		3426044F13D9540500A299D2 /* ostype.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ostype.hpp; sourceTree = "<group>"; };
+		347A7D9B14D790FD0034D71E /* BRIDGE_KEY_INDEX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BRIDGE_KEY_INDEX.h; path = ../../autogen/output/BRIDGE_KEY_INDEX.h; sourceTree = "<group>"; };
+		347A7D9C14D790FD0034D71E /* KeyMapIndex_bridgeKeyindexToValue.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = KeyMapIndex_bridgeKeyindexToValue.hpp; path = ../../autogen/output/KeyMapIndex_bridgeKeyindexToValue.hpp; sourceTree = "<group>"; };
+		347A7D9D14D790FD0034D71E /* KeyMapIndex_Value.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = KeyMapIndex_Value.hpp; path = ../../autogen/output/KeyMapIndex_Value.hpp; sourceTree = "<group>"; };
 		34A88F4513D5D0280057C423 /* UserClient_kext.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UserClient_kext.cpp; path = ../common/UserClient_kext.cpp; sourceTree = "<group>"; };
 		34A88F4613D5D0280057C423 /* UserClient_kext.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = UserClient_kext.hpp; path = ../common/UserClient_kext.hpp; sourceTree = "<group>"; };
 		34DA85EF0D06E4CB00AE69E6 /* base.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = base.hpp; path = ../common/base.hpp; sourceTree = SOURCE_ROOT; };
@@ -79,8 +79,8 @@
 		247142CAFF3F8F9811CA285C /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				347A7D8E14D78E920034D71E /* autogen */,
-				344FC26113D953DE00C593F2 /* ostype.hpp */,
+				347A7D9914D790EE0034D71E /* autogen */,
+				3426044F13D9540500A299D2 /* ostype.hpp */,
 				34E5917213D5D81A00CD64CB /* Driver.cpp */,
 				34E5917313D5D81A00CD64CB /* Driver.hpp */,
 				34E5916813D5D6B700CD64CB /* bridge.h */,
@@ -91,12 +91,12 @@
 			name = Source;
 			sourceTree = "<group>";
 		};
-		347A7D8E14D78E920034D71E /* autogen */ = {
+		347A7D9914D790EE0034D71E /* autogen */ = {
 			isa = PBXGroup;
 			children = (
-				347A7D9014D78EE50034D71E /* BRIDGE_KEY_INDEX.h */,
-				347A7D9114D78EE50034D71E /* KeyMapIndex_bridgeKeyindexToValue.hpp */,
-				347A7D9214D78EE50034D71E /* KeyMapIndex_Value.hpp */,
+				347A7D9B14D790FD0034D71E /* BRIDGE_KEY_INDEX.h */,
+				347A7D9C14D790FD0034D71E /* KeyMapIndex_bridgeKeyindexToValue.hpp */,
+				347A7D9D14D790FD0034D71E /* KeyMapIndex_Value.hpp */,
 			);
 			name = autogen;
 			sourceTree = "<group>";
@@ -121,10 +121,10 @@
 				34A88F4813D5D0280057C423 /* UserClient_kext.hpp in Headers */,
 				34E5916913D5D6B700CD64CB /* bridge.h in Headers */,
 				34E5917513D5D81A00CD64CB /* Driver.hpp in Headers */,
-				344FC26213D953DE00C593F2 /* ostype.hpp in Headers */,
-				347A7D9314D78EE50034D71E /* BRIDGE_KEY_INDEX.h in Headers */,
-				347A7D9414D78EE50034D71E /* KeyMapIndex_bridgeKeyindexToValue.hpp in Headers */,
-				347A7D9514D78EE50034D71E /* KeyMapIndex_Value.hpp in Headers */,
+				3426045013D9540500A299D2 /* ostype.hpp in Headers */,
+				347A7D9E14D790FD0034D71E /* BRIDGE_KEY_INDEX.h in Headers */,
+				347A7D9F14D790FD0034D71E /* KeyMapIndex_bridgeKeyindexToValue.hpp in Headers */,
+				347A7DA014D790FD0034D71E /* KeyMapIndex_Value.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,7 +157,8 @@
 		089C1669FE841209C02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = "Takayama Fumihiko";
 			};
 			buildConfigurationList = 1DEB91DD08733DB10010E9CD /* Build configuration list for PBXProject "PCKeyboardHack" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -223,11 +224,14 @@
 		1DEB91DB08733DB10010E9CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1.0.0d1;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = ../common/Info.plist;
 				INFOPLIST_PREPROCESS = YES;
-				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions";
 				LD_MAP_FILE_PATH = "$(TARGET_TEMP_DIR)/$(PRODUCT_NAME)-LinkMap-$(CURRENT_VARIANT)-$(CURRENT_ARCH).txt";
 				MODULE_NAME = org.pqrs.driver.PCKeyboardHack;
 				MODULE_VERSION = 1.0.0d1;
@@ -239,13 +243,14 @@
 		1DEB91DF08733DB10010E9CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				GCC_ENABLE_KERNEL_DEVELOPMENT = YES;
-				GCC_ENABLE_OBJC_GC = unsupported;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_OPTIMIZATION_LEVEL = s;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
@@ -260,12 +265,10 @@
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_VALUE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				RUN_CLANG_STATIC_ANALYZER = YES;
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx10.8;
 				USER_HEADER_SEARCH_PATHS = "include ../common";
-				VALID_ARCHS = "i386 x86_64";
 			};
 			name = Release;
 		};

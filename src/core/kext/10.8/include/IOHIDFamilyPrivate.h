@@ -86,6 +86,11 @@ bool CompareDeviceUsage( IOService * owner, OSDictionary * matching, SInt32 * sc
 bool CompareDeviceUsagePairs(IOService * owner, OSDictionary * matching, SInt32 * score, SInt32 increment = 0);
 bool MatchPropertyTable(IOService * owner, OSDictionary * table, SInt32 * score);
 
+#define     kEjectKeyDelayMS        100     // the delay for a dedicated eject key
+#define     kEjectF12DelayMS        250     // the delay for an F12/eject key
+
+void IOHIDSystemActivityTickle(SInt32 nxEventType, IOService *sender);
+
 __END_DECLS
 
 #endif /* !_IOKIT_HID_IOHIDFAMILYPRIVATE_H */
