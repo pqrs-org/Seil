@@ -31,3 +31,4 @@ find "$1" -type f -print0 | while read -d $'\0' file; do
         chmod 755 "$file"
     fi
 done
+chown -R root:wheel "$1"
