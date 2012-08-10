@@ -25,15 +25,15 @@ test_mach_o() {
 # ------------------------------------------------------------
 find "$1" -print0 | while read -d $'\0' filepath; do
     if [ -d "$filepath" ]; then
-        chmod 755 "$filepath"
+        chmod -h 755 "$filepath"
     else
         extension=${filepath##*.}
         if [ "$extension" = 'sh' ]; then
-            chmod 755 "$filepath"
+            chmod -h 755 "$filepath"
         elif `test_mach_o "$filepath"`; then
-            chmod 755 "$filepath"
+            chmod -h 755 "$filepath"
         else
-            chmod 644 "$filepath"
+            chmod -h 644 "$filepath"
         fi
     fi
 done
