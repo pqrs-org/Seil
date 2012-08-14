@@ -73,6 +73,7 @@ $packagemaker \
     --resources pkginfo/Resources \
     --title "PCKeyboardHack $version" \
     --no-relocate \
+    --discard-forks \
     --out $archiveName/$pkgName
 
 # --------------------------------------------------
