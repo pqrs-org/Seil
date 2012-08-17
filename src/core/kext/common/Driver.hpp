@@ -43,7 +43,9 @@ private:
   // ------------------------------------------------------------
   class HookedKeyboard {
   public:
-    HookedKeyboard(void) : kbd_(NULL) {}
+    HookedKeyboard(void) : kbd_(NULL) {
+      bzero(originalKeyCode_, sizeof(originalKeyCode_));
+    }
 
     void initialize(IOHIKeyboard* p);
     void terminate(void);
