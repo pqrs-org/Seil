@@ -1,19 +1,11 @@
-//
-//  PCKeyboardHack_serverAppDelegate.m
-//  PCKeyboardHack_server
-//
-//  Created by Takayama Fumihiko on 09/11/28.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
-//
-
-#import "PCKeyboardHack_serverAppDelegate.h"
+#import "AppDelegate.h"
 #import "PCKeyboardHackKeys.h"
 #import "PCKeyboardHackNSDistributedNotificationCenter.h"
 #import "UserClient_userspace.h"
 #import "PreferencesManager.h"
 #include "bridge.h"
 
-@implementation PCKeyboardHack_serverAppDelegate
+@implementation AppDelegate
 
 @synthesize window;
 
@@ -37,7 +29,7 @@
 static void observer_IONotification(void* refcon, io_iterator_t iterator) {
   NSLog(@"observer_IONotification");
 
-  PCKeyboardHack_serverAppDelegate* self = refcon;
+  AppDelegate* self = refcon;
   if (! self) {
     NSLog(@"[ERROR] observer_IONotification refcon == nil\n");
     return;
