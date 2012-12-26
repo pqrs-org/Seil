@@ -11,6 +11,13 @@
 		256AC3DA0F4B6AC300CF3369 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* AppDelegate.m */; };
 		343420CB13D74C16000DBD3E /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 343420CA13D74C16000DBD3E /* IOKit.framework */; };
 		3481610813EC48CB000B43B0 /* PCKeyboardHackNSDistributedNotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3481610713EC48CB000B43B0 /* PCKeyboardHackNSDistributedNotificationCenter.m */; };
+		34947684168B6EB000B783D2 /* Updater.m in Sources */ = {isa = PBXBuildFile; fileRef = 34947683168B6EB000B783D2 /* Updater.m */; };
+		3494768A168B707500B783D2 /* PreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34947689168B707500B783D2 /* PreferencesController.m */; };
+		34947696168B740E00B783D2 /* OutlineView_keycode.m in Sources */ = {isa = PBXBuildFile; fileRef = 34947691168B740E00B783D2 /* OutlineView_keycode.m */; };
+		34947697168B740E00B783D2 /* OutlineView_mixed.m in Sources */ = {isa = PBXBuildFile; fileRef = 34947693168B740E00B783D2 /* OutlineView_mixed.m */; };
+		34947698168B740E00B783D2 /* OutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 34947695168B740E00B783D2 /* OutlineView.m */; };
+		3494769C168B7AAA00B783D2 /* checkbox.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3494769A168B7AAA00B783D2 /* checkbox.xml */; };
+		3494769D168B7AAA00B783D2 /* known.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3494769B168B7AAA00B783D2 /* known.xml */; };
 		34D2910313ED96A3002A224E /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34D2910213ED96A3002A224E /* Sparkle.framework */; };
 		34D2910613ED97C5002A224E /* PCKeyboardHack_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 34D2910513ED97C5002A224E /* PCKeyboardHack_pub.pem */; };
 		34D2910D13ED9A27002A224E /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 34D2910213ED96A3002A224E /* Sparkle.framework */; };
@@ -53,6 +60,20 @@
 		347A7DA914D796D50034D71E /* setDefault.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = setDefault.h; path = ../autogen/output/setDefault.h; sourceTree = "<group>"; };
 		3481610613EC48CB000B43B0 /* PCKeyboardHackNSDistributedNotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PCKeyboardHackNSDistributedNotificationCenter.h; path = ../../share/PCKeyboardHackNSDistributedNotificationCenter.h; sourceTree = "<group>"; };
 		3481610713EC48CB000B43B0 /* PCKeyboardHackNSDistributedNotificationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PCKeyboardHackNSDistributedNotificationCenter.m; path = ../../share/PCKeyboardHackNSDistributedNotificationCenter.m; sourceTree = "<group>"; };
+		34947682168B6EB000B783D2 /* Updater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Updater.h; path = Classes/Updater.h; sourceTree = "<group>"; };
+		34947683168B6EB000B783D2 /* Updater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Updater.m; path = Classes/Updater.m; sourceTree = "<group>"; };
+		34947686168B6F9200B783D2 /* PreferencesKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreferencesKeys.h; path = Classes/PreferencesKeys.h; sourceTree = "<group>"; };
+		34947688168B707500B783D2 /* PreferencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreferencesController.h; path = Classes/Preferences/PreferencesController.h; sourceTree = "<group>"; };
+		34947689168B707500B783D2 /* PreferencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PreferencesController.m; path = Classes/Preferences/PreferencesController.m; sourceTree = "<group>"; };
+		3494768B168B70F700B783D2 /* NotificationKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotificationKeys.h; path = Classes/NotificationKeys.h; sourceTree = "<group>"; };
+		34947690168B740E00B783D2 /* OutlineView_keycode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutlineView_keycode.h; path = Classes/Preferences/OutlineView_keycode.h; sourceTree = "<group>"; };
+		34947691168B740E00B783D2 /* OutlineView_keycode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OutlineView_keycode.m; path = Classes/Preferences/OutlineView_keycode.m; sourceTree = "<group>"; };
+		34947692168B740E00B783D2 /* OutlineView_mixed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutlineView_mixed.h; path = Classes/Preferences/OutlineView_mixed.h; sourceTree = "<group>"; };
+		34947693168B740E00B783D2 /* OutlineView_mixed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OutlineView_mixed.m; path = Classes/Preferences/OutlineView_mixed.m; sourceTree = "<group>"; };
+		34947694168B740E00B783D2 /* OutlineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutlineView.h; path = Classes/Preferences/OutlineView.h; sourceTree = "<group>"; };
+		34947695168B740E00B783D2 /* OutlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OutlineView.m; path = Classes/Preferences/OutlineView.m; sourceTree = "<group>"; };
+		3494769A168B7AAA00B783D2 /* checkbox.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = checkbox.xml; path = Resources/checkbox.xml; sourceTree = "<group>"; };
+		3494769B168B7AAA00B783D2 /* known.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = known.xml; path = Resources/known.xml; sourceTree = "<group>"; };
 		34D2910213ED96A3002A224E /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Frameworks/Sparkle.framework; sourceTree = "<group>"; };
 		34D2910513ED97C5002A224E /* PCKeyboardHack_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = PCKeyboardHack_pub.pem; path = Resources/PCKeyboardHack_pub.pem; sourceTree = "<group>"; };
 		34D65EE913E06A7400476C2A /* app.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = app.icns; path = ../../share/Resources/app.icns; sourceTree = "<group>"; };
@@ -82,15 +103,20 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				34947687168B706C00B783D2 /* Preferences */,
 				347A7DA514D792730034D71E /* autogen */,
 				34F9652613D742EB0081D1F3 /* bridge.h */,
 				256AC3D80F4B6AC300CF3369 /* AppDelegate.h */,
 				256AC3D90F4B6AC300CF3369 /* AppDelegate.m */,
+				3494768B168B70F700B783D2 /* NotificationKeys.h */,
 				343420C813D7466E000DBD3E /* PCKeyboardHackKeys.h */,
 				3481610613EC48CB000B43B0 /* PCKeyboardHackNSDistributedNotificationCenter.h */,
 				3481610713EC48CB000B43B0 /* PCKeyboardHackNSDistributedNotificationCenter.m */,
+				34947686168B6F9200B783D2 /* PreferencesKeys.h */,
 				34F9652813D742FA0081D1F3 /* PreferencesManager.h */,
 				34F9652913D742FA0081D1F3 /* PreferencesManager.m */,
+				34947682168B6EB000B783D2 /* Updater.h */,
+				34947683168B6EB000B783D2 /* Updater.m */,
 				34F9652A13D742FA0081D1F3 /* UserClient_userspace.h */,
 				34F9652B13D742FA0081D1F3 /* UserClient_userspace.m */,
 			);
@@ -149,6 +175,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3494769A168B7AAA00B783D2 /* checkbox.xml */,
+				3494769B168B7AAA00B783D2 /* known.xml */,
 				34D2910513ED97C5002A224E /* PCKeyboardHack_pub.pem */,
 				34D65EE913E06A7400476C2A /* app.icns */,
 				8D1107310486CEB800E47090 /* Info.plist */,
@@ -175,6 +203,21 @@
 				347A7DA714D7927F0034D71E /* BRIDGE_KEY_INDEX.h */,
 			);
 			name = autogen;
+			sourceTree = "<group>";
+		};
+		34947687168B706C00B783D2 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				34947694168B740E00B783D2 /* OutlineView.h */,
+				34947695168B740E00B783D2 /* OutlineView.m */,
+				34947690168B740E00B783D2 /* OutlineView_keycode.h */,
+				34947691168B740E00B783D2 /* OutlineView_keycode.m */,
+				34947692168B740E00B783D2 /* OutlineView_mixed.h */,
+				34947693168B740E00B783D2 /* OutlineView_mixed.m */,
+				34947688168B707500B783D2 /* PreferencesController.h */,
+				34947689168B707500B783D2 /* PreferencesController.m */,
+			);
+			name = Preferences;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +275,8 @@
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
 				34D65EEA13E06A7400476C2A /* app.icns in Resources */,
 				34D2910613ED97C5002A224E /* PCKeyboardHack_pub.pem in Resources */,
+				3494769C168B7AAA00B783D2 /* checkbox.xml in Resources */,
+				3494769D168B7AAA00B783D2 /* known.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,6 +292,11 @@
 				34F9652C13D742FA0081D1F3 /* PreferencesManager.m in Sources */,
 				34F9652D13D742FA0081D1F3 /* UserClient_userspace.m in Sources */,
 				3481610813EC48CB000B43B0 /* PCKeyboardHackNSDistributedNotificationCenter.m in Sources */,
+				34947684168B6EB000B783D2 /* Updater.m in Sources */,
+				3494768A168B707500B783D2 /* PreferencesController.m in Sources */,
+				34947696168B740E00B783D2 /* OutlineView_keycode.m in Sources */,
+				34947697168B740E00B783D2 /* OutlineView_mixed.m in Sources */,
+				34947698168B740E00B783D2 /* OutlineView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

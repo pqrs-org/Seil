@@ -6,17 +6,16 @@ PATH=/bin:/sbin:/usr/bin:/usr/sbin; export PATH
 for f in \
     /Library/LaunchAgents/org.pqrs.PCKeyboardHack.server.plist \
     /Library/LaunchDaemons/org.pqrs.PCKeyboardHack.load.plist \
-    /Library/PreferencePanes/PCKeyboardHack.prefPane \
-    /Library/org.pqrs \
+    /Applications/PCKeyboardHack.app \
     ; do
     echo "set file permissions: $f"
-    sh /Library/org.pqrs/PCKeyboardHack/extra/setpermissions.sh "$f"
+    sh /Applications/PCKeyboardHack.app/Contents/Library/extra/setpermissions.sh "$f"
     chown -Rh root:wheel "$f"
 done
 
 # ------------------------------------------------------------
 # load kext
-startup="/Library/org.pqrs/PCKeyboardHack/scripts/startup.sh"
+startup="/Applications/PCKeyboardHack.app/Contents/Library/scripts/startup.sh"
 [ -f "$startup" ] && "$startup" quickstart
 
 exit 0

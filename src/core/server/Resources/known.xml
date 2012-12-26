@@ -5,7 +5,7 @@
   <item><name>Forward Delete</name><keycode>117</keycode></item>
   <item><name>Return</name><keycode>36</keycode></item>
 
-  <item><name>------------------------------------------------------------</name><keycode>-----</keycode></item>
+  <item><name>──────────────────────────────</name><keycode>───</keycode></item>
 
   <item><name>Caps Lock</name><keycode>57</keycode></item>
   <item><name>Command_L</name><keycode>55</keycode></item>
@@ -18,12 +18,12 @@
   <item><name>Shift_L</name><keycode>56</keycode></item>
   <item><name>Shift_R</name><keycode>60</keycode></item>
 
-  <item><name>------------------------------------------------------------</name><keycode>-----</keycode></item>
+  <item><name>──────────────────────────────</name><keycode>───</keycode></item>
 
   <item><name>Quote(')</name><keycode>39</keycode></item>
   <item><name>Backquote(`)</name><keycode>50</keycode></item>
 
-  <item><name>------------------------------------------------------------</name><keycode>-----</keycode></item>
+  <item><name>──────────────────────────────</name><keycode>───</keycode></item>
 
   <item><name>F1</name><keycode>122</keycode></item>
   <item><name>F2</name><keycode>120</keycode></item>
@@ -45,7 +45,7 @@
   <item><name>F18</name><keycode>79</keycode></item>
   <item><name>F19</name><keycode>80</keycode></item>
 
-  <item><name>------------------------------------------------------------</name><keycode>-----</keycode></item>
+  <item><name>──────────────────────────────</name><keycode>───</keycode></item>
 
   <item><name>Volume Up</name><keycode>72</keycode></item>
   <item><name>Volume Down</name><keycode>73</keycode></item>
@@ -57,7 +57,7 @@
   <item><name>Launchpad</name><keycode>131</keycode></item>
   <item><name>Expose</name><keycode>160</keycode></item>
 
-  <item><name>------------------------------------------------------------</name><keycode>-----</keycode></item>
+  <item><name>──────────────────────────────</name><keycode>───</keycode></item>
 
   <item><name>Keypad Dot</name><keycode>65</keycode></item>
   <item><name>Keypad Clear</name><keycode>71</keycode></item>

@@ -15,29 +15,51 @@ echo "Copy Files"
 rm -rf pkgroot
 mkdir -p pkgroot
 
-basedir="/Library/org.pqrs/PCKeyboardHack"
-mkdir -p "pkgroot/$basedir"
-for ostype in 10.7 10.8; do
-    cp -R src/core/kext/${ostype}/build/Release/PCKeyboardHack.kext "pkgroot/$basedir/PCKeyboardHack.${ostype}.kext"
+mkdir -p "pkgroot/Applications"
+cp -R "src/core/server/build/Release/PCKeyboardHack.app" "pkgroot/Applications"
+
+basedir="pkgroot/Applications/PCKeyboardHack.app/Contents/Applications"
+mkdir -p "$basedir"
+for d in \
+    src/util/uninstaller/automator/PCKeyboardHackUninstaller.app \
+    ;
+do
+    cp -R "$d" "$basedir"
 done
-cp -R files/prefpane "pkgroot/$basedir"
-cp -R files/scripts  "pkgroot/$basedir"
 
-mkdir -p                               "pkgroot/$basedir/extra"
-cp -R pkginfo/Resources/preflight      "pkgroot/$basedir/extra/uninstall.sh"
-cp -R files/extra/launchUninstaller.sh "pkgroot/$basedir/extra/"
-cp -R files/extra/setpermissions.sh    "pkgroot/$basedir/extra/"
+basedir="pkgroot/Applications/PCKeyboardHack.app/Contents/Library"
+mkdir -p "$basedir"
+for ostype in 10.7 10.8; do
+    cp -R src/core/kext/${ostype}/build/Release/PCKeyboardHack.kext "$basedir/PCKeyboardHack.${ostype}.kext"
+done
+for d in \
+    files/scripts \
+    ;
+do
+    cp -R "$d" "$basedir"
+done
 
-mkdir -p                  "pkgroot/Library"
-cp -R files/LaunchAgents  "pkgroot/Library"
-cp -R files/LaunchDaemons "pkgroot/Library"
+basedir="pkgroot/Applications/PCKeyboardHack.app/Contents/Library/extra"
+mkdir -p "$basedir"
+cp -R pkginfo/Resources/preflight "$basedir/uninstall_core.sh"
+for f in \
+    files/extra/launchUninstaller.sh \
+    files/extra/setpermissions.sh \
+    files/extra/uninstall.sh \
+    ;
+do
+    cp -R "$f" "$basedir"
+done
 
-mkdir -p                                                   "pkgroot/$basedir/app"
-cp -R "src/core/server/build/Release/PCKeyboardHack.app"   "pkgroot/$basedir/app"
-cp -R "src/util/uninstaller/automator/PCKeyboardHackUninstaller.app" "pkgroot/$basedir/app"
-
-mkdir -p                                                        "pkgroot/Library/PreferencePanes"
-cp -R "src/util/prefpane/build/Release/PCKeyboardHack.prefPane" "pkgroot/Library/PreferencePanes"
+basedir="pkgroot/Library"
+mkdir -p "$basedir"
+for d in \
+    files/LaunchDaemons \
+    files/LaunchAgents \
+    ;
+do
+    cp -R "$d" "$basedir"
+done
 
 # Setting file permissions.
 #
@@ -46,7 +68,7 @@ cp -R "src/util/prefpane/build/Release/PCKeyboardHack.prefPane" "pkgroot/Library
 #   PackageMaker uses their permissions.
 #
 #   For example:
-#     If /Library/org.pqrs permission is 0777 by accidental reasons,
+#     If /Applications/PCKeyboardHack.app permission is 0777 by accidental reasons,
 #     the directory permission will be 0777 in Archive.bom
 #     even if we set this directory permission to 0755 by setpermissions.sh.
 #

@@ -1,3 +1,4 @@
+#import "PreferencesKeys.h"
 #import "PreferencesManager.h"
 #import "PCKeyboardHackKeys.h"
 #import "PCKeyboardHackNSDistributedNotificationCenter.h"
@@ -7,6 +8,14 @@ static PreferencesManager* global_instance = nil;
 
 @implementation PreferencesManager
 
+// ----------------------------------------
++ (void) initialize
+{
+  NSDictionary* dict = @ { kCheckForUpdates : @1 };
+  [[NSUserDefaults standardUserDefaults] registerDefaults:dict];
+}
+
+// ----------------------------------------
 + (PreferencesManager*) getInstance
 {
   @synchronized(self) {
@@ -103,7 +112,7 @@ static PreferencesManager* global_instance = nil;
   }
 
   [[NSUserDefaults standardUserDefaults] setObject:md forKey:identifier];
-  //[[NSUserDefaults standardUserDefaults] synchronize];
+  // [[NSUserDefaults standardUserDefaults] synchronize];
 
   [org_pqrs_PCKeyboardHack_NSDistributedNotificationCenter postNotificationName:kPCKeyboardHackPreferencesChangedNotification userInfo:nil];
 }
@@ -111,17 +120,7 @@ static PreferencesManager* global_instance = nil;
 // ----------------------------------------------------------------------
 - (NSInteger) checkForUpdatesMode
 {
-  // If the key does not exist, treat as "The stable release only".
-  if (! [[NSUserDefaults standardUserDefaults] objectForKey:@"isCheckUpdate"]) {
-    return 1;
-  }
-  return [[NSUserDefaults standardUserDefaults] integerForKey:@"isCheckUpdate"];
-}
-
-- (void) setCheckForUpdatesMode:(NSInteger)newval
-{
-  [[NSUserDefaults standardUserDefaults] setInteger:newval forKey:@"isCheckUpdate"];
-  //[[NSUserDefaults standardUserDefaults] synchronize];
+  return [[NSUserDefaults standardUserDefaults] integerForKey:kCheckForUpdates];
 }
 
 // ----------------------------------------------------------------------

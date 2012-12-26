@@ -1,15 +1,17 @@
 // -*- Mode: objc; Coding: utf-8; indent-tabs-mode: nil; -*-
 
+#import "OutlineView_keycode.h"
 #import "OutlineView_mixed.h"
+#import "PreferencesManager.h"
 
-@implementation org_pqrs_PCKeyboardHack_OutlineView_mixed
+@implementation OutlineView_mixed
 
 - (id) init
 {
   self = [super init];
 
   if (self) {
-    [self loadXML:@"/Library/org.pqrs/PCKeyboardHack/prefpane/checkbox.xml"];
+    [self loadXML:[[NSBundle mainBundle] pathForResource:@"checkbox" ofType:@"xml"]];
   }
 
   return self;
@@ -48,21 +50,21 @@
     } else {
       [cell setImagePosition:NSImageLeft];
 
-      return [NSNumber numberWithInt:[[client_ proxy] value:enable]];
+      return [NSNumber numberWithInt:[preferencesManager_ value:enable]];
     }
 
   } else if ([identifier isEqualToString:@"keycode"]) {
     NSString* keycode = [item objectForKey:@"keycode"];
     if (! keycode) return nil;
 
-    return [NSNumber numberWithInt:[[client_ proxy] value:keycode]];
+    return [NSNumber numberWithInt:[preferencesManager_ value:keycode]];
 
   } else if ([identifier isEqualToString:@"default"]) {
     NSString* keycode = [item objectForKey:@"keycode"];
     if (! keycode) return nil;
 
-    int keycodevalue = [[client_ proxy] defaultValue:keycode];
-    NSString* keycodename = [outlineview_keycode_ getKeyName:keycodevalue];
+    int keycodevalue = [preferencesManager_ defaultValue:keycode];
+    NSString* keycodename = [outlineView_keycode_ getKeyName:keycodevalue];
 
     return [NSString stringWithFormat:@"%d (%@)", keycodevalue, keycodename];
   }
@@ -77,9 +79,9 @@
   if ([identifier isEqualToString:@"enable"]) {
     NSString* enable = [item objectForKey:@"enable"];
     if (enable) {
-      int value = [[client_ proxy] value:enable];
+      int value = [preferencesManager_ value:enable];
       value = ! value;
-      [[client_ proxy] setValueForName:value forName:enable];
+      [preferencesManager_ setValueForName:value forName:enable];
     } else {
       // expand/collapse tree
       if ([outlineView isExpandable:item]) {
@@ -94,7 +96,7 @@
   } else if ([identifier isEqualToString:@"keycode"]) {
     NSString* keycode = [item objectForKey:@"keycode"];
     if (keycode) {
-      [[client_ proxy] setValueForName:[object intValue] forName:keycode];
+      [preferencesManager_ setValueForName:[object intValue] forName:keycode];
     }
   }
 }

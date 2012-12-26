@@ -1,7 +1,7 @@
 #!/bin/sh
 PATH=/bin:/sbin:/usr/bin:/usr/sbin; export PATH
 
-basedir="/Library/org.pqrs/PCKeyboardHack"
+basedir="/Applications/PCKeyboardHack.app/Contents/Library"
 
 argument="$1"
 [ -z "$argument" ] && argument=start

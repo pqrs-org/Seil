@@ -2,14 +2,14 @@
 
 #import "OutlineView_keycode.h"
 
-@implementation org_pqrs_PCKeyboardHack_OutlineView_keycode
+@implementation OutlineView_keycode
 
 - (id) init
 {
   self = [super init];
 
   if (self) {
-    [self loadXML:@"/Library/org.pqrs/PCKeyboardHack/prefpane/known.xml"];
+    [self loadXML:[[NSBundle mainBundle] pathForResource:@"known" ofType:@"xml"]];
   }
 
   return self;

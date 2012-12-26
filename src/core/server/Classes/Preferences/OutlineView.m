@@ -2,7 +2,7 @@
 
 #import "OutlineView.h"
 
-@implementation org_pqrs_PCKeyboardHack_OutlineView
+@implementation OutlineView
 
 - (NSXMLElement*) castToNSXMLElement:(NSXMLNode*)node
 {

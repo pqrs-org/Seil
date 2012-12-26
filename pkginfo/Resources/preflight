@@ -1,4 +1,6 @@
 #!/bin/sh
+# -*- Mode: shell-script -*-
+
 PATH=/bin:/sbin:/usr/bin:/usr/sbin; export PATH
 
 # ----------------------------------------
@@ -13,10 +15,15 @@ startup="/Applications/PCKeyboardHack/scripts/startup.sh"
 startup="/Library/org.pqrs/PCKeyboardHack/scripts/startup.sh"
 [ -f "$startup" ] && "$startup" stop
 
+startup="/Applications/PCKeyboardHack.app/Contents/Library/scripts/startup.sh"
+[ -f "$startup" ] && "$startup" stop
+
 # ----------------------------------------
 # uninstall
 rm -rf /Applications/PCKeyboardHack
+rm -rf /Applications/PCKeyboardHack.app
 rm -rf /Library/org.pqrs/PCKeyboardHack
+rmdir /Library/org.pqrs 2>/dev/null
 
 rm -rf /Library/PreferencePanes/PCKeyboardHack.prefPane
 

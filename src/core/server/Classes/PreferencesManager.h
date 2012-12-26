@@ -13,7 +13,6 @@
 - (void) setValueForName:(int)newval forName:(NSString*)name;
 
 - (NSInteger) checkForUpdatesMode;
-- (void) setCheckForUpdatesMode:(NSInteger)newval;
 
 // --------------------------------------------------
 - (NSString*) preferencepane_version;

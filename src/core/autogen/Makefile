@@ -1,4 +1,4 @@
-XMLFILE = ../../../files/prefpane/checkbox.xml
+XMLFILE = ../server/Resources/checkbox.xml
 
 all:
 	mkdir -p output
