@@ -107,7 +107,7 @@
 
   NSNumber* number = [item objectForKey:@"height"];
   if (number) {
-    CGFloat newheight = [outlineView rowHeight] * [number intValue];
+    CGFloat newheight = [outlineView rowHeight]* [number intValue];
     if (newheight > height) {
       height = newheight;
     }
