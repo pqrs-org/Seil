@@ -1,8 +1,12 @@
 #include "UserClient_kext.hpp"
+#include "GlobalLock.hpp"
 
 #define super IOUserClient
 
 OSDefineMetaClassAndStructors(org_pqrs_driver_PCKeyboardHack_UserClient_kext, IOUserClient)
+
+OSAsyncReference64 org_pqrs_driver_PCKeyboardHack_UserClient_kext::asyncref_;
+bool org_pqrs_driver_PCKeyboardHack_UserClient_kext::notification_enabled_ = false;
 
 IOExternalMethodDispatch org_pqrs_driver_PCKeyboardHack_UserClient_kext::methods_[BRIDGE_USERCLIENT__END__] = {
   { // BRIDGE_USERCLIENT_OPEN
@@ -23,9 +27,16 @@ IOExternalMethodDispatch org_pqrs_driver_PCKeyboardHack_UserClient_kext::methods
     reinterpret_cast<IOExternalMethodAction>(&static_callback_synchronized_communication), // Method pointer.
     0,                                                                                     // No scalar input values.
     sizeof(BridgeUserClientStruct),                                                        // The size of the input struct.
-    0,                                                                                     // No scalar output value.
+    1,                                                                                     // One scalar output value.
     0,                                                                                     // No struct output value.
   },
+  { // BRIDGE_USERCLIENT_NOTIFICATION_FROM_KEXT
+    reinterpret_cast<IOExternalMethodAction>(&static_callback_notification_from_kext), // Method pointer.
+    0,                                                                                 // No scalar input values.
+    0,                                                                                 // No struct input value.
+    0,                                                                                 // No scalar output values.
+    0                                                                                  // No struct output value.
+  }
 };
 
 // ============================================================
@@ -44,6 +55,12 @@ org_pqrs_driver_PCKeyboardHack_UserClient_kext::initWithTask(task_t owningTask, 
   }
 
   provider_ = NULL;
+
+  // Don't change static values here. (For example, notification_enabled_)
+  // initWithTask is called by each IOServiceOpen.
+  //
+  // If IOService is opened, other client will be failed.
+  // Changing static values by other IOServiceOpen may destroy the current connection.
 
   return true;
 }
@@ -136,6 +153,9 @@ org_pqrs_driver_PCKeyboardHack_UserClient_kext::static_callback_open(org_pqrs_dr
 IOReturn
 org_pqrs_driver_PCKeyboardHack_UserClient_kext::callback_open(void)
 {
+  org_pqrs_PCKeyboardHack::GlobalLock::ScopedLock lk;
+  if (! lk) return kIOReturnCannotLock;
+
   if (provider_ == NULL || isInactive()) {
     // Return an error if we don't have a provider. This could happen if the user process
     // called callback_open without calling IOServiceOpen first. Or, the user client could be
@@ -165,6 +185,9 @@ org_pqrs_driver_PCKeyboardHack_UserClient_kext::static_callback_close(org_pqrs_d
 IOReturn
 org_pqrs_driver_PCKeyboardHack_UserClient_kext::callback_close(void)
 {
+  org_pqrs_PCKeyboardHack::GlobalLock::ScopedLock lk;
+  if (! lk) return kIOReturnCannotLock;
+
   if (! provider_) {
     // Return an error if we don't have a provider. This could happen if the user process
     // called callback_close without calling IOServiceOpen first.
@@ -181,6 +204,8 @@ org_pqrs_driver_PCKeyboardHack_UserClient_kext::callback_close(void)
     return kIOReturnNotOpen;
   }
 
+  notification_enabled_ = false;
+
   org_pqrs_driver_PCKeyboardHack::unsetConfiguration();
 
   // Make sure we're the one who opened our provider before we tell it to close.
@@ -194,17 +219,20 @@ IOReturn
 org_pqrs_driver_PCKeyboardHack_UserClient_kext::static_callback_synchronized_communication(org_pqrs_driver_PCKeyboardHack_UserClient_kext* target, void* reference, IOExternalMethodArguments* arguments)
 {
   if (! target) return kIOReturnBadArgument;
-  return target->callback_synchronized_communication(static_cast<const BridgeUserClientStruct*>(arguments->structureInput));
+  return target->callback_synchronized_communication(static_cast<const BridgeUserClientStruct*>(arguments->structureInput), &arguments->scalarOutput[0]);
 }
 
 IOReturn
-org_pqrs_driver_PCKeyboardHack_UserClient_kext::callback_synchronized_communication(const BridgeUserClientStruct* inputdata)
+org_pqrs_driver_PCKeyboardHack_UserClient_kext::callback_synchronized_communication(const BridgeUserClientStruct* inputdata, uint64_t* outputdata)
 {
+  org_pqrs_PCKeyboardHack::GlobalLock::ScopedLock lk;
+  if (! lk) return kIOReturnCannotLock;
+
   IOReturn result = kIOReturnError;
   uint8_t* buffer = NULL;
   size_t size = 0;
 
-  if (! inputdata) {
+  if (! inputdata || ! outputdata) {
     result = kIOReturnBadArgument;
     IOLOG_ERROR("UserClient_kext::callback_synchronized_communication kIOReturnBadArgument\n");
     goto finish;
@@ -244,7 +272,12 @@ org_pqrs_driver_PCKeyboardHack_UserClient_kext::callback_synchronized_communicat
     goto finish;
   }
 
-  handle_synchronized_communication(buffer, size);
+  handle_synchronized_communication(inputdata->type, inputdata->option, buffer, size, outputdata);
+
+  if (copyout(buffer, inputdata->data, size) != 0) {
+    IOLOG_ERROR("callback_synchronized_communication copyout is failed.\n");
+    goto finish;
+  }
 
   result = kIOReturnSuccess;
 
@@ -257,21 +290,73 @@ finish:
   return result;
 }
 
-void
-org_pqrs_driver_PCKeyboardHack_UserClient_kext::handle_synchronized_communication(const uint8_t* buffer, size_t size)
+// ------------------------------------------------------------
+IOReturn
+org_pqrs_driver_PCKeyboardHack_UserClient_kext::static_callback_notification_from_kext(org_pqrs_driver_PCKeyboardHack_UserClient_kext* target, void* reference, IOExternalMethodArguments* arguments)
 {
-  if (size != sizeof(BridgeConfig)) {
-    IOLOG_ERROR("UserClient_kext::handle_synchronized_communication invalid size:%d\n", static_cast<int>(size));
-    return;
+  if (! target) return kIOReturnBadArgument;
+  return target->callback_notification_from_kext(arguments->asyncReference);
+}
+
+IOReturn
+org_pqrs_driver_PCKeyboardHack_UserClient_kext::callback_notification_from_kext(OSAsyncReference64 asyncReference)
+{
+  org_pqrs_PCKeyboardHack::GlobalLock::ScopedLock lk;
+  if (! lk) return kIOReturnCannotLock;
+
+  if (provider_ == NULL || isInactive()) {
+    // Return an error if we don't have a provider. This could happen if the user process
+    // called callback_notification_from_kext without calling IOServiceOpen first.
+    // Or, the user client could be in the process of being terminated and is thus inactive.
+    IOLOG_ERROR("UserClient_kext::callback_notification_from_kext kIOReturnNotAttached\n");
+    return kIOReturnNotAttached;
   }
 
-  const BridgeConfig* bridgeconfig = reinterpret_cast<const BridgeConfig*>(buffer);
-  if (bridgeconfig) {
-    if (bridgeconfig->version != BRIDGE_CONFIG_VERSION) {
-      IOLOG_ERROR("UserClient_kext::handle_synchronized_communication invalid version:%d\n",
-                  static_cast<int>(bridgeconfig->version));
-      return;
+  if (! provider_->isOpen(this)) {
+    // Return an error if we do not have the driver open. This could happen if the user process
+    // did not call callback_open before calling this function.
+    IOLOG_ERROR("UserClient_kext::callback_notification_from_kext kIOReturnNotOpen\n");
+    return kIOReturnNotOpen;
+  }
+
+  // ----------------------------------------
+  bcopy(asyncReference, asyncref_, sizeof(OSAsyncReference64));
+  notification_enabled_ = true;
+  return kIOReturnSuccess;
+}
+
+void
+org_pqrs_driver_PCKeyboardHack_UserClient_kext::send_notification_to_userspace(uint32_t type, uint32_t option)
+{
+  if (notification_enabled_) {
+    io_user_reference_t args[] = { type, option };
+    sendAsyncResult64(asyncref_, kIOReturnSuccess, args, 2);
+  }
+}
+
+// ------------------------------------------------------------
+void
+org_pqrs_driver_PCKeyboardHack_UserClient_kext::handle_synchronized_communication(uint32_t type,
+                                                                                  uint32_t option,
+                                                                                  uint8_t* buffer,
+                                                                                  size_t size,
+                                                                                  uint64_t* outputdata)
+{
+  *outputdata = BRIDGE_USERCLIENT_SYNCHRONIZED_COMMUNICATION_RETURN_ERROR_GENERIC;
+
+  switch (type) {
+    case BRIDGE_USERCLIENT_TYPE_SET_CONFIG:
+    {
+      const BridgeConfig* bridgeconfig = reinterpret_cast<const BridgeConfig*>(buffer);
+      if (bridgeconfig) {
+        if (bridgeconfig->version != BRIDGE_CONFIG_VERSION) {
+          IOLOG_ERROR("UserClient_kext::handle_synchronized_communication invalid version:%d\n",
+                      static_cast<int>(bridgeconfig->version));
+          return;
+        }
+        org_pqrs_driver_PCKeyboardHack::setConfiguration(*bridgeconfig);
+        *outputdata = BRIDGE_USERCLIENT_SYNCHRONIZED_COMMUNICATION_RETURN_SUCCESS;
+      }
     }
-    org_pqrs_driver_PCKeyboardHack::setConfiguration(*bridgeconfig);
   }
 }

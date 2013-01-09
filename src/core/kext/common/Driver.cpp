@@ -3,8 +3,9 @@
 // The original code was written by YASUDA Yoshinori.
 
 #include "base.hpp"
-#include "Driver.hpp"
 #include "ostype.hpp"
+#include "Driver.hpp"
+#include "GlobalLock.hpp"
 
 org_pqrs_driver_PCKeyboardHack::HookedKeyboard org_pqrs_driver_PCKeyboardHack::hookedKeyboard_[MAXNUM_KEYBOARD];
 BridgeConfig org_pqrs_driver_PCKeyboardHack::configuration_;
@@ -131,6 +132,8 @@ org_pqrs_driver_PCKeyboardHack::start(IOService* provider)
   bool res = super::start(provider);
   if (! res) { return res; }
 
+  org_pqrs_PCKeyboardHack::GlobalLock::initialize();
+
   notifier_hookKeyboard_ = addMatchingNotification(gIOMatchedNotification,
                                                    serviceMatching("IOHIKeyboard"),
                                                    org_pqrs_driver_PCKeyboardHack::IOHIKeyboard_gIOMatchedNotification_callback,
@@ -166,6 +169,8 @@ org_pqrs_driver_PCKeyboardHack::stop(IOService* provider)
 
   if (notifier_hookKeyboard_) notifier_hookKeyboard_->remove();
   if (notifier_unhookKeyboard_) notifier_unhookKeyboard_->remove();
+
+  org_pqrs_PCKeyboardHack::GlobalLock::terminate();
 
   super::stop(provider);
 }

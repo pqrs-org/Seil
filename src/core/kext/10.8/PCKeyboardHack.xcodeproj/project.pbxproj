@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		341D9CCA169D61720057E29C /* GlobalLock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 341D9CC8169D61720057E29C /* GlobalLock.cpp */; };
+		341D9CCB169D61720057E29C /* GlobalLock.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 341D9CC9169D61720057E29C /* GlobalLock.hpp */; };
 		3426045013D9540500A299D2 /* ostype.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 3426044F13D9540500A299D2 /* ostype.hpp */; };
 		347A7D9E14D790FD0034D71E /* BRIDGE_KEY_INDEX.h in Headers */ = {isa = PBXBuildFile; fileRef = 347A7D9B14D790FD0034D71E /* BRIDGE_KEY_INDEX.h */; };
 		347A7D9F14D790FD0034D71E /* KeyMapIndex_bridgeKeyindexToValue.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 347A7D9C14D790FD0034D71E /* KeyMapIndex_bridgeKeyindexToValue.hpp */; };
@@ -22,6 +24,8 @@
 
 /* Begin PBXFileReference section */
 		32D94FD00562CBF700B6AF17 /* PCKeyboardHack.kext */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PCKeyboardHack.kext; sourceTree = BUILT_PRODUCTS_DIR; };
+		341D9CC8169D61720057E29C /* GlobalLock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GlobalLock.cpp; path = ../common/GlobalLock.cpp; sourceTree = "<group>"; };
+		341D9CC9169D61720057E29C /* GlobalLock.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = GlobalLock.hpp; path = ../common/GlobalLock.hpp; sourceTree = "<group>"; };
 		3426044F13D9540500A299D2 /* ostype.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ostype.hpp; sourceTree = "<group>"; };
 		347A7D9B14D790FD0034D71E /* BRIDGE_KEY_INDEX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BRIDGE_KEY_INDEX.h; path = ../../autogen/output/BRIDGE_KEY_INDEX.h; sourceTree = "<group>"; };
 		347A7D9C14D790FD0034D71E /* KeyMapIndex_bridgeKeyindexToValue.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = KeyMapIndex_bridgeKeyindexToValue.hpp; path = ../../autogen/output/KeyMapIndex_bridgeKeyindexToValue.hpp; sourceTree = "<group>"; };
@@ -80,11 +84,13 @@
 			isa = PBXGroup;
 			children = (
 				347A7D9914D790EE0034D71E /* autogen */,
+				34E5916813D5D6B700CD64CB /* bridge.h */,
+				34DA85EF0D06E4CB00AE69E6 /* base.hpp */,
 				3426044F13D9540500A299D2 /* ostype.hpp */,
 				34E5917213D5D81A00CD64CB /* Driver.cpp */,
 				34E5917313D5D81A00CD64CB /* Driver.hpp */,
-				34E5916813D5D6B700CD64CB /* bridge.h */,
-				34DA85EF0D06E4CB00AE69E6 /* base.hpp */,
+				341D9CC8169D61720057E29C /* GlobalLock.cpp */,
+				341D9CC9169D61720057E29C /* GlobalLock.hpp */,
 				34A88F4513D5D0280057C423 /* UserClient_kext.cpp */,
 				34A88F4613D5D0280057C423 /* UserClient_kext.hpp */,
 			);
@@ -125,6 +131,7 @@
 				347A7D9E14D790FD0034D71E /* BRIDGE_KEY_INDEX.h in Headers */,
 				347A7D9F14D790FD0034D71E /* KeyMapIndex_bridgeKeyindexToValue.hpp in Headers */,
 				347A7DA014D790FD0034D71E /* KeyMapIndex_Value.hpp in Headers */,
+				341D9CCB169D61720057E29C /* GlobalLock.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,6 +211,7 @@
 			files = (
 				34A88F4713D5D0280057C423 /* UserClient_kext.cpp in Sources */,
 				34E5917413D5D81A00CD64CB /* Driver.cpp in Sources */,
+				341D9CCA169D61720057E29C /* GlobalLock.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
