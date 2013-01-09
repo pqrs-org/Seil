@@ -1,3 +1,9 @@
+Changes since 8.0.0
+-------------------
+
+    - Changed Preferences location.
+    - Some minor improvements.
+
 Version 8.0.0
 -------------
 
