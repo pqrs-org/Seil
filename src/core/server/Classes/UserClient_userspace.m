@@ -67,8 +67,25 @@
     }
 
     // ----------------------------------------
-    // succeed
-    goto finish;
+    // set notification
+    if (notifyport_) {
+      kernResult = IOConnectCallAsyncScalarMethod(connect_,
+                                                  BRIDGE_USERCLIENT_NOTIFICATION_FROM_KEXT,
+                                                  IONotificationPortGetMachPort(notifyport_),
+                                                  *asyncref_,
+                                                  kOSAsyncRef64Count,
+                                                  NULL,                // input
+                                                  0,                   // inputCnt
+                                                  NULL,                // output
+                                                  NULL);               // outputCnt
+      if (kernResult != KERN_SUCCESS) {
+        NSLog(@"[ERROR] BRIDGE_USERCLIENT_NOTIFICATION_FROM_KEXT returned 0x%08x\n", kernResult);
+        continue;
+      }
+
+      // succeed
+      goto finish;
+    }
   }
 
   // failed to open connection.
@@ -78,13 +95,14 @@ finish:
   IOObjectRelease(iterator);
 }
 
-- (id) init
+- (id) init:(io_async_ref64_t*)asyncref;
 {
   self = [super init];
 
   if (self) {
     service_ = IO_OBJECT_NULL;
     connect_ = IO_OBJECT_NULL;
+    asyncref_ = asyncref;
   }
 
   return self;
@@ -99,7 +117,22 @@ finish:
     service_ = IO_OBJECT_NULL;
     connect_ = IO_OBJECT_NULL;
 
-    [self openUserClient];
+    // ----------------------------------------
+    // setup IONotification
+    notifyport_ = IONotificationPortCreate(kIOMasterPortDefault);
+    if (! notifyport_) {
+      NSLog(@"[ERROR] IONotificationPortCreate failed\n");
+
+    } else {
+      loopsource_ = IONotificationPortGetRunLoopSource(notifyport_);
+      if (! loopsource_) {
+        NSLog(@"[ERROR] IONotificationPortGetRunLoopSource failed\n");
+
+      } else {
+        CFRunLoopAddSource(CFRunLoopGetCurrent(), loopsource_, kCFRunLoopDefaultMode);
+        [self openUserClient];
+      }
+    }
   }
 }
 
@@ -107,6 +140,15 @@ finish:
 {
   @synchronized(self) {
     [self closeUserClient];
+
+    if (notifyport_) {
+      if (loopsource_) {
+        CFRunLoopSourceInvalidate(loopsource_);
+        loopsource_ = nil;
+      }
+      IONotificationPortDestroy(notifyport_);
+      notifyport_ = nil;
+    }
   }
 }
 
@@ -140,14 +182,20 @@ finish:
     }
     if (! bridgestruct) return NO;
 
+    uint64_t output = 0;
+    uint32_t outputCnt = 1;
     kern_return_t kernResult = IOConnectCallMethod(connect_,
                                                    BRIDGE_USERCLIENT_SYNCHRONIZED_COMMUNICATION,
                                                    NULL, 0,                             // scalar input
                                                    bridgestruct, sizeof(*bridgestruct), // struct input
-                                                   NULL, 0,                             // scalar output
+                                                   &output, &outputCnt,                 // scalar output
                                                    NULL, NULL);                         // struct output
     if (kernResult != KERN_SUCCESS) {
       NSLog(@"[ERROR] BRIDGE_USERCLIENT_SYNCHRONIZED_COMMUNICATION returned 0x%08x\n", kernResult);
+      return NO;
+    }
+    if (output != BRIDGE_USERCLIENT_SYNCHRONIZED_COMMUNICATION_RETURN_SUCCESS) {
+      NSLog(@"[ERROR] BRIDGE_USERCLIENT_SYNCHRONIZED_COMMUNICATION output is not SUCCESS (%lld)\n", output);
       return NO;
     }
 

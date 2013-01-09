@@ -7,6 +7,7 @@
 @class UserClient_userspace;
 
 @interface ClientForKernelspace : NSObject {
+  io_async_ref64_t asyncref_;
   UserClient_userspace* userClient_userspace;
 
   IBOutlet PreferencesManager* preferencesManager_;
