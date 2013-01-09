@@ -1,10 +1,6 @@
+#import "NotificationKeys.h"
 #import "PreferencesKeys.h"
 #import "PreferencesManager.h"
-#import "PCKeyboardHackKeys.h"
-#import "PCKeyboardHackNSDistributedNotificationCenter.h"
-#include <sys/time.h>
-
-static PreferencesManager* global_instance = nil;
 
 @implementation PreferencesManager
 
@@ -13,17 +9,6 @@ static PreferencesManager* global_instance = nil;
 {
   NSDictionary* dict = @ { kCheckForUpdates : @1 };
   [[NSUserDefaults standardUserDefaults] registerDefaults:dict];
-}
-
-// ----------------------------------------
-+ (PreferencesManager*) getInstance
-{
-  @synchronized(self) {
-    if (! global_instance) {
-      global_instance = [PreferencesManager new];
-    }
-  }
-  return global_instance;
 }
 
 // ----------------------------------------
@@ -40,13 +25,6 @@ static PreferencesManager* global_instance = nil;
   if (self) {
     default_ = [NSMutableDictionary new];
     [self setDefault];
-
-    // ------------------------------------------------------------
-    serverconnection_ = [NSConnection new];
-    [serverconnection_ setRootObject:self];
-    [serverconnection_ registerName:kPCKeyboardHackConnectionName];
-
-    [org_pqrs_PCKeyboardHack_NSDistributedNotificationCenter postNotificationName:kPCKeyboardHackServerLaunchedNotification userInfo:nil];
   }
 
   return self;
@@ -55,7 +33,6 @@ static PreferencesManager* global_instance = nil;
 - (void) dealloc
 {
   [default_ release];
-  [serverconnection_ release];
 
   [super dealloc];
 }
@@ -114,7 +91,7 @@ static PreferencesManager* global_instance = nil;
   [[NSUserDefaults standardUserDefaults] setObject:md forKey:identifier];
   // [[NSUserDefaults standardUserDefaults] synchronize];
 
-  [org_pqrs_PCKeyboardHack_NSDistributedNotificationCenter postNotificationName:kPCKeyboardHackPreferencesChangedNotification userInfo:nil];
+  [[NSNotificationCenter defaultCenter] postNotificationName:kPreferencesChangedNotification object:nil];
 }
 
 // ----------------------------------------------------------------------

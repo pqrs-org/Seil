@@ -1,9 +1,7 @@
 #import "AppDelegate.h"
+#import "ClientForKernelspace.h"
 #import "OutlineView_mixed.h"
-#import "PCKeyboardHackKeys.h"
-#import "PCKeyboardHackNSDistributedNotificationCenter.h"
 #import "PreferencesController.h"
-#import "PreferencesManager.h"
 #import "Updater.h"
 #import "UserClient_userspace.h"
 #include "bridge.h"
@@ -11,60 +9,38 @@
 @implementation AppDelegate
 
 @synthesize window;
-
-- (void) send_config_to_kext {
-  PreferencesManager* preferencesmanager = [PreferencesManager getInstance];
-
-  struct BridgeConfig bridgeconfig;
-  memset(&bridgeconfig, 0, sizeof(bridgeconfig));
-
-  bridgeconfig.version = BRIDGE_CONFIG_VERSION;
-
-#include "bridgeconfig_config.h"
-
-  struct BridgeUserClientStruct bridgestruct;
-  bridgestruct.data   = (uintptr_t)(&bridgeconfig);
-  bridgestruct.size   = sizeof(bridgeconfig);
-  [UserClient_userspace synchronized_communication:&bridgestruct];
-}
+@synthesize clientForKernelspace;
 
 // ------------------------------------------------------------
 static void observer_IONotification(void* refcon, io_iterator_t iterator) {
-  NSLog(@"observer_IONotification");
+  dispatch_async(dispatch_get_main_queue(), ^{
+                   NSLog (@"observer_IONotification");
 
-  AppDelegate* self = refcon;
-  if (! self) {
-    NSLog(@"[ERROR] observer_IONotification refcon == nil\n");
-    return;
-  }
+                   AppDelegate* self = refcon;
+                   if (! self) {
+                     NSLog (@"[ERROR] observer_IONotification refcon == nil\n");
+                     return;
+                   }
 
-  for (;;) {
-    io_object_t obj = IOIteratorNext(iterator);
-    if (! obj) break;
+                   for (;; ) {
+                     io_object_t obj = IOIteratorNext (iterator);
+                     if (! obj) break;
 
-    IOObjectRelease(obj);
-  }
-  // Do not release iterator.
+                     IOObjectRelease (obj);
+                   }
+                   // Do not release iterator.
 
-  // = Documentation of IOKit =
-  // - Introduction to Accessing Hardware From Applications
-  //   - Finding and Accessing Devices
-  //
-  // In the case of IOServiceAddMatchingNotification, make sure you release the iterator only if you’re also ready to stop receiving notifications:
-  // When you release the iterator you receive from IOServiceAddMatchingNotification, you also disable the notification.
+                   // = Documentation of IOKit =
+                   // - Introduction to Accessing Hardware From Applications
+                   //   - Finding and Accessing Devices
+                   //
+                   // In the case of IOServiceAddMatchingNotification, make sure you release the iterator only if you’re also ready to stop receiving notifications:
+                   // When you release the iterator you receive from IOServiceAddMatchingNotification, you also disable the notification.
 
-  // ------------------------------------------------------------
-  // [UserClient_userspace refresh_connection] may fail by kIOReturnExclusiveAccess
-  // when NSWorkspaceSessionDidBecomeActiveNotification.
-  // So, we retry the connection some times.
-  for (int retrycount = 0; retrycount < 10; ++retrycount) {
-    [UserClient_userspace refresh_connection];
-    if ([UserClient_userspace connected]) break;
-
-    [NSThread sleepForTimeInterval:0.5];
-  }
-
-  [self send_config_to_kext];
+                   // ------------------------------------------------------------
+                   [[self clientForKernelspace] refresh_connection_with_retry];
+                   [[self clientForKernelspace] send_config_to_kext];
+                 });
 }
 
 - (void) unregisterIONotification {
@@ -113,30 +89,23 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
 }
 
 // ------------------------------------------------------------
-- (void) distributedObserver_PreferencesChanged:(NSNotification*)notification {
-  // [NSAutoreleasePool drain] is never called from NSDistributedNotificationCenter.
-  // Therefore, we need to make own NSAutoreleasePool.
-  NSAutoreleasePool* pool = [NSAutoreleasePool new];
-  {
-    [self send_config_to_kext];
-  }
-  [pool drain];
-}
-
-// ------------------------------------------------------------
 - (void) observer_NSWorkspaceSessionDidBecomeActiveNotification:(NSNotification*)notification
 {
-  NSLog(@"observer_NSWorkspaceSessionDidBecomeActiveNotification");
+  dispatch_async(dispatch_get_main_queue(), ^{
+                   NSLog (@"observer_NSWorkspaceSessionDidBecomeActiveNotification");
 
-  [self registerIONotification];
+                   [self registerIONotification];
+                 });
 }
 
 - (void) observer_NSWorkspaceSessionDidResignActiveNotification:(NSNotification*)notification
 {
-  NSLog(@"observer_NSWorkspaceSessionDidResignActiveNotification");
+  dispatch_async(dispatch_get_main_queue(), ^{
+                   NSLog (@"observer_NSWorkspaceSessionDidResignActiveNotification");
 
-  [self unregisterIONotification];
-  [UserClient_userspace disconnect_from_kext];
+                   [self unregisterIONotification];
+                   [clientForKernelspace disconnect_from_kext];
+                 });
 }
 
 // ------------------------------------------------------------
@@ -154,10 +123,6 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
                                                              name:NSWorkspaceSessionDidResignActiveNotification
                                                            object:nil];
 
-  [org_pqrs_PCKeyboardHack_NSDistributedNotificationCenter addObserver:self
-                                                              selector:@selector(distributedObserver_PreferencesChanged:)
-                                                                  name:kPCKeyboardHackPreferencesChangedNotification];
-
   [outlineView_mixed_ initialExpandCollapseTree];
   [updater_ checkForUpdatesInBackground:nil];
 }
@@ -170,7 +135,6 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
 
 - (void) dealloc
 {
-  [org_pqrs_PCKeyboardHack_NSDistributedNotificationCenter removeObserver:self];
   [[NSNotificationCenter defaultCenter] removeObserver:self];
 
   [super dealloc];

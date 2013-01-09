@@ -10,7 +10,7 @@
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		256AC3DA0F4B6AC300CF3369 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* AppDelegate.m */; };
 		343420CB13D74C16000DBD3E /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 343420CA13D74C16000DBD3E /* IOKit.framework */; };
-		3481610813EC48CB000B43B0 /* PCKeyboardHackNSDistributedNotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3481610713EC48CB000B43B0 /* PCKeyboardHackNSDistributedNotificationCenter.m */; };
+		34598343169CAB66007C84F8 /* ClientForKernelspace.m in Sources */ = {isa = PBXBuildFile; fileRef = 34598342169CAB66007C84F8 /* ClientForKernelspace.m */; };
 		34947684168B6EB000B783D2 /* Updater.m in Sources */ = {isa = PBXBuildFile; fileRef = 34947683168B6EB000B783D2 /* Updater.m */; };
 		3494768A168B707500B783D2 /* PreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34947689168B707500B783D2 /* PreferencesController.m */; };
 		34947696168B740E00B783D2 /* OutlineView_keycode.m in Sources */ = {isa = PBXBuildFile; fileRef = 34947691168B740E00B783D2 /* OutlineView_keycode.m */; };
@@ -53,13 +53,12 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
-		343420C813D7466E000DBD3E /* PCKeyboardHackKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PCKeyboardHackKeys.h; path = ../../share/PCKeyboardHackKeys.h; sourceTree = "<group>"; };
 		343420CA13D74C16000DBD3E /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		34598341169CAB66007C84F8 /* ClientForKernelspace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClientForKernelspace.h; path = Classes/ClientForKernelspace.h; sourceTree = "<group>"; };
+		34598342169CAB66007C84F8 /* ClientForKernelspace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClientForKernelspace.m; path = Classes/ClientForKernelspace.m; sourceTree = "<group>"; };
 		347A7DA714D7927F0034D71E /* BRIDGE_KEY_INDEX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BRIDGE_KEY_INDEX.h; path = ../autogen/output/BRIDGE_KEY_INDEX.h; sourceTree = "<group>"; };
 		347A7DA814D795160034D71E /* bridgeconfig_config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bridgeconfig_config.h; path = ../autogen/output/bridgeconfig_config.h; sourceTree = "<group>"; };
 		347A7DA914D796D50034D71E /* setDefault.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = setDefault.h; path = ../autogen/output/setDefault.h; sourceTree = "<group>"; };
-		3481610613EC48CB000B43B0 /* PCKeyboardHackNSDistributedNotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PCKeyboardHackNSDistributedNotificationCenter.h; path = ../../share/PCKeyboardHackNSDistributedNotificationCenter.h; sourceTree = "<group>"; };
-		3481610713EC48CB000B43B0 /* PCKeyboardHackNSDistributedNotificationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PCKeyboardHackNSDistributedNotificationCenter.m; path = ../../share/PCKeyboardHackNSDistributedNotificationCenter.m; sourceTree = "<group>"; };
 		34947682168B6EB000B783D2 /* Updater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Updater.h; path = Classes/Updater.h; sourceTree = "<group>"; };
 		34947683168B6EB000B783D2 /* Updater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Updater.m; path = Classes/Updater.m; sourceTree = "<group>"; };
 		34947686168B6F9200B783D2 /* PreferencesKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreferencesKeys.h; path = Classes/PreferencesKeys.h; sourceTree = "<group>"; };
@@ -103,15 +102,14 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				34598341169CAB66007C84F8 /* ClientForKernelspace.h */,
+				34598342169CAB66007C84F8 /* ClientForKernelspace.m */,
 				34947687168B706C00B783D2 /* Preferences */,
 				347A7DA514D792730034D71E /* autogen */,
 				34F9652613D742EB0081D1F3 /* bridge.h */,
 				256AC3D80F4B6AC300CF3369 /* AppDelegate.h */,
 				256AC3D90F4B6AC300CF3369 /* AppDelegate.m */,
 				3494768B168B70F700B783D2 /* NotificationKeys.h */,
-				343420C813D7466E000DBD3E /* PCKeyboardHackKeys.h */,
-				3481610613EC48CB000B43B0 /* PCKeyboardHackNSDistributedNotificationCenter.h */,
-				3481610713EC48CB000B43B0 /* PCKeyboardHackNSDistributedNotificationCenter.m */,
 				34947686168B6F9200B783D2 /* PreferencesKeys.h */,
 				34F9652813D742FA0081D1F3 /* PreferencesManager.h */,
 				34F9652913D742FA0081D1F3 /* PreferencesManager.m */,
@@ -291,12 +289,12 @@
 				256AC3DA0F4B6AC300CF3369 /* AppDelegate.m in Sources */,
 				34F9652C13D742FA0081D1F3 /* PreferencesManager.m in Sources */,
 				34F9652D13D742FA0081D1F3 /* UserClient_userspace.m in Sources */,
-				3481610813EC48CB000B43B0 /* PCKeyboardHackNSDistributedNotificationCenter.m in Sources */,
 				34947684168B6EB000B783D2 /* Updater.m in Sources */,
 				3494768A168B707500B783D2 /* PreferencesController.m in Sources */,
 				34947696168B740E00B783D2 /* OutlineView_keycode.m in Sources */,
 				34947697168B740E00B783D2 /* OutlineView_mixed.m in Sources */,
 				34947698168B740E00B783D2 /* OutlineView.m in Sources */,
+				34598343169CAB66007C84F8 /* ClientForKernelspace.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

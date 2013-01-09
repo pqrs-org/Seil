@@ -45,8 +45,8 @@ ARGV.each do |xmlpath|
       $outfile[:KeyMapIndex_Value] << "#{identifier} = #{kHIDUsage.text},\n"
       $outfile[:KeyMapIndex_bridgeKeyindexToValue] << "case BRIDGE_KEY_INDEX_#{identifier}: return #{identifier};\n"
 
-      $outfile[:bridgeconfig_config] << "bridgeconfig.config[BRIDGE_KEY_INDEX_#{identifier}].enabled = [preferencesmanager value:@\"#{enable.text}\"];\n"
-      $outfile[:bridgeconfig_config] << "bridgeconfig.config[BRIDGE_KEY_INDEX_#{identifier}].keycode = [preferencesmanager value:@\"#{keycode.text}\"];\n"
+      $outfile[:bridgeconfig_config] << "bridgeconfig.config[BRIDGE_KEY_INDEX_#{identifier}].enabled = [preferencesManager_ value:@\"#{enable.text}\"];\n"
+      $outfile[:bridgeconfig_config] << "bridgeconfig.config[BRIDGE_KEY_INDEX_#{identifier}].keycode = [preferencesManager_ value:@\"#{keycode.text}\"];\n"
 
       $outfile[:setDefault] << "[default_ setObject:[NSNumber numberWithInt:#{default.text}] forKey:@\"#{keycode.text}\"];\n"
     end

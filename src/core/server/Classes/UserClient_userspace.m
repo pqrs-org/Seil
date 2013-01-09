@@ -1,11 +1,7 @@
 #import "UserClient_userspace.h"
 #include "bridge.h"
 
-static UserClient_userspace* global_instance = nil;
-
 @implementation UserClient_userspace
-
-@synthesize connected;
 
 - (void) closeUserClient
 {
@@ -70,9 +66,15 @@ static UserClient_userspace* global_instance = nil;
       continue;
     }
 
-    connected = YES;
+    // ----------------------------------------
+    // succeed
+    goto finish;
   }
 
+  // failed to open connection.
+  [self closeUserClient];
+
+finish:
   IOObjectRelease(iterator);
 }
 
@@ -83,86 +85,75 @@ static UserClient_userspace* global_instance = nil;
   if (self) {
     service_ = IO_OBJECT_NULL;
     connect_ = IO_OBJECT_NULL;
-    connected = NO;
-
-    [self openUserClient];
-
-    if (! connected) {
-      [self closeUserClient];
-    }
   }
 
   return self;
 }
 
-- (void) dealloc
-{
-  [self closeUserClient];
-
-  [super dealloc];
-}
-
 // ======================================================================
-+ (void) connect_to_kext
+- (void) connect_to_kext
 {
   @synchronized(self) {
-    if (! global_instance) {
-      global_instance = [self new];
+    [self disconnect_from_kext];
+
+    service_ = IO_OBJECT_NULL;
+    connect_ = IO_OBJECT_NULL;
+
+    [self openUserClient];
+  }
+}
+
+- (void) disconnect_from_kext
+{
+  @synchronized(self) {
+    [self closeUserClient];
+  }
+}
+
+- (void) refresh_connection_with_retry:(int)retrycount wait:(NSTimeInterval)wait
+{
+  // "connect_to_kext" may fail by kIOReturnExclusiveAccess
+  // when connect_to_kext is called in NSWorkspaceSessionDidBecomeActiveNotification.
+  // So, we retry the connection some times.
+
+  @synchronized(self) {
+    for (int i = 0; i < retrycount; ++i) {
+      [self disconnect_from_kext];
+      [self connect_to_kext];
+
+      if (connect_ != IO_OBJECT_NULL) {
+        // succeed
+        return;
+      }
+
+      [NSThread sleepForTimeInterval:wait];
     }
   }
 }
 
-+ (void) disconnect_from_kext
+- (BOOL) synchronized_communication:(struct BridgeUserClientStruct*)bridgestruct
 {
   @synchronized(self) {
-    if (global_instance) {
-      [global_instance release];
-      global_instance = nil;
+    if (connect_ == IO_OBJECT_NULL) {
+      NSLog(@"[INFO] BRIDGE_USERCLIENT_SYNCHRONIZED_COMMUNICATION connection is null");
+      return NO;
     }
-  }
-}
+    if (! bridgestruct) return NO;
 
-+ (void) refresh_connection
-{
-  [self disconnect_from_kext];
-  [self connect_to_kext];
-}
-
-- (BOOL) do_synchronized_communication:(struct BridgeUserClientStruct*)bridgestruct
-{
-  if (connect_ == IO_OBJECT_NULL) return NO;
-  if (! bridgestruct) return NO;
-
-  kern_return_t kernResult = IOConnectCallMethod(connect_,
-                                                 BRIDGE_USERCLIENT_SYNCHRONIZED_COMMUNICATION,
-                                                 NULL, 0,                             // scalar input
-                                                 bridgestruct, sizeof(*bridgestruct), // struct input
-                                                 NULL, 0,                             // scalar output
-                                                 NULL, NULL);                         // struct output
-  if (kernResult != KERN_SUCCESS) {
-    NSLog(@"[ERROR] BRIDGE_USERCLIENT_SYNCHRONIZED_COMMUNICATION returned 0x%08x\n", kernResult);
-    return NO;
-  }
-
-  return YES;
-}
-
-+ (BOOL) synchronized_communication:(struct BridgeUserClientStruct*)bridgestruct
-{
-  BOOL retval = NO;
-
-  @synchronized(self) {
-    if ([global_instance do_synchronized_communication:bridgestruct]) {
-      retval = YES;
+    kern_return_t kernResult = IOConnectCallMethod(connect_,
+                                                   BRIDGE_USERCLIENT_SYNCHRONIZED_COMMUNICATION,
+                                                   NULL, 0,                             // scalar input
+                                                   bridgestruct, sizeof(*bridgestruct), // struct input
+                                                   NULL, 0,                             // scalar output
+                                                   NULL, NULL);                         // struct output
+    if (kernResult != KERN_SUCCESS) {
+      NSLog(@"[ERROR] BRIDGE_USERCLIENT_SYNCHRONIZED_COMMUNICATION returned 0x%08x\n", kernResult);
+      return NO;
     }
+
+    // succeed
+    return YES;
   }
-
-  return retval;
-}
-
-+ (BOOL) connected
-{
-  return [global_instance connected];
 }
 
 @end

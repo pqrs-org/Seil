@@ -1,12 +1,10 @@
 // -*- Mode: objc; Coding: utf-8; indent-tabs-mode: nil; -*-
+
 #import <Cocoa/Cocoa.h>
 
 @interface PreferencesManager : NSObject {
   NSMutableDictionary* default_;
-  NSConnection* serverconnection_;
 }
-
-+ (PreferencesManager*) getInstance;
 
 - (int) value:(NSString*)name;
 - (int) defaultValue:(NSString*)name;
