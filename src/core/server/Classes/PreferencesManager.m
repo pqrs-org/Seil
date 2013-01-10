@@ -100,10 +100,4 @@
   return [[NSUserDefaults standardUserDefaults] integerForKey:kCheckForUpdates];
 }
 
-// ----------------------------------------------------------------------
-- (NSString*) preferencepane_version
-{
-  return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
-}
-
 @end

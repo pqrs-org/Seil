@@ -3,7 +3,6 @@
 #import "OutlineView_mixed.h"
 #import "PreferencesController.h"
 #import "Updater.h"
-#import "UserClient_userspace.h"
 #include "bridge.h"
 
 @implementation AppDelegate

@@ -12,7 +12,4 @@
 
 - (NSInteger) checkForUpdatesMode;
 
-// --------------------------------------------------
-- (NSString*) preferencepane_version;
-
 @end
