@@ -9,7 +9,8 @@ enum {
   // Version 2: changed to use autogen code (BRIDGE_KEY_INDEX.h).
   // Version 3: added new keys.
   // Version 4: added new keys. (LANG*)
-  BRIDGE_CONFIG_VERSION = 4,
+  // Version 5: added new key. (Tab)
+  BRIDGE_CONFIG_VERSION = 5,
 };
 
 enum {

@@ -82,6 +82,13 @@
     </item>
     <item><name>────────────────────</name></item>
     <item>
+      <name>Change Delete</name>
+      <enable>enable_delete</enable>
+      <keycode>keycode_delete</keycode>
+      <kHIDUsage>kHIDUsage_KeyboardDeleteOrBackspace</kHIDUsage>
+      <default>51</default>
+    </item>
+    <item>
       <name>Change Escape</name>
       <enable>enable_escape</enable>
       <keycode>keycode_escape</keycode>
@@ -89,11 +96,11 @@
       <default>53</default>
     </item>
     <item>
-      <name>Change Delete</name>
-      <enable>enable_delete</enable>
-      <keycode>keycode_delete</keycode>
-      <kHIDUsage>kHIDUsage_KeyboardDeleteOrBackspace</kHIDUsage>
-      <default>51</default>
+      <name>Change Keypad Enter</name>
+      <enable>enable_enter</enable>
+      <keycode>keycode_enter</keycode>
+      <kHIDUsage>kHIDUsage_KeypadEnter</kHIDUsage>
+      <default>76</default>
     </item>
     <item>
       <name>Change Return</name>
@@ -103,11 +110,11 @@
       <default>36</default>
     </item>
     <item>
-      <name>Change Keypad Enter</name>
-      <enable>enable_enter</enable>
-      <keycode>keycode_enter</keycode>
-      <kHIDUsage>kHIDUsage_KeypadEnter</kHIDUsage>
-      <default>76</default>
+      <name>Change Tab</name>
+      <enable>enable_tab</enable>
+      <keycode>keycode_tab</keycode>
+      <kHIDUsage>kHIDUsage_KeyboardTab</kHIDUsage>
+      <default>48</default>
     </item>
   </item>
 

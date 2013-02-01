@@ -4,6 +4,7 @@
   <item><name>Escape</name><keycode>53</keycode></item>
   <item><name>Forward Delete</name><keycode>117</keycode></item>
   <item><name>Return</name><keycode>36</keycode></item>
+  <item><name>Tab</name><keycode>48</keycode></item>
 
   <item><name>──────────────────────────────</name><keycode>───</keycode></item>
 
