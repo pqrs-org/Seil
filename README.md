@@ -25,7 +25,7 @@ Requirements:
 * Command Line Tools for Xcode
 * Auxiliary Tools for Xcode
 
-Please install PackageMaker.app in /Applications/Utilities.
+Please install PackageMaker.app into /Applications/Utilities.
 (PackageMaker.app is included in Auxiliary Tools for Xcode.)
 
 ### Step1: Getting source code
