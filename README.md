@@ -7,6 +7,13 @@ You can change CapsLock behavior. (For example, changing CapsLock to Delete Key.
 And it can activate International Keys on Non-Apple keyboard.
 
 
+Web pages
+---------
+
+* master: https://pqrs.org/macosx/keyremap4macbook/pckeyboardhack.html
+* backup: http://tekezo.github.io/pqrs.org/
+
+
 System requirements
 -------------------
 
