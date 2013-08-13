@@ -109,6 +109,25 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
 
 // ------------------------------------------------------------
 - (void) applicationDidFinishLaunching:(NSNotification*)aNotification {
+  for (NSString* argument in [[NSProcessInfo processInfo] arguments]) {
+    if ([argument isEqualToString:@"--fromLaunchAgents"]) {
+      // ------------------------------------------------------------
+      // Remove old pkg files and finish_installation.app in
+      // "~/Library/Application Support/PCKeyboardHack/.Sparkle".
+      NSArray* paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
+      NSString* sparkle = [paths objectAtIndex:0];
+      if (sparkle) {
+        sparkle = [sparkle stringByAppendingPathComponent:@"PCKeyboardHack"];
+        sparkle = [sparkle stringByAppendingPathComponent:@".Sparkle"];
+
+        NSFileManager* fm = [NSFileManager defaultManager];
+        if ([fm fileExistsAtPath:sparkle]) {
+          [fm removeItemAtPath:sparkle error:nil];
+        }
+      }
+    }
+  }
+
   [self registerIONotification];
 
   // ------------------------------------------------------------

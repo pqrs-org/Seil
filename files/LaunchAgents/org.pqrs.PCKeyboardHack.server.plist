@@ -7,8 +7,9 @@
     <key>ProgramArguments</key>
     <array>
       <string>/Applications/PCKeyboardHack.app/Contents/MacOS/PCKeyboardHack</string>
+      <string>--fromLaunchAgents</string>
     </array>
-    <key>KeepAlive</key>
+    <key>RunAtLoad</key>
     <true/>
   </dict>
 </plist>
