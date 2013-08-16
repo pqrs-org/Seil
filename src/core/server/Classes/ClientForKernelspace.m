@@ -13,8 +13,8 @@ static void callback_NotificationFromKext(void* refcon, IOReturn result, uint32_
 - (void) observer_PreferencesChanged:(NSNotification*)notification
 {
   dispatch_async(dispatch_get_main_queue(), ^{
-                   [self send_config_to_kext];
-                 });
+    [self send_config_to_kext];
+  });
 }
 
 - (id) init

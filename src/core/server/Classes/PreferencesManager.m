@@ -7,7 +7,7 @@
 // ----------------------------------------
 + (void) initialize
 {
-  NSDictionary* dict = @ { kCheckForUpdates : @1 };
+  NSDictionary* dict = @{ kCheckForUpdates : @1 };
   [[NSUserDefaults standardUserDefaults] registerDefaults:dict];
 }
 
