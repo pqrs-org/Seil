@@ -665,6 +665,7 @@
 														<string key="NSFrame">{{572, 17}, {15, 228}}</string>
 														<reference key="NSSuperview" ref="782189848"/>
 														<reference key="NSWindow"/>
+														<reference key="NSNextKeyView" ref="172884361"/>
 														<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 														<reference key="NSTarget" ref="782189848"/>
 														<string key="NSAction">_doScroller:</string>
@@ -813,6 +814,7 @@
 																<int key="NSvFlags">268</int>
 																<string key="NSFrame">{{11, 6}, {156, 32}}</string>
 																<reference key="NSSuperview" ref="1010156400"/>
+																<reference key="NSNextKeyView"/>
 																<bool key="NSEnabled">YES</bool>
 																<object class="NSButtonCell" key="NSCell" id="36101699">
 																	<int key="NSCellFlags">67108864</int>
@@ -885,14 +887,14 @@
 															<object class="NSButton" id="81501709">
 																<reference key="NSNextResponder" ref="232136048"/>
 																<int key="NSvFlags">268</int>
-																<string key="NSFrame">{{12, 6}, {156, 32}}</string>
+																<string key="NSFrame">{{12, 6}, {313, 32}}</string>
 																<reference key="NSSuperview" ref="232136048"/>
 																<reference key="NSNextKeyView" ref="196264833"/>
 																<bool key="NSEnabled">YES</bool>
 																<object class="NSButtonCell" key="NSCell" id="242294789">
 																	<int key="NSCellFlags">67108864</int>
 																	<int key="NSCellFlags2">134217728</int>
-																	<string key="NSContents">Check for updates</string>
+																	<string key="NSContents">Check for updates (The stable release only)</string>
 																	<reference key="NSSupport" ref="559204146"/>
 																	<reference key="NSControlView" ref="81501709"/>
 																	<int key="NSButtonFlags">-2038284288</int>
@@ -909,7 +911,7 @@
 																<int key="NSvFlags">268</int>
 																<string key="NSFrame">{{210, 36}, {261, 26}}</string>
 																<reference key="NSSuperview" ref="232136048"/>
-																<reference key="NSNextKeyView" ref="19437150"/>
+																<reference key="NSNextKeyView" ref="1050416707"/>
 																<bool key="NSEnabled">YES</bool>
 																<object class="NSPopUpButtonCell" key="NSCell" id="1060260734">
 																	<int key="NSCellFlags">-2076180416</int>
@@ -966,6 +968,34 @@
 																	<bool key="NSUsesItemFromMenu">YES</bool>
 																	<bool key="NSAltersState">YES</bool>
 																	<int key="NSArrowPosition">2</int>
+																</object>
+																<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
+															</object>
+															<object class="NSButton" id="1050416707">
+																<reference key="NSNextResponder" ref="232136048"/>
+																<int key="NSvFlags">268</int>
+																<string key="NSFrame">{{326, 14}, {208, 16}}</string>
+																<reference key="NSSuperview" ref="232136048"/>
+																<reference key="NSNextKeyView" ref="19437150"/>
+																<string key="NSReuseIdentifierKey">_NS:9</string>
+																<bool key="NSEnabled">YES</bool>
+																<object class="NSButtonCell" key="NSCell" id="1009038105">
+																	<int key="NSCellFlags">67108864</int>
+																	<int key="NSCellFlags2">134479872</int>
+																	<string key="NSContents">Check for updates (Beta &amp; stable releases)</string>
+																	<object class="NSFont" key="NSSupport">
+																		<string key="NSName">LucidaGrande</string>
+																		<double key="NSSize">9</double>
+																		<int key="NSfFlags">3614</int>
+																	</object>
+																	<string key="NSCellIdentifier">_NS:9</string>
+																	<reference key="NSControlView" ref="1050416707"/>
+																	<int key="NSButtonFlags">-2038284288</int>
+																	<int key="NSButtonFlags2">129</int>
+																	<string key="NSAlternateContents"/>
+																	<string key="NSKeyEquivalent"/>
+																	<int key="NSPeriodicDelay">200</int>
+																	<int key="NSPeriodicInterval">25</int>
 																</object>
 																<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 															</object>
@@ -1281,11 +1311,19 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
-						<string key="label">checkForUpdates:</string>
+						<string key="label">checkForUpdatesStableOnly:</string>
 						<reference key="source" ref="460691622"/>
 						<reference key="destination" ref="81501709"/>
 					</object>
-					<int key="connectionID">585</int>
+					<int key="connectionID">744</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">checkForUpdatesWithBetaVersion:</string>
+						<reference key="source" ref="460691622"/>
+						<reference key="destination" ref="1050416707"/>
+					</object>
+					<int key="connectionID">747</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -1607,8 +1645,9 @@
 						<reference key="object" ref="540343579"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="196264833"/>
-							<reference ref="81501709"/>
 							<reference ref="401672477"/>
+							<reference ref="81501709"/>
+							<reference ref="1050416707"/>
 						</array>
 						<reference key="parent" ref="1057934437"/>
 					</object>
@@ -1885,6 +1924,19 @@
 						<reference key="object" ref="844642048"/>
 						<reference key="parent" ref="0"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">745</int>
+						<reference key="object" ref="1050416707"/>
+						<array class="NSMutableArray" key="children">
+							<reference ref="1009038105"/>
+						</array>
+						<reference key="parent" ref="540343579"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">746</int>
+						<reference key="object" ref="1009038105"/>
+						<reference key="parent" ref="1050416707"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -1985,12 +2037,14 @@
 				<string key="733.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="734.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="741.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="745.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="746.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">743</int>
+			<int key="maxID">747</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -2145,6 +2199,8 @@
 					<dictionary class="NSMutableDictionary" key="actions">
 						<string key="checkForUpdates:">id</string>
 						<string key="checkForUpdatesInBackground:">id</string>
+						<string key="checkForUpdatesStableOnly:">id</string>
+						<string key="checkForUpdatesWithBetaVersion:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
 						<object class="IBActionInfo" key="checkForUpdates:">
@@ -2153,6 +2209,14 @@
 						</object>
 						<object class="IBActionInfo" key="checkForUpdatesInBackground:">
 							<string key="name">checkForUpdatesInBackground:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="checkForUpdatesStableOnly:">
+							<string key="name">checkForUpdatesStableOnly:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="checkForUpdatesWithBetaVersion:">
+							<string key="name">checkForUpdatesWithBetaVersion:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 					</dictionary>
