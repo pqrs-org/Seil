@@ -31,7 +31,7 @@ done
 
 basedir="pkgroot/Applications/PCKeyboardHack.app/Contents/Library"
 mkdir -p "$basedir"
-for ostype in 10.7 10.8; do
+for ostype in 10.8; do
     cp -R src/core/kext/${ostype}/build/Release/PCKeyboardHack.kext "$basedir/PCKeyboardHack.${ostype}.kext"
 done
 for d in \

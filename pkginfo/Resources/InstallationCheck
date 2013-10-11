@@ -6,6 +6,6 @@ PATH=/bin:/sbin:/usr/bin:/usr/sbin; export PATH
 uname=`uname -r`
 osmajor="${uname%%.*}"
 
-[ $osmajor -lt 11 ] && exit 127
+[ $osmajor -lt 12 ] && exit 127
 
 exit 0
