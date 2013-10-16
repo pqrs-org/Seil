@@ -102,14 +102,14 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				34598341169CAB66007C84F8 /* ClientForKernelspace.h */,
-				34598342169CAB66007C84F8 /* ClientForKernelspace.m */,
-				34947687168B706C00B783D2 /* Preferences */,
-				347A7DA514D792730034D71E /* autogen */,
-				34F9652613D742EB0081D1F3 /* bridge.h */,
 				256AC3D80F4B6AC300CF3369 /* AppDelegate.h */,
 				256AC3D90F4B6AC300CF3369 /* AppDelegate.m */,
+				347A7DA514D792730034D71E /* autogen */,
+				34F9652613D742EB0081D1F3 /* bridge.h */,
+				34598341169CAB66007C84F8 /* ClientForKernelspace.h */,
+				34598342169CAB66007C84F8 /* ClientForKernelspace.m */,
 				3494768B168B70F700B783D2 /* NotificationKeys.h */,
+				34947687168B706C00B783D2 /* Preferences */,
 				34947686168B6F9200B783D2 /* PreferencesKeys.h */,
 				34F9652813D742FA0081D1F3 /* PreferencesManager.h */,
 				34F9652913D742FA0081D1F3 /* PreferencesManager.m */,
