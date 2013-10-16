@@ -9,7 +9,7 @@
 /* ---------------------------------------------------------------------- */
 - (void) drawVersion
 {
-  NSString* version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
+  NSString* version = [[NSBundle mainBundle] infoDictionary][@"CFBundleVersion"];
   [versionText_ setStringValue:version];
 }
 

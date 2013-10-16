@@ -12,8 +12,8 @@
 
 - (NSMutableDictionary*) parseItemTag:(NSXMLElement*)item
 {
-  NSMutableDictionary* dict = [[NSMutableDictionary new] autorelease];
-  NSMutableString* name = [[NSMutableString new] autorelease];
+  NSMutableDictionary* dict = [NSMutableDictionary new];
+  NSMutableString* name = [NSMutableString new];
   int height = 0;
 
   NSUInteger count = [item childCount];
@@ -23,12 +23,12 @@
 
     if ([[e name] isEqualToString:@"item"]) {
       NSMutableDictionary* child = [self parseItemTag:e];
-      NSMutableArray* children = [dict objectForKey:@"children"];
+      NSMutableArray* children = dict[@"children"];
       if (! children) {
-        children = [[NSMutableArray new] autorelease];
+        children = [NSMutableArray new];
       }
       [children addObject:child];
-      [dict setObject:children forKey:@"children"];
+      dict[@"children"] = children;
 
     } else if ([[e name] isEqualToString:@"name"]) {
       [name appendString:[e stringValue]];
@@ -41,12 +41,12 @@
 
     } else {
       NSString* value = [[e stringValue] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-      [dict setObject:value forKey:[e name]];
+      dict[[e name]] = value;
     }
   }
 
-  [dict setObject:name forKey:@"name"];
-  [dict setObject:[NSNumber numberWithInt:height] forKey:@"height"];
+  dict[@"name"] = name;
+  dict[@"height"] = @(height);
 
   return dict;
 }
@@ -55,7 +55,7 @@
 {
   NSURL* url = [NSURL fileURLWithPath:xmlpath];
   NSError* error = nil;
-  NSXMLDocument* xmldocument = [[[NSXMLDocument alloc] initWithContentsOfURL:url options:0 error:&error] autorelease];
+  NSXMLDocument* xmldocument = [[NSXMLDocument alloc] initWithContentsOfURL:url options:0 error:&error];
   if (! xmldocument) {
     NSLog(@"XML error %@", [error localizedDescription]);
     return;
@@ -82,12 +82,6 @@
   return self;
 }
 
-- (void) dealloc
-{
-  [datasource_ release];
-
-  [super dealloc];
-}
 
 // ------------------------------------------------------------
 - (NSUInteger) outlineView:(NSOutlineView*)outlineView numberOfChildrenOfItem:(id)item
@@ -98,7 +92,7 @@
   if (! item) {
     a = datasource_;
   } else {
-    a = [item objectForKey:@"children"];
+    a = item[@"children"];
   }
 
   if (! a) return 0;
@@ -113,24 +107,24 @@
   if (! item) {
     a = datasource_;
   } else {
-    a = [item objectForKey:@"children"];
+    a = item[@"children"];
   }
 
   if (! a) return nil;
   if (idx >= [a count]) return nil;
-  return [a objectAtIndex:idx];
+  return a[idx];
 }
 
 - (BOOL) outlineView:(NSOutlineView*)outlineView isItemExpandable:(id)item
 {
-  NSArray* a = [item objectForKey:@"children"];
+  NSArray* a = item[@"children"];
   return a ? YES : NO;
 }
 
 - (id) outlineView:(NSOutlineView*)outlineView objectValueForTableColumn:(NSTableColumn*)tableColumn byItem:(id)item
 {
   NSString* identifier = [tableColumn identifier];
-  return [item objectForKey:identifier];
+  return item[identifier];
 }
 
 @end

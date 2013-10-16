@@ -20,8 +20,8 @@
   NSString* keycodestring = [NSString stringWithFormat:@"%d", keycode];
 
   for (NSDictionary* dict in datasource_) {
-    if ([keycodestring isEqualToString:[dict objectForKey:@"keycode"]]) {
-      return [dict objectForKey:@"name"];
+    if ([keycodestring isEqualToString:dict[@"keycode"]]) {
+      return dict[@"name"];
     }
   }
   return nil;

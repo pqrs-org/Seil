@@ -30,12 +30,6 @@
   return self;
 }
 
-- (void) dealloc
-{
-  [default_ release];
-
-  [super dealloc];
-}
 
 // ----------------------------------------------------------------------
 - (int) value:(NSString*)name
@@ -44,7 +38,7 @@
 
   NSDictionary* dict = [[NSUserDefaults standardUserDefaults] dictionaryForKey:identifier];
   if (dict) {
-    NSNumber* number = [dict objectForKey:name];
+    NSNumber* number = dict[name];
     if (number) {
       return [number intValue];
     }
@@ -54,7 +48,7 @@
 
 - (int) defaultValue:(NSString*)name
 {
-  NSNumber* number = [default_ objectForKey:name];
+  NSNumber* number = default_[name];
   if (number) {
     return [number intValue];
   } else {
@@ -72,12 +66,12 @@
   if (dict) {
     md = [NSMutableDictionary dictionaryWithDictionary:dict];
   } else {
-    md = [[NSMutableDictionary new] autorelease];
+    md = [NSMutableDictionary new];
   }
   if (! md) return;
 
   int defaultvalue = 0;
-  NSNumber* defaultnumber = [default_ objectForKey:name];
+  NSNumber* defaultnumber = default_[name];
   if (defaultnumber) {
     defaultvalue = [defaultnumber intValue];
   }
@@ -85,7 +79,7 @@
   if (newval == defaultvalue) {
     [md removeObjectForKey:name];
   } else {
-    [md setObject:[NSNumber numberWithInt:newval] forKey:name];
+    md[name] = @(newval);
   }
 
   [[NSUserDefaults standardUserDefaults] setObject:md forKey:identifier];

@@ -15,7 +15,7 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
   dispatch_async(dispatch_get_main_queue(), ^{
     NSLog(@"observer_IONotification");
 
-    AppDelegate* self = refcon;
+    AppDelegate* self = (__bridge AppDelegate *)(refcon);
     if (! self) {
       NSLog(@"[ERROR] observer_IONotification refcon == nil\n");
       return;
@@ -70,13 +70,13 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
                                                 kIOMatchedNotification,
                                                 IOServiceNameMatching("org_pqrs_driver_PCKeyboardHack"),
                                                 &observer_IONotification,
-                                                self,
+                                                (__bridge void *)(self),
                                                 &it);
   if (kernResult != kIOReturnSuccess) {
     NSLog(@"[ERROR] IOServiceAddMatchingNotification failed");
     return;
   }
-  observer_IONotification(self, it);
+  observer_IONotification((__bridge void *)(self), it);
 
   // ----------------------------------------------------------------------
   loopsource_ = IONotificationPortGetRunLoopSource(notifyport_);
@@ -115,7 +115,7 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
       // Remove old pkg files and finish_installation.app in
       // "~/Library/Application Support/PCKeyboardHack/.Sparkle".
       NSArray* paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
-      NSString* sparkle = [paths objectAtIndex:0];
+      NSString* sparkle = paths[0];
       if (sparkle) {
         sparkle = [sparkle stringByAppendingPathComponent:@"PCKeyboardHack"];
         sparkle = [sparkle stringByAppendingPathComponent:@".Sparkle"];
@@ -154,8 +154,6 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
 - (void) dealloc
 {
   [[NSNotificationCenter defaultCenter] removeObserver:self];
-
-  [super dealloc];
 }
 
 // ------------------------------------------------------------

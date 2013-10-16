@@ -38,9 +38,7 @@ static void callback_NotificationFromKext(void* refcon, IOReturn result, uint32_
 - (void) dealloc
 {
   [[NSNotificationCenter defaultCenter] removeObserver:self];
-  [userClient_userspace release];
 
-  [super dealloc];
 }
 
 - (void) refresh_connection_with_retry
