@@ -15,7 +15,7 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
   dispatch_async(dispatch_get_main_queue(), ^{
     NSLog(@"observer_IONotification");
 
-    AppDelegate* self = (__bridge AppDelegate *)(refcon);
+    AppDelegate* self = (__bridge AppDelegate*)(refcon);
     if (! self) {
       NSLog(@"[ERROR] observer_IONotification refcon == nil\n");
       return;
@@ -70,13 +70,13 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
                                                 kIOMatchedNotification,
                                                 IOServiceNameMatching("org_pqrs_driver_PCKeyboardHack"),
                                                 &observer_IONotification,
-                                                (__bridge void *)(self),
+                                                (__bridge void*)(self),
                                                 &it);
   if (kernResult != kIOReturnSuccess) {
     NSLog(@"[ERROR] IOServiceAddMatchingNotification failed");
     return;
   }
-  observer_IONotification((__bridge void *)(self), it);
+  observer_IONotification((__bridge void*)(self), it);
 
   // ----------------------------------------------------------------------
   loopsource_ = IONotificationPortGetRunLoopSource(notifyport_);
