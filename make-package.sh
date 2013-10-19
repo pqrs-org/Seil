@@ -31,8 +31,14 @@ done
 
 basedir="pkgroot/Applications/PCKeyboardHack.app/Contents/Library"
 mkdir -p "$basedir"
-for ostype in 10.8; do
-    cp -R src/core/kext/${ostype}/build/Release/PCKeyboardHack.kext "$basedir/PCKeyboardHack.${ostype}.kext"
+for ostype in 10.8 10.9; do
+    if [ $ostype == "10.8" ]; then
+        # We must not sign kext for OS X 10.8 or prior.
+        cp -R src/core/kext/${ostype}/build/Release/PCKeyboardHack.kext "$basedir/PCKeyboardHack.${ostype}.kext"
+    else
+        # We should sign kext after OS X 10.9.
+        cp -R src/core/kext/${ostype}/build/Release/PCKeyboardHack.kext "$basedir/PCKeyboardHack.${ostype}.signed.kext"
+    fi
 done
 for d in \
     files/scripts \
@@ -62,6 +68,10 @@ for d in \
 do
     cp -R "$d" "$basedir"
 done
+
+# Sign with Developer ID
+bash files/extra/codesign.sh pkgroot
+bash files/extra/codesign-kext.sh pkgroot
 
 # Setting file permissions.
 #
@@ -109,6 +119,10 @@ $packagemaker \
 # --------------------------------------------------
 echo "Fix Archive.bom"
 ruby pkginfo/fixbom.rb $archiveName/$pkgName/Contents/Archive.bom pkgroot/
+
+# --------------------------------------------------
+echo "Sign with Developer ID"
+bash files/extra/codesign-pkg.sh $archiveName/$pkgName
 
 # --------------------------------------------------
 echo "Make Archive"
