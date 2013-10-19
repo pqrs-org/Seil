@@ -2,6 +2,7 @@
 CONFIGURATION = Release
 
 all:
+	$(MAKE) -C ../../../pkginfo
 	$(MAKE) -C ../autogen
 	xcodebuild -alltargets -configuration $(CONFIGURATION) build
 
