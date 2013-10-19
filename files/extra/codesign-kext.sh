@@ -12,9 +12,27 @@ fi
 
 # ------------------------------------------------------------
 # sign
-echo -ne '\033[31;40m'
-codesign \
-    --force \
-    --sign "$CODESIGN_IDENTITY" \
-    "$1"
-echo -ne '\033[0m'
+for f in \
+    `find "$1" -name '*.signed.kext'` \
+    ; do
+
+    echo -ne '\033[33;40m'
+    echo "code sign $f"
+    echo -ne '\033[0m'
+
+    echo -ne '\033[31;40m'
+    codesign \
+        --force \
+        --sign "$CODESIGN_IDENTITY" \
+        "$f"
+    echo -ne '\033[0m'
+done
+
+# verify
+for f in \
+    `find "$1" -name '*.signed.kext'` \
+    ; do
+    echo -ne '\033[31;40m'
+    codesign --verify --deep-verify "$f"
+    echo -ne '\033[0m'
+done
