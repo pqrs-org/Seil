@@ -1,8 +1,9 @@
-Sice version 9.0.0
-------------------
+Version 10.0.0
+--------------
 
-* Experimental support for OS X 10.9.
+* Supported OS X 10.9.
 * Icons have been updated. (Thanks to Kouji TAMURA.)
+* Signed with Developer ID.
 
 Version 9.0.0
 -------------
