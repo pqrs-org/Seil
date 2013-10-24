@@ -84,12 +84,18 @@ enum {
 bool CompareProperty(IOService * owner, OSDictionary * matching, const char * key, SInt32 * score, SInt32 increment = 0);
 bool CompareDeviceUsage( IOService * owner, OSDictionary * matching, SInt32 * score, SInt32 increment = 0);
 bool CompareDeviceUsagePairs(IOService * owner, OSDictionary * matching, SInt32 * score, SInt32 increment = 0);
+bool CompareProductID( IOService * owner, OSDictionary * matching, SInt32 * score);
 bool MatchPropertyTable(IOService * owner, OSDictionary * table, SInt32 * score);
+bool CompareNumberPropertyMask( IOService *owner, OSDictionary *matching, const char *key, const char *maskKey, SInt32 *score, SInt32 increment);
+bool CompareNumberPropertyArray( IOService * owner, OSDictionary * matching, const char * arrayName, const char * key, SInt32 * score, SInt32 increment);
+bool CompareNumberPropertyArrayWithMask( IOService * owner, OSDictionary * matching, const char * arrayName, const char * key, const char * maskKey, SInt32 * score, SInt32 increment);
 
 #define     kEjectKeyDelayMS        100     // the delay for a dedicated eject key
 #define     kEjectF12DelayMS        250     // the delay for an F12/eject key
 
 void IOHIDSystemActivityTickle(SInt32 nxEventType, IOService *sender);
+
+#define NX_HARDWARE_TICKLE  (NX_LASTEVENT+1)
 
 __END_DECLS
 
