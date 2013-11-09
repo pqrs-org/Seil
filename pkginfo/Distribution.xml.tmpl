@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<installer-gui-script minSpecVersion="2">
+  <title>PCKeyboardHack PKGVERSION</title>
+  <domains enable_anywhere="false" enable_currentUserHome="false" enable_localSystem="true" />
+  <volume-check>
+    <allowed-os-versions>
+      <os-version min="10.8"/>
+    </allowed-os-versions>
+  </volume-check>
+
+  <pkg-ref id="org.pqrs.PCKeyboardHack"/>
+  <options customize="never" require-scripts="false"/>
+  <choices-outline>
+    <line choice="default">
+      <line choice="org.pqrs.PCKeyboardHack"/>
+    </line>
+  </choices-outline>
+  <choice id="default"/>
+  <choice id="org.pqrs.PCKeyboardHack" visible="false">
+    <pkg-ref id="org.pqrs.PCKeyboardHack"/>
+  </choice>
+  <pkg-ref id="org.pqrs.PCKeyboardHack" version="PKGVERSION" onConclusion="RequireRestart">Installer.pkg</pkg-ref>
+</installer-gui-script>
