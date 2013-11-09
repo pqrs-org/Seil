@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<installer-gui-script minSpecVersion="2">
+<installer-gui-script minSpecVersion="1">
   <title>PCKeyboardHack PKGVERSION</title>
   <domains enable_anywhere="false" enable_currentUserHome="false" enable_localSystem="true" />
   <volume-check>
@@ -8,16 +8,16 @@
     </allowed-os-versions>
   </volume-check>
 
-  <pkg-ref id="org.pqrs.PCKeyboardHack"/>
+  <pkg-ref id="org.pqrs.driver.PCKeyboardHack"/>
   <options customize="never" require-scripts="false"/>
   <choices-outline>
     <line choice="default">
-      <line choice="org.pqrs.PCKeyboardHack"/>
+      <line choice="org.pqrs.driver.PCKeyboardHack"/>
     </line>
   </choices-outline>
   <choice id="default"/>
-  <choice id="org.pqrs.PCKeyboardHack" visible="false">
-    <pkg-ref id="org.pqrs.PCKeyboardHack"/>
+  <choice id="org.pqrs.driver.PCKeyboardHack" visible="false">
+    <pkg-ref id="org.pqrs.driver.PCKeyboardHack"/>
   </choice>
-  <pkg-ref id="org.pqrs.PCKeyboardHack" version="PKGVERSION" onConclusion="RequireRestart">Installer.pkg</pkg-ref>
+  <pkg-ref id="org.pqrs.driver.PCKeyboardHack" version="PKGVERSION" onConclusion="RequireRestart">Installer.pkg</pkg-ref>
 </installer-gui-script>
