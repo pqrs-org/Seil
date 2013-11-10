@@ -1,3 +1,9 @@
+Version 10.1.0
+--------------
+
+* Signed kext with Developer ID.
+* Updated installer.
+
 Version 10.0.0
 --------------
 
