@@ -1,4 +1,4 @@
-Version 10.1.0
+Version 10.2.0
 --------------
 
 * Signed kext with Developer ID.
