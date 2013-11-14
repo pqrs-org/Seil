@@ -9,15 +9,15 @@
   <item><name>──────────────────────────────</name><keycode>───</keycode></item>
 
   <item><name>Caps Lock</name><keycode>57</keycode></item>
-  <item><name>Command_L</name><keycode>55</keycode></item>
-  <item><name>Command_R</name><keycode>54</keycode></item>
-  <item><name>Control_L</name><keycode>59</keycode></item>
-  <item><name>Control_R</name><keycode>62</keycode></item>
   <item><name>Fn</name><keycode>63</keycode></item>
-  <item><name>Option_L</name><keycode>58</keycode></item>
-  <item><name>Option_R</name><keycode>61</keycode></item>
-  <item><name>Shift_L</name><keycode>56</keycode></item>
-  <item><name>Shift_R</name><keycode>60</keycode></item>
+  <item><name>Left Command</name><keycode>55</keycode></item>
+  <item><name>Left Control</name><keycode>59</keycode></item>
+  <item><name>Left Option</name><keycode>58</keycode></item>
+  <item><name>Left Shift</name><keycode>56</keycode></item>
+  <item><name>Right Command</name><keycode>54</keycode></item>
+  <item><name>Right Control</name><keycode>62</keycode></item>
+  <item><name>Right Option</name><keycode>61</keycode></item>
+  <item><name>Right Shift</name><keycode>60</keycode></item>
 
   <item><name>──────────────────────────────</name><keycode>───</keycode></item>
 

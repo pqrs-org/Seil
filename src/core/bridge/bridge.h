@@ -10,7 +10,8 @@ enum {
   // Version 3: added new keys.
   // Version 4: added new keys. (LANG*)
   // Version 5: added new key. (Tab)
-  BRIDGE_CONFIG_VERSION = 5,
+  // Version 6: added new key. (Application)
+  BRIDGE_CONFIG_VERSION = 6,
 };
 
 enum {
