@@ -1,3 +1,8 @@
+Since 10.2.0
+------------
+
+* Added a remappable key: Application Key (Menu Key) on PC keyboard.
+
 Version 10.2.0
 --------------
 
