@@ -8,12 +8,6 @@ argument="$1"
 case "$argument" in
     start)
         echo "Starting PCKeyboardHack"
-        sleep 10 # wait for avoid kext loading collision.
-        "$basedir/scripts/kext.sh"
-        ;;
-
-    quickstart)
-        echo "Starting PCKeyboardHack"
         "$basedir/scripts/kext.sh"
         ;;
 
