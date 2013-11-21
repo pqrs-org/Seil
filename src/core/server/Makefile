@@ -3,11 +3,11 @@ CONFIGURATION = Release
 
 all:
 	$(MAKE) -C ../../../pkginfo
-	$(MAKE) -C ../autogen
+	$(MAKE) -C ../../bridge/generator/bridge_version
+	$(MAKE) -C ../../bridge/generator/config
 	xcodebuild -alltargets -configuration $(CONFIGURATION) build
 
 clean:
-	$(MAKE) -C ../autogen clean
 	rm -rf build
 	rm -f *.xcodeproj/*.mode1
 	rm -f *.xcodeproj/*.mode1v3

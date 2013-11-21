@@ -53,12 +53,14 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		342A41B7183E507C00BF09C8 /* bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bridge.h; path = ../../bridge/include/bridge.h; sourceTree = "<group>"; };
+		342A41B8183E50B800BF09C8 /* BRIDGE_KEY_INDEX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BRIDGE_KEY_INDEX.h; path = ../../bridge/output/BRIDGE_KEY_INDEX.h; sourceTree = "<group>"; };
+		342A41B9183E50B800BF09C8 /* bridgeconfig_config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bridgeconfig_config.h; path = ../../bridge/output/bridgeconfig_config.h; sourceTree = "<group>"; };
+		342A41BA183E50B800BF09C8 /* include.bridge_version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = include.bridge_version.h; path = ../../bridge/output/include.bridge_version.h; sourceTree = "<group>"; };
+		342A41BB183E50B800BF09C8 /* setDefault.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = setDefault.h; path = ../../bridge/output/setDefault.h; sourceTree = "<group>"; };
 		343420CA13D74C16000DBD3E /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		34598341169CAB66007C84F8 /* ClientForKernelspace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClientForKernelspace.h; path = Classes/ClientForKernelspace.h; sourceTree = "<group>"; };
 		34598342169CAB66007C84F8 /* ClientForKernelspace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClientForKernelspace.m; path = Classes/ClientForKernelspace.m; sourceTree = "<group>"; };
-		347A7DA714D7927F0034D71E /* BRIDGE_KEY_INDEX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BRIDGE_KEY_INDEX.h; path = ../autogen/output/BRIDGE_KEY_INDEX.h; sourceTree = "<group>"; };
-		347A7DA814D795160034D71E /* bridgeconfig_config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bridgeconfig_config.h; path = ../autogen/output/bridgeconfig_config.h; sourceTree = "<group>"; };
-		347A7DA914D796D50034D71E /* setDefault.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = setDefault.h; path = ../autogen/output/setDefault.h; sourceTree = "<group>"; };
 		34947682168B6EB000B783D2 /* Updater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Updater.h; path = Classes/Updater.h; sourceTree = "<group>"; };
 		34947683168B6EB000B783D2 /* Updater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Updater.m; path = Classes/Updater.m; sourceTree = "<group>"; };
 		34947686168B6F9200B783D2 /* PreferencesKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreferencesKeys.h; path = Classes/PreferencesKeys.h; sourceTree = "<group>"; };
@@ -76,7 +78,6 @@
 		34D2910213ED96A3002A224E /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Frameworks/Sparkle.framework; sourceTree = "<group>"; };
 		34D2910513ED97C5002A224E /* PCKeyboardHack_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = PCKeyboardHack_pub.pem; path = Resources/PCKeyboardHack_pub.pem; sourceTree = "<group>"; };
 		34D65EE913E06A7400476C2A /* app.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = app.icns; path = ../../share/Resources/app.icns; sourceTree = "<group>"; };
-		34F9652613D742EB0081D1F3 /* bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bridge.h; path = ../bridge/bridge.h; sourceTree = "<group>"; };
 		34F9652813D742FA0081D1F3 /* PreferencesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreferencesManager.h; path = Classes/PreferencesManager.h; sourceTree = "<group>"; };
 		34F9652913D742FA0081D1F3 /* PreferencesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PreferencesManager.m; path = Classes/PreferencesManager.m; sourceTree = "<group>"; };
 		34F9652A13D742FA0081D1F3 /* UserClient_userspace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserClient_userspace.h; path = Classes/UserClient_userspace.h; sourceTree = "<group>"; };
@@ -104,8 +105,8 @@
 			children = (
 				256AC3D80F4B6AC300CF3369 /* AppDelegate.h */,
 				256AC3D90F4B6AC300CF3369 /* AppDelegate.m */,
-				347A7DA514D792730034D71E /* autogen */,
-				34F9652613D742EB0081D1F3 /* bridge.h */,
+				347A7DA514D792730034D71E /* bridge */,
+				342A41B7183E507C00BF09C8 /* bridge.h */,
 				34598341169CAB66007C84F8 /* ClientForKernelspace.h */,
 				34598342169CAB66007C84F8 /* ClientForKernelspace.m */,
 				3494768B168B70F700B783D2 /* NotificationKeys.h */,
@@ -193,14 +194,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		347A7DA514D792730034D71E /* autogen */ = {
+		347A7DA514D792730034D71E /* bridge */ = {
 			isa = PBXGroup;
 			children = (
-				347A7DA914D796D50034D71E /* setDefault.h */,
-				347A7DA814D795160034D71E /* bridgeconfig_config.h */,
-				347A7DA714D7927F0034D71E /* BRIDGE_KEY_INDEX.h */,
+				342A41B8183E50B800BF09C8 /* BRIDGE_KEY_INDEX.h */,
+				342A41B9183E50B800BF09C8 /* bridgeconfig_config.h */,
+				342A41BA183E50B800BF09C8 /* include.bridge_version.h */,
+				342A41BB183E50B800BF09C8 /* setDefault.h */,
 			);
-			name = autogen;
+			name = bridge;
 			sourceTree = "<group>";
 		};
 		34947687168B706C00B783D2 /* Preferences */ = {
