@@ -1,26 +1,15 @@
 #!/usr/bin/ruby
 
+require "#{File.dirname(__FILE__)}/../lib/converter.rb"
 require 'rexml/document'
-
-class Converter
-  def self.update_file_if_needed(tmpfilepath)
-    targetfilepath = tmpfilepath.gsub(/\.tmp$/, '')
-
-    if (! FileTest.exist?(targetfilepath)) or (IO.read(tmpfilepath) != IO.read(targetfilepath)) then
-      File.rename(tmpfilepath, targetfilepath)
-    else
-      File.unlink(tmpfilepath)
-    end
-  end
-end
 
 # ============================================================
 $outfile = {
-  :BRIDGE_KEY_INDEX                  => open('output/BRIDGE_KEY_INDEX.h.tmp', 'w'),
-  :KeyMapIndex_Value                 => open('output/KeyMapIndex_Value.hpp.tmp', 'w'),
-  :KeyMapIndex_bridgeKeyindexToValue => open('output/KeyMapIndex_bridgeKeyindexToValue.hpp.tmp', 'w'),
-  :bridgeconfig_config               => open('output/bridgeconfig_config.h.tmp', 'w'),
-  :setDefault                        => open('output/setDefault.h.tmp', 'w'),
+  :BRIDGE_KEY_INDEX                  => open('../../output/BRIDGE_KEY_INDEX.h.tmp', 'w'),
+  :KeyMapIndex_Value                 => open('../../output/KeyMapIndex_Value.hpp.tmp', 'w'),
+  :KeyMapIndex_bridgeKeyindexToValue => open('../../output/KeyMapIndex_bridgeKeyindexToValue.hpp.tmp', 'w'),
+  :bridgeconfig_config               => open('../../output/bridgeconfig_config.h.tmp', 'w'),
+  :setDefault                        => open('../../output/setDefault.h.tmp', 'w'),
 }
 
 ARGV.each do |xmlpath|
@@ -55,5 +44,5 @@ end
 
 $outfile.each do |key,file|
   file.close
-  Converter.update_file_if_needed(file.path)
+  KeyRemap4MacBookBridge::Converter.update_file_if_needed(file.path)
 end
