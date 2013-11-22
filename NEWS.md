@@ -1,7 +1,10 @@
 Since 10.2.0
 ------------
 
-* Added a remappable key: Application Key (Menu Key) on PC keyboard.
+* v10.2.4: <br />
+  PCKeyboardHack no longer requires system restart at installing or upgrading. <br />
+  If you need to restart system for some reason, PCKeyboardHack will show an alert which urges you to restart.
+* v10.2.1: Added a remappable key: Application Key (Menu Key) on PC keyboard.
 
 Version 10.2.0
 --------------
