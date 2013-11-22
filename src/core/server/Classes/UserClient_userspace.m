@@ -1,6 +1,24 @@
 #import "UserClient_userspace.h"
 #include "bridge.h"
 
+typedef enum {
+  UNRECOVERABLE_ERROR_NONE,
+  UNRECOVERABLE_ERROR_BRIDGE_VERSION_MISMATCH,
+  UNRECOVERABLE_ERROR_KEXT_NOT_FOUND,
+} UnrecoverableError;
+
+@interface UserClient_userspace ()
+{
+  io_service_t service_;
+  io_connect_t connect_;
+  IONotificationPortRef notifyport_;
+  CFRunLoopSourceRef loopsource_;
+  io_async_ref64_t* asyncref_;
+
+  UnrecoverableError unrecoverableError_;
+}
+@end
+
 @implementation UserClient_userspace
 
 - (void) closeUserClient
@@ -27,6 +45,8 @@
 
 - (void) openUserClient
 {
+  unrecoverableError_ = UNRECOVERABLE_ERROR_NONE;
+
   io_iterator_t iterator;
 
   kern_return_t kernResult = IOServiceGetMatchingServices(kIOMasterPortDefault, IOServiceMatching("org_pqrs_driver_PCKeyboardHack"), &iterator);
@@ -35,9 +55,13 @@
     return;
   }
 
+  BOOL kextFound = NO;
+
   for (;;) {
     io_service_t s = IOIteratorNext(iterator);
     if (s == IO_OBJECT_NULL) break;
+
+    kextFound = YES;
 
     [self closeUserClient];
 
@@ -60,10 +84,29 @@
 
     // ----------------------------------------
     // open
-    kernResult = IOConnectCallScalarMethod(connect_, BRIDGE_USERCLIENT_OPEN, NULL, 0, NULL, NULL);
-    if (kernResult != KERN_SUCCESS) {
-      NSLog(@"[ERROR] BRIDGE_USERCLIENT_OPEN returned 0x%08x\n", kernResult);
-      continue;
+    {
+      uint64_t bridge_version =
+#include "../../../../src/bridge/output/include.bridge_version.h"
+      ;
+      uint64_t open_result = 0;
+      uint32_t count = 1;
+
+      kernResult = IOConnectCallScalarMethod(connect_, BRIDGE_USERCLIENT_OPEN,
+                                             &bridge_version,
+                                             1,
+                                             &open_result,
+                                             &count);
+      if (kernResult != KERN_SUCCESS) {
+        NSLog(@"[ERROR] BRIDGE_USERCLIENT_OPEN returned 0x%08x\n", kernResult);
+        continue;
+
+      } else {
+        if (open_result == BRIDGE_USERCLIENT_OPEN_RETURN_ERROR_BRIDGE_VERSION_MISMATCH) {
+          NSLog(@"[ERROR] BRIDGE_USERCLIENT_OPEN_RETURN_ERROR_BRIDGE_VERSION_MISMATCH\n");
+          unrecoverableError_ = UNRECOVERABLE_ERROR_BRIDGE_VERSION_MISMATCH;
+          continue;
+        }
+      }
     }
 
     // ----------------------------------------
@@ -91,6 +134,10 @@
   // failed to open connection.
   [self closeUserClient];
 
+  if (! kextFound) {
+    unrecoverableError_ = UNRECOVERABLE_ERROR_KEXT_NOT_FOUND;
+  }
+
 finish:
   IOObjectRelease(iterator);
 }
@@ -103,6 +150,7 @@ finish:
     service_ = IO_OBJECT_NULL;
     connect_ = IO_OBJECT_NULL;
     asyncref_ = asyncref;
+    unrecoverableError_ = UNRECOVERABLE_ERROR_NONE;
   }
 
   return self;
@@ -165,6 +213,37 @@ finish:
 
       if (connect_ != IO_OBJECT_NULL) {
         // succeed
+        return;
+      }
+
+      // If an unrecoverable error occurred, give up immediately.
+      if (unrecoverableError_ != UNRECOVERABLE_ERROR_NONE) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+          NSAlert* alert = [NSAlert new];
+          [alert setMessageText:@"PCKeyboardHack Alert"];
+          [alert addButtonWithTitle:@"Close"];
+
+          switch (unrecoverableError_) {
+            case UNRECOVERABLE_ERROR_BRIDGE_VERSION_MISMATCH:
+              [alert setInformativeText:
+               @"Kernel extension and app version are mismatched.\n"
+               @"Please restart your system in order to reload kernel extension.\n"
+              ];
+              break;
+
+            case UNRECOVERABLE_ERROR_KEXT_NOT_FOUND:
+              [alert setInformativeText:
+               @"Kernel extension is not loaded.\n"
+               @"Please restart your system in order to load kernel extension.\n"
+              ];
+              break;
+
+            case UNRECOVERABLE_ERROR_NONE:
+              break;
+          }
+
+          [alert runModal];
+        });
         return;
       }
 
