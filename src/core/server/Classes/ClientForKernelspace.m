@@ -57,8 +57,6 @@ static void callback_NotificationFromKext(void* refcon, IOReturn result, uint32_
   struct BridgeConfig bridgeconfig;
   memset(&bridgeconfig, 0, sizeof(bridgeconfig));
 
-  bridgeconfig.version = BRIDGE_CONFIG_VERSION;
-
 #include "bridgeconfig_config.h"
 
   struct BridgeUserClientStruct bridgestruct;

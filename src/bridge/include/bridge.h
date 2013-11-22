@@ -5,16 +5,6 @@
 #include <mach/mach_types.h>
 
 enum {
-  // Version 1: initial version.
-  // Version 2: changed to use autogen code (BRIDGE_KEY_INDEX.h).
-  // Version 3: added new keys.
-  // Version 4: added new keys. (LANG*)
-  // Version 5: added new key. (Tab)
-  // Version 6: added new key. (Application)
-  BRIDGE_CONFIG_VERSION = 6,
-};
-
-enum {
   BRIDGE_USERCLIENT_OPEN,
   BRIDGE_USERCLIENT_CLOSE,
   BRIDGE_USERCLIENT_SYNCHRONIZED_COMMUNICATION,
@@ -55,13 +45,11 @@ struct BridgeUserClientStruct {
 enum { STATIC_ASSERT__sizeof_BridgeUserClientStruct = 1 / (sizeof(struct BridgeUserClientStruct) == 24) };
 
 struct BridgeConfig {
-  uint8_t version;
-
   struct {
     uint8_t enabled;
     uint8_t keycode;
   } config[BRIDGE_KEY_INDEX__END__];
 };
-enum { STATIC_ASSERT__sizeof_BridgeConfig = 1 / (sizeof(struct BridgeConfig) == 1 + BRIDGE_KEY_INDEX__END__ * 2) };
+enum { STATIC_ASSERT__sizeof_BridgeConfig = 1 / (sizeof(struct BridgeConfig) == BRIDGE_KEY_INDEX__END__ * 2) };
 
 #endif
