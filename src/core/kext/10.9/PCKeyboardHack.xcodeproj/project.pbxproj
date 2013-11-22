@@ -10,14 +10,15 @@
 		341D9CCA169D61720057E29C /* GlobalLock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 341D9CC8169D61720057E29C /* GlobalLock.cpp */; };
 		341D9CCB169D61720057E29C /* GlobalLock.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 341D9CC9169D61720057E29C /* GlobalLock.hpp */; };
 		3426045013D9540500A299D2 /* ostype.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 3426044F13D9540500A299D2 /* ostype.hpp */; };
-		347A7D9E14D790FD0034D71E /* BRIDGE_KEY_INDEX.h in Headers */ = {isa = PBXBuildFile; fileRef = 347A7D9B14D790FD0034D71E /* BRIDGE_KEY_INDEX.h */; };
-		347A7D9F14D790FD0034D71E /* KeyMapIndex_bridgeKeyindexToValue.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 347A7D9C14D790FD0034D71E /* KeyMapIndex_bridgeKeyindexToValue.hpp */; };
-		347A7DA014D790FD0034D71E /* KeyMapIndex_Value.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 347A7D9D14D790FD0034D71E /* KeyMapIndex_Value.hpp */; };
+		3464EA74183FBFC600CCD068 /* bridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 3464EA73183FBFC600CCD068 /* bridge.h */; };
+		3464EA79183FBFDB00CCD068 /* BRIDGE_KEY_INDEX.h in Headers */ = {isa = PBXBuildFile; fileRef = 3464EA75183FBFDB00CCD068 /* BRIDGE_KEY_INDEX.h */; };
+		3464EA7A183FBFDB00CCD068 /* include.bridge_version.h in Headers */ = {isa = PBXBuildFile; fileRef = 3464EA76183FBFDB00CCD068 /* include.bridge_version.h */; };
+		3464EA7B183FBFDB00CCD068 /* KeyMapIndex_bridgeKeyindexToValue.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 3464EA77183FBFDB00CCD068 /* KeyMapIndex_bridgeKeyindexToValue.hpp */; };
+		3464EA7C183FBFDB00CCD068 /* KeyMapIndex_Value.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 3464EA78183FBFDB00CCD068 /* KeyMapIndex_Value.hpp */; };
 		34A88F4713D5D0280057C423 /* UserClient_kext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34A88F4513D5D0280057C423 /* UserClient_kext.cpp */; };
 		34A88F4813D5D0280057C423 /* UserClient_kext.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 34A88F4613D5D0280057C423 /* UserClient_kext.hpp */; };
 		34DA85F60D06E4CB00AE69E6 /* base.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 34DA85EF0D06E4CB00AE69E6 /* base.hpp */; };
 		34DA86010D06E4EA00AE69E6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 34DA85FE0D06E4EA00AE69E6 /* InfoPlist.strings */; };
-		34E5916913D5D6B700CD64CB /* bridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 34E5916813D5D6B700CD64CB /* bridge.h */; };
 		34E5917413D5D81A00CD64CB /* Driver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34E5917213D5D81A00CD64CB /* Driver.cpp */; };
 		34E5917513D5D81A00CD64CB /* Driver.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 34E5917313D5D81A00CD64CB /* Driver.hpp */; };
 /* End PBXBuildFile section */
@@ -27,15 +28,16 @@
 		341D9CC8169D61720057E29C /* GlobalLock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GlobalLock.cpp; path = ../common/GlobalLock.cpp; sourceTree = "<group>"; };
 		341D9CC9169D61720057E29C /* GlobalLock.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = GlobalLock.hpp; path = ../common/GlobalLock.hpp; sourceTree = "<group>"; };
 		3426044F13D9540500A299D2 /* ostype.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ostype.hpp; sourceTree = "<group>"; };
-		347A7D9B14D790FD0034D71E /* BRIDGE_KEY_INDEX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BRIDGE_KEY_INDEX.h; path = ../../autogen/output/BRIDGE_KEY_INDEX.h; sourceTree = "<group>"; };
-		347A7D9C14D790FD0034D71E /* KeyMapIndex_bridgeKeyindexToValue.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = KeyMapIndex_bridgeKeyindexToValue.hpp; path = ../../autogen/output/KeyMapIndex_bridgeKeyindexToValue.hpp; sourceTree = "<group>"; };
-		347A7D9D14D790FD0034D71E /* KeyMapIndex_Value.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = KeyMapIndex_Value.hpp; path = ../../autogen/output/KeyMapIndex_Value.hpp; sourceTree = "<group>"; };
+		3464EA73183FBFC600CCD068 /* bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bridge.h; path = ../../../bridge/include/bridge.h; sourceTree = "<group>"; };
+		3464EA75183FBFDB00CCD068 /* BRIDGE_KEY_INDEX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BRIDGE_KEY_INDEX.h; path = ../../../bridge/output/BRIDGE_KEY_INDEX.h; sourceTree = "<group>"; };
+		3464EA76183FBFDB00CCD068 /* include.bridge_version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = include.bridge_version.h; path = ../../../bridge/output/include.bridge_version.h; sourceTree = "<group>"; };
+		3464EA77183FBFDB00CCD068 /* KeyMapIndex_bridgeKeyindexToValue.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = KeyMapIndex_bridgeKeyindexToValue.hpp; path = ../../../bridge/output/KeyMapIndex_bridgeKeyindexToValue.hpp; sourceTree = "<group>"; };
+		3464EA78183FBFDB00CCD068 /* KeyMapIndex_Value.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = KeyMapIndex_Value.hpp; path = ../../../bridge/output/KeyMapIndex_Value.hpp; sourceTree = "<group>"; };
 		34A88F4513D5D0280057C423 /* UserClient_kext.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UserClient_kext.cpp; path = ../common/UserClient_kext.cpp; sourceTree = "<group>"; };
 		34A88F4613D5D0280057C423 /* UserClient_kext.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = UserClient_kext.hpp; path = ../common/UserClient_kext.hpp; sourceTree = "<group>"; };
 		34DA85EF0D06E4CB00AE69E6 /* base.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = base.hpp; path = ../common/base.hpp; sourceTree = SOURCE_ROOT; };
 		34DA85FF0D06E4EA00AE69E6 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = InfoPlist.strings; sourceTree = "<group>"; };
 		34DA86000D06E4EA00AE69E6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../common/Info.plist; sourceTree = SOURCE_ROOT; };
-		34E5916813D5D6B700CD64CB /* bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bridge.h; path = ../../bridge/bridge.h; sourceTree = "<group>"; };
 		34E5917213D5D81A00CD64CB /* Driver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Driver.cpp; path = ../common/Driver.cpp; sourceTree = "<group>"; };
 		34E5917313D5D81A00CD64CB /* Driver.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Driver.hpp; path = ../common/Driver.hpp; sourceTree = "<group>"; };
 		8DA8362C06AD9B9200E5AC22 /* Kernel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kernel.framework; path = /System/Library/Frameworks/Kernel.framework; sourceTree = "<absolute>"; };
@@ -84,13 +86,13 @@
 			isa = PBXGroup;
 			children = (
 				347A7D9914D790EE0034D71E /* autogen */,
-				34E5916813D5D6B700CD64CB /* bridge.h */,
 				34DA85EF0D06E4CB00AE69E6 /* base.hpp */,
-				3426044F13D9540500A299D2 /* ostype.hpp */,
+				3464EA73183FBFC600CCD068 /* bridge.h */,
 				34E5917213D5D81A00CD64CB /* Driver.cpp */,
 				34E5917313D5D81A00CD64CB /* Driver.hpp */,
 				341D9CC8169D61720057E29C /* GlobalLock.cpp */,
 				341D9CC9169D61720057E29C /* GlobalLock.hpp */,
+				3426044F13D9540500A299D2 /* ostype.hpp */,
 				34A88F4513D5D0280057C423 /* UserClient_kext.cpp */,
 				34A88F4613D5D0280057C423 /* UserClient_kext.hpp */,
 			);
@@ -100,9 +102,10 @@
 		347A7D9914D790EE0034D71E /* autogen */ = {
 			isa = PBXGroup;
 			children = (
-				347A7D9B14D790FD0034D71E /* BRIDGE_KEY_INDEX.h */,
-				347A7D9C14D790FD0034D71E /* KeyMapIndex_bridgeKeyindexToValue.hpp */,
-				347A7D9D14D790FD0034D71E /* KeyMapIndex_Value.hpp */,
+				3464EA75183FBFDB00CCD068 /* BRIDGE_KEY_INDEX.h */,
+				3464EA76183FBFDB00CCD068 /* include.bridge_version.h */,
+				3464EA77183FBFDB00CCD068 /* KeyMapIndex_bridgeKeyindexToValue.hpp */,
+				3464EA78183FBFDB00CCD068 /* KeyMapIndex_Value.hpp */,
 			);
 			name = autogen;
 			sourceTree = "<group>";
@@ -125,12 +128,13 @@
 			files = (
 				34DA85F60D06E4CB00AE69E6 /* base.hpp in Headers */,
 				34A88F4813D5D0280057C423 /* UserClient_kext.hpp in Headers */,
-				34E5916913D5D6B700CD64CB /* bridge.h in Headers */,
+				3464EA7C183FBFDB00CCD068 /* KeyMapIndex_Value.hpp in Headers */,
 				34E5917513D5D81A00CD64CB /* Driver.hpp in Headers */,
 				3426045013D9540500A299D2 /* ostype.hpp in Headers */,
-				347A7D9E14D790FD0034D71E /* BRIDGE_KEY_INDEX.h in Headers */,
-				347A7D9F14D790FD0034D71E /* KeyMapIndex_bridgeKeyindexToValue.hpp in Headers */,
-				347A7DA014D790FD0034D71E /* KeyMapIndex_Value.hpp in Headers */,
+				3464EA74183FBFC600CCD068 /* bridge.h in Headers */,
+				3464EA7B183FBFDB00CCD068 /* KeyMapIndex_bridgeKeyindexToValue.hpp in Headers */,
+				3464EA79183FBFDB00CCD068 /* BRIDGE_KEY_INDEX.h in Headers */,
+				3464EA7A183FBFDB00CCD068 /* include.bridge_version.h in Headers */,
 				341D9CCB169D61720057E29C /* GlobalLock.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,7 +10,7 @@ xcuserdata/
 *.pbxuser
 pkginfo/Info.plist
 pkginfo/Distribution.xml
-src/core/autogen/output
+src/bridge/output
 src/core/kext/common/Info.plist
 src/core/server/Info.plist
 src/util/prefpane/Info.plist
