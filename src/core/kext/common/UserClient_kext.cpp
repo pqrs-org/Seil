@@ -377,10 +377,14 @@ USERCLIENT_KEXT_CLASSNAME::handle_synchronized_communication(uint32_t type,
   switch (type) {
     case BRIDGE_USERCLIENT_TYPE_SET_CONFIG:
     {
-      const BridgeConfig* bridgeconfig = reinterpret_cast<const BridgeConfig*>(buffer);
-      if (bridgeconfig) {
-        KEXT_CLASSNAME::setConfiguration(*bridgeconfig);
-        *outputdata = BRIDGE_USERCLIENT_SYNCHRONIZED_COMMUNICATION_RETURN_SUCCESS;
+      if (size != sizeof(BridgeConfig)) {
+        IOLOG_ERROR("BRIDGE_USERCLIENT_TYPE_SET_CONFIG wrong 'size' parameter\n");
+      } else {
+        const BridgeConfig* bridgeconfig = reinterpret_cast<const BridgeConfig*>(buffer);
+        if (bridgeconfig) {
+          KEXT_CLASSNAME::setConfiguration(*bridgeconfig);
+          *outputdata = BRIDGE_USERCLIENT_SYNCHRONIZED_COMMUNICATION_RETURN_SUCCESS;
+        }
       }
     }
   }
