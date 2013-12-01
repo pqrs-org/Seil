@@ -2,6 +2,7 @@
 #import "ClientForKernelspace.h"
 #import "OutlineView_mixed.h"
 #import "PreferencesController.h"
+#import "Relauncher.h"
 #import "Updater.h"
 #include "bridge.h"
 
@@ -138,6 +139,8 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
       }
     }
   }
+
+  [Relauncher resetRelaunchedCount];
 
   [self registerIONotification];
 
