@@ -1,5 +1,9 @@
-#include "UserClient_kext.hpp"
+#include <IOKit/IOLib.h>
+
 #include "GlobalLock.hpp"
+#include "IOLogWrapper.hpp"
+#include "UserClient_kext.hpp"
+#include "bridge.h"
 
 #define KEXT_NAMESPACE org_pqrs_PCKeyboardHack
 

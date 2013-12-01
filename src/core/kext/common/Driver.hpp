@@ -3,7 +3,10 @@
 #ifndef DRIVER_HPP
 #define DRIVER_HPP
 
-#include "base.hpp"
+#include <IOKit/IOService.h>
+#include <IOKit/hidsystem/IOHIDUsageTables.h>
+#include <IOKit/hidsystem/IOHIKeyboard.h>
+
 #include "bridge.h"
 
 // http://developer.apple.com/documentation/Darwin/Conceptual/KEXTConcept/KEXTConceptIOKit/hello_iokit.html#//apple_ref/doc/uid/20002366-CIHECHHE

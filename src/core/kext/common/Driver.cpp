@@ -2,10 +2,17 @@
 
 // The original code was written by YASUDA Yoshinori.
 
-#include "base.hpp"
-#include "ostype.hpp"
+#define protected public // A hack for access private member of IOHIKeyboard
+#include <IOKit/hidsystem/IOHIKeyboard.h>
+// included from Leopard or Tiger folder according to $USER_HEADER_SEARCH_PATHS in Build tab of Project setting
+#include "IOHIDKeyboard.h"
+#undef protected
+#include <IOKit/IOLib.h>
+
 #include "Driver.hpp"
 #include "GlobalLock.hpp"
+#include "IOLogWrapper.hpp"
+#include "ostype.hpp"
 
 org_pqrs_driver_PCKeyboardHack::HookedKeyboard org_pqrs_driver_PCKeyboardHack::hookedKeyboard_[MAXNUM_KEYBOARD];
 BridgeConfig org_pqrs_driver_PCKeyboardHack::configuration_;

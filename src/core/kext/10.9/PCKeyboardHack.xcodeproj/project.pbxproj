@@ -17,7 +17,8 @@
 		3464EA7C183FBFDB00CCD068 /* KeyMapIndex_Value.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 3464EA78183FBFDB00CCD068 /* KeyMapIndex_Value.hpp */; };
 		34A88F4713D5D0280057C423 /* UserClient_kext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34A88F4513D5D0280057C423 /* UserClient_kext.cpp */; };
 		34A88F4813D5D0280057C423 /* UserClient_kext.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 34A88F4613D5D0280057C423 /* UserClient_kext.hpp */; };
-		34DA85F60D06E4CB00AE69E6 /* base.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 34DA85EF0D06E4CB00AE69E6 /* base.hpp */; };
+		34B60F2D184B39B5004D80D8 /* IOLogWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34B60F2B184B39B5004D80D8 /* IOLogWrapper.cpp */; };
+		34B60F2E184B39B5004D80D8 /* IOLogWrapper.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 34B60F2C184B39B5004D80D8 /* IOLogWrapper.hpp */; };
 		34DA86010D06E4EA00AE69E6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 34DA85FE0D06E4EA00AE69E6 /* InfoPlist.strings */; };
 		34E5917413D5D81A00CD64CB /* Driver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34E5917213D5D81A00CD64CB /* Driver.cpp */; };
 		34E5917513D5D81A00CD64CB /* Driver.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 34E5917313D5D81A00CD64CB /* Driver.hpp */; };
@@ -35,7 +36,8 @@
 		3464EA78183FBFDB00CCD068 /* KeyMapIndex_Value.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = KeyMapIndex_Value.hpp; path = ../../../bridge/output/KeyMapIndex_Value.hpp; sourceTree = "<group>"; };
 		34A88F4513D5D0280057C423 /* UserClient_kext.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UserClient_kext.cpp; path = ../common/UserClient_kext.cpp; sourceTree = "<group>"; };
 		34A88F4613D5D0280057C423 /* UserClient_kext.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = UserClient_kext.hpp; path = ../common/UserClient_kext.hpp; sourceTree = "<group>"; };
-		34DA85EF0D06E4CB00AE69E6 /* base.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = base.hpp; path = ../common/base.hpp; sourceTree = SOURCE_ROOT; };
+		34B60F2B184B39B5004D80D8 /* IOLogWrapper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = IOLogWrapper.cpp; path = ../common/IOLogWrapper.cpp; sourceTree = "<group>"; };
+		34B60F2C184B39B5004D80D8 /* IOLogWrapper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = IOLogWrapper.hpp; path = ../common/IOLogWrapper.hpp; sourceTree = "<group>"; };
 		34DA85FF0D06E4EA00AE69E6 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = InfoPlist.strings; sourceTree = "<group>"; };
 		34DA86000D06E4EA00AE69E6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../common/Info.plist; sourceTree = SOURCE_ROOT; };
 		34E5917213D5D81A00CD64CB /* Driver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Driver.cpp; path = ../common/Driver.cpp; sourceTree = "<group>"; };
@@ -86,12 +88,13 @@
 			isa = PBXGroup;
 			children = (
 				347A7D9914D790EE0034D71E /* autogen */,
-				34DA85EF0D06E4CB00AE69E6 /* base.hpp */,
 				3464EA73183FBFC600CCD068 /* bridge.h */,
 				34E5917213D5D81A00CD64CB /* Driver.cpp */,
 				34E5917313D5D81A00CD64CB /* Driver.hpp */,
 				341D9CC8169D61720057E29C /* GlobalLock.cpp */,
 				341D9CC9169D61720057E29C /* GlobalLock.hpp */,
+				34B60F2B184B39B5004D80D8 /* IOLogWrapper.cpp */,
+				34B60F2C184B39B5004D80D8 /* IOLogWrapper.hpp */,
 				3426044F13D9540500A299D2 /* ostype.hpp */,
 				34A88F4513D5D0280057C423 /* UserClient_kext.cpp */,
 				34A88F4613D5D0280057C423 /* UserClient_kext.hpp */,
@@ -126,7 +129,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34DA85F60D06E4CB00AE69E6 /* base.hpp in Headers */,
 				34A88F4813D5D0280057C423 /* UserClient_kext.hpp in Headers */,
 				3464EA7C183FBFDB00CCD068 /* KeyMapIndex_Value.hpp in Headers */,
 				34E5917513D5D81A00CD64CB /* Driver.hpp in Headers */,
@@ -135,6 +137,7 @@
 				3464EA7B183FBFDB00CCD068 /* KeyMapIndex_bridgeKeyindexToValue.hpp in Headers */,
 				3464EA79183FBFDB00CCD068 /* BRIDGE_KEY_INDEX.h in Headers */,
 				3464EA7A183FBFDB00CCD068 /* include.bridge_version.h in Headers */,
+				34B60F2E184B39B5004D80D8 /* IOLogWrapper.hpp in Headers */,
 				341D9CCB169D61720057E29C /* GlobalLock.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -213,6 +216,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34B60F2D184B39B5004D80D8 /* IOLogWrapper.cpp in Sources */,
 				34A88F4713D5D0280057C423 /* UserClient_kext.cpp in Sources */,
 				34E5917413D5D81A00CD64CB /* Driver.cpp in Sources */,
 				341D9CCA169D61720057E29C /* GlobalLock.cpp in Sources */,

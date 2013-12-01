@@ -1,4 +1,7 @@
+#include <IOKit/IOLib.h>
+
 #include "GlobalLock.hpp"
+#include "IOLogWrapper.hpp"
 
 namespace org_pqrs_PCKeyboardHack {
   IOLock* GlobalLock::lock_ = NULL;
