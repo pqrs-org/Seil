@@ -1,4 +1,4 @@
-Since 10.3.0
+Since 10.4.0
 ------------
 
 * PCKeyboardHack no longer requires system restart at installing or upgrading. <br />
