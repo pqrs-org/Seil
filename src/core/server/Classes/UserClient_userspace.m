@@ -107,7 +107,7 @@ typedef enum {
           if ([Relauncher isEqualPreviousProcessVersionAndCurrentProcessVersion]) {
             unrecoverableError_ = UNRECOVERABLE_ERROR_BRIDGE_VERSION_MISMATCH;
           } else {
-            NSLog(@"KeyRemap4MacBook might have been upgraded.");
+            NSLog(@"PCKeyboardHack might have been upgraded.");
             [Relauncher relaunch];
           }
           continue;

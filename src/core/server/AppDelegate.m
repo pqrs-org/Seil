@@ -156,7 +156,7 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
   [updater_ checkForUpdatesInBackground:nil];
 
   // ------------------------------------------------------------
-  // Open Preferences if KeyRemap4MacBook was launched by hand.
+  // Open Preferences if PCKeyboardHack was launched by hand.
   if (! fromLaunchAgents &&
       ! isDescendantProcess) {
     [preferencesController_ show];
