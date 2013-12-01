@@ -1,44 +1,44 @@
 #ifndef IOLOGWRAPPER_HPP
 #define IOLOGWRAPPER_HPP
 
-#define IOLOG_DEBUG(...) {                                         \
+#define IOLOG_DEBUG(...) {                                       \
     if (! org_pqrs_PCKeyboardHack::IOLogWrapper::suppressed()) { \
-      if (Config::get_debug()) {                                   \
+      if (Config::get_debug()) {                                 \
         IOLog("PCKeyboardHack --Debug-- " __VA_ARGS__);          \
-      }                                                            \
-    }                                                              \
+      }                                                          \
+    }                                                            \
 }
-#define IOLOG_DEBUG_POINTING(...) {                                \
+#define IOLOG_DEBUG_POINTING(...) {                              \
     if (! org_pqrs_PCKeyboardHack::IOLogWrapper::suppressed()) { \
-      if (Config::get_debug_pointing()) {                          \
+      if (Config::get_debug_pointing()) {                        \
         IOLog("PCKeyboardHack --Debug-- " __VA_ARGS__);          \
-      }                                                            \
-    }                                                              \
+      }                                                          \
+    }                                                            \
 }
-#define IOLOG_DEVEL(...) {                                         \
+#define IOLOG_DEVEL(...) {                                       \
     if (! org_pqrs_PCKeyboardHack::IOLogWrapper::suppressed()) { \
-      if (Config::get_debug_devel()) {                             \
+      if (Config::get_debug_devel()) {                           \
         IOLog("PCKeyboardHack --Devel-- " __VA_ARGS__);          \
-      }                                                            \
-    }                                                              \
+      }                                                          \
+    }                                                            \
 }
 
-#define IOLOG_ERROR(...) {                                         \
+#define IOLOG_ERROR(...) {                                       \
     if (! org_pqrs_PCKeyboardHack::IOLogWrapper::suppressed()) { \
       IOLog("PCKeyboardHack --Error-- " __VA_ARGS__);            \
-    }                                                              \
+    }                                                            \
 }
 
-#define IOLOG_INFO(...) {                                          \
+#define IOLOG_INFO(...) {                                        \
     if (! org_pqrs_PCKeyboardHack::IOLogWrapper::suppressed()) { \
       IOLog("PCKeyboardHack --Info-- "  __VA_ARGS__);            \
-    }                                                              \
+    }                                                            \
 }
 
-#define IOLOG_WARN(...) {                                          \
+#define IOLOG_WARN(...) {                                        \
     if (! org_pqrs_PCKeyboardHack::IOLogWrapper::suppressed()) { \
       IOLog("PCKeyboardHack --Warn-- "  __VA_ARGS__);            \
-    }                                                              \
+    }                                                            \
 }
 
 
