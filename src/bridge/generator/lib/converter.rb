@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 
-module KeyRemap4MacBookBridge
+module PCKeyboardHackBridge
   class Converter
     def self.update_file_if_needed(tmpfilepath)
       targetfilepath = tmpfilepath.gsub(/\.tmp$/, '')

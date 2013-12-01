@@ -44,5 +44,5 @@ end
 
 $outfile.each do |key,file|
   file.close
-  KeyRemap4MacBookBridge::Converter.update_file_if_needed(file.path)
+  PCKeyboardHackBridge::Converter.update_file_if_needed(file.path)
 end
