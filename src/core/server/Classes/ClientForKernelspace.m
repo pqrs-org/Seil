@@ -43,7 +43,8 @@ static void callback_NotificationFromKext(void* refcon, IOReturn result, uint32_
 
 - (void) refresh_connection_with_retry
 {
-  [userClient_userspace refresh_connection_with_retry:10 wait:0.5];
+  // Try one minute
+  [userClient_userspace refresh_connection_with_retry:120 wait:0.5];
   [self send_config_to_kext];
 }
 
