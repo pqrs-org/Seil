@@ -111,7 +111,7 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
 #define kDescendantProcess @"org_pqrs_PCKeyboardHack_DescendantProcess"
 
 - (void) applicationDidFinishLaunching:(NSNotification*)aNotification {
-  NSInteger isDescendantProcess = [[[[NSProcessInfo processInfo] environment] objectForKey:kDescendantProcess] integerValue];
+  NSInteger isDescendantProcess = [[[NSProcessInfo processInfo] environment][kDescendantProcess] integerValue];
   setenv([kDescendantProcess UTF8String], "1", 1);
 
   // ------------------------------------------------------------
