@@ -37,7 +37,7 @@ ARGV.each do |xmlpath|
       $outfile[:bridgeconfig_config] << "bridgeconfig.config[BRIDGE_KEY_INDEX_#{identifier}].enabled = [preferencesManager_ value:@\"#{enable.text}\"];\n"
       $outfile[:bridgeconfig_config] << "bridgeconfig.config[BRIDGE_KEY_INDEX_#{identifier}].keycode = [preferencesManager_ value:@\"#{keycode.text}\"];\n"
 
-      $outfile[:setDefault] << "[default_ setObject:[NSNumber numberWithInt:#{default.text}] forKey:@\"#{keycode.text}\"];\n"
+      $outfile[:setDefault] << "default_[@\"#{keycode.text}\"] = @#{default.text};\n"
     end
   end
 end
