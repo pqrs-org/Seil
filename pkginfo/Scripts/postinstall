@@ -5,7 +5,6 @@ PATH=/bin:/sbin:/usr/bin:/usr/sbin; export PATH
 # set file permissions
 for f in \
     /Library/LaunchAgents/org.pqrs.PCKeyboardHack.server.plist \
-    /Library/LaunchDaemons/org.pqrs.PCKeyboardHack.load.plist \
     /Applications/PCKeyboardHack.app \
     ; do
     echo "set file permissions: $f"
@@ -14,8 +13,4 @@ for f in \
 done
 
 # ------------------------------------------------------------
-# load kext
-startup="/Applications/PCKeyboardHack.app/Contents/Library/scripts/startup.sh"
-[ -f "$startup" ] && "$startup" start
-
 exit 0

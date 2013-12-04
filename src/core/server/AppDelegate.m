@@ -115,6 +115,9 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
   setenv([kDescendantProcess UTF8String], "1", 1);
 
   // ------------------------------------------------------------
+  system("/Applications/PCKeyboardHack.app/Contents/Library/bin/kextload load");
+
+  // ------------------------------------------------------------
   BOOL fromLaunchAgents = NO;
 
   for (NSString* argument in [[NSProcessInfo processInfo] arguments]) {

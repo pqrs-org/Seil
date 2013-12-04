@@ -18,6 +18,9 @@ startup="/Library/org.pqrs/PCKeyboardHack/scripts/startup.sh"
 startup="/Applications/PCKeyboardHack.app/Contents/Library/scripts/startup.sh"
 [ -f "$startup" ] && "$startup" stop
 
+kextload="/Applications/PCKeyboardHack.app/Contents/Library/bin/kextload"
+[ -f "$kextload" ] && "$kextload" unload
+
 # ----------------------------------------
 # uninstall
 rm -rf /Applications/PCKeyboardHack
