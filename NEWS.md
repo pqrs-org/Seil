@@ -1,6 +1,12 @@
 Since 10.4.0
 ------------
 
+* Fixed issues:
+    * "Kernel extension is not loaded" alert might be shown when automagic login is enabled.
+
+Version 10.4.0
+--------------
+
 * PCKeyboardHack no longer requires system restart at installing or upgrading. <br />
   If you need to restart system for some reason, PCKeyboardHack will show an alert which urges you to restart.
 * Added a remappable key: Application Key (Menu Key) on PC keyboard.
