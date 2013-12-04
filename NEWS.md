@@ -2,7 +2,7 @@ Since 10.4.0
 ------------
 
 * Fixed issues:
-    * "Kernel extension is not loaded" alert might be shown when automagic login is enabled.
+    * v10.4.2: "Kernel extension is not loaded" alert might be shown when automagic login is enabled.
 
 Version 10.4.0
 --------------
