@@ -6,6 +6,14 @@
 #import "Updater.h"
 #include "bridge.h"
 
+@interface AppDelegate ()
+{
+  // for IONotification
+  IONotificationPortRef notifyport_;
+  CFRunLoopSourceRef loopsource_;
+}
+@end
+
 @implementation AppDelegate
 
 @synthesize clientForKernelspace;
