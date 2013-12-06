@@ -3,11 +3,16 @@
 #import "PreferencesManager.h"
 #import "UserClient_userspace.h"
 
+@interface ClientForKernelspace ()
+{
+  io_async_ref64_t asyncref_;
+  UserClient_userspace* userClient_userspace_;
+}
+@end
+
 @implementation ClientForKernelspace
 
-@synthesize userClient_userspace;
-
-static void callback_NotificationFromKext(void* refcon, IOReturn result, uint32_t type, uint32_t option)
+static void static_callback_NotificationFromKext(void* refcon, IOReturn result, uint32_t type, uint32_t option)
 {}
 
 - (void) observer_PreferencesChanged:(NSNotification*)notification
@@ -22,10 +27,10 @@ static void callback_NotificationFromKext(void* refcon, IOReturn result, uint32_
   self = [super init];
 
   if (self) {
-    asyncref_[kIOAsyncCalloutFuncIndex] = (io_user_reference_t)(callback_NotificationFromKext);
+    asyncref_[kIOAsyncCalloutFuncIndex] = (io_user_reference_t)(static_callback_NotificationFromKext);
     asyncref_[kIOAsyncCalloutRefconIndex] = (io_user_reference_t)(self);
 
-    userClient_userspace = [[UserClient_userspace alloc] init:&asyncref_];
+    userClient_userspace_ = [[UserClient_userspace alloc] init:&asyncref_];
 
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(observer_PreferencesChanged:)
@@ -44,13 +49,13 @@ static void callback_NotificationFromKext(void* refcon, IOReturn result, uint32_
 - (void) refresh_connection_with_retry
 {
   // Try one minute
-  [userClient_userspace refresh_connection_with_retry:120 wait:0.5];
+  [userClient_userspace_ refresh_connection_with_retry:120 wait:0.5];
   [self send_config_to_kext];
 }
 
 - (void) disconnect_from_kext
 {
-  [userClient_userspace disconnect_from_kext];
+  [userClient_userspace_ disconnect_from_kext];
 }
 
 - (void) send_config_to_kext
@@ -65,7 +70,7 @@ static void callback_NotificationFromKext(void* refcon, IOReturn result, uint32_
   bridgestruct.option = 0;
   bridgestruct.data   = (uintptr_t)(&bridgeconfig);
   bridgestruct.size   = sizeof(bridgeconfig);
-  [userClient_userspace synchronized_communication:&bridgestruct];
+  [userClient_userspace_ synchronized_communication:&bridgestruct];
 }
 
 @end
