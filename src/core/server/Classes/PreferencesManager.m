@@ -2,6 +2,12 @@
 #import "PreferencesKeys.h"
 #import "PreferencesManager.h"
 
+@interface PreferencesManager ()
+{
+  NSMutableDictionary* default_;
+}
+@end
+
 @implementation PreferencesManager
 
 // ----------------------------------------

@@ -2,9 +2,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface PreferencesManager : NSObject {
-  NSMutableDictionary* default_;
-}
+@interface PreferencesManager : NSObject
 
 - (int) value:(NSString*)name;
 - (int) defaultValue:(NSString*)name;
