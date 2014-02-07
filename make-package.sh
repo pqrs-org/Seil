@@ -36,12 +36,6 @@ for ostype in 10.8 10.9; do
         cp -R src/core/kext/${ostype}/build/Release/PCKeyboardHack.kext "$basedir/PCKeyboardHack.${ostype}.signed.kext"
     fi
 done
-for d in \
-    files/scripts \
-    ;
-do
-    cp -R "$d" "$basedir"
-done
 
 basedir="pkgroot/Applications/PCKeyboardHack.app/Contents/Library/bin"
 mkdir -p "$basedir"
