@@ -1,3 +1,8 @@
+Since 10.5.0
+------------
+
+* v10.5.1: Added PCKeyboardHack_cli.
+
 Version 10.5.0
 --------------
 
