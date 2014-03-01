@@ -5,7 +5,7 @@
 @protocol PCKeyboardHackProtocol
 
 - (void) setValue:(int)newval forName:(NSString*)name;
-- (NSDictionary*) changed;
+- (NSDictionary*) allValues;
 - (void) relaunch;
 
 @end

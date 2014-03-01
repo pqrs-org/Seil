@@ -39,10 +39,11 @@
   [preferencesManager_ setValueForName:newval forName:name];
 }
 
-- (NSDictionary*) changed
+- (NSDictionary*) allValues
 {
-  NSMutableDictionary* dict = [NSMutableDictionary new];
-  return dict;
+  return @{
+#include "../../../bridge/output/configurationDictionary.m"
+  };
 }
 
 - (void) relaunch

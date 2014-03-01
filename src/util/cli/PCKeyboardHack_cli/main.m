@@ -30,6 +30,20 @@
   [[NSApplication sharedApplication] terminate:nil];
 }
 
+- (void) export:(PCKeyboardHackClient*)client
+{
+  NSArray* arguments = [[NSProcessInfo processInfo] arguments];
+  NSDictionary* dict = [[client proxy] allValues];
+
+  [self output:@"#!/bin/sh\n\n"];
+  [self output:[NSString stringWithFormat:@"cli=%@\n\n", arguments[0]]];
+
+  for (NSString* key in [dict allKeys]) {
+    [self output:[NSString stringWithFormat:@"$cli set %@ %@\n", key, dict[key]]];
+    [self output:@"/bin/echo -n .\n"];
+  }
+}
+
 - (void) main
 {
   NSArray* arguments = [[NSProcessInfo processInfo] arguments];
@@ -42,7 +56,7 @@
       NSString* command = arguments[1];
 
       /*  */ if ([command isEqualToString:@"export"]) {
-        NSLog(@"Not implemented");
+        [self export:client];
       } else if ([command isEqualToString:@"relaunch"]) {
         [[client proxy] relaunch];
       } else if ([command isEqualToString:@"set"]) {
