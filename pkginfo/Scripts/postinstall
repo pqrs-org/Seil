@@ -13,4 +13,10 @@ for f in \
 done
 
 # ------------------------------------------------------------
+# relaunch PCKeyboardHack.app
+
+/Applications/PCKeyboardHack.app/Contents/Library/bin/PCKeyboardHack_cli \
+    relaunch
+
+# ------------------------------------------------------------
 exit 0
