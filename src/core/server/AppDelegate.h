@@ -5,11 +5,13 @@
 @class ClientForKernelspace;
 @class OutlineView_mixed;
 @class PreferencesController;
+@class ServerForUserspace;
 @class Updater;
 
 @interface AppDelegate : NSObject <NSApplicationDelegate> {
   IBOutlet OutlineView_mixed* outlineView_mixed_;
   IBOutlet PreferencesController* preferencesController_;
+  IBOutlet ServerForUserspace* serverForUserspace_;
   IBOutlet Updater* updater_;
 }
 

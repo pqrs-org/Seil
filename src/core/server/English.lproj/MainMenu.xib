@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment version="1080" defaultVersion="1080" identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -192,11 +192,11 @@
                                                 </subviews>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </clipView>
-                                            <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" id="546">
+                                            <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="546">
                                                 <rect key="frame" x="-100" y="-100" width="470" height="15"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
-                                            <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="37" id="545">
+                                            <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="545">
                                                 <rect key="frame" x="572" y="17" width="15" height="237"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
@@ -253,11 +253,11 @@
                                                 </subviews>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </clipView>
-                                            <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" id="557">
+                                            <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="557">
                                                 <rect key="frame" x="-100" y="-100" width="470" height="15"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
-                                            <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="37" id="556">
+                                            <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="556">
                                                 <rect key="frame" x="572" y="17" width="15" height="228"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
@@ -352,12 +352,12 @@
                                                     <popUpButton verticalHuggingPriority="750" id="572">
                                                         <rect key="frame" x="210" y="51" width="261" height="26"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <popUpButtonCell key="cell" type="push" title="Nothing" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="577">
+                                                        <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="577">
                                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                                            <font key="font" metaFont="system"/>
+                                                            <font key="font" metaFont="menu"/>
                                                             <menu key="menu" title="OtherViews" id="578">
                                                                 <items>
-                                                                    <menuItem title="Nothing" state="on" id="581">
+                                                                    <menuItem title="Nothing" id="581">
                                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                                     </menuItem>
                                                                     <menuItem title="The stable release only (default)" id="580">
@@ -406,6 +406,7 @@
                 <outlet property="clientForKernelspace" destination="741" id="743"/>
                 <outlet property="outlineView_mixed_" destination="598" id="606"/>
                 <outlet property="preferencesController_" destination="589" id="593"/>
+                <outlet property="serverForUserspace_" destination="hAv-NT-zlb" id="RqE-e9-bUf"/>
                 <outlet property="updater_" destination="582" id="596"/>
             </connections>
         </customObject>
@@ -434,6 +435,11 @@
         <customObject id="741" customClass="ClientForKernelspace">
             <connections>
                 <outlet property="preferencesManager_" destination="583" id="742"/>
+            </connections>
+        </customObject>
+        <customObject id="hAv-NT-zlb" customClass="ServerForUserspace">
+            <connections>
+                <outlet property="preferencesManager_" destination="583" id="00R-gc-ARi"/>
             </connections>
         </customObject>
         <userDefaultsController representsSharedInstance="YES" id="586"/>

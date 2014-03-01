@@ -3,6 +3,7 @@
 #import "OutlineView_mixed.h"
 #import "PreferencesController.h"
 #import "Relauncher.h"
+#import "ServerForUserspace.h"
 #import "Updater.h"
 #include "bridge.h"
 
@@ -151,6 +152,13 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
     }
   }
 
+  // ------------------------------------------------------------
+  if (! [serverForUserspace_ register]) {
+    // Relaunch when register is failed.
+    NSLog(@"[ServerForUserspace register] is failed. Restarting process.");
+    [NSThread sleepForTimeInterval:2];
+    [Relauncher relaunch];
+  }
   [Relauncher resetRelaunchedCount];
 
   [self registerIONotification];
