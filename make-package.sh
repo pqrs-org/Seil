@@ -40,6 +40,7 @@ done
 basedir="pkgroot/Applications/PCKeyboardHack.app/Contents/Library/bin"
 mkdir -p "$basedir"
 cp -R src/bin/kextload/build/Release/kextload "$basedir"
+cp -R src/util/cli/build/Release/PCKeyboardHack_cli "$basedir"
 
 basedir="pkgroot/Applications/PCKeyboardHack.app/Contents/Library/extra"
 mkdir -p "$basedir"
