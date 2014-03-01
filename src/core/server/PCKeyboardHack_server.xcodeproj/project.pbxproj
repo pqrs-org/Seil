@@ -20,7 +20,6 @@
 		3494769D168B7AAA00B783D2 /* known.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3494769B168B7AAA00B783D2 /* known.xml */; };
 		34B60F35184B6395004D80D8 /* Relauncher.m in Sources */ = {isa = PBXBuildFile; fileRef = 34B60F34184B6395004D80D8 /* Relauncher.m */; };
 		34BE221C18C1D7800014BB5B /* ServerForUserspace.m in Sources */ = {isa = PBXBuildFile; fileRef = 34BE221B18C1D7800014BB5B /* ServerForUserspace.m */; };
-		34BE222218C1D7970014BB5B /* PCKeyboardHackClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 34BE221F18C1D7970014BB5B /* PCKeyboardHackClient.m */; };
 		34D2910313ED96A3002A224E /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34D2910213ED96A3002A224E /* Sparkle.framework */; };
 		34D2910613ED97C5002A224E /* PCKeyboardHack_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 34D2910513ED97C5002A224E /* PCKeyboardHack_pub.pem */; };
 		34D2910D13ED9A27002A224E /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 34D2910213ED96A3002A224E /* Sparkle.framework */; };
@@ -82,8 +81,6 @@
 		34B60F34184B6395004D80D8 /* Relauncher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Relauncher.m; path = Classes/Relauncher.m; sourceTree = "<group>"; };
 		34BE221A18C1D7800014BB5B /* ServerForUserspace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServerForUserspace.h; path = Classes/ServerForUserspace.h; sourceTree = "<group>"; };
 		34BE221B18C1D7800014BB5B /* ServerForUserspace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ServerForUserspace.m; path = Classes/ServerForUserspace.m; sourceTree = "<group>"; };
-		34BE221E18C1D7970014BB5B /* PCKeyboardHackClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PCKeyboardHackClient.h; path = ../../share/PCKeyboardHackClient.h; sourceTree = "<group>"; };
-		34BE221F18C1D7970014BB5B /* PCKeyboardHackClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PCKeyboardHackClient.m; path = ../../share/PCKeyboardHackClient.m; sourceTree = "<group>"; };
 		34BE222018C1D7970014BB5B /* PCKeyboardHackKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PCKeyboardHackKeys.h; path = ../../share/PCKeyboardHackKeys.h; sourceTree = "<group>"; };
 		34BE222118C1D7970014BB5B /* PCKeyboardHackProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PCKeyboardHackProtocol.h; path = ../../share/PCKeyboardHackProtocol.h; sourceTree = "<group>"; };
 		34D2910213ED96A3002A224E /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Frameworks/Sparkle.framework; sourceTree = "<group>"; };
@@ -239,8 +236,6 @@
 		34BE221D18C1D7850014BB5B /* share */ = {
 			isa = PBXGroup;
 			children = (
-				34BE221E18C1D7970014BB5B /* PCKeyboardHackClient.h */,
-				34BE221F18C1D7970014BB5B /* PCKeyboardHackClient.m */,
 				34BE222018C1D7970014BB5B /* PCKeyboardHackKeys.h */,
 				34BE222118C1D7970014BB5B /* PCKeyboardHackProtocol.h */,
 			);
@@ -321,7 +316,6 @@
 				34BE221C18C1D7800014BB5B /* ServerForUserspace.m in Sources */,
 				34F9652D13D742FA0081D1F3 /* UserClient_userspace.m in Sources */,
 				34947684168B6EB000B783D2 /* Updater.m in Sources */,
-				34BE222218C1D7970014BB5B /* PCKeyboardHackClient.m in Sources */,
 				3494768A168B707500B783D2 /* PreferencesController.m in Sources */,
 				34947696168B740E00B783D2 /* OutlineView_keycode.m in Sources */,
 				34947697168B740E00B783D2 /* OutlineView_mixed.m in Sources */,
