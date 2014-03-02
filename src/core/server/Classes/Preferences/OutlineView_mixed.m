@@ -1,10 +1,18 @@
 // -*- Mode: objc; Coding: utf-8; indent-tabs-mode: nil; -*-
 
+#import "NotificationKeys.h"
 #import "OutlineView_keycode.h"
 #import "OutlineView_mixed.h"
 #import "PreferencesManager.h"
 
 @implementation OutlineView_mixed
+
+- (void) observer_PreferencesChanged:(NSNotification*)notification
+{
+  dispatch_async(dispatch_get_main_queue(), ^{
+    [outlineview_ setNeedsDisplay:YES];
+  });
+}
 
 - (id) init
 {
@@ -12,9 +20,18 @@
 
   if (self) {
     [self loadXML:[[NSBundle mainBundle] pathForResource:@"checkbox" ofType:@"xml"]];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(observer_PreferencesChanged:)
+                                                 name:kPreferencesChangedNotification object:nil];
   }
 
   return self;
+}
+
+- (void) dealloc
+{
+  [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void) initialExpandCollapseTree
