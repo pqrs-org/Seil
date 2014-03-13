@@ -1,7 +1,7 @@
-Since 10.5.0
-------------
+Version 10.6.0
+--------------
 
-* v10.5.2: Added PCKeyboardHack_cli.
+* A command line interface (PCKeyboardHack_cli) has been added.
 
 Version 10.5.0
 --------------
