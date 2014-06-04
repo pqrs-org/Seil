@@ -2,6 +2,7 @@ Version 10.7.0
 --------------
 
 * Supported OS X 10.10.
+* Changed a way to launch at login. (LaunchAgents -> Login Items)
 
 Version 10.6.0
 --------------
