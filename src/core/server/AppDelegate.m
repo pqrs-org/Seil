@@ -4,6 +4,7 @@
 #import "PreferencesController.h"
 #import "Relauncher.h"
 #import "ServerForUserspace.h"
+#import "StartAtLoginUtilities.h"
 #import "Updater.h"
 #include "bridge.h"
 
@@ -119,24 +120,23 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
 // ------------------------------------------------------------
 #define kDescendantProcess @"org_pqrs_PCKeyboardHack_DescendantProcess"
 
-- (void) applicationDidFinishLaunching:(NSNotification*)aNotification {
+- (void) applicationDidFinishLaunching:(NSNotification*)aNotification
+{
   NSInteger isDescendantProcess = [[[NSProcessInfo processInfo] environment][kDescendantProcess] integerValue];
   setenv([kDescendantProcess UTF8String], "1", 1);
+
+  // ------------------------------------------------------------
+  BOOL openPreferences = NO;
+  if (! [StartAtLoginUtilities isStartAtLogin]) {
+    [StartAtLoginUtilities setStartAtLogin:YES];
+    openPreferences = YES;
+  }
 
   // ------------------------------------------------------------
   system("/Applications/PCKeyboardHack.app/Contents/Library/bin/kextload load");
 
   // ------------------------------------------------------------
-  BOOL fromLaunchAgents = NO;
-
-  for (NSString* argument in [[NSProcessInfo processInfo] arguments]) {
-    if ([argument isEqualToString:@"--fromLaunchAgents"]) {
-      fromLaunchAgents = YES;
-    }
-  }
-
-  if (fromLaunchAgents) {
-    // ------------------------------------------------------------
+  {
     // Remove old pkg files and finish_installation.app in
     // "~/Library/Application Support/PCKeyboardHack/.Sparkle".
     NSArray* paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
@@ -179,7 +179,7 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
 
   // ------------------------------------------------------------
   // Open Preferences if PCKeyboardHack was launched by hand.
-  if (! fromLaunchAgents &&
+  if (openPreferences &&
       ! isDescendantProcess) {
     [preferencesController_ show];
   }
