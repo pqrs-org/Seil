@@ -54,15 +54,6 @@ do
     cp -R "$f" "$basedir"
 done
 
-basedir="pkgroot/Library"
-mkdir -p "$basedir"
-for d in \
-    files/LaunchAgents \
-    ;
-do
-    cp -R "$d" "$basedir"
-done
-
 # Sign with Developer ID
 bash files/extra/codesign.sh pkgroot
 

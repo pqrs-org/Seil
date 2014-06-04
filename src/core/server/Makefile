@@ -19,5 +19,4 @@ xcode:
 	open *.xcodeproj
 
 run:
-	-launchctl unload /Library/LaunchAgents/org.pqrs.PCKeyboardHack.server.plist 2>/dev/null
 	./build/Release/PCKeyboardHack.app/Contents/MacOS/PCKeyboardHack
