@@ -1,11 +1,12 @@
-PCKeyboardHack
-==============
+Seil
+====
 
-PCKeyboardHack applies a patch to a keyboard driver.
+Seil applies a patch to a keyboard driver.
 
 You can change CapsLock behavior. (For example, changing CapsLock to Delete Key.)
 And it can activate International Keys on Non-Apple keyboard.
 
+(Seil has been called PCKeyboardHack till version 10.7.0.)
 
 Web pages
 ---------
@@ -19,9 +20,9 @@ System requirements
 
 Mac OS X 10.8 or higher.
 
-* If you require PCKeyboardHack for OS X 10.5, use PCKeyboardHack 5.1.0.
-* If you require PCKeyboardHack for OS X 10.6, use PCKeyboardHack 7.4.0.
-* If you require PCKeyboardHack for OS X 10.7, use PCKeyboardHack 9.0.0.
+* If you require Seil for OS X 10.5, use PCKeyboardHack 5.1.0.
+* If you require Seil for OS X 10.6, use PCKeyboardHack 7.4.0.
+* If you require Seil for OS X 10.7, use PCKeyboardHack 9.0.0.
 
 How to build
 ------------
@@ -40,7 +41,7 @@ Please install Boost into /usr/local/include/boost.
 Execute a following command in Terminal.app.
 
 <pre>
-git clone --depth 10 https://github.com/tekezo/PCKeyboardHack.git
+git clone --depth 10 https://github.com/tekezo/Seil.git
 </pre>
 
 ### Step2: Building a package
@@ -48,11 +49,11 @@ git clone --depth 10 https://github.com/tekezo/PCKeyboardHack.git
 Execute a following command in Terminal.app.
 
 <pre>
-cd PCKeyboardHack
+cd Seil
 make
 </pre>
 
-Then, PCKeyboardHack-VERSION.dmg has been created in the current directory.
+Then, Seil-VERSION.dmg has been created in the current directory.
 It's a distributable package.
 
 
