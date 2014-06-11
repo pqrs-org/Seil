@@ -14,35 +14,35 @@ rm -rf pkgroot
 mkdir -p pkgroot
 
 mkdir -p "pkgroot/Applications"
-cp -R "src/core/server/build/Release/PCKeyboardHack.app" "pkgroot/Applications"
+cp -R "src/core/server/build/Release/Seil.app" "pkgroot/Applications"
 
-basedir="pkgroot/Applications/PCKeyboardHack.app/Contents/Applications"
+basedir="pkgroot/Applications/Seil.app/Contents/Applications"
 mkdir -p "$basedir"
 for d in \
-    src/util/uninstaller/automator/PCKeyboardHackUninstaller.app \
+    src/util/uninstaller/automator/SeilUninstaller.app \
     ;
 do
     cp -R "$d" "$basedir"
 done
 
-basedir="pkgroot/Applications/PCKeyboardHack.app/Contents/Library"
+basedir="pkgroot/Applications/Seil.app/Contents/Library"
 mkdir -p "$basedir"
 for ostype in 10.8 10.9; do
     if [ $ostype == "10.8" ]; then
         # We must not sign kext for OS X 10.8 or prior.
-        cp -R src/core/kext/${ostype}/build/Release/PCKeyboardHack.kext "$basedir/PCKeyboardHack.${ostype}.kext"
+        cp -R src/core/kext/${ostype}/build/Release/Seil.kext "$basedir/Seil.${ostype}.kext"
     else
         # We should sign kext after OS X 10.9.
-        cp -R src/core/kext/${ostype}/build/Release/PCKeyboardHack.kext "$basedir/PCKeyboardHack.${ostype}.signed.kext"
+        cp -R src/core/kext/${ostype}/build/Release/Seil.kext "$basedir/Seil.${ostype}.signed.kext"
     fi
 done
 
-basedir="pkgroot/Applications/PCKeyboardHack.app/Contents/Library/bin"
+basedir="pkgroot/Applications/Seil.app/Contents/Library/bin"
 mkdir -p "$basedir"
 cp -R src/bin/kextload/build/Release/kextload "$basedir"
-cp -R src/util/cli/build/Release/PCKeyboardHack_cli "$basedir"
+cp -R src/util/cli/build/Release/Seil_cli "$basedir"
 
-basedir="pkgroot/Applications/PCKeyboardHack.app/Contents/Library/extra"
+basedir="pkgroot/Applications/Seil.app/Contents/Library/extra"
 mkdir -p "$basedir"
 cp -R pkginfo/Scripts/preinstall "$basedir/uninstall_core.sh"
 for f in \
@@ -64,14 +64,14 @@ bash files/extra/codesign.sh pkgroot
 #   PackageMaker uses their permissions.
 #
 #   For example:
-#     If /Applications/PCKeyboardHack.app permission is 0777 by accidental reasons,
+#     If /Applications/Seil.app permission is 0777 by accidental reasons,
 #     the directory permission will be 0777 in Archive.bom
 #     even if we set this directory permission to 0755 by setpermissions.sh.
 #
 #   Then, we need to repair file permissions in postinstall script.
 #   Please also see postinstall.
 #
-chmod 4755 pkgroot/Applications/PCKeyboardHack.app/Contents/Library/bin/kextload
+chmod 4755 pkgroot/Applications/Seil.app/Contents/Library/bin/kextload
 sh "files/extra/setpermissions.sh" pkgroot
 sh "files/extra/setpermissions.sh" pkginfo
 chmod 755 \
@@ -82,9 +82,9 @@ chmod 755 \
 # --------------------------------------------------
 echo "Create pkg"
 
-pkgName="PCKeyboardHack.pkg"
-pkgIdentifier="org.pqrs.driver.PCKeyboardHack"
-archiveName="PCKeyboardHack-${version}"
+pkgName="Seil.pkg"
+pkgIdentifier="org.pqrs.driver.Seil"
+archiveName="Seil-${version}"
 
 rm -rf $archiveName
 mkdir $archiveName
