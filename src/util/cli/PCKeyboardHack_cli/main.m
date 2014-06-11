@@ -1,13 +1,13 @@
 @import Cocoa;
-#import "PCKeyboardHackClient.h"
+#import "SeilClient.h"
 
-@interface PCKeyboardHackCLI : NSObject
+@interface SeilCLI : NSObject
 
 - (void) main;
 
 @end
 
-@implementation PCKeyboardHackCLI
+@implementation SeilCLI
 
 - (void) output:(NSString*)string
 {
@@ -18,19 +18,19 @@
 - (void) usage
 {
   [self output:@"Usage:\n"];
-  [self output:@"  PCKeyboardHack_cli export\n"];
-  [self output:@"  PCKeyboardHack_cli relaunch\n"];
-  [self output:@"  PCKeyboardHack_cli set IDENTIFIER VALUE\n"];
+  [self output:@"  Seil_cli export\n"];
+  [self output:@"  Seil_cli relaunch\n"];
+  [self output:@"  Seil_cli set IDENTIFIER VALUE\n"];
   [self output:@"\n"];
   [self output:@"Example:\n"];
-  [self output:@"  PCKeyboardHack_cli export\n"];
-  [self output:@"  PCKeyboardHack_cli relaunch\n"];
-  [self output:@"  PCKeyboardHack_cli set keycode_capslock 80\n"];
+  [self output:@"  Seil_cli export\n"];
+  [self output:@"  Seil_cli relaunch\n"];
+  [self output:@"  Seil_cli set keycode_capslock 80\n"];
 
   [[NSApplication sharedApplication] terminate:nil];
 }
 
-- (void) export:(PCKeyboardHackClient*)client
+- (void) export:(SeilClient*)client
 {
   NSArray* arguments = [[NSProcessInfo processInfo] arguments];
   NSDictionary* dict = [[client proxy] allValues];
@@ -52,7 +52,7 @@
     [self usage];
   } else {
     @try {
-      PCKeyboardHackClient* client = [PCKeyboardHackClient new];
+      SeilClient* client = [SeilClient new];
       NSString* command = arguments[1];
 
       /*  */ if ([command isEqualToString:@"export"]) {
@@ -78,6 +78,6 @@
 int
 main(int argc, const char* argv[])
 {
-  [[PCKeyboardHackCLI new] main];
+  [[SeilCLI new] main];
   return 0;
 }
