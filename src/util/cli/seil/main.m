@@ -18,14 +18,14 @@
 - (void) usage
 {
   [self output:@"Usage:\n"];
-  [self output:@"  Seil_cli export\n"];
-  [self output:@"  Seil_cli relaunch\n"];
-  [self output:@"  Seil_cli set IDENTIFIER VALUE\n"];
+  [self output:@"  seil export\n"];
+  [self output:@"  seil relaunch\n"];
+  [self output:@"  seil set IDENTIFIER VALUE\n"];
   [self output:@"\n"];
   [self output:@"Example:\n"];
-  [self output:@"  Seil_cli export\n"];
-  [self output:@"  Seil_cli relaunch\n"];
-  [self output:@"  Seil_cli set keycode_capslock 80\n"];
+  [self output:@"  seil export\n"];
+  [self output:@"  seil relaunch\n"];
+  [self output:@"  seil set keycode_capslock 80\n"];
 
   [[NSApplication sharedApplication] terminate:nil];
 }
