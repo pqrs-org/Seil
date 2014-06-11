@@ -1,3 +1,8 @@
+Version 10.8.0
+--------------
+
+* PCKeyboardHack has been renamed to "Seil".
+
 Version 10.7.0
 --------------
 
