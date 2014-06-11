@@ -1,11 +1,12 @@
 #!/bin/sh
 
-/Applications/PCKeyboardHack.app/Contents/Library/extra/uninstall_core.sh
+/Applications/Seil.app/Contents/Library/extra/uninstall_core.sh
 
 # remove receipts
 rm -f /var/db/receipts/org.pqrs.driver.PCKeyboardHack.*
+rm -f /var/db/receipts/org.pqrs.driver.Seil.*
 
 # kill processes
-/usr/bin/killall PCKeyboardHack 2>/dev/null
+/usr/bin/killall Seil 2>/dev/null
 
 exit 0
