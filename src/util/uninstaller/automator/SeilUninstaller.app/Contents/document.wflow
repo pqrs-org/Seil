@@ -52,19 +52,19 @@
 				<dict>
 					<key>source</key>
 					<string>on run {input, parameters}
-	display dialog "Are you sure you want to remove PCKeyboardHack?" buttons {"Cancel", "OK"}
+	display dialog "Are you sure you want to remove Seil?" buttons {"Cancel", "OK"}
 	if the button returned of the result is "OK" then
 		try
-			do shell script "test -f /Applications/PCKeyboardHack.app/Contents/Library/extra/uninstall.sh"
+			do shell script "test -f /Applications/Seil.app/Contents/Library/extra/uninstall.sh"
 			try
-				do shell script "/Applications/PCKeyboardHack.app/Contents/Library/extra/uninstall.sh" with administrator privileges
-				display alert "PCKeyboardHack has been uninstalled.
+				do shell script "/Applications/Seil.app/Contents/Library/extra/uninstall.sh" with administrator privileges
+				display alert "Seil has been uninstalled.
 Please restart OS X."
 			on error
-				display alert "Failed to uninstall PCKeyboardHack."
+				display alert "Failed to uninstall Seil."
 			end try
 		on error
-			display alert "PCKeyboardHack is not installed."
+			display alert "Seil is not installed."
 		end try
 	end if
 end run
