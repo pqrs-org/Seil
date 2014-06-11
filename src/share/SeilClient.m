@@ -1,14 +1,14 @@
-#import "PCKeyboardHackClient.h"
-#import "PCKeyboardHackKeys.h"
+#import "SeilClient.h"
+#import "SeilKeys.h"
 
-@implementation PCKeyboardHackClient
+@implementation SeilClient
 
-- (id<PCKeyboardHackProtocol>) proxy
+- (id<SeilProtocol>) proxy
 {
   @synchronized(self) {
     if (! proxy_) {
-      proxy_ = [NSConnection rootProxyForConnectionWithRegisteredName:kPCKeyboardHackConnectionName host:nil];
-      [proxy_ setProtocolForProxy:@protocol(PCKeyboardHackProtocol)];
+      proxy_ = [NSConnection rootProxyForConnectionWithRegisteredName:kSeilConnectionName host:nil];
+      [proxy_ setProtocolForProxy:@protocol(SeilProtocol)];
     }
     return proxy_;
   }

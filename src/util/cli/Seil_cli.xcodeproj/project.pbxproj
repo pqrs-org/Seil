@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		34BE223918C208C60014BB5B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 34BE223818C208C60014BB5B /* main.m */; };
-		34BE223F18C2091F0014BB5B /* PCKeyboardHackClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 34BE223C18C2091F0014BB5B /* PCKeyboardHackClient.m */; };
+		34BE223F18C2091F0014BB5B /* SeilClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 34BE223C18C2091F0014BB5B /* SeilClient.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,12 +24,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		34BE222C18C200190014BB5B /* PCKeyboardHack_cli */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PCKeyboardHack_cli; sourceTree = BUILT_PRODUCTS_DIR; };
+		34BE222C18C200190014BB5B /* Seil_cli */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Seil_cli; sourceTree = BUILT_PRODUCTS_DIR; };
 		34BE223818C208C60014BB5B /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		34BE223B18C2091F0014BB5B /* PCKeyboardHackClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PCKeyboardHackClient.h; path = ../../../share/PCKeyboardHackClient.h; sourceTree = "<group>"; };
-		34BE223C18C2091F0014BB5B /* PCKeyboardHackClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PCKeyboardHackClient.m; path = ../../../share/PCKeyboardHackClient.m; sourceTree = "<group>"; };
-		34BE223D18C2091F0014BB5B /* PCKeyboardHackKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PCKeyboardHackKeys.h; path = ../../../share/PCKeyboardHackKeys.h; sourceTree = "<group>"; };
-		34BE223E18C2091F0014BB5B /* PCKeyboardHackProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PCKeyboardHackProtocol.h; path = ../../../share/PCKeyboardHackProtocol.h; sourceTree = "<group>"; };
+		34BE223B18C2091F0014BB5B /* SeilClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SeilClient.h; path = ../../../share/SeilClient.h; sourceTree = "<group>"; };
+		34BE223C18C2091F0014BB5B /* SeilClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SeilClient.m; path = ../../../share/SeilClient.m; sourceTree = "<group>"; };
+		34BE223D18C2091F0014BB5B /* SeilKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SeilKeys.h; path = ../../../share/SeilKeys.h; sourceTree = "<group>"; };
+		34BE223E18C2091F0014BB5B /* SeilProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SeilProtocol.h; path = ../../../share/SeilProtocol.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,7 +46,7 @@
 		34BE222318C200190014BB5B = {
 			isa = PBXGroup;
 			children = (
-				34BE222E18C200190014BB5B /* PCKeyboardHack_cli */,
+				34BE222E18C200190014BB5B /* Seil_cli */,
 				34BE222D18C200190014BB5B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,27 +54,27 @@
 		34BE222D18C200190014BB5B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				34BE222C18C200190014BB5B /* PCKeyboardHack_cli */,
+				34BE222C18C200190014BB5B /* Seil_cli */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		34BE222E18C200190014BB5B /* PCKeyboardHack_cli */ = {
+		34BE222E18C200190014BB5B /* Seil_cli */ = {
 			isa = PBXGroup;
 			children = (
 				34BE223818C208C60014BB5B /* main.m */,
 				34BE223A18C208D30014BB5B /* share */,
 			);
-			path = PCKeyboardHack_cli;
+			path = Seil_cli;
 			sourceTree = "<group>";
 		};
 		34BE223A18C208D30014BB5B /* share */ = {
 			isa = PBXGroup;
 			children = (
-				34BE223B18C2091F0014BB5B /* PCKeyboardHackClient.h */,
-				34BE223C18C2091F0014BB5B /* PCKeyboardHackClient.m */,
-				34BE223D18C2091F0014BB5B /* PCKeyboardHackKeys.h */,
-				34BE223E18C2091F0014BB5B /* PCKeyboardHackProtocol.h */,
+				34BE223B18C2091F0014BB5B /* SeilClient.h */,
+				34BE223C18C2091F0014BB5B /* SeilClient.m */,
+				34BE223D18C2091F0014BB5B /* SeilKeys.h */,
+				34BE223E18C2091F0014BB5B /* SeilProtocol.h */,
 			);
 			name = share;
 			sourceTree = "<group>";
@@ -82,9 +82,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		34BE222B18C200190014BB5B /* PCKeyboardHack_cli */ = {
+		34BE222B18C200190014BB5B /* Seil_cli */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 34BE223518C200190014BB5B /* Build configuration list for PBXNativeTarget "PCKeyboardHack_cli" */;
+			buildConfigurationList = 34BE223518C200190014BB5B /* Build configuration list for PBXNativeTarget "Seil_cli" */;
 			buildPhases = (
 				34BE222818C200190014BB5B /* Sources */,
 				34BE222918C200190014BB5B /* Frameworks */,
@@ -94,9 +94,9 @@
 			);
 			dependencies = (
 			);
-			name = PCKeyboardHack_cli;
-			productName = PCKeyboardHack_cli;
-			productReference = 34BE222C18C200190014BB5B /* PCKeyboardHack_cli */;
+			name = Seil_cli;
+			productName = Seil_cli;
+			productReference = 34BE222C18C200190014BB5B /* Seil_cli */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -108,7 +108,7 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Takayama Fumihiko";
 			};
-			buildConfigurationList = 34BE222718C200190014BB5B /* Build configuration list for PBXProject "PCKeyboardHack_cli" */;
+			buildConfigurationList = 34BE222718C200190014BB5B /* Build configuration list for PBXProject "Seil_cli" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -120,7 +120,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				34BE222B18C200190014BB5B /* PCKeyboardHack_cli */,
+				34BE222B18C200190014BB5B /* Seil_cli */,
 			);
 		};
 /* End PBXProject section */
@@ -131,7 +131,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				34BE223918C208C60014BB5B /* main.m in Sources */,
-				34BE223F18C2091F0014BB5B /* PCKeyboardHackClient.m in Sources */,
+				34BE223F18C2091F0014BB5B /* SeilClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,7 +191,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		34BE222718C200190014BB5B /* Build configuration list for PBXProject "PCKeyboardHack_cli" */ = {
+		34BE222718C200190014BB5B /* Build configuration list for PBXProject "Seil_cli" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				34BE223418C200190014BB5B /* Release */,
@@ -199,7 +199,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		34BE223518C200190014BB5B /* Build configuration list for PBXNativeTarget "PCKeyboardHack_cli" */ = {
+		34BE223518C200190014BB5B /* Build configuration list for PBXNativeTarget "Seil_cli" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				34BE223718C200190014BB5B /* Release */,

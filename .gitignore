@@ -8,6 +8,7 @@ xcuserdata/
 *.mode1
 *.mode1v3
 *.pbxuser
+*.xccheckout
 pkginfo/Info.plist
 pkginfo/Distribution.xml
 src/bridge/output

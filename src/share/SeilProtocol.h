@@ -2,7 +2,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@protocol PCKeyboardHackProtocol
+@protocol SeilProtocol
 
 - (void) setValue:(int)newval forName:(NSString*)name;
 - (NSDictionary*) allValues;

@@ -2,4 +2,4 @@
 
 // ------------------------------------------------------------
 // NSConnection
-#define kPCKeyboardHackConnectionName                 @"org.pqrs.PCKeyboardHack.server"
+#define kSeilConnectionName                 @"org.pqrs.Seil.server"
