@@ -1,6 +1,6 @@
 #!/bin/sh
 
-TMPDIR=`/usr/bin/mktemp -d /tmp/PCKeyboardHack_uninstaller.XXXXXX` || exit 1
-/usr/bin/rsync -a /Applications/PCKeyboardHack.app/Contents/Applications/PCKeyboardHackUninstaller.app "$TMPDIR"
-/Applications/PCKeyboardHack.app/Contents/Library/extra/setpermissions.sh "$TMPDIR/PCKeyboardHackUninstaller.app"
-/usr/bin/open "$TMPDIR/PCKeyboardHackUninstaller.app"
+TMPDIR=`/usr/bin/mktemp -d /tmp/Seil_uninstaller.XXXXXX` || exit 1
+/usr/bin/rsync -a /Applications/Seil.app/Contents/Applications/SeilUninstaller.app "$TMPDIR"
+/Applications/Seil.app/Contents/Library/extra/setpermissions.sh "$TMPDIR/SeilUninstaller.app"
+/usr/bin/open "$TMPDIR/SeilUninstaller.app"
