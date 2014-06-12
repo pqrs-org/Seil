@@ -11,4 +11,4 @@ open(filepath, 'w') do |f|
   end
 end
 
-PCKeyboardHackBridge::Converter.update_file_if_needed(filepath)
+SeilBridge::Converter.update_file_if_needed(filepath)

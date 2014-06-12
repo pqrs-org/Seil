@@ -48,5 +48,5 @@ end
 
 $outfile.each do |key,file|
   file.close
-  PCKeyboardHackBridge::Converter.update_file_if_needed(file.path)
+  SeilBridge::Converter.update_file_if_needed(file.path)
 end

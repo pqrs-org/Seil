@@ -1,6 +1,6 @@
 #!/usr/bin/ruby
 
-module PCKeyboardHackBridge
+module SeilBridge
   class Converter
     def self.update_file_if_needed(tmpfilepath)
       targetfilepath = tmpfilepath.gsub(/\.tmp$/, '')
