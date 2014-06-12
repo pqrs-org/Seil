@@ -40,7 +40,7 @@ done
 basedir="pkgroot/Applications/Seil.app/Contents/Library/bin"
 mkdir -p "$basedir"
 cp -R src/bin/kextload/build/Release/kextload "$basedir"
-cp -R src/util/cli/build/Release/Seil_cli "$basedir"
+cp -R src/util/cli/build/Release/seil "$basedir"
 
 basedir="pkgroot/Applications/Seil.app/Contents/Library/extra"
 mkdir -p "$basedir"

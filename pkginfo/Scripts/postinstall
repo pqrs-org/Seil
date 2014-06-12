@@ -4,17 +4,17 @@ PATH=/bin:/sbin:/usr/bin:/usr/sbin; export PATH
 # ------------------------------------------------------------
 # set file permissions
 for f in \
-    /Applications/PCKeyboardHack.app \
+    /Applications/Seil.app \
     ; do
     echo "set file permissions: $f"
-    sh /Applications/PCKeyboardHack.app/Contents/Library/extra/setpermissions.sh "$f"
+    sh /Applications/Seil.app/Contents/Library/extra/setpermissions.sh "$f"
     chown -Rh root:wheel "$f"
 done
 
 # ------------------------------------------------------------
-# relaunch PCKeyboardHack.app
+# relaunch Seil.app
 
-/Applications/PCKeyboardHack.app/Contents/Library/bin/PCKeyboardHack_cli \
+/Applications/Seil.app/Contents/Library/bin/seil \
     relaunch
 
 # ------------------------------------------------------------
