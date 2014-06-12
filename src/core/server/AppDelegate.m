@@ -1,5 +1,6 @@
 #import "AppDelegate.h"
 #import "ClientForKernelspace.h"
+#import "MigrationUtilities.h"
 #import "OutlineView_mixed.h"
 #import "PreferencesController.h"
 #import "Relauncher.h"
@@ -124,6 +125,9 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
 {
   NSInteger isDescendantProcess = [[[NSProcessInfo processInfo] environment][kDescendantProcess] integerValue];
   setenv([kDescendantProcess UTF8String], "1", 1);
+
+  [MigrationUtilities migrate:@[@"org.pqrs.PCKeyboardHack"]
+                      appURLs:@[[NSURL fileURLWithPath:@"/Applications/PCKeyboardHack.app"]]];
 
   // ------------------------------------------------------------
   BOOL openPreferences = NO;
