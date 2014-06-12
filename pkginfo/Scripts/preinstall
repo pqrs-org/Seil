@@ -21,8 +21,12 @@ startup="/Applications/PCKeyboardHack.app/Contents/Library/scripts/startup.sh"
 kextload="/Applications/PCKeyboardHack.app/Contents/Library/bin/kextload"
 [ -f "$kextload" ] && "$kextload" unload
 
+kextload="/Applications/Seil.app/Contents/Library/bin/kextload"
+[ -f "$kextload" ] && "$kextload" unload
+
 # ----------------------------------------
 # uninstall
+rm -rf /Applications/Seil.app
 rm -rf /Applications/PCKeyboardHack
 rm -rf /Applications/PCKeyboardHack.app
 rm -rf /Library/org.pqrs/PCKeyboardHack
@@ -35,7 +39,7 @@ rm -f /Library/LaunchAgents/org.pqrs.PCKeyboardHack.*
 
 # Don't remove uninstaller because
 # this script is also called from uninstaller and
-# we need to keep PCKeyboardHackUninstaller.icns while uninstaller is running.
-# rm -rf /tmp/PCKeyboardHack_uninstaller.*
+# we need to keep SeilUninstaller.icns while uninstaller is running.
+# rm -rf /tmp/Seil_uninstaller.*
 
 exit 0

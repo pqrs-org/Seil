@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <installer-gui-script minSpecVersion="1">
-  <title>PCKeyboardHack PKGVERSION</title>
+  <title>Seil PKGVERSION</title>
   <volume-check>
     <allowed-os-versions>
       <os-version min="10.8"/>
@@ -12,16 +12,16 @@
       <domains enable_anywhere="false" enable_currentUserHome="false" enable_localSystem="true" />
   -->
 
-  <pkg-ref id="org.pqrs.driver.PCKeyboardHack"/>
+  <pkg-ref id="org.pqrs.driver.Seil"/>
   <options customize="never" require-scripts="false"/>
   <choices-outline>
     <line choice="default">
-      <line choice="org.pqrs.driver.PCKeyboardHack"/>
+      <line choice="org.pqrs.driver.Seil"/>
     </line>
   </choices-outline>
   <choice id="default"/>
-  <choice id="org.pqrs.driver.PCKeyboardHack" visible="false">
-    <pkg-ref id="org.pqrs.driver.PCKeyboardHack"/>
+  <choice id="org.pqrs.driver.Seil" visible="false">
+    <pkg-ref id="org.pqrs.driver.Seil"/>
   </choice>
-  <pkg-ref id="org.pqrs.driver.PCKeyboardHack" version="PKGVERSION">Installer.pkg</pkg-ref>
+  <pkg-ref id="org.pqrs.driver.Seil" version="PKGVERSION">Installer.pkg</pkg-ref>
 </installer-gui-script>

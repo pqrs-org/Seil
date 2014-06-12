@@ -181,8 +181,8 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				256AC3F00F4B6AF500CF3369 /* Seil_server_Prefix.pch */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
+				256AC3F00F4B6AF500CF3369 /* Seil_server_Prefix.pch */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -190,13 +190,13 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				3494769A168B7AAA00B783D2 /* checkbox.xml */,
-				3494769B168B7AAA00B783D2 /* known.xml */,
-				34D2910513ED97C5002A224E /* Seil_pub.pem */,
 				34D65EE913E06A7400476C2A /* app.icns */,
+				3494769A168B7AAA00B783D2 /* checkbox.xml */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
+				3494769B168B7AAA00B783D2 /* known.xml */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
+				34D2910513ED97C5002A224E /* Seil_pub.pem */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
