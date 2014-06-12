@@ -1,49 +1,49 @@
 #ifndef IOLOGWRAPPER_HPP
 #define IOLOGWRAPPER_HPP
 
-#define IOLOG_DEBUG(...) {                                       \
-    if (! org_pqrs_PCKeyboardHack::IOLogWrapper::suppressed()) { \
-      if (Config::get_debug()) {                                 \
-        IOLog("PCKeyboardHack --Debug-- " __VA_ARGS__);          \
-      }                                                          \
-    }                                                            \
+#define IOLOG_DEBUG(...) {                             \
+    if (! org_pqrs_Seil::IOLogWrapper::suppressed()) { \
+      if (Config::get_debug()) {                       \
+        IOLog("org.pqrs.Seil --Debug-- " __VA_ARGS__); \
+      }                                                \
+    }                                                  \
 }
-#define IOLOG_DEBUG_POINTING(...) {                              \
-    if (! org_pqrs_PCKeyboardHack::IOLogWrapper::suppressed()) { \
-      if (Config::get_debug_pointing()) {                        \
-        IOLog("PCKeyboardHack --Debug-- " __VA_ARGS__);          \
-      }                                                          \
-    }                                                            \
+#define IOLOG_DEBUG_POINTING(...) {                    \
+    if (! org_pqrs_Seil::IOLogWrapper::suppressed()) { \
+      if (Config::get_debug_pointing()) {              \
+        IOLog("org.pqrs.Seil --Debug-- " __VA_ARGS__); \
+      }                                                \
+    }                                                  \
 }
-#define IOLOG_DEVEL(...) {                                       \
-    if (! org_pqrs_PCKeyboardHack::IOLogWrapper::suppressed()) { \
-      if (Config::get_debug_devel()) {                           \
-        IOLog("PCKeyboardHack --Devel-- " __VA_ARGS__);          \
-      }                                                          \
-    }                                                            \
-}
-
-#define IOLOG_ERROR(...) {                                       \
-    if (! org_pqrs_PCKeyboardHack::IOLogWrapper::suppressed()) { \
-      IOLog("PCKeyboardHack --Error-- " __VA_ARGS__);            \
-    }                                                            \
+#define IOLOG_DEVEL(...) {                             \
+    if (! org_pqrs_Seil::IOLogWrapper::suppressed()) { \
+      if (Config::get_debug_devel()) {                 \
+        IOLog("org.pqrs.Seil --Devel-- " __VA_ARGS__); \
+      }                                                \
+    }                                                  \
 }
 
-#define IOLOG_INFO(...) {                                        \
-    if (! org_pqrs_PCKeyboardHack::IOLogWrapper::suppressed()) { \
-      IOLog("PCKeyboardHack --Info-- "  __VA_ARGS__);            \
-    }                                                            \
+#define IOLOG_ERROR(...) {                             \
+    if (! org_pqrs_Seil::IOLogWrapper::suppressed()) { \
+      IOLog("org.pqrs.Seil --Error-- " __VA_ARGS__);   \
+    }                                                  \
 }
 
-#define IOLOG_WARN(...) {                                        \
-    if (! org_pqrs_PCKeyboardHack::IOLogWrapper::suppressed()) { \
-      IOLog("PCKeyboardHack --Warn-- "  __VA_ARGS__);            \
-    }                                                            \
+#define IOLOG_INFO(...) {                              \
+    if (! org_pqrs_Seil::IOLogWrapper::suppressed()) { \
+      IOLog("org.pqrs.Seil --Info-- "  __VA_ARGS__);   \
+    }                                                  \
+}
+
+#define IOLOG_WARN(...) {                              \
+    if (! org_pqrs_Seil::IOLogWrapper::suppressed()) { \
+      IOLog("org.pqrs.Seil --Warn-- "  __VA_ARGS__);   \
+    }                                                  \
 }
 
 
 // ------------------------------------------------------------
-namespace org_pqrs_PCKeyboardHack {
+namespace org_pqrs_Seil {
   class IOLogWrapper {
   public:
     static bool suppressed(void) { return suppressed_; }

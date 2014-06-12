@@ -5,7 +5,7 @@
 #include "UserClient_kext.hpp"
 #include "bridge.h"
 
-#define KEXT_NAMESPACE org_pqrs_PCKeyboardHack
+#define KEXT_NAMESPACE org_pqrs_Seil
 
 #define super IOUserClient
 

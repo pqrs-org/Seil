@@ -3,7 +3,7 @@
 #include "GlobalLock.hpp"
 #include "IOLogWrapper.hpp"
 
-namespace org_pqrs_PCKeyboardHack {
+namespace org_pqrs_Seil {
   IOLock* GlobalLock::lock_ = NULL;
 
   void

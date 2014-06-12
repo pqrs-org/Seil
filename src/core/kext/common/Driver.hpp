@@ -10,9 +10,9 @@
 #include "bridge.h"
 
 // http://developer.apple.com/documentation/Darwin/Conceptual/KEXTConcept/KEXTConceptIOKit/hello_iokit.html#//apple_ref/doc/uid/20002366-CIHECHHE
-class org_pqrs_driver_PCKeyboardHack : public IOService
+class org_pqrs_driver_Seil : public IOService
 {
-  OSDeclareDefaultStructors(org_pqrs_driver_PCKeyboardHack);
+  OSDeclareDefaultStructors(org_pqrs_driver_Seil);
 
 public:
   virtual bool init(OSDictionary* dictionary = 0);

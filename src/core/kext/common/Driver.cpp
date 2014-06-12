@@ -14,8 +14,8 @@
 #include "IOLogWrapper.hpp"
 #include "ostype.hpp"
 
-org_pqrs_driver_PCKeyboardHack::HookedKeyboard org_pqrs_driver_PCKeyboardHack::hookedKeyboard_[MAXNUM_KEYBOARD];
-BridgeConfig org_pqrs_driver_PCKeyboardHack::configuration_;
+org_pqrs_driver_Seil::HookedKeyboard org_pqrs_driver_Seil::hookedKeyboard_[MAXNUM_KEYBOARD];
+BridgeConfig org_pqrs_driver_Seil::configuration_;
 
 // ----------------------------------------------------------------------
 // http://developer.apple.com/documentation/DeviceDrivers/Conceptual/WritingDeviceDriver/CPluPlusRuntime/chapter_2_section_3.html
@@ -24,11 +24,11 @@ BridgeConfig org_pqrs_driver_PCKeyboardHack::configuration_;
 #define super    IOService
 // You cannot use the "super" macro here, however, with the
 //  OSDefineMetaClassAndStructors macro.
-OSDefineMetaClassAndStructors(org_pqrs_driver_PCKeyboardHack, IOService)
+OSDefineMetaClassAndStructors(org_pqrs_driver_Seil, IOService)
 
 // ----------------------------------------------------------------------
 void
-org_pqrs_driver_PCKeyboardHack::HookedKeyboard::initialize(IOHIKeyboard* p)
+org_pqrs_driver_Seil::HookedKeyboard::initialize(IOHIKeyboard* p)
 {
   IOHIDKeyboard* hid = OSDynamicCast(IOHIDKeyboard, p);
 
@@ -54,14 +54,14 @@ org_pqrs_driver_PCKeyboardHack::HookedKeyboard::initialize(IOHIKeyboard* p)
 }
 
 void
-org_pqrs_driver_PCKeyboardHack::HookedKeyboard::terminate(void)
+org_pqrs_driver_Seil::HookedKeyboard::terminate(void)
 {
   restore();
   kbd_ = NULL;
 }
 
 void
-org_pqrs_driver_PCKeyboardHack::HookedKeyboard::restore(void)
+org_pqrs_driver_Seil::HookedKeyboard::restore(void)
 {
   if (! kbd_) return;
 
@@ -77,7 +77,7 @@ org_pqrs_driver_PCKeyboardHack::HookedKeyboard::restore(void)
 }
 
 void
-org_pqrs_driver_PCKeyboardHack::HookedKeyboard::refresh(void)
+org_pqrs_driver_Seil::HookedKeyboard::refresh(void)
 {
   if (! kbd_) return;
 
@@ -105,7 +105,7 @@ org_pqrs_driver_PCKeyboardHack::HookedKeyboard::refresh(void)
 
 // ----------------------------------------------------------------------
 bool
-org_pqrs_driver_PCKeyboardHack::init(OSDictionary* dict)
+org_pqrs_driver_Seil::init(OSDictionary* dict)
 {
   IOLOG_INFO("init %s\n", ostype);
 
@@ -117,7 +117,7 @@ org_pqrs_driver_PCKeyboardHack::init(OSDictionary* dict)
 }
 
 void
-org_pqrs_driver_PCKeyboardHack::free(void)
+org_pqrs_driver_Seil::free(void)
 {
   IOLOG_INFO("free\n");
 
@@ -125,25 +125,25 @@ org_pqrs_driver_PCKeyboardHack::free(void)
 }
 
 IOService*
-org_pqrs_driver_PCKeyboardHack::probe(IOService* provider, SInt32* score)
+org_pqrs_driver_Seil::probe(IOService* provider, SInt32* score)
 {
   IOService* res = super::probe(provider, score);
   return res;
 }
 
 bool
-org_pqrs_driver_PCKeyboardHack::start(IOService* provider)
+org_pqrs_driver_Seil::start(IOService* provider)
 {
   IOLOG_INFO("start\n");
 
   bool res = super::start(provider);
   if (! res) { return res; }
 
-  org_pqrs_PCKeyboardHack::GlobalLock::initialize();
+  org_pqrs_Seil::GlobalLock::initialize();
 
   notifier_hookKeyboard_ = addMatchingNotification(gIOMatchedNotification,
                                                    serviceMatching("IOHIKeyboard"),
-                                                   org_pqrs_driver_PCKeyboardHack::IOHIKeyboard_gIOMatchedNotification_callback,
+                                                   org_pqrs_driver_Seil::IOHIKeyboard_gIOMatchedNotification_callback,
                                                    this, NULL, 0);
   if (notifier_hookKeyboard_ == NULL) {
     IOLOG_ERROR("initialize_notification notifier_hookKeyboard_ == NULL\n");
@@ -152,7 +152,7 @@ org_pqrs_driver_PCKeyboardHack::start(IOService* provider)
 
   notifier_unhookKeyboard_ = addMatchingNotification(gIOTerminatedNotification,
                                                      serviceMatching("IOHIKeyboard"),
-                                                     org_pqrs_driver_PCKeyboardHack::IOHIKeyboard_gIOTerminatedNotification_callback,
+                                                     org_pqrs_driver_Seil::IOHIKeyboard_gIOTerminatedNotification_callback,
                                                      this, NULL, 0);
   if (notifier_unhookKeyboard_ == NULL) {
     IOLOG_ERROR("initialize_notification notifier_unhookKeyboard_ == NULL\n");
@@ -166,7 +166,7 @@ org_pqrs_driver_PCKeyboardHack::start(IOService* provider)
 }
 
 void
-org_pqrs_driver_PCKeyboardHack::stop(IOService* provider)
+org_pqrs_driver_Seil::stop(IOService* provider)
 {
   IOLOG_INFO("stop\n");
 
@@ -177,15 +177,15 @@ org_pqrs_driver_PCKeyboardHack::stop(IOService* provider)
   if (notifier_hookKeyboard_) notifier_hookKeyboard_->remove();
   if (notifier_unhookKeyboard_) notifier_unhookKeyboard_->remove();
 
-  org_pqrs_PCKeyboardHack::GlobalLock::terminate();
+  org_pqrs_Seil::GlobalLock::terminate();
 
   super::stop(provider);
 }
 
 
 // ----------------------------------------------------------------------
-org_pqrs_driver_PCKeyboardHack::HookedKeyboard*
-org_pqrs_driver_PCKeyboardHack::new_hookedKeyboard(void)
+org_pqrs_driver_Seil::HookedKeyboard*
+org_pqrs_driver_Seil::new_hookedKeyboard(void)
 {
   for (int i = 0; i < MAXNUM_KEYBOARD; ++i) {
     if (hookedKeyboard_[i].get() == NULL) {
@@ -195,8 +195,8 @@ org_pqrs_driver_PCKeyboardHack::new_hookedKeyboard(void)
   return NULL;
 }
 
-org_pqrs_driver_PCKeyboardHack::HookedKeyboard*
-org_pqrs_driver_PCKeyboardHack::search_hookedKeyboard(const IOHIKeyboard* kbd)
+org_pqrs_driver_Seil::HookedKeyboard*
+org_pqrs_driver_Seil::search_hookedKeyboard(const IOHIKeyboard* kbd)
 {
   if (kbd == NULL) {
     return NULL;
@@ -211,7 +211,7 @@ org_pqrs_driver_PCKeyboardHack::search_hookedKeyboard(const IOHIKeyboard* kbd)
 
 // ----------------------------------------------------------------------
 bool
-org_pqrs_driver_PCKeyboardHack::isTargetDevice(IOHIKeyboard* kbd)
+org_pqrs_driver_Seil::isTargetDevice(IOHIKeyboard* kbd)
 {
   if (! kbd) return false;
 
@@ -254,7 +254,7 @@ finish:
 }
 
 bool
-org_pqrs_driver_PCKeyboardHack::IOHIKeyboard_gIOMatchedNotification_callback(void* target, void* refCon, IOService* newService, IONotifier* notifier)
+org_pqrs_driver_Seil::IOHIKeyboard_gIOMatchedNotification_callback(void* target, void* refCon, IOService* newService, IONotifier* notifier)
 {
   // IOLOG_INFO("notifier_hookKeyboard\n");
 
@@ -264,7 +264,7 @@ org_pqrs_driver_PCKeyboardHack::IOHIKeyboard_gIOMatchedNotification_callback(voi
 }
 
 bool
-org_pqrs_driver_PCKeyboardHack::IOHIKeyboard_gIOTerminatedNotification_callback(void* target, void* refCon, IOService* newService, IONotifier* notifier)
+org_pqrs_driver_Seil::IOHIKeyboard_gIOTerminatedNotification_callback(void* target, void* refCon, IOService* newService, IONotifier* notifier)
 {
   // IOLOG_INFO("notifier_unhookKeyboard\n");
 
@@ -274,7 +274,7 @@ org_pqrs_driver_PCKeyboardHack::IOHIKeyboard_gIOTerminatedNotification_callback(
 }
 
 bool
-org_pqrs_driver_PCKeyboardHack::customizeKeyMap(IOHIKeyboard* kbd)
+org_pqrs_driver_Seil::customizeKeyMap(IOHIKeyboard* kbd)
 {
   if (! kbd) return false;
 
@@ -292,7 +292,7 @@ org_pqrs_driver_PCKeyboardHack::customizeKeyMap(IOHIKeyboard* kbd)
 }
 
 bool
-org_pqrs_driver_PCKeyboardHack::restoreKeyMap(IOHIKeyboard* kbd)
+org_pqrs_driver_Seil::restoreKeyMap(IOHIKeyboard* kbd)
 {
   if (! kbd) return false;
 
@@ -306,7 +306,7 @@ org_pqrs_driver_PCKeyboardHack::restoreKeyMap(IOHIKeyboard* kbd)
 
 // ----------------------------------------------------------------------
 void
-org_pqrs_driver_PCKeyboardHack::setConfiguration(const BridgeConfig& newval)
+org_pqrs_driver_Seil::setConfiguration(const BridgeConfig& newval)
 {
   configuration_ = newval;
 
@@ -318,7 +318,7 @@ org_pqrs_driver_PCKeyboardHack::setConfiguration(const BridgeConfig& newval)
 }
 
 void
-org_pqrs_driver_PCKeyboardHack::unsetConfiguration(void)
+org_pqrs_driver_Seil::unsetConfiguration(void)
 {
   BridgeConfig newval;
   memset(&newval, 0, sizeof(newval));

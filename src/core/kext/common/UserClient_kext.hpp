@@ -5,8 +5,8 @@
 #include "bridge.h"
 #include <IOKit/IOUserClient.h>
 
-#define KEXT_CLASSNAME            org_pqrs_driver_PCKeyboardHack
-#define USERCLIENT_KEXT_CLASSNAME org_pqrs_driver_PCKeyboardHack_UserClient_kext
+#define KEXT_CLASSNAME            org_pqrs_driver_Seil
+#define USERCLIENT_KEXT_CLASSNAME org_pqrs_driver_Seil_UserClient_kext
 
 class USERCLIENT_KEXT_CLASSNAME : public IOUserClient
 {

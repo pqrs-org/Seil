@@ -1,7 +1,7 @@
 #ifndef GLOBALLOCK_HPP
 #define GLOBALLOCK_HPP
 
-namespace org_pqrs_PCKeyboardHack {
+namespace org_pqrs_Seil {
   class GlobalLock {
   public:
     static void initialize(void);
