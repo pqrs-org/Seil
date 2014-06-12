@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:PCKeyboardHack.xcodeproj">
+      location = "self:Seil.xcodeproj">
    </FileRef>
 </Workspace>

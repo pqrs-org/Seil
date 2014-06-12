@@ -25,7 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		32D94FD00562CBF700B6AF17 /* PCKeyboardHack.kext */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PCKeyboardHack.kext; sourceTree = BUILT_PRODUCTS_DIR; };
+		32D94FD00562CBF700B6AF17 /* Seil.kext */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Seil.kext; sourceTree = BUILT_PRODUCTS_DIR; };
 		341D9CC8169D61720057E29C /* GlobalLock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GlobalLock.cpp; path = ../common/GlobalLock.cpp; sourceTree = "<group>"; };
 		341D9CC9169D61720057E29C /* GlobalLock.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = GlobalLock.hpp; path = ../common/GlobalLock.hpp; sourceTree = "<group>"; };
 		3426044F13D9540500A299D2 /* ostype.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ostype.hpp; sourceTree = "<group>"; };
@@ -56,7 +56,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		089C166AFE841209C02AAC07 /* PCKeyboardHack */ = {
+		089C166AFE841209C02AAC07 /* Seil */ = {
 			isa = PBXGroup;
 			children = (
 				247142CAFF3F8F9811CA285C /* Source */,
@@ -64,7 +64,7 @@
 				089C167CFE841241C02AAC07 /* Resources */,
 				19C28FB6FE9D52B211CA2CBB /* Products */,
 			);
-			name = PCKeyboardHack;
+			name = Seil;
 			sourceTree = "<group>";
 		};
 		089C167CFE841241C02AAC07 /* Resources */ = {
@@ -79,7 +79,7 @@
 		19C28FB6FE9D52B211CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				32D94FD00562CBF700B6AF17 /* PCKeyboardHack.kext */,
+				32D94FD00562CBF700B6AF17 /* Seil.kext */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -145,9 +145,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		32D94FC30562CBF700B6AF17 /* PCKeyboardHack */ = {
+		32D94FC30562CBF700B6AF17 /* Seil */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1DEB91D908733DB10010E9CD /* Build configuration list for PBXNativeTarget "PCKeyboardHack" */;
+			buildConfigurationList = 1DEB91D908733DB10010E9CD /* Build configuration list for PBXNativeTarget "Seil" */;
 			buildPhases = (
 				32D94FC50562CBF700B6AF17 /* Headers */,
 				32D94FC70562CBF700B6AF17 /* Resources */,
@@ -159,10 +159,10 @@
 			);
 			dependencies = (
 			);
-			name = PCKeyboardHack;
+			name = Seil;
 			productInstallPath = "$(SYSTEM_LIBRARY_DIR)/Extensions";
-			productName = PCKeyboardHack;
-			productReference = 32D94FD00562CBF700B6AF17 /* PCKeyboardHack.kext */;
+			productName = Seil;
+			productReference = 32D94FD00562CBF700B6AF17 /* Seil.kext */;
 			productType = "com.apple.product-type.kernel-extension.iokit";
 		};
 /* End PBXNativeTarget section */
@@ -174,18 +174,18 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Takayama Fumihiko";
 			};
-			buildConfigurationList = 1DEB91DD08733DB10010E9CD /* Build configuration list for PBXProject "PCKeyboardHack" */;
+			buildConfigurationList = 1DEB91DD08733DB10010E9CD /* Build configuration list for PBXProject "Seil" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 089C166AFE841209C02AAC07 /* PCKeyboardHack */;
+			mainGroup = 089C166AFE841209C02AAC07 /* Seil */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				32D94FC30562CBF700B6AF17 /* PCKeyboardHack */,
+				32D94FC30562CBF700B6AF17 /* Seil */,
 			);
 		};
 /* End PBXProject section */
@@ -248,9 +248,9 @@
 				INFOPLIST_FILE = ../common/Info.plist;
 				INFOPLIST_PREPROCESS = YES;
 				LD_MAP_FILE_PATH = "$(TARGET_TEMP_DIR)/$(PRODUCT_NAME)-LinkMap-$(CURRENT_VARIANT)-$(CURRENT_ARCH).txt";
-				MODULE_NAME = org.pqrs.driver.PCKeyboardHack;
+				MODULE_NAME = org.pqrs.driver.Seil;
 				MODULE_VERSION = 1.0.0d1;
-				PRODUCT_NAME = PCKeyboardHack;
+				PRODUCT_NAME = Seil;
 				WRAPPER_EXTENSION = kext;
 			};
 			name = Release;
@@ -288,7 +288,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1DEB91D908733DB10010E9CD /* Build configuration list for PBXNativeTarget "PCKeyboardHack" */ = {
+		1DEB91D908733DB10010E9CD /* Build configuration list for PBXNativeTarget "Seil" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB91DB08733DB10010E9CD /* Release */,
@@ -296,7 +296,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1DEB91DD08733DB10010E9CD /* Build configuration list for PBXProject "PCKeyboardHack" */ = {
+		1DEB91DD08733DB10010E9CD /* Build configuration list for PBXProject "Seil" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB91DF08733DB10010E9CD /* Release */,
