@@ -10,6 +10,7 @@
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		256AC3DA0F4B6AC300CF3369 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* AppDelegate.m */; };
 		343420CB13D74C16000DBD3E /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 343420CA13D74C16000DBD3E /* IOKit.framework */; };
+		3451A03E1949F0C000E68360 /* MigrationUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 3451A03D1949F0C000E68360 /* MigrationUtilities.m */; };
 		34598343169CAB66007C84F8 /* ClientForKernelspace.m in Sources */ = {isa = PBXBuildFile; fileRef = 34598342169CAB66007C84F8 /* ClientForKernelspace.m */; };
 		34947684168B6EB000B783D2 /* Updater.m in Sources */ = {isa = PBXBuildFile; fileRef = 34947683168B6EB000B783D2 /* Updater.m */; };
 		3494768A168B707500B783D2 /* PreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34947689168B707500B783D2 /* PreferencesController.m */; };
@@ -62,6 +63,8 @@
 		342A41BA183E50B800BF09C8 /* include.bridge_version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = include.bridge_version.h; path = ../../bridge/output/include.bridge_version.h; sourceTree = "<group>"; };
 		342A41BB183E50B800BF09C8 /* setDefault.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = setDefault.h; path = ../../bridge/output/setDefault.h; sourceTree = "<group>"; };
 		343420CA13D74C16000DBD3E /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		3451A03C1949F0C000E68360 /* MigrationUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MigrationUtilities.h; path = ../../share/MigrationUtilities.h; sourceTree = "<group>"; };
+		3451A03D1949F0C000E68360 /* MigrationUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MigrationUtilities.m; path = ../../share/MigrationUtilities.m; sourceTree = "<group>"; };
 		34598341169CAB66007C84F8 /* ClientForKernelspace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClientForKernelspace.h; path = Classes/ClientForKernelspace.h; sourceTree = "<group>"; };
 		34598342169CAB66007C84F8 /* ClientForKernelspace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClientForKernelspace.m; path = Classes/ClientForKernelspace.m; sourceTree = "<group>"; };
 		34947682168B6EB000B783D2 /* Updater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Updater.h; path = Classes/Updater.h; sourceTree = "<group>"; };
@@ -239,6 +242,8 @@
 		34BE221D18C1D7850014BB5B /* share */ = {
 			isa = PBXGroup;
 			children = (
+				3451A03C1949F0C000E68360 /* MigrationUtilities.h */,
+				3451A03D1949F0C000E68360 /* MigrationUtilities.m */,
 				34BE222018C1D7970014BB5B /* SeilKeys.h */,
 				34BE222118C1D7970014BB5B /* SeilProtocol.h */,
 				34E5165A193EA296002BB013 /* StartAtLoginUtilities.h */,
@@ -317,6 +322,7 @@
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				256AC3DA0F4B6AC300CF3369 /* AppDelegate.m in Sources */,
 				34F9652C13D742FA0081D1F3 /* PreferencesManager.m in Sources */,
+				3451A03E1949F0C000E68360 /* MigrationUtilities.m in Sources */,
 				34E5165C193EA296002BB013 /* StartAtLoginUtilities.m in Sources */,
 				34B60F35184B6395004D80D8 /* Relauncher.m in Sources */,
 				34BE221C18C1D7800014BB5B /* ServerForUserspace.m in Sources */,
