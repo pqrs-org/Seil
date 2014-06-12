@@ -19,4 +19,4 @@ xcode:
 	open *.xcodeproj
 
 run:
-	./build/Release/PCKeyboardHack.app/Contents/MacOS/PCKeyboardHack
+	./build/Release/Seil.app/Contents/MacOS/Seil

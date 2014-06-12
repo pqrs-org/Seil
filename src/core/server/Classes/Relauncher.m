@@ -2,8 +2,8 @@
 
 @implementation Relauncher
 
-#define kRelaunchedCount @"org_pqrs_PCKeyboardHack_RelaunchedCount"
-#define kPreviousProcessVersion @"org_pqrs_PCKeyboardHack_PreviousProcessVersion"
+#define kRelaunchedCount @"org_pqrs_Seil_RelaunchedCount"
+#define kPreviousProcessVersion @"org_pqrs_Seil_PreviousProcessVersion"
 
 // ------------------------------------------------------------
 + (void) setRelaunchedCount:(int)newvalue

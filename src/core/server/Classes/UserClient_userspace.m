@@ -50,7 +50,7 @@ typedef enum {
 
   io_iterator_t iterator;
 
-  kern_return_t kernResult = IOServiceGetMatchingServices(kIOMasterPortDefault, IOServiceMatching("org_pqrs_driver_PCKeyboardHack"), &iterator);
+  kern_return_t kernResult = IOServiceGetMatchingServices(kIOMasterPortDefault, IOServiceMatching("org_pqrs_driver_Seil"), &iterator);
   if (kernResult != KERN_SUCCESS) {
     NSLog(@"[ERROR] IOServiceGetMatchingServices returned 0x%08x\n\n", kernResult);
     return;
@@ -107,7 +107,7 @@ typedef enum {
           if ([Relauncher isEqualPreviousProcessVersionAndCurrentProcessVersion]) {
             unrecoverableError_ = UNRECOVERABLE_ERROR_BRIDGE_VERSION_MISMATCH;
           } else {
-            NSLog(@"PCKeyboardHack might have been upgraded.");
+            NSLog(@"Seil might have been upgraded.");
             [Relauncher relaunch];
           }
           continue;
@@ -247,7 +247,7 @@ finish:
     }
 
     if (connect_ == IO_OBJECT_NULL) {
-      errorMessage = @"PCKeyboardHack cannot connect with kernel extension.\n"
+      errorMessage = @"Seil cannot connect with kernel extension.\n"
                      @"Please restart your system in order to solve the problem.\n";
       goto error;
     }
@@ -259,7 +259,7 @@ error:
   if (errorMessage) {
     dispatch_async(dispatch_get_main_queue(), ^{
       NSAlert* alert = [NSAlert new];
-      [alert setMessageText:@"PCKeyboardHack Alert"];
+      [alert setMessageText:@"Seil Alert"];
       [alert addButtonWithTitle:@"Close"];
       [alert setInformativeText:errorMessage];
       [alert runModal];

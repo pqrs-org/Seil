@@ -78,7 +78,7 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
 
   kernResult = IOServiceAddMatchingNotification(notifyport_,
                                                 kIOMatchedNotification,
-                                                IOServiceNameMatching("org_pqrs_driver_PCKeyboardHack"),
+                                                IOServiceNameMatching("org_pqrs_driver_Seil"),
                                                 &observer_IONotification,
                                                 (__bridge void*)(self),
                                                 &it);
@@ -118,7 +118,7 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
 }
 
 // ------------------------------------------------------------
-#define kDescendantProcess @"org_pqrs_PCKeyboardHack_DescendantProcess"
+#define kDescendantProcess @"org_pqrs_Seil_DescendantProcess"
 
 - (void) applicationDidFinishLaunching:(NSNotification*)aNotification
 {
@@ -133,16 +133,16 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
   }
 
   // ------------------------------------------------------------
-  system("/Applications/PCKeyboardHack.app/Contents/Library/bin/kextload load");
+  system("/Applications/Seil.app/Contents/Library/bin/kextload load");
 
   // ------------------------------------------------------------
   {
     // Remove old pkg files and finish_installation.app in
-    // "~/Library/Application Support/PCKeyboardHack/.Sparkle".
+    // "~/Library/Application Support/Seil/.Sparkle".
     NSArray* paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
     NSString* sparkle = paths[0];
     if (sparkle) {
-      sparkle = [sparkle stringByAppendingPathComponent:@"PCKeyboardHack"];
+      sparkle = [sparkle stringByAppendingPathComponent:@"Seil"];
       sparkle = [sparkle stringByAppendingPathComponent:@".Sparkle"];
 
       NSFileManager* fm = [NSFileManager defaultManager];
@@ -178,7 +178,7 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
   [updater_ checkForUpdatesInBackground:nil];
 
   // ------------------------------------------------------------
-  // Open Preferences if PCKeyboardHack was launched by hand.
+  // Open Preferences if Seil was launched by hand.
   if (openPreferences &&
       ! isDescendantProcess) {
     [preferencesController_ show];
@@ -199,7 +199,7 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
 // ------------------------------------------------------------
 - (IBAction) launchUninstaller:(id)sender
 {
-  system("/Applications/PCKeyboardHack.app/Contents/Library/extra/launchUninstaller.sh");
+  system("/Applications/Seil.app/Contents/Library/extra/launchUninstaller.sh");
 }
 
 @end

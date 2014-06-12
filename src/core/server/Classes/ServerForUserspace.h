@@ -1,11 +1,11 @@
 // -*- Mode: objc; Coding: utf-8; indent-tabs-mode: nil; -*-
 
 #import <Cocoa/Cocoa.h>
-#import "PCKeyboardHackProtocol.h"
+#import "SeilProtocol.h"
 
 @class PreferencesManager;
 
-@interface ServerForUserspace : NSObject<PCKeyboardHackProtocol>
+@interface ServerForUserspace : NSObject<SeilProtocol>
 {
   IBOutlet PreferencesManager* preferencesManager_;
 }
