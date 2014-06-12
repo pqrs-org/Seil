@@ -44,13 +44,13 @@ main(int argc, const char* argv[])
     int major = os_major_version();
     switch (major) {
       case 12: // OS X 10.8
-        command = "/sbin/kextload '/Applications/PCKeyboardHack.app/Contents/Library/PCKeyboardHack.10.8.kext'";
+        command = "/sbin/kextload '/Applications/Seil.app/Contents/Library/Seil.10.8.kext'";
         break;
       case 13: // OS X 10.9
-        command = "/sbin/kextload '/Applications/PCKeyboardHack.app/Contents/Library/PCKeyboardHack.10.9.signed.kext'";
+        command = "/sbin/kextload '/Applications/Seil.app/Contents/Library/Seil.10.9.signed.kext'";
         break;
       case 14: // OS X 10.10 (XXX: provisional support of OS X 10.10)
-        command = "/sbin/kextload '/Applications/PCKeyboardHack.app/Contents/Library/PCKeyboardHack.10.9.signed.kext'";
+        command = "/sbin/kextload '/Applications/Seil.app/Contents/Library/Seil.10.9.signed.kext'";
         break;
       default:
         std::cerr << "Unknown os major version: " << major << std::endl;
@@ -58,7 +58,7 @@ main(int argc, const char* argv[])
     }
 
   } else if (argument == "unload") {
-    command = "/sbin/kextunload -b org.pqrs.driver.PCKeyboardHack";
+    command = "/sbin/kextunload -b org.pqrs.driver.Seil";
   } else {
     usage();
   }
