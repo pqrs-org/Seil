@@ -127,7 +127,8 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
   setenv([kDescendantProcess UTF8String], "1", 1);
 
   [MigrationUtilities migrate:@[@"org.pqrs.PCKeyboardHack"]
-                      appURLs:@[[NSURL fileURLWithPath:@"/Applications/PCKeyboardHack.app"]]];
+       oldApplicationSupports:@[]
+                     oldPaths:@[@"/Applications/PCKeyboardHack.app"]];
 
   // ------------------------------------------------------------
   BOOL openPreferences = NO;
