@@ -11,7 +11,7 @@ And it can activate International Keys on Non-Apple keyboard.
 Web pages
 ---------
 
-* master: https://pqrs.org/macosx/keyremap4macbook/pckeyboardhack.html
+* master: https://pqrs.org/macosx/keyremap4macbook/seil.html
 * backup: http://tekezo.github.io/pqrs.org/
 
 
