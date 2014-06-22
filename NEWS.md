@@ -1,3 +1,10 @@
+Since 10.8.0
+------------
+
+* Fixed issues:
+  * A message "Kernel extension is not loaded" might be shown in some environment.
+  * Preferences might not show properly after migration until you change the configuration or relaunch Seil.
+
 Version 10.8.0
 --------------
 
