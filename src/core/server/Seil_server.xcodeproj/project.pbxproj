@@ -20,12 +20,12 @@
 		34947698168B740E00B783D2 /* OutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 34947695168B740E00B783D2 /* OutlineView.m */; };
 		3494769C168B7AAA00B783D2 /* checkbox.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3494769A168B7AAA00B783D2 /* checkbox.xml */; };
 		3494769D168B7AAA00B783D2 /* known.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3494769B168B7AAA00B783D2 /* known.xml */; };
-		34B60F35184B6395004D80D8 /* Relauncher.m in Sources */ = {isa = PBXBuildFile; fileRef = 34B60F34184B6395004D80D8 /* Relauncher.m */; };
 		34BE221C18C1D7800014BB5B /* ServerForUserspace.m in Sources */ = {isa = PBXBuildFile; fileRef = 34BE221B18C1D7800014BB5B /* ServerForUserspace.m */; };
 		34D2910313ED96A3002A224E /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34D2910213ED96A3002A224E /* Sparkle.framework */; };
 		34D2910613ED97C5002A224E /* Seil_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 34D2910513ED97C5002A224E /* Seil_pub.pem */; };
 		34D2910D13ED9A27002A224E /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 34D2910213ED96A3002A224E /* Sparkle.framework */; };
 		34D65EEA13E06A7400476C2A /* app.icns in Resources */ = {isa = PBXBuildFile; fileRef = 34D65EE913E06A7400476C2A /* app.icns */; };
+		34E4086D19571DC100530059 /* Relauncher.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E4086C19571DC100530059 /* Relauncher.m */; };
 		34E5165C193EA296002BB013 /* StartAtLoginUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E5165B193EA296002BB013 /* StartAtLoginUtilities.m */; };
 		34F9652C13D742FA0081D1F3 /* PreferencesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F9652913D742FA0081D1F3 /* PreferencesManager.m */; };
 		34F9652D13D742FA0081D1F3 /* UserClient_userspace.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F9652B13D742FA0081D1F3 /* UserClient_userspace.m */; };
@@ -84,8 +84,6 @@
 		34947695168B740E00B783D2 /* OutlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OutlineView.m; path = Classes/Preferences/OutlineView.m; sourceTree = "<group>"; };
 		3494769A168B7AAA00B783D2 /* checkbox.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = checkbox.xml; path = Resources/checkbox.xml; sourceTree = "<group>"; };
 		3494769B168B7AAA00B783D2 /* known.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = known.xml; path = Resources/known.xml; sourceTree = "<group>"; };
-		34B60F33184B6395004D80D8 /* Relauncher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Relauncher.h; path = Classes/Relauncher.h; sourceTree = "<group>"; };
-		34B60F34184B6395004D80D8 /* Relauncher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Relauncher.m; path = Classes/Relauncher.m; sourceTree = "<group>"; };
 		34BE221A18C1D7800014BB5B /* ServerForUserspace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServerForUserspace.h; path = Classes/ServerForUserspace.h; sourceTree = "<group>"; };
 		34BE221B18C1D7800014BB5B /* ServerForUserspace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ServerForUserspace.m; path = Classes/ServerForUserspace.m; sourceTree = "<group>"; };
 		34BE222018C1D7970014BB5B /* SeilKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SeilKeys.h; path = ../../share/SeilKeys.h; sourceTree = "<group>"; };
@@ -93,6 +91,8 @@
 		34D2910213ED96A3002A224E /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Frameworks/Sparkle.framework; sourceTree = "<group>"; };
 		34D2910513ED97C5002A224E /* Seil_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Seil_pub.pem; path = Resources/Seil_pub.pem; sourceTree = "<group>"; };
 		34D65EE913E06A7400476C2A /* app.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = app.icns; path = ../../share/Resources/app.icns; sourceTree = "<group>"; };
+		34E4086B19571DC100530059 /* Relauncher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Relauncher.h; path = ../../share/Relauncher.h; sourceTree = "<group>"; };
+		34E4086C19571DC100530059 /* Relauncher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Relauncher.m; path = ../../share/Relauncher.m; sourceTree = "<group>"; };
 		34E5165A193EA296002BB013 /* StartAtLoginUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartAtLoginUtilities.h; path = ../../share/StartAtLoginUtilities.h; sourceTree = "<group>"; };
 		34E5165B193EA296002BB013 /* StartAtLoginUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StartAtLoginUtilities.m; path = ../../share/StartAtLoginUtilities.m; sourceTree = "<group>"; };
 		34F9652813D742FA0081D1F3 /* PreferencesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreferencesManager.h; path = Classes/PreferencesManager.h; sourceTree = "<group>"; };
@@ -133,8 +133,6 @@
 				34947686168B6F9200B783D2 /* PreferencesKeys.h */,
 				34F9652813D742FA0081D1F3 /* PreferencesManager.h */,
 				34F9652913D742FA0081D1F3 /* PreferencesManager.m */,
-				34B60F33184B6395004D80D8 /* Relauncher.h */,
-				34B60F34184B6395004D80D8 /* Relauncher.m */,
 				34BE221A18C1D7800014BB5B /* ServerForUserspace.h */,
 				34BE221B18C1D7800014BB5B /* ServerForUserspace.m */,
 				34BE221D18C1D7850014BB5B /* share */,
@@ -249,6 +247,8 @@
 			children = (
 				3451A03C1949F0C000E68360 /* MigrationUtilities.h */,
 				3451A03D1949F0C000E68360 /* MigrationUtilities.m */,
+				34E4086B19571DC100530059 /* Relauncher.h */,
+				34E4086C19571DC100530059 /* Relauncher.m */,
 				34BE222018C1D7970014BB5B /* SeilKeys.h */,
 				34BE222118C1D7970014BB5B /* SeilProtocol.h */,
 				34E5165A193EA296002BB013 /* StartAtLoginUtilities.h */,
@@ -329,13 +329,13 @@
 				34F9652C13D742FA0081D1F3 /* PreferencesManager.m in Sources */,
 				3451A03E1949F0C000E68360 /* MigrationUtilities.m in Sources */,
 				34E5165C193EA296002BB013 /* StartAtLoginUtilities.m in Sources */,
-				34B60F35184B6395004D80D8 /* Relauncher.m in Sources */,
 				34BE221C18C1D7800014BB5B /* ServerForUserspace.m in Sources */,
 				34F9652D13D742FA0081D1F3 /* UserClient_userspace.m in Sources */,
 				34947684168B6EB000B783D2 /* Updater.m in Sources */,
 				3494768A168B707500B783D2 /* PreferencesController.m in Sources */,
 				34656496194DEEA200235998 /* KextLoader.m in Sources */,
 				34947696168B740E00B783D2 /* OutlineView_keycode.m in Sources */,
+				34E4086D19571DC100530059 /* Relauncher.m in Sources */,
 				34947697168B740E00B783D2 /* OutlineView_mixed.m in Sources */,
 				34947698168B740E00B783D2 /* OutlineView.m in Sources */,
 				34598343169CAB66007C84F8 /* ClientForKernelspace.m in Sources */,
