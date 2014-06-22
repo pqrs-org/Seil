@@ -129,9 +129,11 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
   NSInteger isDescendantProcess = [[[NSProcessInfo processInfo] environment][kDescendantProcess] integerValue];
   setenv([kDescendantProcess UTF8String], "1", 1);
 
-  [MigrationUtilities migrate:@[@"org.pqrs.PCKeyboardHack"]
-       oldApplicationSupports:@[]
-                     oldPaths:@[@"/Applications/PCKeyboardHack.app"]];
+  if ([MigrationUtilities migrate:@[@"org.pqrs.PCKeyboardHack"]
+           oldApplicationSupports:@[]
+                         oldPaths:@[@"/Applications/PCKeyboardHack.app"]]) {
+    [Relauncher relaunch];
+  }
 
   // ------------------------------------------------------------
   BOOL openPreferences = NO;
