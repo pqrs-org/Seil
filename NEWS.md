@@ -1,5 +1,5 @@
-Since 10.8.0
-------------
+Version 10.9.0
+--------------
 
 * Fixed issues:
   * A message "Kernel extension is not loaded" might be shown in some environment.
