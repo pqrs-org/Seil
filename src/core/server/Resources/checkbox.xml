@@ -337,6 +337,53 @@
   </item>
 
   <item>
+    <name>Extra Keys on SteelSeries Apex Gaming Keyboard</name>
+    <expand>true</expand>
+    <item>
+      <name>L1</name>
+      <enable>enable_ssapex_l1</enable>
+      <keycode>keycode_ssapex_l1</keycode>
+      <kHIDUsage>0xa8</kHIDUsage>
+      <default>111</default>
+    </item>
+    <item>
+      <name>L2</name>
+      <enable>enable_ssapex_l2</enable>
+      <keycode>keycode_ssapex_l2</keycode>
+      <kHIDUsage>0xa9</kHIDUsage>
+      <default>111</default>
+    </item>
+    <item>
+      <name>L3</name>
+      <enable>enable_ssapex_l3</enable>
+      <keycode>keycode_ssapex_l3</keycode>
+      <kHIDUsage>0xaa</kHIDUsage>
+      <default>111</default>
+    </item>
+    <item>
+      <name>L4</name>
+      <enable>enable_ssapex_l4</enable>
+      <keycode>keycode_ssapex_l4</keycode>
+      <kHIDUsage>0xab</kHIDUsage>
+      <default>111</default>
+    </item>
+    <item>
+      <name>Up + Left arrow</name>
+      <enable>enable_ssapex_upleft</enable>
+      <keycode>keycode_ssapex_upleft</keycode>
+      <kHIDUsage>0xac</kHIDUsage>
+      <default>111</default>
+    </item>
+    <item>
+      <name>Up + Right arrow</name>
+      <enable>enable_ssapex_upright</enable>
+      <keycode>keycode_ssapex_upright</keycode>
+      <kHIDUsage>0xad</kHIDUsage>
+      <default>111</default>
+    </item>
+  </item>
+
+  <item>
     <name>For Japanese</name>
     <expand>true</expand>
     <item>
