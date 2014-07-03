@@ -1,3 +1,8 @@
+Since 10.9.0
+------------
+
+* SteelSeries Apex Gaming Keyboard has been supported.
+
 Version 10.9.0
 --------------
 
