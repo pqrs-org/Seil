@@ -37,10 +37,10 @@
   // So that Sparkle gives priority to a preference over Info.plist,
   // we overwrite SUFeedURL here.
   if (checkupdate == 2) {
-    return @"https://pqrs.org/macosx/karabiner/files/seil-appcast-devel.xml";
+    return @"https://pqrs.org/osx/karabiner/files/seil-appcast-devel.xml";
   }
 
-  return @"https://pqrs.org/macosx/karabiner/files/seil-appcast.xml";
+  return @"https://pqrs.org/osx/karabiner/files/seil-appcast.xml";
 }
 
 - (void) check:(BOOL)isBackground
