@@ -10,5 +10,6 @@
 }
 
 - (void) show;
+- (IBAction) openURL:(id)sender;
 
 @end
