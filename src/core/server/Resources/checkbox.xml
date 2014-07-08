@@ -110,6 +110,13 @@
       <default>36</default>
     </item>
     <item>
+      <name>Change Space</name>
+      <enable>enable_space</enable>
+      <keycode>keycode_space</keycode>
+      <kHIDUsage>kHIDUsage_KeyboardSpacebar</kHIDUsage>
+      <default>49</default>
+    </item>
+    <item>
       <name>Change Tab</name>
       <enable>enable_tab</enable>
       <keycode>keycode_tab</keycode>
