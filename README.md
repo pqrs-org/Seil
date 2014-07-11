@@ -6,7 +6,7 @@ Seil applies a patch to a keyboard driver.
 You can change CapsLock behavior. (For example, changing CapsLock to Delete Key.)
 And it can activate International Keys on Non-Apple keyboard.
 
-(Seil has been called PCKeyboardHack till version 10.7.0.)
+Prior to version 10.7.0, Seil was called *PCKeyboardHack*.
 
 Web pages
 ---------
@@ -36,7 +36,7 @@ Requirements:
 
 Please install Boost into /usr/local/include/boost.
 
-### Step1: Getting source code
+### Step 1: Getting source code
 
 Execute a following command in Terminal.app.
 
@@ -44,7 +44,7 @@ Execute a following command in Terminal.app.
 git clone --depth 10 https://github.com/tekezo/Seil.git
 </pre>
 
-### Step2: Building a package
+### Step 2: Building a package
 
 Execute a following command in Terminal.app.
 
