@@ -11,8 +11,8 @@ Prior to version 10.7.0, Seil was called *PCKeyboardHack*.
 Useful links
 ------------
 
-* master: https://pqrs.org/osx/karabiner/seil.html
-* backup: http://tekezo.github.io/pqrs.org/
+* Latest build: https://pqrs.org/osx/karabiner/seil.html
+* Mirror: http://tekezo.github.io/pqrs.org/
 
 
 System requirements
