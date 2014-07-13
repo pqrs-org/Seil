@@ -8,8 +8,8 @@ And it can activate International Keys on Non-Apple keyboard.
 
 Prior to version 10.7.0, Seil was called *PCKeyboardHack*.
 
-Web pages
----------
+Useful links
+------------
 
 * master: https://pqrs.org/osx/karabiner/seil.html
 * backup: http://tekezo.github.io/pqrs.org/
@@ -20,9 +20,9 @@ System requirements
 
 Mac OS X 10.8 or higher.
 
-* If you require Seil for OS X 10.5, use PCKeyboardHack 5.1.0.
-* If you require Seil for OS X 10.6, use PCKeyboardHack 7.4.0.
-* If you require Seil for OS X 10.7, use PCKeyboardHack 9.0.0.
+* If you require Seil for OS X 10.5, please use PCKeyboardHack 5.1.0.
+* If you require Seil for OS X 10.6, please use PCKeyboardHack 7.4.0.
+* If you require Seil for OS X 10.7, please use PCKeyboardHack 9.0.0.
 
 How to build
 ------------
@@ -38,25 +38,33 @@ Please install Boost into /usr/local/include/boost.
 
 ### Step 1: Getting source code
 
-Execute a following command in Terminal.app.
+Download the source to master.tar.gz in the current directory, this can be re-executed to restart a cancelled download.
 
-<pre>
-git clone --depth 10 https://github.com/tekezo/Seil.git
-</pre>
+    curl -OLC - https://github.com/tekezo/seil/archive/master.tar.gz
+
+Extract the master.tar.gz file to "Seil-master" and delete the tar.gz file
+
+    tar -xvzf master.tar.gz && rm master.tar.gz
 
 ### Step 2: Building a package
 
-Execute a following command in Terminal.app.
+    cd Seil-master
+    make
 
-<pre>
-cd Seil
-make
-</pre>
-
-Then, Seil-VERSION.dmg has been created in the current directory.
-It's a distributable package.
+The `make` script will create a redistributable **Seil-VERSION.dmg** in the current directory.
 
 
-**Note:**<br />
-Build may be failed if you changed environment values or changed /usr/bin files.<br />
-Use clean environment (new account) if build was failed.
+**Note:**
+The build may fail if you have changed any environment variables or if you have modified scripts in the `/usr/bin` locations. Use a clean environment (new account) if this is the case.
+
+
+Customized Sparkle
+------------------
+
+We're using Sparkle to provide a software update feature.<br />
+The Sparkle framework is located in "src/core/server/Frameworks/Sparkle.framework".
+
+This built-in binary is built with some patches.
+
+* Set MACOSX_DEPLOYMENT_TARGET 10.6: https://github.com/tekezo/Files/blob/master/patches/Sparkle/MACOSX_DEPLOYMENT_TARGET-10.6.diff
+* Adding ".Sparkle" to appSupportPath: https://github.com/andymatuschak/Sparkle/pull/290
