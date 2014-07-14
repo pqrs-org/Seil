@@ -18,7 +18,7 @@ Useful links
 System requirements
 -------------------
 
-Mac OS X 10.8 or higher.
+OS X 10.8 or higher.
 
 * If you require Seil for OS X 10.5, please use PCKeyboardHack 5.1.0.
 * If you require Seil for OS X 10.6, please use PCKeyboardHack 7.4.0.
