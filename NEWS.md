@@ -1,6 +1,7 @@
 Since 10.9.0
 ------------
 
+* Show an error alert when Seil is not placed in /Applications.
 * SteelSeries Apex Gaming Keyboard has been supported.
 
 Version 10.9.0
