@@ -1,6 +1,8 @@
 Since 10.9.0
 ------------
 
+* Fixed issues:
+    * A message "Seil cannot connect with kernel extension" might be shown in some environment.
 * Show an error alert when Seil is not placed in /Applications.
 * SteelSeries Apex Gaming Keyboard has been supported.
 
