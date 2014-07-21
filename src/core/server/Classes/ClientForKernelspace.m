@@ -7,6 +7,9 @@
 {
   io_async_ref64_t asyncref_;
   UserClient_userspace* userClient_userspace_;
+
+  NSTimer* timer_;
+  int retryCounter_;
 }
 @end
 
@@ -42,21 +45,90 @@ static void static_callback_NotificationFromKext(void* refcon, IOReturn result, 
 
 - (void) dealloc
 {
+  [timer_ invalidate];
   [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void) refresh_connection_with_retry
 {
-  // Try one minute
-  // (There are few seconds between kext::init and registerService is called.
-  // So we need to wait for a while.)
-  [userClient_userspace_ refresh_connection_with_retry:120 wait:0.5];
-  [self send_config_to_kext];
+  @synchronized(self) {
+    // [UserClient_userspace connect_to_kext] may fail by kIOReturnExclusiveAccess
+    // when connect_to_kext is called in NSWorkspaceSessionDidBecomeActiveNotification.
+    // So, we retry the connection some times.
+    //
+    // Try one minute
+    // (There are few seconds between kext::init and registerService is called.
+    // So we need to wait for a while.)
+
+    [timer_ invalidate];
+    timer_ = [NSTimer scheduledTimerWithTimeInterval:0.5
+                                              target:self
+                                            selector:@selector(timerFireMethod:)
+                                            userInfo:nil
+                                             repeats:YES];
+    retryCounter_ = 0;
+    [timer_ fire];
+  }
+}
+
+- (void) timerFireMethod:(NSTimer*)timer
+{
+  dispatch_async(dispatch_get_main_queue(), ^{
+    @synchronized(self) {
+      if (! [timer isValid]) {
+        // disconnect_from_kext is already called.
+        // return immediately.
+        return;
+      }
+
+      @try {
+        if ([userClient_userspace_ refresh_connection]) {
+          // connected
+
+          [timer invalidate];
+          [self send_config_to_kext];
+          return;
+
+        } else {
+          // retry
+
+          ++retryCounter_;
+          if (retryCounter_ > 120) {
+            [timer invalidate];
+
+            NSAlert* alert = [NSAlert new];
+            [alert setMessageText:@"Seil Alert"];
+            [alert addButtonWithTitle:@"Close"];
+            [alert setInformativeText:@"Seil cannot connect with kernel extension.\nPlease restart your system in order to solve the problem.\n"];
+            [alert runModal];
+
+            return;
+          }
+        }
+
+      } @catch (NSException* e) {
+        // unrecoverable error occurred.
+
+        [timer invalidate];
+
+        NSAlert* alert = [NSAlert new];
+        [alert setMessageText:@"Seil Alert"];
+        [alert addButtonWithTitle:@"Close"];
+        [alert setInformativeText:[e reason]];
+        [alert runModal];
+
+        return;
+      }
+    }
+  });
 }
 
 - (void) disconnect_from_kext
 {
-  [userClient_userspace_ disconnect_from_kext];
+  @synchronized(self) {
+    [timer_ invalidate];
+    [userClient_userspace_ disconnect_from_kext];
+  }
 }
 
 - (void) send_config_to_kext
