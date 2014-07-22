@@ -1,5 +1,5 @@
-Since 10.9.0
-------------
+Version 10.10.0
+---------------
 
 * Fixed issues:
     * A message "Seil cannot connect with kernel extension" might be shown in some environment.
