@@ -137,9 +137,16 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
 
   // ------------------------------------------------------------
   BOOL openPreferences = NO;
-  if (! [StartAtLoginUtilities isStartAtLogin]) {
-    [StartAtLoginUtilities setStartAtLogin:YES];
-    openPreferences = YES;
+  {
+    NSString* bundlePath = [[NSBundle mainBundle] bundlePath];
+    if (! [bundlePath isEqualToString:@"/Applications/Seil.app"]) {
+      NSLog(@"Skip setStartAtLogin for %@", bundlePath);
+    } else {
+      if (! [StartAtLoginUtilities isStartAtLogin]) {
+        [StartAtLoginUtilities setStartAtLogin:YES];
+        openPreferences = YES;
+      }
+    }
   }
 
   // ------------------------------------------------------------
