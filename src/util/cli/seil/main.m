@@ -26,6 +26,8 @@
   [self output:@"  seil export\n"];
   [self output:@"  seil relaunch\n"];
   [self output:@"  seil set keycode_capslock 80\n"];
+  [self output:@"\n"];
+  [self output:@"(You can confirm all IDENTIFIER by export.)\n"];
 
   [[NSApplication sharedApplication] terminate:nil];
 }
