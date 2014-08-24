@@ -4,14 +4,10 @@ basedir=`dirname $0`
 
 ############################################################
 # xcodeproj
-for f in `find $basedir/../../* -name 'project.pbxproj'`; do
+for f in `find $basedir/../../* -name 'project.pbxproj' ! -ipath '*/Pods/*'`; do
     echo "Check $f"
 
-    if [ "$(basename $(dirname $(dirname $(dirname $f))))/$(basename $(dirname $(dirname $f)))" = "kext/10.8" ]; then
-        "$basedir/xcodeproj.rb" SDKROOT < $f || exit 1
-    else
-        "$basedir/xcodeproj.rb" < $f || exit 1
-    fi
+    plutil -convert json -o - "$f" | "$basedir/xcodeproj.rb" || exit 1
 done
 
 ############################################################
