@@ -2,10 +2,16 @@
 CONFIGURATION = Release
 
 all:
+	pod install --no-repo-update
 	$(MAKE) -C ../../../pkginfo
 	$(MAKE) -C ../../bridge/generator/bridge_version
 	$(MAKE) -C ../../bridge/generator/config
-	xcodebuild -alltargets -configuration $(CONFIGURATION) build
+	xcodebuild \
+		-workspace *.xcworkspace \
+		-scheme Seil_server \
+		-configuration $(CONFIGURATION) \
+		build \
+		SYMROOT=`pwd`/build
 
 clean:
 	rm -rf build
@@ -16,7 +22,7 @@ clean:
 	rm -rf *.xcodeproj/project.xcworkspace/xcuserdata
 
 xcode:
-	open *.xcodeproj
+	open *.xcworkspace
 
 run:
 	./build/Release/Seil.app/Contents/MacOS/Seil

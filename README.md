@@ -33,6 +33,7 @@ Requirements:
 * Xcode 5.0.1+
 * Command Line Tools for Xcode
 * Boost 1.54.0+ (header-only) http://www.boost.org/
+* CocoaPods http://cocoapods.org/
 
 Please install Boost into /usr/local/include/boost.
 
@@ -56,15 +57,3 @@ The `make` script will create a redistributable **Seil-VERSION.dmg** in the curr
 
 **Note:**
 The build may fail if you have changed any environment variables or if you have modified scripts in the `/usr/bin` locations. Use a clean environment (new account) if this is the case.
-
-
-Customized Sparkle
-------------------
-
-We're using Sparkle to provide a software update feature.<br />
-The Sparkle framework is located in "src/core/server/Frameworks/Sparkle.framework".
-
-This built-in binary is built with some patches.
-
-* Set MACOSX_DEPLOYMENT_TARGET 10.6: https://github.com/tekezo/Files/blob/master/patches/Sparkle/MACOSX_DEPLOYMENT_TARGET-10.6.diff
-* Adding ".Sparkle" to appSupportPath: https://github.com/andymatuschak/Sparkle/pull/290
