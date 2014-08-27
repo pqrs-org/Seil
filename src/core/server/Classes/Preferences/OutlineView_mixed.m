@@ -5,7 +5,31 @@
 #import "OutlineView_mixed.h"
 #import "PreferencesManager.h"
 
+@interface OutlineView_mixed ()
+{
+  NSMutableDictionary* textsHeightCache_;
+  dispatch_queue_t textsHeightQueue_;
+}
+@end
+
 @implementation OutlineView_mixed
+
++ (NSFont*) font
+{
+  return [NSFont systemFontOfSize:[NSFont smallSystemFontSize]];
+}
+
++ (CGFloat) textsHeight:(NSUInteger)lineCount
+{
+  if (lineCount == 0) return 0.0f;
+
+  NSString* line = @"gM\n";
+  NSUInteger length = [line length] * lineCount - 1; // skip last '\n'
+  NSString* texts = [[NSString string] stringByPaddingToLength:length withString:line startingAtIndex:0];
+  NSDictionary* attributes = @{ NSFontAttributeName: [OutlineView_mixed font] };
+  NSSize size = [texts sizeWithAttributes:attributes];
+  return size.height;
+}
 
 - (void) observer_PreferencesChanged:(NSNotification*)notification
 {
@@ -19,6 +43,9 @@
   self = [super init];
 
   if (self) {
+    textsHeightCache_ = [NSMutableDictionary new];
+    textsHeightQueue_ = dispatch_queue_create("org.pqrs.Karabiner.OutlineView.textsHeightQueue_", NULL);
+
     [self loadXML:[[NSBundle mainBundle] pathForResource:@"checkbox" ofType:@"xml"]];
 
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -46,27 +73,55 @@
 }
 
 // ------------------------------------------------------------
+- (NSCell*) outlineView:(NSOutlineView*)outlineView dataCellForTableColumn:(NSTableColumn*)tableColumn item:(id)item
+{
+  if (! tableColumn) return nil;
+
+  NSString* identifier = [tableColumn identifier];
+
+  if ([identifier isEqualToString:@"enable"]) {
+    NSButtonCell* cell = [NSButtonCell new];
+    [cell setFont:[OutlineView_mixed font]];
+    [cell setButtonType:NSSwitchButton];
+    [cell setTitle:item[@"name"]];
+
+    if (! item[@"enable"]) {
+      [cell setImagePosition:NSNoImage];
+    }
+
+    return cell;
+
+  } else if ([identifier isEqualToString:@"default"]) {
+    NSCell* cell = [NSCell new];
+    [cell setFont:[OutlineView_mixed font]];
+    [cell setEnabled:NO];
+
+  } else if ([identifier isEqualToString:@"keycode"]) {
+    if (! item[@"enable"]) {
+      NSCell* cell = [NSCell new];
+      [cell setFont:[OutlineView_mixed font]];
+      return cell;
+
+    } else {
+      NSTextFieldCell* cell = [NSTextFieldCell new];
+      [cell setFont:[OutlineView_mixed font]];
+      [cell setEditable:YES];
+      return cell;
+    }
+  }
+
+  return nil;
+}
+
 - (id) outlineView:(NSOutlineView*)outlineView objectValueForTableColumn:(NSTableColumn*)tableColumn byItem:(id)item
 {
   NSString* identifier = [tableColumn identifier];
 
   if ([identifier isEqualToString:@"enable"]) {
-    NSButtonCell* cell = [tableColumn dataCell];
-    if (! cell) return nil;
-
-    NSString* name = item[@"name"];
-    if (! name) return nil;
-
-    [cell setTitle:name];
-
     NSString* enable = item[@"enable"];
     if (! enable) {
-      [cell setImagePosition:NSNoImage];
       return nil;
-
     } else {
-      [cell setImagePosition:NSImageLeft];
-
       return @([preferencesManager_ value:enable]);
     }
 
@@ -120,17 +175,20 @@
 
 - (CGFloat) outlineView:(NSOutlineView*)outlineView heightOfRowByItem:(id)item
 {
-  CGFloat height = [outlineView rowHeight];
+  NSNumber* lineCount = item[@"height"];
+  __block NSNumber* height = @([outlineView rowHeight]);
 
-  NSNumber* number = item[@"height"];
-  if (number) {
-    CGFloat newheight = [outlineView rowHeight]* [number intValue];
-    if (newheight > height) {
-      height = newheight;
-    }
+  if ([lineCount integerValue] > 1) {
+    dispatch_sync(textsHeightQueue_, ^{
+      if (textsHeightCache_[lineCount] == nil) {
+        textsHeightCache_[lineCount] = @([OutlineView_mixed textsHeight:[lineCount unsignedIntegerValue]]);
+      }
+      // We add [outlineView rowHeight] as vertical margin.
+      height = @([textsHeightCache_[lineCount] floatValue] + [outlineView rowHeight]);
+    });
   }
 
-  return height;
+  return [height floatValue];
 }
 
 @end
