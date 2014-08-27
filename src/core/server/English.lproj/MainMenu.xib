@@ -105,7 +105,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <rect key="contentRect" x="0.0" y="0.0" width="668" height="600"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1178"/>
-            <view key="contentView" id="536">
+            <view key="contentView" wantsLayer="YES" id="536">
                 <rect key="frame" x="0.0" y="0.0" width="668" height="600"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
