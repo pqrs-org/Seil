@@ -127,7 +127,6 @@
 
   <item>
     <name>Keys on Non-Apple Keyboards</name>
-    <expand>true</expand>
     <item>
       <name>Enable Application Key (Menu Key)</name>
       <enable>enable_application</enable>
@@ -345,7 +344,6 @@
 
   <item>
     <name>Extra Keys on SteelSeries Apex Gaming Keyboard</name>
-    <expand>true</expand>
     <item>
       <name>L1</name>
       <enable>enable_ssapex_l1</enable>
@@ -392,7 +390,6 @@
 
   <item>
     <name>For Japanese</name>
-    <expand>true</expand>
     <item>
       <name>Enable NFER Key on PC keyboard</name>
       <enable>enable_jis_nfer</enable>
