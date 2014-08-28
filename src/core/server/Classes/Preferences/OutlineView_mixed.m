@@ -85,6 +85,22 @@
     [cell setButtonType:NSSwitchButton];
     [cell setTitle:item[@"name"]];
 
+    {
+      NSColor* backgroundColor = nil;
+      NSString* style = item[@"style"];
+      if ([style isEqualToString:@"caution"]) {
+        backgroundColor = [NSColor greenColor];
+      } else if ([style isEqualToString:@"important"]) {
+        backgroundColor = [NSColor orangeColor];
+      } else if ([style isEqualToString:@"slight"]) {
+        backgroundColor = [NSColor lightGrayColor];
+      }
+
+      if (backgroundColor) {
+        [cell setBackgroundColor:backgroundColor];
+      }
+    }
+
     if (! item[@"enable"]) {
       [cell setImagePosition:NSNoImage];
     }

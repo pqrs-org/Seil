@@ -4,6 +4,19 @@
     <name>Caps Lock</name>
     <expand>true</expand>
     <item>
+      <style>important</style>
+      <name>Important:</name>
+      <appendix>If you want to change caps lock behavior in Seil,</appendix>
+      <appendix>please do "No Action" configuration together.</appendix>
+      <appendix>It's required to reduce the delay of caps lock key.</appendix>
+      <appendix></appendix>
+      <appendix>Step 1: Open "System Preferences".</appendix>
+      <appendix>Step 2: Open "Keyboard".</appendix>
+      <appendix>Step 3: Open "Modifier Keys...".</appendix>
+      <appendix>Step 4: Change "Caps Lock Key" to "No Action".</appendix>
+      <appendix>(You might need to select keyboard in step 4.)</appendix>
+    </item>
+    <item>
       <name>Change Caps Lock</name>
       <enable>enable_capslock</enable>
       <keycode>keycode_capslock</keycode>
