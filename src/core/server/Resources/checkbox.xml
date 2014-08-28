@@ -6,9 +6,9 @@
     <item>
       <style>important</style>
       <name>Important:</name>
-      <appendix>If you want to change caps lock behavior in Seil,</appendix>
+      <appendix>If you want to change the caps lock key behavior in Seil,</appendix>
       <appendix>please do "No Action" configuration together.</appendix>
-      <appendix>It's required to reduce the delay of caps lock key.</appendix>
+      <appendix>It's required to reduce the delay of the caps lock key.</appendix>
       <appendix></appendix>
       <appendix>Step 1: Open "System Preferences".</appendix>
       <appendix>Step 2: Open "Keyboard".</appendix>

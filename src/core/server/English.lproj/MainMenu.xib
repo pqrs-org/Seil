@@ -120,14 +120,14 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <scrollView horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="543">
-                                            <rect key="frame" x="17" y="280" width="588" height="255"/>
+                                            <rect key="frame" x="17" y="204" width="588" height="331"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="iWb-DY-PVJ">
-                                                <rect key="frame" x="1" y="17" width="571" height="237"/>
+                                                <rect key="frame" x="1" y="17" width="571" height="313"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="sequential" alternatingRowBackgroundColors="YES" columnReordering="NO" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" typeSelect="NO" headerView="547" indentationPerLevel="16" autoresizesOutlineColumn="YES" outlineTableColumn="548" id="544">
-                                                        <rect key="frame" x="0.0" y="0.0" width="571" height="237"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="571" height="313"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <size key="intercellSpacing" width="3" height="2"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -192,7 +192,7 @@
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
                                             <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="545">
-                                                <rect key="frame" x="572" y="17" width="15" height="237"/>
+                                                <rect key="frame" x="572" y="17" width="15" height="313"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
                                             <tableHeaderView key="headerView" id="547">
@@ -201,14 +201,14 @@
                                             </tableHeaderView>
                                         </scrollView>
                                         <scrollView horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="542">
-                                            <rect key="frame" x="17" y="17" width="588" height="246"/>
+                                            <rect key="frame" x="17" y="17" width="588" height="170"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="fHT-ih-5Y3">
-                                                <rect key="frame" x="1" y="17" width="571" height="228"/>
+                                                <rect key="frame" x="1" y="17" width="571" height="152"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="sequential" columnReordering="NO" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" typeSelect="NO" headerView="558" indentationPerLevel="16" autoresizesOutlineColumn="YES" outlineTableColumn="559" id="555">
-                                                        <rect key="frame" x="0.0" y="0.0" width="571" height="228"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="571" height="152"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <size key="intercellSpacing" width="3" height="2"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -253,7 +253,7 @@
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
                                             <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="556">
-                                                <rect key="frame" x="572" y="17" width="15" height="228"/>
+                                                <rect key="frame" x="572" y="17" width="15" height="152"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
                                             <tableHeaderView key="headerView" id="558">
@@ -262,7 +262,7 @@
                                             </tableHeaderView>
                                         </scrollView>
                                         <box verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="541">
-                                            <rect key="frame" x="9" y="269" width="604" height="5"/>
+                                            <rect key="frame" x="9" y="193" width="604" height="5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                                             <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
