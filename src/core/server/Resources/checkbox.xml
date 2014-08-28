@@ -4,6 +4,14 @@
     <name>Caps Lock</name>
     <!-- <expand>true</expand> -->
     <item>
+      <name>Change Caps Lock</name>
+      <enable>enable_capslock</enable>
+      <keycode>keycode_capslock</keycode>
+      <kHIDUsage>kHIDUsage_KeyboardCapsLock</kHIDUsage>
+      <default>51</default>
+    </item>
+    <item><name>────────────────────</name></item>
+    <item>
       <style>important</style>
       <name>Important:</name>
       <appendix>If you want to change the caps lock key behavior in Seil,</appendix>
@@ -15,13 +23,6 @@
       <appendix>Step 3: Open "Modifier Keys...".</appendix>
       <appendix>Step 4: Change "Caps Lock Key" to "No Action".</appendix>
       <appendix>(You might need to select keyboard in step 4.)</appendix>
-    </item>
-    <item>
-      <name>Change Caps Lock</name>
-      <enable>enable_capslock</enable>
-      <keycode>keycode_capslock</keycode>
-      <kHIDUsage>kHIDUsage_KeyboardCapsLock</kHIDUsage>
-      <default>51</default>
     </item>
   </item>
 
