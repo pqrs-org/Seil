@@ -2,7 +2,7 @@
 <root>
   <item>
     <name>Caps Lock</name>
-    <expand>true</expand>
+    <!-- <expand>true</expand> -->
     <item>
       <style>important</style>
       <name>Important:</name>
