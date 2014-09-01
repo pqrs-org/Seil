@@ -1,3 +1,9 @@
+Version 10.11.0
+---------------
+
+* Preferences UI has been updated.
+* "Check for updates" (Sparkle) has been updated.
+
 Version 10.10.0
 ---------------
 
