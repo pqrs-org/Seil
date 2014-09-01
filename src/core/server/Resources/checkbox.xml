@@ -1,10 +1,16 @@
 <?xml version="1.0"?>
 <root>
   <item>
-    <name>Caps Lock</name>
+    <name></name>
+    <name>Expand tree, then enable settings and change key codes.</name>
+    <name></name>
+  </item>
+
+  <item>
+    <name>Change the caps lock key</name>
     <!-- <expand>true</expand> -->
     <item>
-      <name>Change Caps Lock</name>
+      <name>Change the caps lock key</name>
       <enable>enable_capslock</enable>
       <keycode>keycode_capslock</keycode>
       <kHIDUsage>kHIDUsage_KeyboardCapsLock</kHIDUsage>
@@ -27,7 +33,7 @@
   </item>
 
   <item>
-    <name>Other Keys</name>
+    <name>Other keys</name>
     <item>
       <name>Note:</name>
       <appendix>These items can be useful if any of the following:</appendix>
@@ -140,7 +146,7 @@
   </item>
 
   <item>
-    <name>Keys on Non-Apple Keyboards</name>
+    <name>Keys on non-Apple keyboards</name>
     <item>
       <name>Enable Application Key (Menu Key)</name>
       <enable>enable_application</enable>
@@ -357,7 +363,7 @@
   </item>
 
   <item>
-    <name>Extra Keys on SteelSeries Apex Gaming Keyboard</name>
+    <name>Extra keys on SteelSeries Apex Gaming Keyboard</name>
     <item>
       <name>L1</name>
       <enable>enable_ssapex_l1</enable>
