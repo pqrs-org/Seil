@@ -1484,7 +1484,7 @@ fi
 				<key>GCC_WARN_UNUSED_VARIABLE</key>
 				<string>YES</string>
 				<key>MACOSX_DEPLOYMENT_TARGET</key>
-				<string>10.8</string>
+				<string>10.9</string>
 				<key>RUN_CLANG_STATIC_ANALYZER</key>
 				<string>YES</string>
 				<key>SDKROOT</key>

@@ -28,14 +28,9 @@ done
 
 basedir="pkgroot/Applications/Seil.app/Contents/Library"
 mkdir -p "$basedir"
-for ostype in 10.8 10.9; do
-    if [ $ostype == "10.8" ]; then
-        # We must not sign kext for OS X 10.8 or prior.
-        cp -R src/core/kext/${ostype}/build/Release/Seil.kext "$basedir/Seil.${ostype}.kext"
-    else
-        # We should sign kext after OS X 10.9.
-        cp -R src/core/kext/${ostype}/build/Release/Seil.kext "$basedir/Seil.${ostype}.signed.kext"
-    fi
+for ostype in 10.9; do
+    # We should sign kext after OS X 10.9.
+    cp -R src/core/kext/${ostype}/build/Release/Seil.kext "$basedir/Seil.${ostype}.signed.kext"
 done
 
 basedir="pkgroot/Applications/Seil.app/Contents/Library/bin"

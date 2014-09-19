@@ -18,7 +18,7 @@ Useful links
 System requirements
 -------------------
 
-OS X 10.8 or higher.
+OS X 10.9 or higher.
 
 * If you require Seil for OS X 10.5, please use PCKeyboardHack 5.1.0.
 * If you require Seil for OS X 10.6, please use PCKeyboardHack 7.4.0.
@@ -30,7 +30,7 @@ How to build
 Requirements:
 
 * OS X 10.9+
-* Xcode 5.0.1+
+* Xcode 6.0.1+
 * Command Line Tools for Xcode
 * Boost 1.54.0+ (header-only) http://www.boost.org/
 * CocoaPods http://cocoapods.org/

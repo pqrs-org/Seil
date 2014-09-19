@@ -8,10 +8,11 @@ all:
 	$(MAKE) -C ../../bridge/generator/config
 	xcodebuild \
 		-workspace *.xcworkspace \
-		-scheme Seil_server \
+		-scheme Pods \
 		-configuration $(CONFIGURATION) \
 		build \
 		SYMROOT=`pwd`/build
+	xcodebuild -alltargets -configuration $(CONFIGURATION) build
 
 clean:
 	rm -rf build

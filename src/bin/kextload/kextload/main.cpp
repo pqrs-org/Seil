@@ -43,9 +43,6 @@ main(int argc, const char* argv[])
   if (argument == "load") {
     int major = os_major_version();
     switch (major) {
-      case 12: // OS X 10.8
-        command = "/sbin/kextload '/Applications/Seil.app/Contents/Library/Seil.10.8.kext'";
-        break;
       case 13: // OS X 10.9
         command = "/sbin/kextload '/Applications/Seil.app/Contents/Library/Seil.10.9.signed.kext'";
         break;
