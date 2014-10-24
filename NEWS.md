@@ -2,6 +2,7 @@ Since 10.11.0
 -------------
 
 * OS X 10.10 support has been improved.
+* OS X 10.8 support has been dropped.
 
 Version 10.11.0
 ---------------
