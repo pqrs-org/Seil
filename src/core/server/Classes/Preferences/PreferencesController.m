@@ -7,27 +7,23 @@
 @implementation PreferencesController
 
 /* ---------------------------------------------------------------------- */
-- (void) drawVersion
-{
+- (void)drawVersion {
   NSString* version = [[NSBundle mainBundle] infoDictionary][@"CFBundleVersion"];
   [versionText_ setStringValue:version];
 }
 
 /* ---------------------------------------------------------------------- */
-- (void) windowDidBecomeMain:(NSNotification*)notification
-{
+- (void)windowDidBecomeMain:(NSNotification*)notification {
   [self drawVersion];
 }
 
 /* ---------------------------------------------------------------------- */
-- (void) show
-{
+- (void)show {
   [preferencesWindow_ makeKeyAndOrderFront:self];
   [NSApp activateIgnoringOtherApps:YES];
 }
 
-- (IBAction) openURL:(id)sender
-{
+- (IBAction)openURL:(id)sender {
   [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:[sender title]]];
 }
 

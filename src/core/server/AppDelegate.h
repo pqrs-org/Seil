@@ -15,8 +15,8 @@
   IBOutlet Updater* updater_;
 }
 
-@property (weak) IBOutlet ClientForKernelspace* clientForKernelspace;
+@property(weak) IBOutlet ClientForKernelspace* clientForKernelspace;
 
-- (IBAction) launchUninstaller:(id)sender;
+- (IBAction)launchUninstaller:(id)sender;
 
 @end

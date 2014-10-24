@@ -5,8 +5,7 @@
 #import "OutlineView_mixed.h"
 #import "PreferencesManager.h"
 
-@interface OutlineView_mixed ()
-{
+@interface OutlineView_mixed () {
   NSMutableDictionary* textsHeightCache_;
   dispatch_queue_t textsHeightQueue_;
 }
@@ -14,32 +13,28 @@
 
 @implementation OutlineView_mixed
 
-+ (NSFont*) font
-{
++ (NSFont*)font {
   return [NSFont systemFontOfSize:[NSFont smallSystemFontSize]];
 }
 
-+ (CGFloat) textsHeight:(NSUInteger)lineCount
-{
++ (CGFloat)textsHeight:(NSUInteger)lineCount {
   if (lineCount == 0) return 0.0f;
 
   NSString* line = @"gM\n";
   NSUInteger length = [line length] * lineCount - 1; // skip last '\n'
   NSString* texts = [[NSString string] stringByPaddingToLength:length withString:line startingAtIndex:0];
-  NSDictionary* attributes = @{ NSFontAttributeName: [OutlineView_mixed font] };
+  NSDictionary* attributes = @{NSFontAttributeName : [OutlineView_mixed font]};
   NSSize size = [texts sizeWithAttributes:attributes];
   return size.height;
 }
 
-- (void) observer_PreferencesChanged:(NSNotification*)notification
-{
+- (void)observer_PreferencesChanged:(NSNotification*)notification {
   dispatch_async(dispatch_get_main_queue(), ^{
     [outlineview_ setNeedsDisplay:YES];
   });
 }
 
-- (id) init
-{
+- (id)init {
   self = [super init];
 
   if (self) {
@@ -50,19 +45,18 @@
 
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(observer_PreferencesChanged:)
-                                                 name:kPreferencesChangedNotification object:nil];
+                                                 name:kPreferencesChangedNotification
+                                               object:nil];
   }
 
   return self;
 }
 
-- (void) dealloc
-{
+- (void)dealloc {
   [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void) initialExpandCollapseTree
-{
+- (void)initialExpandCollapseTree {
   for (NSDictionary* dict in datasource_) {
     if ([dict[@"expand"] isEqualToString:@"true"]) {
       [outlineview_ expandItem:dict];
@@ -73,9 +67,8 @@
 }
 
 // ------------------------------------------------------------
-- (NSCell*) outlineView:(NSOutlineView*)outlineView dataCellForTableColumn:(NSTableColumn*)tableColumn item:(id)item
-{
-  if (! tableColumn) return nil;
+- (NSCell*)outlineView:(NSOutlineView*)outlineView dataCellForTableColumn:(NSTableColumn*)tableColumn item:(id)item {
+  if (!tableColumn) return nil;
 
   NSString* identifier = [tableColumn identifier];
 
@@ -101,7 +94,7 @@
       }
     }
 
-    if (! item[@"enable"]) {
+    if (!item[@"enable"]) {
       [cell setImagePosition:NSNoImage];
     }
 
@@ -113,7 +106,7 @@
     [cell setEnabled:NO];
 
   } else if ([identifier isEqualToString:@"keycode"]) {
-    if (! item[@"enable"]) {
+    if (!item[@"enable"]) {
       NSCell* cell = [NSCell new];
       [cell setFont:[OutlineView_mixed font]];
       return cell;
@@ -129,13 +122,12 @@
   return nil;
 }
 
-- (id) outlineView:(NSOutlineView*)outlineView objectValueForTableColumn:(NSTableColumn*)tableColumn byItem:(id)item
-{
+- (id)outlineView:(NSOutlineView*)outlineView objectValueForTableColumn:(NSTableColumn*)tableColumn byItem:(id)item {
   NSString* identifier = [tableColumn identifier];
 
   if ([identifier isEqualToString:@"enable"]) {
     NSString* enable = item[@"enable"];
-    if (! enable) {
+    if (!enable) {
       return nil;
     } else {
       return @([preferencesManager_ value:enable]);
@@ -143,13 +135,13 @@
 
   } else if ([identifier isEqualToString:@"keycode"]) {
     NSString* keycode = item[@"keycode"];
-    if (! keycode) return nil;
+    if (!keycode) return nil;
 
     return @([preferencesManager_ value:keycode]);
 
   } else if ([identifier isEqualToString:@"default"]) {
     NSString* keycode = item[@"keycode"];
-    if (! keycode) return nil;
+    if (!keycode) return nil;
 
     int keycodevalue = [preferencesManager_ defaultValue:keycode];
     NSString* keycodename = [outlineView_keycode_ getKeyName:keycodevalue];
@@ -160,15 +152,14 @@
   return nil;
 }
 
-- (void) outlineView:(NSOutlineView*)outlineView setObjectValue:(id)object forTableColumn:(NSTableColumn*)tableColumn byItem:(id)item
-{
+- (void)outlineView:(NSOutlineView*)outlineView setObjectValue:(id)object forTableColumn:(NSTableColumn*)tableColumn byItem:(id)item {
   NSString* identifier = [tableColumn identifier];
 
   if ([identifier isEqualToString:@"enable"]) {
     NSString* enable = item[@"enable"];
     if (enable) {
       int value = [preferencesManager_ value:enable];
-      value = ! value;
+      value = !value;
       [preferencesManager_ setValueForName:value forName:enable];
     } else {
       // expand/collapse tree
@@ -189,8 +180,7 @@
   }
 }
 
-- (CGFloat) outlineView:(NSOutlineView*)outlineView heightOfRowByItem:(id)item
-{
+- (CGFloat)outlineView:(NSOutlineView*)outlineView heightOfRowByItem:(id)item {
   NSNumber* lineCount = item[@"height"];
   __block NSNumber* height = @([outlineView rowHeight]);
 

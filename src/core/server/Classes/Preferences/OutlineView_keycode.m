@@ -4,8 +4,7 @@
 
 @implementation OutlineView_keycode
 
-- (id) init
-{
+- (id)init {
   self = [super init];
 
   if (self) {
@@ -15,8 +14,7 @@
   return self;
 }
 
-- (NSString*) getKeyName:(int)keycode
-{
+- (NSString*)getKeyName:(int)keycode {
   NSString* keycodestring = [NSString stringWithFormat:@"%d", keycode];
 
   for (NSDictionary* dict in datasource_) {

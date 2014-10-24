@@ -2,8 +2,7 @@
 #import "PreferencesKeys.h"
 #import "PreferencesManager.h"
 
-@interface PreferencesManager ()
-{
+@interface PreferencesManager () {
   NSMutableDictionary* default_;
 }
 @end
@@ -11,21 +10,18 @@
 @implementation PreferencesManager
 
 // ----------------------------------------
-+ (void) initialize
-{
++ (void)initialize {
   NSDictionary* dict = @{ kCheckForUpdates : @1 };
   [[NSUserDefaults standardUserDefaults] registerDefaults:dict];
 }
 
 // ----------------------------------------
-- (void) setDefault
-{
+- (void)setDefault {
 #include "setDefault.h"
 }
 
 // ----------------------------------------
-- (id) init
-{
+- (id)init {
   self = [super init];
 
   if (self) {
@@ -36,10 +32,8 @@
   return self;
 }
 
-
 // ----------------------------------------------------------------------
-- (int) value:(NSString*)name
-{
+- (int)value:(NSString*)name {
   NSString* identifier = @"sysctl";
 
   NSDictionary* dict = [[NSUserDefaults standardUserDefaults] dictionaryForKey:identifier];
@@ -52,8 +46,7 @@
   return [self defaultValue:name];
 }
 
-- (int) defaultValue:(NSString*)name
-{
+- (int)defaultValue:(NSString*)name {
   NSNumber* number = default_[name];
   if (number) {
     return [number intValue];
@@ -62,8 +55,7 @@
   }
 }
 
-- (void) setValueForName:(int)newval forName:(NSString*)name
-{
+- (void)setValueForName:(int)newval forName:(NSString*)name {
   NSString* identifier = @"sysctl";
 
   NSMutableDictionary* md = nil;
@@ -74,7 +66,7 @@
   } else {
     md = [NSMutableDictionary new];
   }
-  if (! md) return;
+  if (!md) return;
 
   int defaultvalue = 0;
   NSNumber* defaultnumber = default_[name];
@@ -95,8 +87,7 @@
 }
 
 // ----------------------------------------------------------------------
-- (NSInteger) checkForUpdatesMode
-{
+- (NSInteger)checkForUpdatesMode {
   return [[NSUserDefaults standardUserDefaults] integerForKey:kCheckForUpdates];
 }
 

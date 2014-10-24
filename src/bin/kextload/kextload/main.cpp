@@ -5,34 +5,31 @@
 #include <unistd.h>
 
 namespace {
-  int
-  os_major_version(void)
-  {
-    struct utsname un;
-    if (uname(&un) != 0) {
-      return -1;
-    }
-
-    std::string release(un.release);
-    auto pos = release.find('.');
-    if (pos == std::string::npos) {
-      return -1;
-    }
-
-    return boost::lexical_cast<int>(release.substr(0, pos));
+int
+os_major_version(void) {
+  struct utsname un;
+  if (uname(&un) != 0) {
+    return -1;
   }
 
-  void
-  usage(void)
-  {
-    std::cout << "Usage: kextload {load|unload}" << std::endl;
-    exit(1);
+  std::string release(un.release);
+  auto pos = release.find('.');
+  if (pos == std::string::npos) {
+    return -1;
   }
+
+  return boost::lexical_cast<int>(release.substr(0, pos));
+}
+
+void
+usage(void) {
+  std::cout << "Usage: kextload {load|unload}" << std::endl;
+  exit(1);
+}
 }
 
 int
-main(int argc, const char* argv[])
-{
+main(int argc, const char* argv[]) {
   if (argc != 2) {
     usage();
   }
@@ -43,15 +40,15 @@ main(int argc, const char* argv[])
   if (argument == "load") {
     int major = os_major_version();
     switch (major) {
-      case 13: // OS X 10.9
-        command = "/sbin/kextload '/Applications/Seil.app/Contents/Library/Seil.10.9.signed.kext'";
-        break;
-      case 14: // OS X 10.10
-        command = "/sbin/kextload '/Applications/Seil.app/Contents/Library/Seil.10.10.signed.kext'";
-        break;
-      default:
-        std::cerr << "Unknown os major version: " << major << std::endl;
-        exit(1);
+    case 13: // OS X 10.9
+      command = "/sbin/kextload '/Applications/Seil.app/Contents/Library/Seil.10.9.signed.kext'";
+      break;
+    case 14: // OS X 10.10
+      command = "/sbin/kextload '/Applications/Seil.app/Contents/Library/Seil.10.10.signed.kext'";
+      break;
+    default:
+      std::cerr << "Unknown os major version: " << major << std::endl;
+      exit(1);
     }
 
   } else if (argument == "unload") {

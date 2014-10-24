@@ -21,15 +21,13 @@ BridgeConfig org_pqrs_driver_Seil::configuration_;
 // http://developer.apple.com/documentation/DeviceDrivers/Conceptual/WritingDeviceDriver/CPluPlusRuntime/chapter_2_section_3.html
 
 // This convention makes it easy to invoke base class member functions.
-#define super    IOService
+#define super IOService
 // You cannot use the "super" macro here, however, with the
 //  OSDefineMetaClassAndStructors macro.
-OSDefineMetaClassAndStructors(org_pqrs_driver_Seil, IOService)
+OSDefineMetaClassAndStructors(org_pqrs_driver_Seil, IOService);
 
 // ----------------------------------------------------------------------
-void
-org_pqrs_driver_Seil::HookedKeyboard::initialize(IOHIKeyboard* p)
-{
+void org_pqrs_driver_Seil::HookedKeyboard::initialize(IOHIKeyboard* p) {
   IOHIDKeyboard* hid = OSDynamicCast(IOHIDKeyboard, p);
 
   if (hid) {
@@ -54,16 +52,14 @@ org_pqrs_driver_Seil::HookedKeyboard::initialize(IOHIKeyboard* p)
 }
 
 void
-org_pqrs_driver_Seil::HookedKeyboard::terminate(void)
-{
+org_pqrs_driver_Seil::HookedKeyboard::terminate(void) {
   restore();
   kbd_ = NULL;
 }
 
 void
-org_pqrs_driver_Seil::HookedKeyboard::restore(void)
-{
-  if (! kbd_) return;
+org_pqrs_driver_Seil::HookedKeyboard::restore(void) {
+  if (!kbd_) return;
 
   IOHIDKeyboard* hid = OSDynamicCast(IOHIDKeyboard, kbd_);
   if (hid) {
@@ -77,9 +73,8 @@ org_pqrs_driver_Seil::HookedKeyboard::restore(void)
 }
 
 void
-org_pqrs_driver_Seil::HookedKeyboard::refresh(void)
-{
-  if (! kbd_) return;
+org_pqrs_driver_Seil::HookedKeyboard::refresh(void) {
+  if (!kbd_) return;
 
   // Some settings change the same _usb_2_adb_keymap.
   //   For example:
@@ -105,8 +100,7 @@ org_pqrs_driver_Seil::HookedKeyboard::refresh(void)
 
 // ----------------------------------------------------------------------
 bool
-org_pqrs_driver_Seil::init(OSDictionary* dict)
-{
+org_pqrs_driver_Seil::init(OSDictionary* dict) {
   IOLOG_INFO("init %s\n", ostype);
 
   bool res = super::init(dict);
@@ -117,27 +111,24 @@ org_pqrs_driver_Seil::init(OSDictionary* dict)
 }
 
 void
-org_pqrs_driver_Seil::free(void)
-{
+org_pqrs_driver_Seil::free(void) {
   IOLOG_INFO("free\n");
 
   super::free();
 }
 
 IOService*
-org_pqrs_driver_Seil::probe(IOService* provider, SInt32* score)
-{
+org_pqrs_driver_Seil::probe(IOService* provider, SInt32* score) {
   IOService* res = super::probe(provider, score);
   return res;
 }
 
 bool
-org_pqrs_driver_Seil::start(IOService* provider)
-{
+org_pqrs_driver_Seil::start(IOService* provider) {
   IOLOG_INFO("start\n");
 
   bool res = super::start(provider);
-  if (! res) { return res; }
+  if (!res) { return res; }
 
   org_pqrs_Seil::GlobalLock::initialize();
 
@@ -166,8 +157,7 @@ org_pqrs_driver_Seil::start(IOService* provider)
 }
 
 void
-org_pqrs_driver_Seil::stop(IOService* provider)
-{
+org_pqrs_driver_Seil::stop(IOService* provider) {
   IOLOG_INFO("stop\n");
 
   for (int i = 0; i < MAXNUM_KEYBOARD; ++i) {
@@ -182,11 +172,9 @@ org_pqrs_driver_Seil::stop(IOService* provider)
   super::stop(provider);
 }
 
-
 // ----------------------------------------------------------------------
 org_pqrs_driver_Seil::HookedKeyboard*
-org_pqrs_driver_Seil::new_hookedKeyboard(void)
-{
+org_pqrs_driver_Seil::new_hookedKeyboard(void) {
   for (int i = 0; i < MAXNUM_KEYBOARD; ++i) {
     if (hookedKeyboard_[i].get() == NULL) {
       return hookedKeyboard_ + i;
@@ -196,8 +184,7 @@ org_pqrs_driver_Seil::new_hookedKeyboard(void)
 }
 
 org_pqrs_driver_Seil::HookedKeyboard*
-org_pqrs_driver_Seil::search_hookedKeyboard(const IOHIKeyboard* kbd)
-{
+org_pqrs_driver_Seil::search_hookedKeyboard(const IOHIKeyboard* kbd) {
   if (kbd == NULL) {
     return NULL;
   }
@@ -211,9 +198,8 @@ org_pqrs_driver_Seil::search_hookedKeyboard(const IOHIKeyboard* kbd)
 
 // ----------------------------------------------------------------------
 bool
-org_pqrs_driver_Seil::isTargetDevice(IOHIKeyboard* kbd)
-{
-  if (! kbd) return false;
+org_pqrs_driver_Seil::isTargetDevice(IOHIKeyboard* kbd) {
+  if (!kbd) return false;
 
   // ------------------------------------------------------------
   uint32_t vendorID = 0;
@@ -229,7 +215,7 @@ org_pqrs_driver_Seil::isTargetDevice(IOHIKeyboard* kbd)
     pid = OSDynamicCast(OSNumber, dev->getProperty(kIOHIDProductIDKey));
 
     if (vid && pid) {
-      vendorID  = vid->unsigned32BitValue();
+      vendorID = vid->unsigned32BitValue();
       productID = pid->unsigned32BitValue();
 
       goto finish;
@@ -254,29 +240,26 @@ finish:
 }
 
 bool
-org_pqrs_driver_Seil::IOHIKeyboard_gIOMatchedNotification_callback(void* target, void* refCon, IOService* newService, IONotifier* notifier)
-{
+org_pqrs_driver_Seil::IOHIKeyboard_gIOMatchedNotification_callback(void* target, void* refCon, IOService* newService, IONotifier* notifier) {
   // IOLOG_INFO("notifier_hookKeyboard\n");
 
   IOHIKeyboard* kbd = OSDynamicCast(IOHIKeyboard, newService);
-  if (! isTargetDevice(kbd)) return true;
+  if (!isTargetDevice(kbd)) return true;
   return customizeKeyMap(kbd);
 }
 
 bool
-org_pqrs_driver_Seil::IOHIKeyboard_gIOTerminatedNotification_callback(void* target, void* refCon, IOService* newService, IONotifier* notifier)
-{
+org_pqrs_driver_Seil::IOHIKeyboard_gIOTerminatedNotification_callback(void* target, void* refCon, IOService* newService, IONotifier* notifier) {
   // IOLOG_INFO("notifier_unhookKeyboard\n");
 
   IOHIKeyboard* kbd = OSDynamicCast(IOHIKeyboard, newService);
-  if (! isTargetDevice(kbd)) return true;
+  if (!isTargetDevice(kbd)) return true;
   return restoreKeyMap(kbd);
 }
 
 bool
-org_pqrs_driver_Seil::customizeKeyMap(IOHIKeyboard* kbd)
-{
-  if (! kbd) return false;
+org_pqrs_driver_Seil::customizeKeyMap(IOHIKeyboard* kbd) {
+  if (!kbd) return false;
 
   const char* name = kbd->getName();
   // IOLOG_INFO("customizeKeymap name = %s\n", name);
@@ -285,19 +268,18 @@ org_pqrs_driver_Seil::customizeKeyMap(IOHIKeyboard* kbd)
   if (strcmp(name, "IOHIDKeyboard") != 0 && strcmp(name, "AppleADBKeyboard") != 0) return false;
 
   HookedKeyboard* p = new_hookedKeyboard();
-  if (! p) return false;
+  if (!p) return false;
 
   p->initialize(kbd);
   return true;
 }
 
 bool
-org_pqrs_driver_Seil::restoreKeyMap(IOHIKeyboard* kbd)
-{
-  if (! kbd) return false;
+org_pqrs_driver_Seil::restoreKeyMap(IOHIKeyboard* kbd) {
+  if (!kbd) return false;
 
   HookedKeyboard* p = search_hookedKeyboard(kbd);
-  if (! p) return false;
+  if (!p) return false;
 
   // IOLOG_INFO("restoreKeyMap %p\n", kbd);
   p->terminate();
@@ -306,8 +288,7 @@ org_pqrs_driver_Seil::restoreKeyMap(IOHIKeyboard* kbd)
 
 // ----------------------------------------------------------------------
 void
-org_pqrs_driver_Seil::setConfiguration(const BridgeConfig& newval)
-{
+org_pqrs_driver_Seil::setConfiguration(const BridgeConfig& newval) {
   configuration_ = newval;
 
   // ----------------------------------------
@@ -318,8 +299,7 @@ org_pqrs_driver_Seil::setConfiguration(const BridgeConfig& newval)
 }
 
 void
-org_pqrs_driver_Seil::unsetConfiguration(void)
-{
+org_pqrs_driver_Seil::unsetConfiguration(void) {
   BridgeConfig newval;
   memset(&newval, 0, sizeof(newval));
   setConfiguration(newval);

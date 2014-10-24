@@ -2,4 +2,4 @@
 
 // ------------------------------------------------------------
 // NSConnection
-#define kSeilConnectionName                 @"org.pqrs.Seil.server"
+#define kSeilConnectionName @"org.pqrs.Seil.server"

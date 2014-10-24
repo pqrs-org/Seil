@@ -4,8 +4,8 @@
 
 @protocol SeilProtocol
 
-- (void) setValue:(int)newval forName:(NSString*)name;
-- (NSDictionary*) allValues;
-- (void) relaunch;
+- (void)setValue:(int)newval forName:(NSString *)name;
+- (NSDictionary *)allValues;
+- (void)relaunch;
 
 @end

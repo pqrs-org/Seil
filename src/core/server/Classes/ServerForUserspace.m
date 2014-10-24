@@ -3,16 +3,14 @@
 #import "Relauncher.h"
 #import "ServerForUserspace.h"
 
-@interface ServerForUserspace ()
-{
+@interface ServerForUserspace () {
   NSConnection* connection_;
 }
 @end
 
 @implementation ServerForUserspace
 
-- (id) init
-{
+- (id)init {
   self = [super init];
 
   if (self) {
@@ -22,32 +20,27 @@
   return self;
 }
 
-
 // ----------------------------------------------------------------------
-- (BOOL) register
-{
+- (BOOL) register {
   [connection_ setRootObject:self];
-  if (! [connection_ registerName:kSeilConnectionName]) {
+  if (![connection_ registerName:kSeilConnectionName]) {
     return NO;
   }
   return YES;
 }
 
 // ----------------------------------------------------------------------
-- (void) setValue:(int)newval forName:(NSString*)name
-{
+- (void)setValue:(int)newval forName:(NSString*)name {
   [preferencesManager_ setValueForName:newval forName:name];
 }
 
-- (NSDictionary*) allValues
-{
+- (NSDictionary*)allValues {
   return @{
 #include "../../../bridge/output/configurationDictionary.m"
   };
 }
 
-- (void) relaunch
-{
+- (void)relaunch {
   // Use dispatch_async in order to avoid "disconnected from server".
   //
   // Example error message of disconnection:

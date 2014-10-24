@@ -4,10 +4,10 @@
 
 @interface PreferencesManager : NSObject
 
-- (int) value:(NSString*)name;
-- (int) defaultValue:(NSString*)name;
-- (void) setValueForName:(int)newval forName:(NSString*)name;
+- (int)value:(NSString *)name;
+- (int)defaultValue:(NSString *)name;
+- (void)setValueForName:(int)newval forName:(NSString *)name;
 
-- (NSInteger) checkForUpdatesMode;
+- (NSInteger)checkForUpdatesMode;
 
 @end

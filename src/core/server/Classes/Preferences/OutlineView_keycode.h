@@ -5,6 +5,6 @@
 
 @interface OutlineView_keycode : OutlineView
 
-- (NSString*) getKeyName:(int)keycode;
+- (NSString *)getKeyName:(int)keycode;
 
 @end

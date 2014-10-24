@@ -2,14 +2,13 @@
 
 @class PreferencesManager;
 
-@interface PreferencesController : NSObject <NSWindowDelegate, NSTabViewDelegate>
-{
+@interface PreferencesController : NSObject <NSWindowDelegate, NSTabViewDelegate> {
   IBOutlet NSTextField* versionText_;
   IBOutlet NSWindow* preferencesWindow_;
   IBOutlet PreferencesManager* preferencesManager_;
 }
 
-- (void) show;
-- (IBAction) openURL:(id)sender;
+- (void)show;
+- (IBAction)openURL:(id)sender;
 
 @end

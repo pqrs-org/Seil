@@ -2,12 +2,11 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface OutlineView : NSObject
-{
+@interface OutlineView : NSObject {
   NSMutableArray* datasource_;
 }
 
 // @protected
-- (void) loadXML:(NSString*)xmlpath;
+- (void)loadXML:(NSString*)xmlpath;
 
 @end

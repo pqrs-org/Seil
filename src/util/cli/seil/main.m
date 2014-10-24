@@ -3,20 +3,18 @@
 
 @interface SeilCLI : NSObject
 
-- (void) main;
+- (void)main;
 
 @end
 
 @implementation SeilCLI
 
-- (void) output:(NSString*)string
-{
+- (void)output:(NSString*)string {
   NSFileHandle* fh = [NSFileHandle fileHandleWithStandardOutput];
   [fh writeData:[string dataUsingEncoding:NSUTF8StringEncoding]];
 }
 
-- (void) usage
-{
+- (void)usage {
   [self output:@"Usage:\n"];
   [self output:@"  seil export\n"];
   [self output:@"  seil relaunch\n"];
@@ -32,8 +30,7 @@
   [[NSApplication sharedApplication] terminate:nil];
 }
 
-- (void) export:(SeilClient*)client
-{
+- (void) export:(SeilClient*)client {
   NSArray* arguments = [[NSProcessInfo processInfo] arguments];
   NSDictionary* dict = [[client proxy] allValues];
 
@@ -46,8 +43,7 @@
   }
 }
 
-- (void) main
-{
+- (void)main {
   NSArray* arguments = [[NSProcessInfo processInfo] arguments];
 
   if ([arguments count] == 1) {
@@ -69,7 +65,8 @@
         NSString* value = arguments[3];
         [[client proxy] setValue:[value intValue] forName:identifier];
       }
-    } @catch (NSException* exception) {
+    }
+    @catch (NSException* exception) {
       NSLog(@"%@", exception);
     }
   }
@@ -78,8 +75,7 @@
 @end
 
 int
-main(int argc, const char* argv[])
-{
+main(int argc, const char* argv[]) {
   [[SeilCLI new] main];
   return 0;
 }

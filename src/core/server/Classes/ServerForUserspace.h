@@ -5,8 +5,7 @@
 
 @class PreferencesManager;
 
-@interface ServerForUserspace : NSObject<SeilProtocol>
-{
+@interface ServerForUserspace : NSObject <SeilProtocol> {
   IBOutlet PreferencesManager* preferencesManager_;
 }
 

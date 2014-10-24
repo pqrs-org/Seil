@@ -8,10 +8,10 @@
   IBOutlet PreferencesManager* preferencesManager_;
 }
 
-- (IBAction) checkForUpdates:(id)sender;
-- (IBAction) checkForUpdatesInBackground:(id)sender;
+- (IBAction)checkForUpdates:(id)sender;
+- (IBAction)checkForUpdatesInBackground:(id)sender;
 
-- (IBAction) checkForUpdatesStableOnly:(id)sender;
-- (IBAction) checkForUpdatesWithBetaVersion:(id)sender;
+- (IBAction)checkForUpdatesStableOnly:(id)sender;
+- (IBAction)checkForUpdatesWithBetaVersion:(id)sender;
 
 @end

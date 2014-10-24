@@ -7,6 +7,6 @@
   id proxy_;
 }
 
-- (id<SeilProtocol>) proxy;
+- (id<SeilProtocol>)proxy;
 
 @end

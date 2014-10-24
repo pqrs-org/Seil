@@ -3,8 +3,7 @@
 #import "PreferencesManager.h"
 #import "UserClient_userspace.h"
 
-@interface ClientForKernelspace ()
-{
+@interface ClientForKernelspace () {
   io_async_ref64_t asyncref_;
   UserClient_userspace* userClient_userspace_;
 
@@ -15,18 +14,15 @@
 
 @implementation ClientForKernelspace
 
-static void static_callback_NotificationFromKext(void* refcon, IOReturn result, uint32_t type, uint32_t option)
-{}
+static void static_callback_NotificationFromKext(void* refcon, IOReturn result, uint32_t type, uint32_t option) {}
 
-- (void) observer_PreferencesChanged:(NSNotification*)notification
-{
+- (void)observer_PreferencesChanged:(NSNotification*)notification {
   dispatch_async(dispatch_get_main_queue(), ^{
     [self send_config_to_kext];
   });
 }
 
-- (id) init
-{
+- (id)init {
   self = [super init];
 
   if (self) {
@@ -37,20 +33,19 @@ static void static_callback_NotificationFromKext(void* refcon, IOReturn result, 
 
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(observer_PreferencesChanged:)
-                                                 name:kPreferencesChangedNotification object:nil];
+                                                 name:kPreferencesChangedNotification
+                                               object:nil];
   }
 
   return self;
 }
 
-- (void) dealloc
-{
+- (void)dealloc {
   [timer_ invalidate];
   [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void) refresh_connection_with_retry
-{
+- (void)refresh_connection_with_retry {
   @synchronized(self) {
     // [UserClient_userspace connect_to_kext] may fail by kIOReturnExclusiveAccess
     // when connect_to_kext is called in NSWorkspaceSessionDidBecomeActiveNotification.
@@ -71,8 +66,7 @@ static void static_callback_NotificationFromKext(void* refcon, IOReturn result, 
   }
 }
 
-- (void) timerFireMethod:(NSTimer*)timer
-{
+- (void)timerFireMethod:(NSTimer*)timer {
   dispatch_async(dispatch_get_main_queue(), ^{
     @synchronized(self) {
       if (! [timer isValid]) {
@@ -123,26 +117,24 @@ static void static_callback_NotificationFromKext(void* refcon, IOReturn result, 
   });
 }
 
-- (void) disconnect_from_kext
-{
+- (void)disconnect_from_kext {
   @synchronized(self) {
     [timer_ invalidate];
     [userClient_userspace_ disconnect_from_kext];
   }
 }
 
-- (void) send_config_to_kext
-{
+- (void)send_config_to_kext {
   struct BridgeConfig bridgeconfig;
   memset(&bridgeconfig, 0, sizeof(bridgeconfig));
 
 #include "bridgeconfig_config.h"
 
   struct BridgeUserClientStruct bridgestruct;
-  bridgestruct.type   = BRIDGE_USERCLIENT_TYPE_SET_CONFIG;
+  bridgestruct.type = BRIDGE_USERCLIENT_TYPE_SET_CONFIG;
   bridgestruct.option = 0;
-  bridgestruct.data   = (uintptr_t)(&bridgeconfig);
-  bridgestruct.size   = sizeof(bridgeconfig);
+  bridgestruct.data = (uintptr_t)(&bridgeconfig);
+  bridgestruct.size = sizeof(bridgeconfig);
   [userClient_userspace_ synchronized_communication:&bridgestruct];
 }
 

@@ -10,8 +10,7 @@
 #import "Updater.h"
 #include "bridge.h"
 
-@interface AppDelegate ()
-{
+@interface AppDelegate () {
   // for IONotification
   IONotificationPortRef notifyport_;
   CFRunLoopSourceRef loopsource_;
@@ -54,7 +53,7 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
   });
 }
 
-- (void) unregisterIONotification {
+- (void)unregisterIONotification {
   if (notifyport_) {
     if (loopsource_) {
       CFRunLoopSourceInvalidate(loopsource_);
@@ -65,11 +64,11 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
   }
 }
 
-- (void) registerIONotification {
+- (void)registerIONotification {
   [self unregisterIONotification];
 
   notifyport_ = IONotificationPortCreate(kIOMasterPortDefault);
-  if (! notifyport_) {
+  if (!notifyport_) {
     NSLog(@"[ERROR] IONotificationPortCreate failed\n");
     return;
   }
@@ -94,7 +93,7 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
 
   // ----------------------------------------------------------------------
   loopsource_ = IONotificationPortGetRunLoopSource(notifyport_);
-  if (! loopsource_) {
+  if (!loopsource_) {
     NSLog(@"[ERROR] IONotificationPortGetRunLoopSource failed");
     return;
   }
@@ -102,8 +101,7 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
 }
 
 // ------------------------------------------------------------
-- (void) observer_NSWorkspaceSessionDidBecomeActiveNotification:(NSNotification*)notification
-{
+- (void)observer_NSWorkspaceSessionDidBecomeActiveNotification:(NSNotification*)notification {
   dispatch_async(dispatch_get_main_queue(), ^{
     NSLog(@"observer_NSWorkspaceSessionDidBecomeActiveNotification");
 
@@ -111,8 +109,7 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
   });
 }
 
-- (void) observer_NSWorkspaceSessionDidResignActiveNotification:(NSNotification*)notification
-{
+- (void)observer_NSWorkspaceSessionDidResignActiveNotification:(NSNotification*)notification {
   dispatch_async(dispatch_get_main_queue(), ^{
     NSLog(@"observer_NSWorkspaceSessionDidResignActiveNotification");
 
@@ -124,14 +121,13 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
 // ------------------------------------------------------------
 #define kDescendantProcess @"org_pqrs_Seil_DescendantProcess"
 
-- (void) applicationDidFinishLaunching:(NSNotification*)aNotification
-{
+- (void)applicationDidFinishLaunching:(NSNotification*)aNotification {
   NSInteger isDescendantProcess = [[[NSProcessInfo processInfo] environment][kDescendantProcess] integerValue];
   setenv([kDescendantProcess UTF8String], "1", 1);
 
-  if ([MigrationUtilities migrate:@[@"org.pqrs.PCKeyboardHack"]
+  if ([MigrationUtilities migrate:@[ @"org.pqrs.PCKeyboardHack" ]
            oldApplicationSupports:@[]
-                         oldPaths:@[@"/Applications/PCKeyboardHack.app"]]) {
+                         oldPaths:@[ @"/Applications/PCKeyboardHack.app" ]]) {
     [Relauncher relaunch];
   }
 
@@ -139,10 +135,10 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
   BOOL openPreferences = NO;
   {
     NSString* bundlePath = [[NSBundle mainBundle] bundlePath];
-    if (! [bundlePath isEqualToString:@"/Applications/Seil.app"]) {
+    if (![bundlePath isEqualToString:@"/Applications/Seil.app"]) {
       NSLog(@"Skip setStartAtLogin for %@", bundlePath);
     } else {
-      if (! [StartAtLoginUtilities isStartAtLogin]) {
+      if (![StartAtLoginUtilities isStartAtLogin]) {
         [StartAtLoginUtilities setStartAtLogin:YES];
         openPreferences = YES;
       }
@@ -167,7 +163,7 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
   }
 
   // ------------------------------------------------------------
-  if (! [serverForUserspace_ register]) {
+  if (![serverForUserspace_ register]) {
     // Relaunch when register is failed.
     NSLog(@"[ServerForUserspace register] is failed. Restarting process.");
     [NSThread sleepForTimeInterval:2];
@@ -194,25 +190,22 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
   // ------------------------------------------------------------
   // Open Preferences if Seil was launched by hand.
   if (openPreferences &&
-      ! isDescendantProcess) {
+      !isDescendantProcess) {
     [preferencesController_ show];
   }
 }
 
-- (BOOL) applicationShouldHandleReopen:(NSApplication*)theApplication hasVisibleWindows:(BOOL)flag
-{
+- (BOOL)applicationShouldHandleReopen:(NSApplication*)theApplication hasVisibleWindows:(BOOL)flag {
   [preferencesController_ show];
   return YES;
 }
 
-- (void) dealloc
-{
+- (void)dealloc {
   [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 // ------------------------------------------------------------
-- (IBAction) launchUninstaller:(id)sender
-{
+- (IBAction)launchUninstaller:(id)sender {
   system("/Applications/Seil.app/Contents/Library/extra/launchUninstaller.sh");
 }
 

@@ -6,13 +6,12 @@
 @class OutlineView_keycode;
 @class PreferencesManager;
 
-@interface OutlineView_mixed : OutlineView
-{
+@interface OutlineView_mixed : OutlineView {
   IBOutlet NSOutlineView* outlineview_;
   IBOutlet OutlineView_keycode* outlineView_keycode_;
   IBOutlet PreferencesManager* preferencesManager_;
 }
 
-- (void) initialExpandCollapseTree;
+- (void)initialExpandCollapseTree;
 
 @end

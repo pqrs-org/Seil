@@ -10,8 +10,7 @@
 #include "bridge.h"
 
 // http://developer.apple.com/documentation/Darwin/Conceptual/KEXTConcept/KEXTConceptIOKit/hello_iokit.html#//apple_ref/doc/uid/20002366-CIHECHHE
-class org_pqrs_driver_Seil : public IOService
-{
+class org_pqrs_driver_Seil : public IOService {
   OSDeclareDefaultStructors(org_pqrs_driver_Seil);
 
 public:
@@ -29,7 +28,7 @@ private:
   class KeyMapIndex {
   public:
     enum Value {
-      NONE               = 0, // NONE must be a unique value in this enum.
+      NONE = 0, // NONE must be a unique value in this enum.
 #include "KeyMapIndex_Value.hpp"
     };
     static Value bridgeKeyindexToValue(int bridgeKeyIndex) {
