@@ -27,3 +27,6 @@ xcode:
 
 run:
 	./build/Release/Seil.app/Contents/MacOS/Seil
+
+podupdate:
+	pod update
