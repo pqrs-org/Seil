@@ -28,7 +28,7 @@ OS X 10.9 or higher.
 How to build
 ------------
 
-Requirements:
+System requirements:
 
 * OS X 10.10+
 * Xcode 6.1+
