@@ -1,6 +1,6 @@
-diff -u ../original.include/IOHIDConsumer.h ./IOHIDConsumer.h
---- ../original.include/IOHIDConsumer.h	2013-10-19 19:23:30.000000000 +0900
-+++ ./IOHIDConsumer.h	2012-08-10 22:59:00.000000000 +0900
+diff -ur original.include/IOHIDConsumer.h include/IOHIDConsumer.h
+--- original.include/IOHIDConsumer.h	2014-11-04 13:03:08.000000000 +0900
++++ include/IOHIDConsumer.h	2014-11-07 00:42:00.000000000 +0900
 @@ -31,9 +31,9 @@
  // HID system includes.
  #include <IOKit/hidsystem/IOHIDDescriptorParser.h>
@@ -13,9 +13,9 @@ diff -u ../original.include/IOHIDConsumer.h ./IOHIDConsumer.h
  
  // extra includes.
  #include <libkern/OSByteOrder.h>
-diff -u ../original.include/IOHIDFamilyPrivate.h ./IOHIDFamilyPrivate.h
---- ../original.include/IOHIDFamilyPrivate.h	2013-10-19 19:23:30.000000000 +0900
-+++ ./IOHIDFamilyPrivate.h	2012-08-10 22:59:00.000000000 +0900
+diff -ur original.include/IOHIDFamilyPrivate.h include/IOHIDFamilyPrivate.h
+--- original.include/IOHIDFamilyPrivate.h	2014-11-04 13:03:15.000000000 +0900
++++ include/IOHIDFamilyPrivate.h	2014-11-07 00:42:00.000000000 +0900
 @@ -23,8 +23,8 @@
  #ifndef _IOKIT_HID_IOHIDFAMILYPRIVATE_H
  #define _IOKIT_HID_IOHIDFAMILYPRIVATE_H
@@ -27,9 +27,9 @@ diff -u ../original.include/IOHIDFamilyPrivate.h ./IOHIDFamilyPrivate.h
  
  __BEGIN_DECLS
  
-diff -u ../original.include/IOHIDKeyboard.h ./IOHIDKeyboard.h
---- ../original.include/IOHIDKeyboard.h	2013-10-19 19:23:30.000000000 +0900
-+++ ./IOHIDKeyboard.h	2012-08-10 22:59:00.000000000 +0900
+diff -ur original.include/IOHIDKeyboard.h include/IOHIDKeyboard.h
+--- original.include/IOHIDKeyboard.h	2014-11-04 13:03:00.000000000 +0900
++++ include/IOHIDKeyboard.h	2014-11-07 00:42:00.000000000 +0900
 @@ -26,11 +26,11 @@
  #define _IOKIT_HID_IOHIDKEYBOARD_H
  
@@ -46,4 +46,3 @@ diff -u ../original.include/IOHIDKeyboard.h ./IOHIDKeyboard.h
  #include "IOHIDFamilyPrivate.h"
  
  enum {
-Only in .: patch-include-path
