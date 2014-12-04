@@ -1,5 +1,7 @@
 <?xml version="1.0"?>
 <root>
+  <item><name>──── Special keys ──────────────────────────────</name><keycode>───</keycode></item>
+
   <item><name>Delete</name><keycode>51</keycode></item>
   <item><name>Escape</name><keycode>53</keycode></item>
   <item><name>Forward Delete</name><keycode>117</keycode></item>
@@ -7,7 +9,7 @@
   <item><name>Space</name><keycode>49</keycode></item>
   <item><name>Tab</name><keycode>48</keycode></item>
 
-  <item><name>──────────────────────────────</name><keycode>───</keycode></item>
+  <item><name>──── Modifier keys ──────────────────────────────</name><keycode>───</keycode></item>
 
   <item><name>Caps Lock</name><keycode>57</keycode></item>
   <item><name>Fn</name><keycode>63</keycode></item>
@@ -20,12 +22,74 @@
   <item><name>Right Option</name><keycode>61</keycode></item>
   <item><name>Right Shift</name><keycode>60</keycode></item>
 
-  <item><name>──────────────────────────────</name><keycode>───</keycode></item>
+  <item><name>──── Arrow keys ──────────────────────────────</name><keycode>───</keycode></item>
 
-  <item><name>Quote(')</name><keycode>39</keycode></item>
-  <item><name>Backquote(`)</name><keycode>50</keycode></item>
+  <item><name>Up-arrow</name><keycode>126</keycode></item>
+  <item><name>Down-arrow</name><keycode>125</keycode></item>
+  <item><name>Left-arrow</name><keycode>123</keycode></item>
+  <item><name>Right-arrow</name><keycode>124</keycode></item>
+  <item><name>PageUp</name><keycode>116</keycode></item>
+  <item><name>PageDown</name><keycode>121</keycode></item>
+  <item><name>Home</name><keycode>115</keycode></item>
+  <item><name>End</name><keycode>119</keycode></item>
 
-  <item><name>──────────────────────────────</name><keycode>───</keycode></item>
+  <item><name>──── Number keys ──────────────────────────────</name><keycode>───</keycode></item>
+
+  <item><name>0</name><keycode>29</keycode></item>
+  <item><name>1</name><keycode>18</keycode></item>
+  <item><name>2</name><keycode>19</keycode></item>
+  <item><name>3</name><keycode>20</keycode></item>
+  <item><name>4</name><keycode>21</keycode></item>
+  <item><name>5</name><keycode>23</keycode></item>
+  <item><name>6</name><keycode>22</keycode></item>
+  <item><name>7</name><keycode>26</keycode></item>
+  <item><name>8</name><keycode>28</keycode></item>
+  <item><name>9</name><keycode>25</keycode></item>
+
+  <item><name>──── Character keys ──────────────────────────────</name><keycode>───</keycode></item>
+
+  <item><name>A</name><keycode>0</keycode></item>
+  <item><name>B</name><keycode>11</keycode></item>
+  <item><name>C</name><keycode>8</keycode></item>
+  <item><name>D</name><keycode>2</keycode></item>
+  <item><name>E</name><keycode>14</keycode></item>
+  <item><name>F</name><keycode>3</keycode></item>
+  <item><name>G</name><keycode>5</keycode></item>
+  <item><name>H</name><keycode>4</keycode></item>
+  <item><name>I</name><keycode>34</keycode></item>
+  <item><name>J</name><keycode>38</keycode></item>
+  <item><name>K</name><keycode>40</keycode></item>
+  <item><name>L</name><keycode>37</keycode></item>
+  <item><name>M</name><keycode>46</keycode></item>
+  <item><name>N</name><keycode>45</keycode></item>
+  <item><name>O</name><keycode>31</keycode></item>
+  <item><name>P</name><keycode>35</keycode></item>
+  <item><name>Q</name><keycode>12</keycode></item>
+  <item><name>R</name><keycode>15</keycode></item>
+  <item><name>S</name><keycode>1</keycode></item>
+  <item><name>T</name><keycode>17</keycode></item>
+  <item><name>U</name><keycode>32</keycode></item>
+  <item><name>V</name><keycode>9</keycode></item>
+  <item><name>W</name><keycode>13</keycode></item>
+  <item><name>X</name><keycode>7</keycode></item>
+  <item><name>Y</name><keycode>16</keycode></item>
+  <item><name>Z</name><keycode>6</keycode></item>
+
+  <item><name>──── Symbol keys ──────────────────────────────</name><keycode>───</keycode></item>
+
+  <item><name>` Backquote</name><keycode>50</keycode></item>
+  <item><name>\ Backslash</name><keycode>42</keycode></item>
+  <item><name>, Comma</name><keycode>43</keycode></item>
+  <item><name>. Dot</name><keycode>47</keycode></item>
+  <item><name>= Equal</name><keycode>24</keycode></item>
+  <item><name>[ Left bracket</name><keycode>33</keycode></item>
+  <item><name>- Minus</name><keycode>27</keycode></item>
+  <item><name>] Right bracket</name><keycode>30</keycode></item>
+  <item><name>' Quote</name><keycode>39</keycode></item>
+  <item><name>; Semicolon</name><keycode>41</keycode></item>
+  <item><name>/ Slash</name><keycode>44</keycode></item>
+
+  <item><name>──── Function keys ──────────────────────────────</name><keycode>───</keycode></item>
 
   <item><name>F1</name><keycode>122</keycode></item>
   <item><name>F2</name><keycode>120</keycode></item>
@@ -47,7 +111,28 @@
   <item><name>F18</name><keycode>79</keycode></item>
   <item><name>F19</name><keycode>80</keycode></item>
 
-  <item><name>──────────────────────────────</name><keycode>───</keycode></item>
+  <item><name>──── Keypad keys ──────────────────────────────</name><keycode>───</keycode></item>
+
+  <item><name>Keypad 0</name><keycode>82</keycode></item>
+  <item><name>Keypad 1</name><keycode>83</keycode></item>
+  <item><name>Keypad 2</name><keycode>84</keycode></item>
+  <item><name>Keypad 3</name><keycode>85</keycode></item>
+  <item><name>Keypad 4</name><keycode>86</keycode></item>
+  <item><name>Keypad 5</name><keycode>87</keycode></item>
+  <item><name>Keypad 6</name><keycode>88</keycode></item>
+  <item><name>Keypad 7</name><keycode>89</keycode></item>
+  <item><name>Keypad 8</name><keycode>91</keycode></item>
+  <item><name>Keypad 9</name><keycode>92</keycode></item>
+  <item><name>Keypad clear</name><keycode>71</keycode></item>
+  <item><name>Keypad comma</name><keycode>95</keycode></item>
+  <item><name>Keypad dot</name><keycode>65</keycode></item>
+  <item><name>Keypad equal</name><keycode>81</keycode></item>
+  <item><name>Keypad minus</name><keycode>78</keycode></item>
+  <item><name>Keypad multiply</name><keycode>67</keycode></item>
+  <item><name>Keypad plus</name><keycode>69</keycode></item>
+  <item><name>Keypad slash</name><keycode>75</keycode></item>
+
+  <item><name>──── Other keys ──────────────────────────────</name><keycode>───</keycode></item>
 
   <item><name>Volume Up</name><keycode>72</keycode></item>
   <item><name>Volume Down</name><keycode>73</keycode></item>
@@ -57,21 +142,15 @@
 
   <item><name>Dashboard</name><keycode>130</keycode></item>
   <item><name>Launchpad</name><keycode>131</keycode></item>
-  <item><name>Expose</name><keycode>160</keycode></item>
-
-  <item><name>──────────────────────────────</name><keycode>───</keycode></item>
-
-  <item><name>Keypad Dot</name><keycode>65</keycode></item>
-  <item><name>Keypad Clear</name><keycode>71</keycode></item>
-  <item><name>Keypad Enter</name><keycode>76</keycode></item>
+  <item><name>Mission Control</name><keycode>160</keycode></item>
 
   <item><name>§ Key</name><keycode>10</keycode></item>
 
-  <item><name>JIS EISUU</name><keycode>102</keycode></item>
-  <item><name>JIS KANA</name><keycode>104</keycode></item>
-  <item><name>JIS Colon</name><keycode>39</keycode></item>
-  <item><name>JIS Yen</name><keycode>93</keycode></item>
-  <item><name>JIS Underscore</name><keycode>94</keycode></item>
+  <item><name>JIS eisuu</name><keycode>102</keycode></item>
+  <item><name>JIS kana</name><keycode>104</keycode></item>
+  <item><name>JIS colon</name><keycode>39</keycode></item>
+  <item><name>JIS yen</name><keycode>93</keycode></item>
+  <item><name>JIS underscore</name><keycode>94</keycode></item>
 
   <item><name>PC Application Key</name><keycode>110</keycode></item>
 </root>
