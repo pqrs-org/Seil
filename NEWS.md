@@ -3,6 +3,7 @@ Since 10.11.0
 
 * OS X 10.10 support has been improved.
 * OS X 10.8 support has been dropped.
+* List of known key code has been updated.
 
 Version 10.11.0
 ---------------
