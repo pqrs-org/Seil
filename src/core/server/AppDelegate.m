@@ -209,4 +209,16 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
   system("/Applications/Seil.app/Contents/Library/extra/launchUninstaller.sh");
 }
 
+- (IBAction)quit:(id)sender {
+  NSAlert* alert = [NSAlert alertWithMessageText:@"Quit Seil?"
+                                   defaultButton:@"Quit"
+                                 alternateButton:@"Cancel"
+                                     otherButton:nil
+                       informativeTextWithFormat:@"Are you sure you want to quit Seil?"];
+  if ([alert runModal] != NSAlertDefaultReturn) return;
+
+  [StartAtLoginUtilities setStartAtLogin:NO];
+  [NSApp terminate:nil];
+}
+
 @end

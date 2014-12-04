@@ -18,5 +18,6 @@
 @property(weak) IBOutlet ClientForKernelspace* clientForKernelspace;
 
 - (IBAction)launchUninstaller:(id)sender;
+- (IBAction)quit:(id)sender;
 
 @end
