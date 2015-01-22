@@ -126,6 +126,7 @@
   <item><name>Keypad clear</name><keycode>71</keycode></item>
   <item><name>Keypad comma</name><keycode>95</keycode></item>
   <item><name>Keypad dot</name><keycode>65</keycode></item>
+  <item><name>Keypad enter</name><keycode>76</keycode></item>
   <item><name>Keypad equal</name><keycode>81</keycode></item>
   <item><name>Keypad minus</name><keycode>78</keycode></item>
   <item><name>Keypad multiply</name><keycode>67</keycode></item>
