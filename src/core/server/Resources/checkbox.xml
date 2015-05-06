@@ -157,6 +157,7 @@
     <item><name>────────────────────</name></item>
     <item>
       <name>Enable International 1 Key</name>
+      <appendix>* Underscore key in Japanese keyboards.</appendix>
       <enable>enable_int1</enable>
       <keycode>keycode_int1</keycode>
       <kHIDUsage>kHIDUsage_KeyboardInternational1</kHIDUsage>
