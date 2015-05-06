@@ -1,3 +1,8 @@
+Version 11.1.0
+--------------
+
+* A list of known keycode has been updated.
+
 Version 11.0.0
 --------------
 
