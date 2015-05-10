@@ -25,6 +25,7 @@
 		34D65EEA13E06A7400476C2A /* app.icns in Resources */ = {isa = PBXBuildFile; fileRef = 34D65EE913E06A7400476C2A /* app.icns */; };
 		34E4086D19571DC100530059 /* Relauncher.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E4086C19571DC100530059 /* Relauncher.m */; };
 		34E5165C193EA296002BB013 /* StartAtLoginUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E5165B193EA296002BB013 /* StartAtLoginUtilities.m */; };
+		34EA17361AFF96F8000350AA /* SessionObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA17351AFF96F8000350AA /* SessionObserver.m */; };
 		34F9652C13D742FA0081D1F3 /* PreferencesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F9652913D742FA0081D1F3 /* PreferencesManager.m */; };
 		34F9652D13D742FA0081D1F3 /* UserClient_userspace.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F9652B13D742FA0081D1F3 /* UserClient_userspace.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
@@ -92,6 +93,8 @@
 		34E4086C19571DC100530059 /* Relauncher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Relauncher.m; path = ../../share/Relauncher.m; sourceTree = "<group>"; };
 		34E5165A193EA296002BB013 /* StartAtLoginUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartAtLoginUtilities.h; path = ../../share/StartAtLoginUtilities.h; sourceTree = "<group>"; };
 		34E5165B193EA296002BB013 /* StartAtLoginUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StartAtLoginUtilities.m; path = ../../share/StartAtLoginUtilities.m; sourceTree = "<group>"; };
+		34EA17341AFF96F8000350AA /* SessionObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SessionObserver.h; path = ../../share/SessionObserver.h; sourceTree = "<group>"; };
+		34EA17351AFF96F8000350AA /* SessionObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SessionObserver.m; path = ../../share/SessionObserver.m; sourceTree = "<group>"; };
 		34F9652813D742FA0081D1F3 /* PreferencesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreferencesManager.h; path = Classes/PreferencesManager.h; sourceTree = "<group>"; };
 		34F9652913D742FA0081D1F3 /* PreferencesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PreferencesManager.m; path = Classes/PreferencesManager.m; sourceTree = "<group>"; };
 		34F9652A13D742FA0081D1F3 /* UserClient_userspace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserClient_userspace.h; path = Classes/UserClient_userspace.h; sourceTree = "<group>"; };
@@ -251,6 +254,8 @@
 				34E4086C19571DC100530059 /* Relauncher.m */,
 				34BE222018C1D7970014BB5B /* SeilKeys.h */,
 				34BE222118C1D7970014BB5B /* SeilProtocol.h */,
+				34EA17341AFF96F8000350AA /* SessionObserver.h */,
+				34EA17351AFF96F8000350AA /* SessionObserver.m */,
 				34E5165A193EA296002BB013 /* StartAtLoginUtilities.h */,
 				34E5165B193EA296002BB013 /* StartAtLoginUtilities.m */,
 			);
@@ -375,6 +380,7 @@
 				34BE221C18C1D7800014BB5B /* ServerForUserspace.m in Sources */,
 				34F9652D13D742FA0081D1F3 /* UserClient_userspace.m in Sources */,
 				34947684168B6EB000B783D2 /* Updater.m in Sources */,
+				34EA17361AFF96F8000350AA /* SessionObserver.m in Sources */,
 				3494768A168B707500B783D2 /* PreferencesController.m in Sources */,
 				34656496194DEEA200235998 /* KextLoader.m in Sources */,
 				34947696168B740E00B783D2 /* OutlineView_keycode.m in Sources */,

@@ -6,6 +6,7 @@
 #import "PreferencesController.h"
 #import "Relauncher.h"
 #import "ServerForUserspace.h"
+#import "SessionObserver.h"
 #import "StartAtLoginUtilities.h"
 #import "Updater.h"
 #include "bridge.h"
@@ -14,6 +15,8 @@
   // for IONotification
   IONotificationPortRef notifyport_;
   CFRunLoopSourceRef loopsource_;
+
+  SessionObserver* sessionObserver_;
 }
 @end
 
@@ -101,24 +104,6 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
 }
 
 // ------------------------------------------------------------
-- (void)observer_NSWorkspaceSessionDidBecomeActiveNotification:(NSNotification*)notification {
-  dispatch_async(dispatch_get_main_queue(), ^{
-    NSLog(@"observer_NSWorkspaceSessionDidBecomeActiveNotification");
-
-    [self registerIONotification];
-  });
-}
-
-- (void)observer_NSWorkspaceSessionDidResignActiveNotification:(NSNotification*)notification {
-  dispatch_async(dispatch_get_main_queue(), ^{
-    NSLog(@"observer_NSWorkspaceSessionDidResignActiveNotification");
-
-    [self unregisterIONotification];
-    [clientForKernelspace disconnect_from_kext];
-  });
-}
-
-// ------------------------------------------------------------
 #define kDescendantProcess @"org_pqrs_Seil_DescendantProcess"
 
 - (void)applicationDidFinishLaunching:(NSNotification*)aNotification {
@@ -171,19 +156,14 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
   }
   [Relauncher resetRelaunchedCount];
 
-  [self registerIONotification];
+  sessionObserver_ = [[SessionObserver alloc] init:1 active:^{
+      [self registerIONotification];
+  } inactive:^{
+      [self unregisterIONotification];
+      [clientForKernelspace disconnect_from_kext];
+  }];
 
   // ------------------------------------------------------------
-  [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver:self
-                                                         selector:@selector(observer_NSWorkspaceSessionDidBecomeActiveNotification:)
-                                                             name:NSWorkspaceSessionDidBecomeActiveNotification
-                                                           object:nil];
-
-  [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver:self
-                                                         selector:@selector(observer_NSWorkspaceSessionDidResignActiveNotification:)
-                                                             name:NSWorkspaceSessionDidResignActiveNotification
-                                                           object:nil];
-
   [outlineView_mixed_ initialExpandCollapseTree];
   [updater_ checkForUpdatesInBackground:nil];
 
