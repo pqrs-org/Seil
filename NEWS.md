@@ -1,3 +1,8 @@
+Since 11.1.0
+------------
+
+* Fast User Switching support has been improved.
+
 Version 11.1.0
 --------------
 
