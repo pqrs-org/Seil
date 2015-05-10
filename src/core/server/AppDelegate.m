@@ -27,32 +27,32 @@
 // ------------------------------------------------------------
 static void observer_IONotification(void* refcon, io_iterator_t iterator) {
   dispatch_async(dispatch_get_main_queue(), ^{
-    NSLog(@"observer_IONotification");
+      NSLog(@"observer_IONotification");
 
-    AppDelegate* self = (__bridge AppDelegate*)(refcon);
-    if (! self) {
-      NSLog(@"[ERROR] observer_IONotification refcon == nil\n");
-      return;
-    }
+      AppDelegate* self = (__bridge AppDelegate*)(refcon);
+      if (! self) {
+        NSLog(@"[ERROR] observer_IONotification refcon == nil\n");
+        return;
+      }
 
-    for (;;) {
-      io_object_t obj = IOIteratorNext(iterator);
-      if (! obj) break;
+      for (;;) {
+        io_object_t obj = IOIteratorNext(iterator);
+        if (! obj) break;
 
-      IOObjectRelease(obj);
-    }
-    // Do not release iterator.
+        IOObjectRelease(obj);
+      }
+      // Do not release iterator.
 
-    // = Documentation of IOKit =
-    // - Introduction to Accessing Hardware From Applications
-    //   - Finding and Accessing Devices
-    //
-    // In the case of IOServiceAddMatchingNotification, make sure you release the iterator only if you’re also ready to stop receiving notifications:
-    // When you release the iterator you receive from IOServiceAddMatchingNotification, you also disable the notification.
+      // = Documentation of IOKit =
+      // - Introduction to Accessing Hardware From Applications
+      //   - Finding and Accessing Devices
+      //
+      // In the case of IOServiceAddMatchingNotification, make sure you release the iterator only if you’re also ready to stop receiving notifications:
+      // When you release the iterator you receive from IOServiceAddMatchingNotification, you also disable the notification.
 
-    // ------------------------------------------------------------
-    [[self clientForKernelspace] refresh_connection_with_retry];
-    [[self clientForKernelspace] send_config_to_kext];
+      // ------------------------------------------------------------
+      [[self clientForKernelspace] refresh_connection_with_retry];
+      [[self clientForKernelspace] send_config_to_kext];
   });
 }
 
