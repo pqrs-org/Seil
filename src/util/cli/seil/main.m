@@ -74,8 +74,7 @@
 
 @end
 
-int
-main(int argc, const char* argv[]) {
+int main(int argc, const char* argv[]) {
   [[SeilCLI new] main];
   return 0;
 }

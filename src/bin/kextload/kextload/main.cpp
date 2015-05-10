@@ -5,8 +5,7 @@
 #include <unistd.h>
 
 namespace {
-int
-os_major_version(void) {
+int os_major_version(void) {
   struct utsname un;
   if (uname(&un) != 0) {
     return -1;
@@ -21,15 +20,13 @@ os_major_version(void) {
   return boost::lexical_cast<int>(release.substr(0, pos));
 }
 
-void
-usage(void) {
+void usage(void) {
   std::cout << "Usage: kextload {load|unload}" << std::endl;
   exit(1);
 }
 }
 
-int
-main(int argc, const char* argv[]) {
+int main(int argc, const char* argv[]) {
   if (argc != 2) {
     usage();
   }

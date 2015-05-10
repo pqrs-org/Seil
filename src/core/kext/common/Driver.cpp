@@ -51,14 +51,12 @@ void org_pqrs_driver_Seil::HookedKeyboard::initialize(IOHIKeyboard* p) {
   refresh();
 }
 
-void
-org_pqrs_driver_Seil::HookedKeyboard::terminate(void) {
+void org_pqrs_driver_Seil::HookedKeyboard::terminate(void) {
   restore();
   kbd_ = NULL;
 }
 
-void
-org_pqrs_driver_Seil::HookedKeyboard::restore(void) {
+void org_pqrs_driver_Seil::HookedKeyboard::restore(void) {
   if (!kbd_) return;
 
   IOHIDKeyboard* hid = OSDynamicCast(IOHIDKeyboard, kbd_);
@@ -72,8 +70,7 @@ org_pqrs_driver_Seil::HookedKeyboard::restore(void) {
   }
 }
 
-void
-org_pqrs_driver_Seil::HookedKeyboard::refresh(void) {
+void org_pqrs_driver_Seil::HookedKeyboard::refresh(void) {
   if (!kbd_) return;
 
   // Some settings change the same _usb_2_adb_keymap.
@@ -99,8 +96,7 @@ org_pqrs_driver_Seil::HookedKeyboard::refresh(void) {
 }
 
 // ----------------------------------------------------------------------
-bool
-org_pqrs_driver_Seil::init(OSDictionary* dict) {
+bool org_pqrs_driver_Seil::init(OSDictionary* dict) {
   IOLOG_INFO("init %s\n", ostype);
 
   bool res = super::init(dict);
@@ -110,8 +106,7 @@ org_pqrs_driver_Seil::init(OSDictionary* dict) {
   return res;
 }
 
-void
-org_pqrs_driver_Seil::free(void) {
+void org_pqrs_driver_Seil::free(void) {
   IOLOG_INFO("free\n");
 
   super::free();
@@ -123,8 +118,7 @@ org_pqrs_driver_Seil::probe(IOService* provider, SInt32* score) {
   return res;
 }
 
-bool
-org_pqrs_driver_Seil::start(IOService* provider) {
+bool org_pqrs_driver_Seil::start(IOService* provider) {
   IOLOG_INFO("start\n");
 
   bool res = super::start(provider);
@@ -156,8 +150,7 @@ org_pqrs_driver_Seil::start(IOService* provider) {
   return res;
 }
 
-void
-org_pqrs_driver_Seil::stop(IOService* provider) {
+void org_pqrs_driver_Seil::stop(IOService* provider) {
   IOLOG_INFO("stop\n");
 
   for (int i = 0; i < MAXNUM_KEYBOARD; ++i) {
@@ -197,8 +190,7 @@ org_pqrs_driver_Seil::search_hookedKeyboard(const IOHIKeyboard* kbd) {
 }
 
 // ----------------------------------------------------------------------
-bool
-org_pqrs_driver_Seil::isTargetDevice(IOHIKeyboard* kbd) {
+bool org_pqrs_driver_Seil::isTargetDevice(IOHIKeyboard* kbd) {
   if (!kbd) return false;
 
   // ------------------------------------------------------------
@@ -239,8 +231,7 @@ finish:
   return true;
 }
 
-bool
-org_pqrs_driver_Seil::IOHIKeyboard_gIOMatchedNotification_callback(void* target, void* refCon, IOService* newService, IONotifier* notifier) {
+bool org_pqrs_driver_Seil::IOHIKeyboard_gIOMatchedNotification_callback(void* target, void* refCon, IOService* newService, IONotifier* notifier) {
   // IOLOG_INFO("notifier_hookKeyboard\n");
 
   IOHIKeyboard* kbd = OSDynamicCast(IOHIKeyboard, newService);
@@ -248,8 +239,7 @@ org_pqrs_driver_Seil::IOHIKeyboard_gIOMatchedNotification_callback(void* target,
   return customizeKeyMap(kbd);
 }
 
-bool
-org_pqrs_driver_Seil::IOHIKeyboard_gIOTerminatedNotification_callback(void* target, void* refCon, IOService* newService, IONotifier* notifier) {
+bool org_pqrs_driver_Seil::IOHIKeyboard_gIOTerminatedNotification_callback(void* target, void* refCon, IOService* newService, IONotifier* notifier) {
   // IOLOG_INFO("notifier_unhookKeyboard\n");
 
   IOHIKeyboard* kbd = OSDynamicCast(IOHIKeyboard, newService);
@@ -257,8 +247,7 @@ org_pqrs_driver_Seil::IOHIKeyboard_gIOTerminatedNotification_callback(void* targ
   return restoreKeyMap(kbd);
 }
 
-bool
-org_pqrs_driver_Seil::customizeKeyMap(IOHIKeyboard* kbd) {
+bool org_pqrs_driver_Seil::customizeKeyMap(IOHIKeyboard* kbd) {
   if (!kbd) return false;
 
   const char* name = kbd->getName();
@@ -274,8 +263,7 @@ org_pqrs_driver_Seil::customizeKeyMap(IOHIKeyboard* kbd) {
   return true;
 }
 
-bool
-org_pqrs_driver_Seil::restoreKeyMap(IOHIKeyboard* kbd) {
+bool org_pqrs_driver_Seil::restoreKeyMap(IOHIKeyboard* kbd) {
   if (!kbd) return false;
 
   HookedKeyboard* p = search_hookedKeyboard(kbd);
@@ -287,8 +275,7 @@ org_pqrs_driver_Seil::restoreKeyMap(IOHIKeyboard* kbd) {
 }
 
 // ----------------------------------------------------------------------
-void
-org_pqrs_driver_Seil::setConfiguration(const BridgeConfig& newval) {
+void org_pqrs_driver_Seil::setConfiguration(const BridgeConfig& newval) {
   configuration_ = newval;
 
   // ----------------------------------------
@@ -298,8 +285,7 @@ org_pqrs_driver_Seil::setConfiguration(const BridgeConfig& newval) {
   }
 }
 
-void
-org_pqrs_driver_Seil::unsetConfiguration(void) {
+void org_pqrs_driver_Seil::unsetConfiguration(void) {
   BridgeConfig newval;
   memset(&newval, 0, sizeof(newval));
   setConfiguration(newval);

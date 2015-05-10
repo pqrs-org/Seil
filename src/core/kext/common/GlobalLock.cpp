@@ -6,16 +6,14 @@
 namespace org_pqrs_Seil {
 IOLock* GlobalLock::lock_ = NULL;
 
-void
-GlobalLock::initialize(void) {
+void GlobalLock::initialize(void) {
   lock_ = IOLockAlloc();
   if (!lock_) {
     IOLOG_ERROR("IOLockAlloc failed.\n");
   }
 }
 
-void
-GlobalLock::terminate(void) {
+void GlobalLock::terminate(void) {
   if (!lock_) return;
 
   IOLockLock(lock_);
@@ -44,7 +42,8 @@ GlobalLock::ScopedLock::~ScopedLock(void) {
 }
 
 bool
-GlobalLock::ScopedLock::operator!(void)const {
+    GlobalLock::ScopedLock::
+    operator!(void)const {
   return lock_ == NULL;
 }
 
@@ -63,7 +62,8 @@ GlobalLock::ScopedUnlock::~ScopedUnlock(void) {
 }
 
 bool
-GlobalLock::ScopedUnlock::operator!(void)const {
+    GlobalLock::ScopedUnlock::
+    operator!(void)const {
   return lock_ == NULL;
 }
 }
