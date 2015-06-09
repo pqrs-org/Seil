@@ -43,6 +43,9 @@ int main(int argc, const char* argv[]) {
     case 14: // OS X 10.10
       command = "/sbin/kextload '/Applications/Seil.app/Contents/Library/Seil.10.10.signed.kext'";
       break;
+    case 15: // OS X 10.11
+      command = "/sbin/kextload '/Applications/Seil.app/Contents/Library/Seil.10.11.signed.kext'";
+      break;
     default:
       std::cerr << "Unknown os major version: " << major << std::endl;
       exit(1);
