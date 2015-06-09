@@ -1,6 +1,7 @@
-Since 11.1.0
-------------
+Version 11.2.0
+--------------
 
+* OS X 10.11 has been supported.
 * Fast User Switching support has been improved.
 
 Version 11.1.0
