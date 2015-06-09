@@ -28,7 +28,7 @@ done
 
 basedir="pkgroot/Applications/Seil.app/Contents/Library"
 mkdir -p "$basedir"
-for ostype in 10.9 10.10; do
+for ostype in 10.9 10.10 10.11; do
     # We should sign kext after OS X 10.9.
     cp -R src/core/kext/${ostype}/build/Release/Seil.kext "$basedir/Seil.${ostype}.signed.kext"
 done
