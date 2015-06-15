@@ -10,10 +10,10 @@
     dispatch_once(&onceToken, ^{
       NSLog(@"kextload");
 
-      NSString *kextload = @"/Applications/Seil.app/Contents/Library/bin/kextload";
+      NSString* kextload = @"/Applications/Seil.app/Contents/Library/bin/kextload";
       if (![[NSFileManager defaultManager] fileExistsAtPath:kextload]) {
         dispatch_async(dispatch_get_main_queue(), ^{
-          NSAlert *alert = [NSAlert new];
+          NSAlert* alert = [NSAlert new];
           [alert setMessageText:@"Seil Error"];
           [alert addButtonWithTitle:@"Close"];
           [alert setInformativeText:@"You need to place Seil.app in /Applications."];
