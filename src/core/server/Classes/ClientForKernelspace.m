@@ -69,7 +69,7 @@ static void static_callback_NotificationFromKext(void* refcon, IOReturn result, 
 - (void)timerFireMethod:(NSTimer*)timer {
   dispatch_async(dispatch_get_main_queue(), ^{
     @synchronized(self) {
-      if (! [timer isValid]) {
+      if (![timer isValid]) {
         // disconnect_from_kext is already called.
         // return immediately.
         return;
