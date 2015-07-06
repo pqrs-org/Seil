@@ -78,7 +78,7 @@ chmod 755 \
 # --------------------------------------------------
 echo "Create pkg"
 
-pkgName="Seil.pkg"
+pkgName="Seil.sparkle_guided.pkg"
 pkgIdentifier="org.pqrs.driver.Seil"
 archiveName="Seil-${version}"
 
