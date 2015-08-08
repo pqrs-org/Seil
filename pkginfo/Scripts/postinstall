@@ -4,12 +4,18 @@ PATH=/bin:/sbin:/usr/bin:/usr/sbin; export PATH
 # ------------------------------------------------------------
 # set file permissions
 for f in \
-    /Applications/Seil.app \
+    '/Applications/Seil.app' \
+    '/Library/Application Support/org.pqrs/Seil' \
+    '/Library/LaunchDaemons/org.pqrs.Seil.load.plist' \
     ; do
     echo "set file permissions: $f"
-    sh /Applications/Seil.app/Contents/Library/extra/setpermissions.sh "$f"
+    sh '/Library/Application Support/org.pqrs/Seil/setpermissions.sh' "$f"
     chown -Rh root:wheel "$f"
 done
+
+# ------------------------------------------------------------
+# load kext
+sh "/Library/Application Support/org.pqrs/Seil/startup.sh" start
 
 # ------------------------------------------------------------
 # relaunch Seil.app

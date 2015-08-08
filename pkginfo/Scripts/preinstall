@@ -24,9 +24,14 @@ kextload="/Applications/PCKeyboardHack.app/Contents/Library/bin/kextload"
 kextload="/Applications/Seil.app/Contents/Library/bin/kextload"
 [ -f "$kextload" ] && "$kextload" unload
 
+startup='/Library/Application Support/org.pqrs/Seil/startup.sh'
+[ -f "$startup" ] && "$startup" stop
+
 # ----------------------------------------
 # uninstall
 rm -rf /Applications/Seil.app
+rm -rf '/Library/Application Support/org.pqrs/Seil'
+rm -f /Library/LaunchDaemons/org.pqrs.Seil.load.plist
 rm -rf /Applications/PCKeyboardHack
 rm -rf /Applications/PCKeyboardHack.app
 rm -rf /Library/org.pqrs/PCKeyboardHack
