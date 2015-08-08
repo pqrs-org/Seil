@@ -1,6 +1,6 @@
 #!/bin/sh
 
-/Applications/Seil.app/Contents/Library/extra/uninstall_core.sh
+sh '/Library/Application Support/org.pqrs/Seil/uninstall_core.sh'
 
 # remove receipts
 rm -f /var/db/receipts/org.pqrs.driver.PCKeyboardHack.*
