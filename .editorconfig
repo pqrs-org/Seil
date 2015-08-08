@@ -13,3 +13,9 @@ indent_style = tab
 
 [*.sh]
 indent_size = 4
+
+[postinstall]
+indent_size = 4
+
+[preinstall]
+indent_size = 4
