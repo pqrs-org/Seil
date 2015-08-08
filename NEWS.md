@@ -1,3 +1,9 @@
+Version 11.3.0
+--------------
+
+* Fixed an issue:
+  * kext loading issue on OS X 10.11 beta 6 has been fixed.
+
 Version 11.2.0
 --------------
 
