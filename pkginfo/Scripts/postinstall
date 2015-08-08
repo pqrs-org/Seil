@@ -14,14 +14,15 @@ for f in \
 done
 
 # ------------------------------------------------------------
-# load kext
-sh "/Library/Application Support/org.pqrs/Seil/startup.sh" start
-
-# ------------------------------------------------------------
 # relaunch Seil.app
 
 /Applications/Seil.app/Contents/Library/bin/seil \
     relaunch
+
+# ------------------------------------------------------------
+# load kext
+# (We have to load kext after relaunch Seil.app to avoid "kext version mismatched alert".)
+sh "/Library/Application Support/org.pqrs/Seil/startup.sh" start
 
 # ------------------------------------------------------------
 exit 0
