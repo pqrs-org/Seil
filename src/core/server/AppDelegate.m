@@ -185,7 +185,7 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
 
 // ------------------------------------------------------------
 - (IBAction)launchUninstaller:(id)sender {
-  system("/Applications/Seil.app/Contents/Library/extra/launchUninstaller.sh");
+  system("sh '/Library/Application Support/org.pqrs/Seil/launchUninstaller.sh'");
 }
 
 - (IBAction)quit:(id)sender {
