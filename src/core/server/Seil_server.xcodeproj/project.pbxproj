@@ -12,7 +12,6 @@
 		343420CB13D74C16000DBD3E /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 343420CA13D74C16000DBD3E /* IOKit.framework */; };
 		3451A03E1949F0C000E68360 /* MigrationUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 3451A03D1949F0C000E68360 /* MigrationUtilities.m */; };
 		34598343169CAB66007C84F8 /* ClientForKernelspace.m in Sources */ = {isa = PBXBuildFile; fileRef = 34598342169CAB66007C84F8 /* ClientForKernelspace.m */; };
-		34656496194DEEA200235998 /* KextLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 34656495194DEEA200235998 /* KextLoader.m */; };
 		34947684168B6EB000B783D2 /* Updater.m in Sources */ = {isa = PBXBuildFile; fileRef = 34947683168B6EB000B783D2 /* Updater.m */; };
 		3494768A168B707500B783D2 /* PreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34947689168B707500B783D2 /* PreferencesController.m */; };
 		34947696168B740E00B783D2 /* OutlineView_keycode.m in Sources */ = {isa = PBXBuildFile; fileRef = 34947691168B740E00B783D2 /* OutlineView_keycode.m */; };
@@ -67,8 +66,6 @@
 		3451A03D1949F0C000E68360 /* MigrationUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MigrationUtilities.m; path = ../../share/MigrationUtilities.m; sourceTree = "<group>"; };
 		34598341169CAB66007C84F8 /* ClientForKernelspace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClientForKernelspace.h; path = Classes/ClientForKernelspace.h; sourceTree = "<group>"; };
 		34598342169CAB66007C84F8 /* ClientForKernelspace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClientForKernelspace.m; path = Classes/ClientForKernelspace.m; sourceTree = "<group>"; };
-		34656494194DEEA200235998 /* KextLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KextLoader.h; path = Classes/KextLoader.h; sourceTree = "<group>"; };
-		34656495194DEEA200235998 /* KextLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KextLoader.m; path = Classes/KextLoader.m; sourceTree = "<group>"; };
 		34947682168B6EB000B783D2 /* Updater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Updater.h; path = Classes/Updater.h; sourceTree = "<group>"; };
 		34947683168B6EB000B783D2 /* Updater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Updater.m; path = Classes/Updater.m; sourceTree = "<group>"; };
 		34947686168B6F9200B783D2 /* PreferencesKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreferencesKeys.h; path = Classes/PreferencesKeys.h; sourceTree = "<group>"; };
@@ -128,8 +125,6 @@
 				342A41B7183E507C00BF09C8 /* bridge.h */,
 				34598341169CAB66007C84F8 /* ClientForKernelspace.h */,
 				34598342169CAB66007C84F8 /* ClientForKernelspace.m */,
-				34656494194DEEA200235998 /* KextLoader.h */,
-				34656495194DEEA200235998 /* KextLoader.m */,
 				3494768B168B70F700B783D2 /* NotificationKeys.h */,
 				34947687168B706C00B783D2 /* Preferences */,
 				34947686168B6F9200B783D2 /* PreferencesKeys.h */,
@@ -382,7 +377,6 @@
 				34947684168B6EB000B783D2 /* Updater.m in Sources */,
 				34EA17361AFF96F8000350AA /* SessionObserver.m in Sources */,
 				3494768A168B707500B783D2 /* PreferencesController.m in Sources */,
-				34656496194DEEA200235998 /* KextLoader.m in Sources */,
 				34947696168B740E00B783D2 /* OutlineView_keycode.m in Sources */,
 				34E4086D19571DC100530059 /* Relauncher.m in Sources */,
 				34947697168B740E00B783D2 /* OutlineView_mixed.m in Sources */,

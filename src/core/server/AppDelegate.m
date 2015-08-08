@@ -1,6 +1,5 @@
 #import "AppDelegate.h"
 #import "ClientForKernelspace.h"
-#import "KextLoader.h"
 #import "MigrationUtilities.h"
 #import "OutlineView_mixed.h"
 #import "PreferencesController.h"
@@ -79,8 +78,6 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
   // ----------------------------------------------------------------------
   io_iterator_t it;
   kern_return_t kernResult;
-
-  [KextLoader load]; // Load kext before use org_pqrs_driver_Seil
 
   kernResult = IOServiceAddMatchingNotification(notifyport_,
                                                 kIOMatchedNotification,
