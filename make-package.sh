@@ -26,24 +26,25 @@ do
     cp -R "$d" "$basedir"
 done
 
-basedir="pkgroot/Applications/Seil.app/Contents/Library"
+basedir="pkgroot/Applications/Seil.app/Contents/Library/bin"
+mkdir -p "$basedir"
+cp -R src/util/cli/build/Release/seil "$basedir"
+
+mkdir -p                  "pkgroot/Library"
+cp -R files/LaunchDaemons "pkgroot/Library"
+
+basedir="pkgroot/Library/Application Support/org.pqrs/Seil"
 mkdir -p "$basedir"
 for ostype in 10.9 10.10 10.11; do
     # We should sign kext after OS X 10.9.
     cp -R src/core/kext/${ostype}/build/Release/Seil.kext "$basedir/Seil.${ostype}.signed.kext"
 done
 
-basedir="pkgroot/Applications/Seil.app/Contents/Library/bin"
-mkdir -p "$basedir"
-cp -R src/bin/kextload/build/Release/kextload "$basedir"
-cp -R src/util/cli/build/Release/seil "$basedir"
-
-basedir="pkgroot/Applications/Seil.app/Contents/Library/extra"
-mkdir -p "$basedir"
 cp -R pkginfo/Scripts/preinstall "$basedir/uninstall_core.sh"
 for f in \
     files/extra/launchUninstaller.sh \
     files/extra/setpermissions.sh \
+    files/extra/startup.sh \
     files/extra/uninstall.sh \
     ;
 do
@@ -51,7 +52,8 @@ do
 done
 
 # Sign with Developer ID
-bash files/extra/codesign.sh pkgroot
+bash files/extra/codesign.sh "pkgroot/Applications"
+bash files/extra/codesign.sh "pkgroot/Library/Application Support"
 
 # Setting file permissions.
 #
@@ -67,7 +69,6 @@ bash files/extra/codesign.sh pkgroot
 #   Then, we need to repair file permissions in postinstall script.
 #   Please also see postinstall.
 #
-chmod 4755 pkgroot/Applications/Seil.app/Contents/Library/bin/kextload
 sh "files/extra/setpermissions.sh" pkgroot
 sh "files/extra/setpermissions.sh" pkginfo
 chmod 755 \
