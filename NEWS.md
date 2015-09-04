@@ -1,6 +1,7 @@
 # Since 11.3.0
 
-- Close button has been added.
+* Close button has been added.
+* "Check for updates" (Sparkle) has been updated.
 
 
 # Version 11.3.0
