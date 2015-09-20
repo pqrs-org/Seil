@@ -1,5 +1,7 @@
 # Since 11.3.0
 
+* OS X 10.10 support has been dropped.
+* OS X 10.9 support has been dropped.
 * Close button has been added.
 * "Check for updates" (Sparkle) has been updated.
 
