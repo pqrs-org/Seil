@@ -1,13 +1,16 @@
 // -*- Mode: c++; indent-tabs-mode: nil; -*-
 
 // The original code was written by YASUDA Yoshinori.
+#include "diagnostic_macros.hpp"
 
 #define protected public // A hack for access private member of IOHIKeyboard
+BEGIN_IOKIT_INCLUDE;
 #include <IOKit/hidsystem/IOHIKeyboard.h>
 // included from Leopard or Tiger folder according to $USER_HEADER_SEARCH_PATHS in Build tab of Project setting
 #include "IOHIDKeyboard.h"
 #undef protected
 #include <IOKit/IOLib.h>
+END_IOKIT_INCLUDE
 
 #include "Driver.hpp"
 #include "GlobalLock.hpp"
@@ -53,7 +56,7 @@ void org_pqrs_driver_Seil::HookedKeyboard::initialize(IOHIKeyboard* p) {
 
 void org_pqrs_driver_Seil::HookedKeyboard::terminate(void) {
   restore();
-  kbd_ = NULL;
+  kbd_ = nullptr;
 }
 
 void org_pqrs_driver_Seil::HookedKeyboard::restore(void) {
@@ -129,18 +132,18 @@ bool org_pqrs_driver_Seil::start(IOService* provider) {
   notifier_hookKeyboard_ = addMatchingNotification(gIOMatchedNotification,
                                                    serviceMatching("IOHIKeyboard"),
                                                    org_pqrs_driver_Seil::IOHIKeyboard_gIOMatchedNotification_callback,
-                                                   this, NULL, 0);
-  if (notifier_hookKeyboard_ == NULL) {
-    IOLOG_ERROR("initialize_notification notifier_hookKeyboard_ == NULL\n");
+                                                   this, nullptr, 0);
+  if (notifier_hookKeyboard_ == nullptr) {
+    IOLOG_ERROR("initialize_notification notifier_hookKeyboard_ == nullptr\n");
     return false;
   }
 
   notifier_unhookKeyboard_ = addMatchingNotification(gIOTerminatedNotification,
                                                      serviceMatching("IOHIKeyboard"),
                                                      org_pqrs_driver_Seil::IOHIKeyboard_gIOTerminatedNotification_callback,
-                                                     this, NULL, 0);
-  if (notifier_unhookKeyboard_ == NULL) {
-    IOLOG_ERROR("initialize_notification notifier_unhookKeyboard_ == NULL\n");
+                                                     this, nullptr, 0);
+  if (notifier_unhookKeyboard_ == nullptr) {
+    IOLOG_ERROR("initialize_notification notifier_unhookKeyboard_ == nullptr\n");
     return false;
   }
 
@@ -169,24 +172,24 @@ void org_pqrs_driver_Seil::stop(IOService* provider) {
 org_pqrs_driver_Seil::HookedKeyboard*
 org_pqrs_driver_Seil::new_hookedKeyboard(void) {
   for (int i = 0; i < MAXNUM_KEYBOARD; ++i) {
-    if (hookedKeyboard_[i].get() == NULL) {
+    if (hookedKeyboard_[i].get() == nullptr) {
       return hookedKeyboard_ + i;
     }
   }
-  return NULL;
+  return nullptr;
 }
 
 org_pqrs_driver_Seil::HookedKeyboard*
 org_pqrs_driver_Seil::search_hookedKeyboard(const IOHIKeyboard* kbd) {
-  if (kbd == NULL) {
-    return NULL;
+  if (kbd == nullptr) {
+    return nullptr;
   }
   for (int i = 0; i < MAXNUM_KEYBOARD; ++i) {
     if (hookedKeyboard_[i].get() == kbd) {
       return hookedKeyboard_ + i;
     }
   }
-  return NULL;
+  return nullptr;
 }
 
 // ----------------------------------------------------------------------
@@ -200,10 +203,10 @@ bool org_pqrs_driver_Seil::isTargetDevice(IOHIKeyboard* kbd) {
   IORegistryEntry* dev = kbd;
 
   while (dev) {
-    const OSNumber* vid = NULL;
+    const OSNumber* vid = nullptr;
     vid = OSDynamicCast(OSNumber, dev->getProperty(kIOHIDVendorIDKey));
 
-    const OSNumber* pid = NULL;
+    const OSNumber* pid = nullptr;
     pid = OSDynamicCast(OSNumber, dev->getProperty(kIOHIDProductIDKey));
 
     if (vid && pid) {

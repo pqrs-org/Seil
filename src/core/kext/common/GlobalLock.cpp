@@ -1,10 +1,14 @@
+#include "diagnostic_macros.hpp"
+
+BEGIN_IOKIT_INCLUDE;
 #include <IOKit/IOLib.h>
+END_IOKIT_INCLUDE;
 
 #include "GlobalLock.hpp"
 #include "IOLogWrapper.hpp"
 
 namespace org_pqrs_Seil {
-IOLock* GlobalLock::lock_ = NULL;
+IOLock* GlobalLock::lock_ = nullptr;
 
 void GlobalLock::initialize(void) {
   lock_ = IOLockAlloc();
@@ -18,7 +22,7 @@ void GlobalLock::terminate(void) {
 
   IOLockLock(lock_);
   IOLock* tmp = lock_;
-  lock_ = NULL;
+  lock_ = nullptr;
   IOLockUnlock(tmp);
 
   // roughly sleep:
@@ -44,7 +48,7 @@ GlobalLock::ScopedLock::~ScopedLock(void) {
 bool
     GlobalLock::ScopedLock::
     operator!(void)const {
-  return lock_ == NULL;
+  return lock_ == nullptr;
 }
 
 // ------------------------------------------------------------
@@ -64,6 +68,6 @@ GlobalLock::ScopedUnlock::~ScopedUnlock(void) {
 bool
     GlobalLock::ScopedUnlock::
     operator!(void)const {
-  return lock_ == NULL;
+  return lock_ == nullptr;
 }
 }

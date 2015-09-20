@@ -3,9 +3,13 @@
 #ifndef DRIVER_HPP
 #define DRIVER_HPP
 
+#include "diagnostic_macros.hpp"
+
+BEGIN_IOKIT_INCLUDE;
 #include <IOKit/IOService.h>
 #include <IOKit/hidsystem/IOHIDUsageTables.h>
 #include <IOKit/hidsystem/IOHIKeyboard.h>
+END_IOKIT_INCLUDE;
 
 #include "bridge.h"
 
@@ -14,11 +18,11 @@ class org_pqrs_driver_Seil : public IOService {
   OSDeclareDefaultStructors(org_pqrs_driver_Seil);
 
 public:
-  virtual bool init(OSDictionary* dictionary = 0);
-  virtual void free(void);
-  virtual IOService* probe(IOService* provider, SInt32* score);
-  virtual bool start(IOService* provider);
-  virtual void stop(IOService* provider);
+  virtual bool init(OSDictionary* dictionary = 0) override;
+  virtual void free(void) override;
+  virtual IOService* probe(IOService* provider, SInt32* score) override;
+  virtual bool start(IOService* provider) override;
+  virtual void stop(IOService* provider) override;
 
   static void setConfiguration(const BridgeConfig& newval);
   static void unsetConfiguration(void);
@@ -45,7 +49,7 @@ private:
   // ------------------------------------------------------------
   class HookedKeyboard {
   public:
-    HookedKeyboard(void) : kbd_(NULL) {
+    HookedKeyboard(void) : kbd_(nullptr) {
       bzero(originalKeyCode_, sizeof(originalKeyCode_));
     }
 
