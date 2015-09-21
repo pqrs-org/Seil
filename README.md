@@ -1,5 +1,4 @@
-Seil
-====
+# Seil
 
 Seil applies a patch to a keyboard driver.
 
@@ -8,35 +7,33 @@ And it can activate International Keys on Non-Apple keyboard.
 
 Prior to version 10.7.0, Seil was called *PCKeyboardHack*.
 
-Useful links
-------------
+
+## Useful links
 
 * Latest build: https://pqrs.org/osx/karabiner/seil.html
 * Mirror: http://tekezo.github.io/pqrs.org/
 
 
-System requirements
--------------------
+## System requirements
 
-OS X 10.9 or higher.
+OS X 10.11 or higher.
 
+* If you require Seil for OS X 10.10 and 10.9, please use Seil 11.3.0.
 * If you require Seil for OS X 10.8, please use Seil 10.11.0.
 * If you require Seil for OS X 10.7, please use PCKeyboardHack 9.0.0.
 * If you require Seil for OS X 10.6, please use PCKeyboardHack 7.4.0.
 * If you require Seil for OS X 10.5, please use PCKeyboardHack 5.1.0.
 
-How to build
-------------
+
+## How to build
 
 System requirements:
 
 * OS X 10.10+
-* Xcode 6.1+
+* Xcode 7.0+
 * Command Line Tools for Xcode
-* Boost 1.56.0+ (header-only) http://www.boost.org/
 * CocoaPods http://cocoapods.org/
 
-Please install Boost into /usr/local/include/boost.
 
 ### Step 1: Getting source code
 
