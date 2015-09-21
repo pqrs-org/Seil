@@ -189,12 +189,14 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
 }
 
 - (IBAction)quit:(id)sender {
-  NSAlert* alert = [NSAlert alertWithMessageText:@"Quit Seil?"
-                                   defaultButton:@"Quit"
-                                 alternateButton:@"Cancel"
-                                     otherButton:nil
-                       informativeTextWithFormat:@"Are you sure you want to quit Seil?"];
-  if ([alert runModal] != NSAlertDefaultReturn) return;
+  NSAlert* alert = [NSAlert new];
+  alert.messageText = @"Quit Seil?";
+  alert.informativeText = @"Are you sure you want to quit Seil?";
+  [alert addButtonWithTitle:@"Quit"];
+  [alert addButtonWithTitle:@"Cancel"];
+  if ([alert runModal] != NSAlertFirstButtonReturn) {
+    return;
+  }
 
   [StartAtLoginUtilities setStartAtLogin:NO];
   [NSApp terminate:nil];
