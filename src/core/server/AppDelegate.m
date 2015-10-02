@@ -185,7 +185,8 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
 
 // ------------------------------------------------------------
 - (IBAction)launchUninstaller:(id)sender {
-  system("sh '/Library/Application Support/org.pqrs/Seil/launchUninstaller.sh'");
+  NSString* path = @"/Library/Application Support/org.pqrs/Seil/uninstaller.applescript";
+  [[[NSAppleScript alloc] initWithContentsOfURL:[NSURL fileURLWithPath:path] error:nil] executeAndReturnError:nil];
 }
 
 - (IBAction)quit:(id)sender {

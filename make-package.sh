@@ -17,15 +17,6 @@ mkdir -p pkgroot
 mkdir -p "pkgroot/Applications"
 cp -R "src/core/server/build/Release/Seil.app" "pkgroot/Applications"
 
-basedir="pkgroot/Applications/Seil.app/Contents/Applications"
-mkdir -p "$basedir"
-for d in \
-    src/util/uninstaller/automator/SeilUninstaller.app \
-    ;
-do
-    cp -R "$d" "$basedir"
-done
-
 basedir="pkgroot/Applications/Seil.app/Contents/Library/bin"
 mkdir -p "$basedir"
 cp -R src/util/cli/build/Release/seil "$basedir"
@@ -42,18 +33,17 @@ done
 
 cp -R pkginfo/Scripts/preinstall "$basedir/uninstall_core.sh"
 for f in \
-    files/extra/launchUninstaller.sh \
     files/extra/setpermissions.sh \
     files/extra/startup.sh \
     files/extra/uninstall.sh \
+    files/extra/uninstaller.applescript \
     ;
 do
     cp -R "$f" "$basedir"
 done
 
 # Sign with Developer ID
-bash files/extra/codesign.sh "pkgroot/Applications"
-bash files/extra/codesign.sh "pkgroot/Library/Application Support"
+bash files/extra/codesign.sh "pkgroot"
 
 # Setting file permissions.
 #
