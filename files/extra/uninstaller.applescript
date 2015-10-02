@@ -6,6 +6,7 @@ try
             try
                 do shell script "sh '/Library/Application Support/org.pqrs/Seil/uninstall.sh'" with administrator privileges
                 display alert "Seil has been uninstalled. Please restart OS X."
+                do shell script "/usr/bin/killall Seil"
             on error
                 display alert "Failed to uninstall Seil."
             end try
