@@ -119,6 +119,15 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
     NSString* bundlePath = [[NSBundle mainBundle] bundlePath];
     if (![bundlePath isEqualToString:@"/Applications/Seil.app"]) {
       NSLog(@"Skip setStartAtLogin for %@", bundlePath);
+
+      dispatch_async(dispatch_get_main_queue(), ^{
+        NSAlert* alert = [NSAlert new];
+        [alert setMessageText:@"Seil Alert"];
+        [alert addButtonWithTitle:@"Close"];
+        [alert setInformativeText:@"Seil.app should be located in /Applications/Seil.app.\nDo not move Seil.app into other folders."];
+        [alert runModal];
+      });
+
     } else {
       if (![StartAtLoginUtilities isStartAtLogin]) {
         [StartAtLoginUtilities setStartAtLogin:YES];
