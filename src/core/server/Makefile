@@ -13,6 +13,7 @@ all:
 		build \
 		SYMROOT=`pwd`/build
 	xcodebuild -alltargets -configuration $(CONFIGURATION) build
+	install -m 644 ../../share/Resources/app.icns build/Release/Seil.app/Contents/Frameworks/Sparkle.framework/Versions/A/Resources/Autoupdate.app/Contents/Resources/AppIcon.icns
 
 clean:
 	rm -rf build
