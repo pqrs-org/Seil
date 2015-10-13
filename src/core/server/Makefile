@@ -1,6 +1,8 @@
 #CONFIGURATION = Debug
 CONFIGURATION = Release
 
+AUTOUPDATE_ICON = 'build/Release/Seil.app/Contents/Frameworks/Sparkle.framework/Versions/A/Resources/Autoupdate.app/Contents/Resources/AppIcon.icns'
+
 all:
 	pod install --no-repo-update
 	$(MAKE) -C ../../../pkginfo
@@ -13,7 +15,8 @@ all:
 		build \
 		SYMROOT=`pwd`/build
 	xcodebuild -alltargets -configuration $(CONFIGURATION) build
-	install -m 644 ../../share/Resources/app.icns build/Release/Seil.app/Contents/Frameworks/Sparkle.framework/Versions/A/Resources/Autoupdate.app/Contents/Resources/AppIcon.icns
+	[ -f $(AUTOUPDATE_ICON) ] || exit 1
+	install -m 644 ../../share/Resources/app.icns $(AUTOUPDATE_ICON)
 
 clean:
 	rm -rf build
