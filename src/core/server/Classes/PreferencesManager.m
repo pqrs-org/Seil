@@ -87,8 +87,8 @@
 }
 
 // ----------------------------------------------------------------------
-- (NSInteger)checkForUpdatesMode {
-  return [[NSUserDefaults standardUserDefaults] integerForKey:kCheckForUpdates];
+- (BOOL)isCheckForUpdates {
+  return [[NSUserDefaults standardUserDefaults] boolForKey:kCheckForUpdates];
 }
 
 @end
