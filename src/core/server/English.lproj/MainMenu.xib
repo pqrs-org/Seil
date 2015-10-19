@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="8191"/>
@@ -113,6 +113,7 @@
                     <tabView initialItem="539" id="537">
                         <rect key="frame" x="13" y="10" width="642" height="584"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <animations/>
                         <font key="font" metaFont="system"/>
                         <tabViewItems>
                             <tabViewItem label="Setting" identifier="1" id="539">
@@ -130,6 +131,7 @@
                                                     <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="sequential" alternatingRowBackgroundColors="YES" columnReordering="NO" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" typeSelect="NO" headerView="547" indentationPerLevel="16" autoresizesOutlineColumn="YES" outlineTableColumn="548" id="544">
                                                         <rect key="frame" x="0.0" y="0.0" width="571" height="19"/>
                                                         <autoresizingMask key="autoresizingMask"/>
+                                                        <animations/>
                                                         <size key="intercellSpacing" width="3" height="2"/>
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         <tableViewGridLines key="gridStyleMask" horizontal="YES"/>
@@ -186,24 +188,30 @@
                                                         </connections>
                                                     </outlineView>
                                                 </subviews>
+                                                <animations/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </clipView>
+                                            <animations/>
                                             <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="546">
                                                 <rect key="frame" x="-100" y="-100" width="470" height="15"/>
                                                 <autoresizingMask key="autoresizingMask"/>
+                                                <animations/>
                                             </scroller>
                                             <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="545">
                                                 <rect key="frame" x="572" y="17" width="15" height="313"/>
                                                 <autoresizingMask key="autoresizingMask"/>
+                                                <animations/>
                                             </scroller>
                                             <tableHeaderView key="headerView" id="547">
                                                 <rect key="frame" x="0.0" y="0.0" width="571" height="17"/>
                                                 <autoresizingMask key="autoresizingMask"/>
+                                                <animations/>
                                             </tableHeaderView>
                                         </scrollView>
                                         <box verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="541">
                                             <rect key="frame" x="9" y="221" width="604" height="5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <animations/>
                                             <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                                             <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <font key="titleFont" metaFont="system"/>
@@ -218,6 +226,7 @@
                                                     <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="sequential" columnReordering="NO" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" typeSelect="NO" headerView="558" indentationPerLevel="16" autoresizesOutlineColumn="YES" outlineTableColumn="559" id="555">
                                                         <rect key="frame" x="0.0" y="0.0" width="571" height="19"/>
                                                         <autoresizingMask key="autoresizingMask"/>
+                                                        <animations/>
                                                         <size key="intercellSpacing" width="3" height="2"/>
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         <tableViewGridLines key="gridStyleMask" horizontal="YES"/>
@@ -254,24 +263,30 @@
                                                         </connections>
                                                     </outlineView>
                                                 </subviews>
+                                                <animations/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </clipView>
+                                            <animations/>
                                             <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="557">
                                                 <rect key="frame" x="-100" y="-100" width="470" height="15"/>
                                                 <autoresizingMask key="autoresizingMask"/>
+                                                <animations/>
                                             </scroller>
                                             <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="556">
                                                 <rect key="frame" x="572" y="17" width="15" height="152"/>
                                                 <autoresizingMask key="autoresizingMask"/>
+                                                <animations/>
                                             </scroller>
                                             <tableHeaderView key="headerView" id="558">
                                                 <rect key="frame" x="0.0" y="0.0" width="571" height="17"/>
                                                 <autoresizingMask key="autoresizingMask"/>
+                                                <animations/>
                                             </tableHeaderView>
                                         </scrollView>
                                         <button verticalHuggingPriority="750" id="6oa-vO-F2f">
                                             <rect key="frame" x="11" y="10" width="173" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <animations/>
                                             <buttonCell key="cell" type="push" title="Close this window" bezelStyle="rounded" image="NSStopProgressFreestandingTemplate" imagePosition="left" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="vB6-1e-ZWf">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -283,6 +298,7 @@
                                         <button verticalHuggingPriority="750" id="Mh8-fk-cFM">
                                             <rect key="frame" x="184" y="10" width="184" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <animations/>
                                             <buttonCell key="cell" type="push" title="Quit Seil completely" bezelStyle="rounded" image="NSStopProgressFreestandingTemplate" imagePosition="left" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="L8V-Kf-Tnb">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -292,6 +308,7 @@
                                             </connections>
                                         </button>
                                     </subviews>
+                                    <animations/>
                                 </view>
                             </tabViewItem>
                             <tabViewItem label="Misc &amp; Uninstall" identifier="2" id="538">
@@ -302,6 +319,7 @@
                                         <textField verticalHuggingPriority="750" id="567">
                                             <rect key="frame" x="14" y="518" width="75" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <animations/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Seil.version" id="568">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -311,6 +329,7 @@
                                         <textField verticalHuggingPriority="750" id="566">
                                             <rect key="frame" x="93" y="518" width="161" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <animations/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="x.x.x" id="569">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -327,6 +346,7 @@
                                                     <button verticalHuggingPriority="750" id="570">
                                                         <rect key="frame" x="11" y="6" width="156" height="32"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                        <animations/>
                                                         <buttonCell key="cell" type="push" title="Launch uninstaller" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="571">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
@@ -336,29 +356,23 @@
                                                         </connections>
                                                     </button>
                                                 </subviews>
+                                                <animations/>
                                             </view>
+                                            <animations/>
                                             <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                                             <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </box>
                                         <box autoresizesSubviews="NO" title="Update" borderType="line" id="564">
-                                            <rect key="frame" x="14" y="409" width="602" height="101"/>
+                                            <rect key="frame" x="14" y="413" width="602" height="97"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <view key="contentView" id="XQp-fL-RXJ">
-                                                <rect key="frame" x="1" y="1" width="600" height="85"/>
+                                                <rect key="frame" x="1" y="1" width="600" height="81"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
-                                                    <textField verticalHuggingPriority="750" id="574">
-                                                        <rect key="frame" x="15" y="57" width="193" height="17"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Check for updates on startup:" id="575">
-                                                            <font key="font" metaFont="system"/>
-                                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                        </textFieldCell>
-                                                    </textField>
                                                     <button verticalHuggingPriority="750" id="573">
-                                                        <rect key="frame" x="12" y="7" width="155" height="32"/>
+                                                        <rect key="frame" x="12" y="9" width="155" height="32"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                        <animations/>
                                                         <buttonCell key="cell" type="push" title="Check for updates" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="576">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
@@ -367,33 +381,22 @@
                                                             <action selector="checkForUpdatesStableOnly:" target="582" id="744"/>
                                                         </connections>
                                                     </button>
-                                                    <popUpButton verticalHuggingPriority="750" id="572">
-                                                        <rect key="frame" x="210" y="51" width="261" height="26"/>
+                                                    <button id="Kc2-JB-NEI">
+                                                        <rect key="frame" x="16" y="49" width="281" height="18"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="577">
-                                                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                                            <font key="font" metaFont="menu"/>
-                                                            <menu key="menu" title="OtherViews" id="578">
-                                                                <items>
-                                                                    <menuItem title="Nothing" id="581">
-                                                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                                                    </menuItem>
-                                                                    <menuItem title="The stable release only (default)" id="580">
-                                                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                                                    </menuItem>
-                                                                    <menuItem title="Beta &amp; stable releases" id="579">
-                                                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                                                    </menuItem>
-                                                                </items>
-                                                            </menu>
-                                                        </popUpButtonCell>
+                                                        <animations/>
+                                                        <buttonCell key="cell" type="check" title="Check for updates on startup (Default: On)" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="gzT-Ng-IgO">
+                                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                        </buttonCell>
                                                         <connections>
-                                                            <binding destination="586" name="selectedIndex" keyPath="values.isCheckUpdate" id="588"/>
+                                                            <binding destination="586" name="value" keyPath="values.isCheckUpdate" id="IDD-Vk-TBF"/>
                                                         </connections>
-                                                    </popUpButton>
+                                                    </button>
                                                     <button verticalHuggingPriority="750" id="745">
-                                                        <rect key="frame" x="376" y="16" width="207" height="16"/>
+                                                        <rect key="frame" x="374" y="18" width="207" height="16"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                        <animations/>
                                                         <buttonCell key="cell" type="push" title="Check for updates including beta versions" bezelStyle="rounded" alignment="center" controlSize="mini" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="746">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="miniSystem"/>
@@ -403,7 +406,9 @@
                                                         </connections>
                                                     </button>
                                                 </subviews>
+                                                <animations/>
                                             </view>
+                                            <animations/>
                                             <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                                             <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </box>
@@ -417,6 +422,7 @@
                                                     <button verticalHuggingPriority="750" id="2dK-bJ-SZB">
                                                         <rect key="frame" x="167" y="33" width="301" height="32"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                        <animations/>
                                                         <buttonCell key="cell" type="push" title="https://pqrs.org/osx/karabiner/seil.html" bezelStyle="rounded" image="NSFollowLinkFreestandingTemplate" imagePosition="left" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Ln6-o9-n0g">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
@@ -428,6 +434,7 @@
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="MBp-Jd-m8h">
                                                         <rect key="frame" x="16" y="43" width="142" height="17"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                        <animations/>
                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Open download page:" id="WWo-Ug-KN7">
                                                             <font key="font" metaFont="system"/>
                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -437,6 +444,7 @@
                                                     <button verticalHuggingPriority="750" id="jhI-pv-zYO">
                                                         <rect key="frame" x="167" y="7" width="252" height="32"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                        <animations/>
                                                         <buttonCell key="cell" type="push" title="https://github.com/tekezo/Seil/" bezelStyle="rounded" image="NSFollowLinkFreestandingTemplate" imagePosition="left" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="r9D-Fc-dAo">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
@@ -448,6 +456,7 @@
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="zXL-bg-xVA">
                                                         <rect key="frame" x="71" y="17" width="87" height="17"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                        <animations/>
                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Open github:" id="ONb-FI-D8A">
                                                             <font key="font" metaFont="system"/>
                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -455,16 +464,20 @@
                                                         </textFieldCell>
                                                     </textField>
                                                 </subviews>
+                                                <animations/>
                                             </view>
+                                            <animations/>
                                             <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                                             <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </box>
                                     </subviews>
+                                    <animations/>
                                 </view>
                             </tabViewItem>
                         </tabViewItems>
                     </tabView>
                 </subviews>
+                <animations/>
             </view>
             <connections>
                 <outlet property="delegate" destination="589" id="594"/>
