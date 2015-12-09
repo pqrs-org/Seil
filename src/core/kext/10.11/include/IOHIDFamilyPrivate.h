@@ -95,6 +95,8 @@ bool CompareNumberPropertyArrayWithMask( IOService * owner, OSDictionary * match
 
 void IOHIDSystemActivityTickle(SInt32 nxEventType, IOService *sender);
 
+void handle_stackshot_keychord(uint32_t keycode);
+
 #define NX_HARDWARE_TICKLE  (NX_LASTEVENT+1)
 
 __END_DECLS
