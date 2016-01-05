@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/tekezo/Seil.svg?branch=master)](https://travis-ci.org/tekezo/Seil)
+[![License](https://img.shields.io/badge/license-Public%20Domain-blue.svg)](https://github.com/tekezo/Seil/blob/master/LICENSE.md)
 
 # Seil
 
