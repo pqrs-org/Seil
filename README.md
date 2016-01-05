@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/tekezo/Seil.svg?branch=master)](https://travis-ci.org/tekezo/Seil)
+
 # Seil
 
 Seil applies a patch to a keyboard driver.
