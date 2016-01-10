@@ -1,3 +1,8 @@
+# Since 12.0.0
+
+* The physical forward delete key has been added into the changeable keys.
+
+
 # Version 12.0.0
 
 * OS X 10.10 support has been dropped.
