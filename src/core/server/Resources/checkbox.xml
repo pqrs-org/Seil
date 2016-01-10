@@ -116,6 +116,13 @@
       <default>53</default>
     </item>
     <item>
+      <name>Change Forward Delete</name>
+      <enable>enable_forward_delete</enable>
+      <keycode>keycode_forward_delete</keycode>
+      <kHIDUsage>kHIDUsage_KeyboardDeleteForward</kHIDUsage>
+      <default>117</default>
+    </item>
+    <item>
       <name>Change Keypad Enter</name>
       <enable>enable_enter</enable>
       <keycode>keycode_enter</keycode>
