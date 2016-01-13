@@ -137,23 +137,6 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
   }
 
   // ------------------------------------------------------------
-  {
-    // Remove old pkg files and finish_installation.app in
-    // "~/Library/Application Support/Seil/.Sparkle".
-    NSArray* paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
-    NSString* sparkle = paths[0];
-    if (sparkle) {
-      sparkle = [sparkle stringByAppendingPathComponent:@"Seil"];
-      sparkle = [sparkle stringByAppendingPathComponent:@".Sparkle"];
-
-      NSFileManager* fm = [NSFileManager defaultManager];
-      if ([fm fileExistsAtPath:sparkle]) {
-        [fm removeItemAtPath:sparkle error:nil];
-      }
-    }
-  }
-
-  // ------------------------------------------------------------
   if (![serverForUserspace_ register]) {
     // Relaunch when register is failed.
     NSLog(@"[ServerForUserspace register] is failed. Restarting process.");
