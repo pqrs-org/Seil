@@ -114,29 +114,6 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
   }
 
   // ------------------------------------------------------------
-  BOOL openPreferences = NO;
-  {
-    NSString* bundlePath = [[NSBundle mainBundle] bundlePath];
-    if (![bundlePath isEqualToString:@"/Applications/Seil.app"]) {
-      NSLog(@"Skip setStartAtLogin for %@", bundlePath);
-
-      dispatch_async(dispatch_get_main_queue(), ^{
-        NSAlert* alert = [NSAlert new];
-        [alert setMessageText:@"Seil Alert"];
-        [alert addButtonWithTitle:@"Close"];
-        [alert setInformativeText:@"Seil.app should be located in /Applications/Seil.app.\nDo not move Seil.app into other folders."];
-        [alert runModal];
-      });
-
-    } else {
-      if (![StartAtLoginUtilities isStartAtLogin]) {
-        [StartAtLoginUtilities setStartAtLogin:YES];
-        openPreferences = YES;
-      }
-    }
-  }
-
-  // ------------------------------------------------------------
   if (![serverForUserspace_ register]) {
     // Relaunch when register is failed.
     NSLog(@"[ServerForUserspace register] is failed. Restarting process.");
@@ -160,9 +137,28 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
 
   // ------------------------------------------------------------
   // Open Preferences if Seil was launched by hand.
-  if (openPreferences &&
-      !isDescendantProcess) {
-    [preferencesController_ show];
+  {
+    NSString* bundlePath = [[NSBundle mainBundle] bundlePath];
+    if (![bundlePath isEqualToString:@"/Applications/Seil.app"]) {
+      NSLog(@"Skip setStartAtLogin for %@", bundlePath);
+
+      dispatch_async(dispatch_get_main_queue(), ^{
+        NSAlert* alert = [NSAlert new];
+        [alert setMessageText:@"Seil Alert"];
+        [alert addButtonWithTitle:@"Close"];
+        [alert setInformativeText:@"Seil.app should be located in /Applications/Seil.app.\nDo not move Seil.app into other folders."];
+        [alert runModal];
+      });
+
+    } else {
+      if (![StartAtLoginUtilities isStartAtLogin]) {
+        [StartAtLoginUtilities setStartAtLogin:YES];
+
+        if (!isDescendantProcess) {
+          [preferencesController_ show];
+        }
+      }
+    }
   }
 }
 
