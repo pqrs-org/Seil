@@ -2,12 +2,10 @@ language: cpp
 os: osx
 osx_image: xcode7.2
 compiler: clang
-install: true
-script: make
-
-# Reinstall CocoaPods because the preinstalled CocoaPods crashes with a segmentation fault.
-before_install:
+# We have to install newer ruby because CocoaPods will be crashed with the default ruby (ruby-2.0.0-p643).
+install:
   - rvm install ruby-2.2.4
   - rvm --default use 2.2.4
   - gem install cocoapods
   - pod setup
+script: make
