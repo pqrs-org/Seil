@@ -1,6 +1,7 @@
 # Since 12.0.0
 
 * The physical forward delete key has been added into the changeable keys.
+* The behavior of starting Seil on system startup has been improved.
 
 
 # Version 12.0.0
