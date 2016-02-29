@@ -16,7 +16,15 @@
   CFRunLoopSourceRef loopsource_;
 
   SessionObserver* sessionObserver_;
+
+  IBOutlet OutlineView_mixed* outlineView_mixed_;
+  IBOutlet PreferencesController* preferencesController_;
+  IBOutlet ServerForUserspace* serverForUserspace_;
 }
+
+@property(weak) IBOutlet ClientForKernelspace* clientForKernelspace;
+@property(weak) IBOutlet Updater* updater;
+
 @end
 
 @implementation AppDelegate
@@ -135,7 +143,7 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
 
   // ------------------------------------------------------------
   [outlineView_mixed_ initialExpandCollapseTree];
-  [updater_ checkForUpdatesInBackground:nil];
+  [self.updater checkForUpdatesInBackground];
 
   // ------------------------------------------------------------
   // Open Preferences if Seil was launched by hand.

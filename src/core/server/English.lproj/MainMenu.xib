@@ -352,7 +352,7 @@
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
                                                         <connections>
-                                                            <action selector="checkForUpdatesStableOnly:" target="582" id="744"/>
+                                                            <action selector="checkForUpdatesStableOnly:" target="Md5-Nt-b1A" id="NWh-Wx-h3H"/>
                                                         </connections>
                                                     </button>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="745">
@@ -362,7 +362,7 @@
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
                                                         <connections>
-                                                            <action selector="checkForUpdatesWithBetaVersion:" target="582" id="747"/>
+                                                            <action selector="checkForUpdatesWithBetaVersion:" target="Md5-Nt-b1A" id="SSJ-BU-NBu"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -502,13 +502,25 @@
                 <outlet property="outlineView_mixed_" destination="598" id="606"/>
                 <outlet property="preferencesController_" destination="589" id="593"/>
                 <outlet property="serverForUserspace_" destination="hAv-NT-zlb" id="RqE-e9-bUf"/>
-                <outlet property="updater_" destination="582" id="596"/>
+                <outlet property="updater" destination="582" id="vJb-JP-72y"/>
             </connections>
         </customObject>
         <customObject id="420" customClass="NSFontManager"/>
+        <customObject id="kBK-lF-EiU" customClass="ServerObjects">
+            <connections>
+                <outlet property="clientForKernelspace" destination="741" id="PAd-6Z-ShL"/>
+                <outlet property="preferencesManager" destination="583" id="SGx-qr-AT8"/>
+                <outlet property="updater" destination="582" id="ZLs-Ir-eow"/>
+            </connections>
+        </customObject>
+        <customObject id="Md5-Nt-b1A" customClass="PreferencesWindowController">
+            <connections>
+                <outlet property="serverObjects" destination="kBK-lF-EiU" id="7oC-Vw-ovV"/>
+            </connections>
+        </customObject>
         <customObject id="582" userLabel="Updater" customClass="Updater">
             <connections>
-                <outlet property="preferencesManager_" destination="583" id="584"/>
+                <outlet property="preferencesManager" destination="583" id="zNB-Ql-PQV"/>
             </connections>
         </customObject>
         <customObject id="597" customClass="OutlineView_keycode"/>
