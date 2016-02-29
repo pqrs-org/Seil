@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9060"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
         <capability name="box content view" minToolsVersion="7.0"/>
     </dependencies>
     <objects>
@@ -113,7 +113,6 @@
                 <subviews>
                     <tabView initialItem="539" translatesAutoresizingMaskIntoConstraints="NO" id="537">
                         <rect key="frame" x="10" y="7" width="648" height="589"/>
-                        <animations/>
                         <font key="font" metaFont="system"/>
                         <tabViewItems>
                             <tabViewItem label="Setting" identifier="1" id="539">
@@ -130,7 +129,6 @@
                                                     <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="sequential" alternatingRowBackgroundColors="YES" columnReordering="NO" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" typeSelect="NO" headerView="547" indentationPerLevel="16" autoresizesOutlineColumn="YES" outlineTableColumn="548" id="544">
                                                         <rect key="frame" x="0.0" y="0.0" width="571" height="19"/>
                                                         <autoresizingMask key="autoresizingMask"/>
-                                                        <animations/>
                                                         <size key="intercellSpacing" width="3" height="2"/>
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         <tableViewGridLines key="gridStyleMask" horizontal="YES"/>
@@ -187,29 +185,23 @@
                                                         </connections>
                                                     </outlineView>
                                                 </subviews>
-                                                <animations/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </clipView>
-                                            <animations/>
                                             <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="546">
                                                 <rect key="frame" x="-100" y="-100" width="470" height="15"/>
                                                 <autoresizingMask key="autoresizingMask"/>
-                                                <animations/>
                                             </scroller>
                                             <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="545">
                                                 <rect key="frame" x="578" y="23" width="15" height="280"/>
                                                 <autoresizingMask key="autoresizingMask"/>
-                                                <animations/>
                                             </scroller>
                                             <tableHeaderView key="headerView" id="547">
                                                 <rect key="frame" x="0.0" y="0.0" width="577" height="23"/>
                                                 <autoresizingMask key="autoresizingMask"/>
-                                                <animations/>
                                             </tableHeaderView>
                                         </scrollView>
                                         <box verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="541">
                                             <rect key="frame" x="17" y="216" width="594" height="5"/>
-                                            <animations/>
                                             <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                                             <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <font key="titleFont" metaFont="system"/>
@@ -223,7 +215,6 @@
                                                     <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="sequential" columnReordering="NO" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" typeSelect="NO" headerView="558" indentationPerLevel="16" autoresizesOutlineColumn="YES" outlineTableColumn="559" id="555">
                                                         <rect key="frame" x="0.0" y="0.0" width="571" height="19"/>
                                                         <autoresizingMask key="autoresizingMask"/>
-                                                        <animations/>
                                                         <size key="intercellSpacing" width="3" height="2"/>
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                         <tableViewGridLines key="gridStyleMask" horizontal="YES"/>
@@ -260,32 +251,26 @@
                                                         </connections>
                                                     </outlineView>
                                                 </subviews>
-                                                <animations/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </clipView>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="170" id="qDf-HX-Agb"/>
                                             </constraints>
-                                            <animations/>
                                             <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="557">
                                                 <rect key="frame" x="-100" y="-100" width="470" height="15"/>
                                                 <autoresizingMask key="autoresizingMask"/>
-                                                <animations/>
                                             </scroller>
                                             <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="556">
                                                 <rect key="frame" x="578" y="23" width="15" height="146"/>
                                                 <autoresizingMask key="autoresizingMask"/>
-                                                <animations/>
                                             </scroller>
                                             <tableHeaderView key="headerView" id="558">
                                                 <rect key="frame" x="0.0" y="0.0" width="577" height="23"/>
                                                 <autoresizingMask key="autoresizingMask"/>
-                                                <animations/>
                                             </tableHeaderView>
                                         </scrollView>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6oa-vO-F2f">
                                             <rect key="frame" x="12" y="4" width="141" height="28"/>
-                                            <animations/>
                                             <buttonCell key="cell" type="push" title="Close this window" bezelStyle="rounded" image="NSStopProgressFreestandingTemplate" imagePosition="left" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="vB6-1e-ZWf">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="smallSystem"/>
@@ -296,7 +281,6 @@
                                         </button>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Mh8-fk-cFM">
                                             <rect key="frame" x="148" y="4" width="151" height="28"/>
-                                            <animations/>
                                             <buttonCell key="cell" type="push" title="Quit Seil completely" bezelStyle="rounded" image="NSStopProgressFreestandingTemplate" imagePosition="left" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="L8V-Kf-Tnb">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="smallSystem"/>
@@ -322,7 +306,6 @@
                                         <constraint firstItem="542" firstAttribute="top" secondItem="541" secondAttribute="bottom" constant="10" id="aXB-pL-0KM"/>
                                         <constraint firstItem="543" firstAttribute="leading" secondItem="540" secondAttribute="leading" constant="17" id="nNK-s0-bsa"/>
                                     </constraints>
-                                    <animations/>
                                 </view>
                             </tabViewItem>
                             <tabViewItem label="Misc &amp; Uninstall" identifier="2" id="538">
@@ -332,7 +315,6 @@
                                     <subviews>
                                         <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="567">
                                             <rect key="frame" x="15" y="516" width="73" height="17"/>
-                                            <animations/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Seil.version" id="568">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -341,7 +323,6 @@
                                         </textField>
                                         <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="566">
                                             <rect key="frame" x="89" y="516" width="32" height="17"/>
-                                            <animations/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="x.x.x" id="569">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -356,7 +337,6 @@
                                                 <subviews>
                                                     <button translatesAutoresizingMaskIntoConstraints="NO" id="Kc2-JB-NEI">
                                                         <rect key="frame" x="15" y="39" width="281" height="18"/>
-                                                        <animations/>
                                                         <buttonCell key="cell" type="check" title="Check for updates on startup (Default: On)" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="gzT-Ng-IgO">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="system"/>
@@ -367,7 +347,6 @@
                                                     </button>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="573">
                                                         <rect key="frame" x="11" y="3" width="152" height="32"/>
-                                                        <animations/>
                                                         <buttonCell key="cell" type="push" title="Check for updates" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="576">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
@@ -378,7 +357,6 @@
                                                     </button>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="745">
                                                         <rect key="frame" x="292" y="3" width="295" height="32"/>
-                                                        <animations/>
                                                         <buttonCell key="cell" type="push" title="Check for updates including beta versions" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="746">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
@@ -397,9 +375,7 @@
                                                     <constraint firstItem="Kc2-JB-NEI" firstAttribute="leading" secondItem="XQp-fL-RXJ" secondAttribute="leading" constant="17" id="PId-8I-Hhn"/>
                                                     <constraint firstItem="573" firstAttribute="leading" secondItem="Kc2-JB-NEI" secondAttribute="leading" id="QFp-E3-5i6"/>
                                                 </constraints>
-                                                <animations/>
                                             </view>
-                                            <animations/>
                                             <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                                             <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </box>
@@ -411,7 +387,6 @@
                                                 <subviews>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="570">
                                                         <rect key="frame" x="11" y="3" width="151" height="32"/>
-                                                        <animations/>
                                                         <buttonCell key="cell" type="push" title="Launch uninstaller" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="571">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
@@ -426,9 +401,7 @@
                                                     <constraint firstItem="570" firstAttribute="top" secondItem="Pjf-5s-L61" secondAttribute="top" constant="10" id="cAx-rm-YyW"/>
                                                     <constraint firstItem="570" firstAttribute="leading" secondItem="Pjf-5s-L61" secondAttribute="leading" constant="17" id="usg-pC-z7U"/>
                                                 </constraints>
-                                                <animations/>
                                             </view>
-                                            <animations/>
                                             <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                                             <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </box>
@@ -440,7 +413,6 @@
                                                 <subviews>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MBp-Jd-m8h">
                                                         <rect key="frame" x="15" y="37" width="137" height="17"/>
-                                                        <animations/>
                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Open download page:" id="WWo-Ug-KN7">
                                                             <font key="font" metaFont="system"/>
                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -449,7 +421,6 @@
                                                     </textField>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2dK-bJ-SZB">
                                                         <rect key="frame" x="149" y="28" width="297" height="32"/>
-                                                        <animations/>
                                                         <buttonCell key="cell" type="push" title="https://pqrs.org/osx/karabiner/seil.html" bezelStyle="rounded" image="NSFollowLinkFreestandingTemplate" imagePosition="left" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Ln6-o9-n0g">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
@@ -460,7 +431,6 @@
                                                     </button>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zXL-bg-xVA">
                                                         <rect key="frame" x="69" y="10" width="83" height="17"/>
-                                                        <animations/>
                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Open github:" id="ONb-FI-D8A">
                                                             <font key="font" metaFont="system"/>
                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -469,7 +439,6 @@
                                                     </textField>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jhI-pv-zYO">
                                                         <rect key="frame" x="149" y="1" width="248" height="32"/>
-                                                        <animations/>
                                                         <buttonCell key="cell" type="push" title="https://github.com/tekezo/Seil/" bezelStyle="rounded" image="NSFollowLinkFreestandingTemplate" imagePosition="left" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="r9D-Fc-dAo">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
@@ -490,9 +459,7 @@
                                                     <constraint firstItem="zXL-bg-xVA" firstAttribute="trailing" secondItem="MBp-Jd-m8h" secondAttribute="trailing" id="rj3-B8-ZwR"/>
                                                     <constraint firstItem="2dK-bJ-SZB" firstAttribute="centerY" secondItem="MBp-Jd-m8h" secondAttribute="centerY" id="tc2-ug-1NC"/>
                                                 </constraints>
-                                                <animations/>
                                             </view>
-                                            <animations/>
                                             <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                                             <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </box>
@@ -512,7 +479,6 @@
                                         <constraint firstItem="566" firstAttribute="centerY" secondItem="567" secondAttribute="centerY" id="uCr-mF-Usy"/>
                                         <constraint firstItem="564" firstAttribute="leading" secondItem="567" secondAttribute="leading" id="uH7-gv-vNH"/>
                                     </constraints>
-                                    <animations/>
                                 </view>
                             </tabViewItem>
                         </tabViewItems>
@@ -524,7 +490,6 @@
                     <constraint firstAttribute="bottom" secondItem="537" secondAttribute="bottom" constant="17" id="htq-5l-HgQ"/>
                     <constraint firstItem="537" firstAttribute="leading" secondItem="536" secondAttribute="leading" constant="17" id="ojw-BG-aZM"/>
                 </constraints>
-                <animations/>
             </view>
             <connections>
                 <outlet property="delegate" destination="589" id="594"/>
