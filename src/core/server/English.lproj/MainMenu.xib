@@ -286,7 +286,7 @@
                                                 <font key="font" metaFont="smallSystem"/>
                                             </buttonCell>
                                             <connections>
-                                                <action selector="quit:" target="494" id="VkA-XG-t7a"/>
+                                                <action selector="quit:" target="Md5-Nt-b1A" id="6N1-T2-urD"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -392,7 +392,7 @@
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
                                                         <connections>
-                                                            <action selector="launchUninstaller:" target="494" id="595"/>
+                                                            <action selector="launchUninstaller:" target="Md5-Nt-b1A" id="4im-fP-O2t"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>

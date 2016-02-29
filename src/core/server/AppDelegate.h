@@ -3,4 +3,7 @@
 @import Cocoa;
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
+
++ (void)quitWithConfirmation;
+
 @end

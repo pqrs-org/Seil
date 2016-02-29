@@ -182,12 +182,7 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
 }
 
 // ------------------------------------------------------------
-- (IBAction)launchUninstaller:(id)sender {
-  NSString* path = @"/Library/Application Support/org.pqrs/Seil/uninstaller.applescript";
-  [[[NSAppleScript alloc] initWithContentsOfURL:[NSURL fileURLWithPath:path] error:nil] executeAndReturnError:nil];
-}
-
-- (IBAction)quit:(id)sender {
++ (void)quitWithConfirmation {
   NSAlert* alert = [NSAlert new];
   alert.messageText = @"Are you sure you want to quit Seil?";
   alert.informativeText = @"The changed key will be restored after Seil is quit.";
