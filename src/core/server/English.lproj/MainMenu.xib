@@ -356,8 +356,8 @@
                                                         </connections>
                                                     </button>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="745">
-                                                        <rect key="frame" x="292" y="3" width="295" height="32"/>
-                                                        <buttonCell key="cell" type="push" title="Check for updates including beta versions" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="746">
+                                                        <rect key="frame" x="404" y="3" width="183" height="32"/>
+                                                        <buttonCell key="cell" type="push" title="Check for beta updates" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="746">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
