@@ -8,7 +8,6 @@
 
 @interface OutlineView_mixed : OutlineView {
   IBOutlet NSOutlineView* outlineview_;
-  IBOutlet OutlineView_keycode* outlineView_keycode_;
   IBOutlet PreferencesManager* preferencesManager_;
 }
 

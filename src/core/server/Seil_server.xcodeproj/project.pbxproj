@@ -16,12 +16,14 @@
 		34598343169CAB66007C84F8 /* ClientForKernelspace.m in Sources */ = {isa = PBXBuildFile; fileRef = 34598342169CAB66007C84F8 /* ClientForKernelspace.m */; };
 		34947684168B6EB000B783D2 /* Updater.m in Sources */ = {isa = PBXBuildFile; fileRef = 34947683168B6EB000B783D2 /* Updater.m */; };
 		3494768A168B707500B783D2 /* PreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34947689168B707500B783D2 /* PreferencesController.m */; };
-		34947696168B740E00B783D2 /* OutlineView_keycode.m in Sources */ = {isa = PBXBuildFile; fileRef = 34947691168B740E00B783D2 /* OutlineView_keycode.m */; };
 		34947697168B740E00B783D2 /* OutlineView_mixed.m in Sources */ = {isa = PBXBuildFile; fileRef = 34947693168B740E00B783D2 /* OutlineView_mixed.m */; };
 		34947698168B740E00B783D2 /* OutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 34947695168B740E00B783D2 /* OutlineView.m */; };
 		3494769C168B7AAA00B783D2 /* checkbox.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3494769A168B7AAA00B783D2 /* checkbox.xml */; };
 		3494769D168B7AAA00B783D2 /* known.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3494769B168B7AAA00B783D2 /* known.xml */; };
 		3495FD501C8DC03100C28214 /* ServerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3495FD4F1C8DC03100C28214 /* ServerController.m */; };
+		34B768BE1C8DCAD6005355AC /* XMLLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 34B768BD1C8DCAD6005355AC /* XMLLoader.m */; };
+		34B768C11C8DCCCB005355AC /* KnownTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 34B768C01C8DCCCB005355AC /* KnownTableViewDataSource.m */; };
+		34B768C41C8DCD19005355AC /* KnownTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 34B768C31C8DCD19005355AC /* KnownTableViewDelegate.m */; };
 		34BE221C18C1D7800014BB5B /* ServerForUserspace.m in Sources */ = {isa = PBXBuildFile; fileRef = 34BE221B18C1D7800014BB5B /* ServerForUserspace.m */; };
 		34D2910613ED97C5002A224E /* Seil_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 34D2910513ED97C5002A224E /* Seil_pub.pem */; };
 		34D65EEA13E06A7400476C2A /* app.icns in Resources */ = {isa = PBXBuildFile; fileRef = 34D65EE913E06A7400476C2A /* app.icns */; };
@@ -79,8 +81,6 @@
 		34947688168B707500B783D2 /* PreferencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreferencesController.h; path = Classes/Preferences/PreferencesController.h; sourceTree = "<group>"; };
 		34947689168B707500B783D2 /* PreferencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PreferencesController.m; path = Classes/Preferences/PreferencesController.m; sourceTree = "<group>"; };
 		3494768B168B70F700B783D2 /* NotificationKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotificationKeys.h; path = Classes/NotificationKeys.h; sourceTree = "<group>"; };
-		34947690168B740E00B783D2 /* OutlineView_keycode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutlineView_keycode.h; path = Classes/Preferences/OutlineView_keycode.h; sourceTree = "<group>"; };
-		34947691168B740E00B783D2 /* OutlineView_keycode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OutlineView_keycode.m; path = Classes/Preferences/OutlineView_keycode.m; sourceTree = "<group>"; };
 		34947692168B740E00B783D2 /* OutlineView_mixed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutlineView_mixed.h; path = Classes/Preferences/OutlineView_mixed.h; sourceTree = "<group>"; };
 		34947693168B740E00B783D2 /* OutlineView_mixed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OutlineView_mixed.m; path = Classes/Preferences/OutlineView_mixed.m; sourceTree = "<group>"; };
 		34947694168B740E00B783D2 /* OutlineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutlineView.h; path = Classes/Preferences/OutlineView.h; sourceTree = "<group>"; };
@@ -89,6 +89,12 @@
 		3494769B168B7AAA00B783D2 /* known.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = known.xml; path = Resources/known.xml; sourceTree = "<group>"; };
 		3495FD4E1C8DC03100C28214 /* ServerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServerController.h; path = Classes/ServerController.h; sourceTree = "<group>"; };
 		3495FD4F1C8DC03100C28214 /* ServerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ServerController.m; path = Classes/ServerController.m; sourceTree = "<group>"; };
+		34B768BC1C8DCAD6005355AC /* XMLLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMLLoader.h; path = Classes/Preferences/XMLLoader.h; sourceTree = "<group>"; };
+		34B768BD1C8DCAD6005355AC /* XMLLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMLLoader.m; path = Classes/Preferences/XMLLoader.m; sourceTree = "<group>"; };
+		34B768BF1C8DCCCB005355AC /* KnownTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KnownTableViewDataSource.h; path = Classes/Preferences/KnownTableViewDataSource.h; sourceTree = "<group>"; };
+		34B768C01C8DCCCB005355AC /* KnownTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KnownTableViewDataSource.m; path = Classes/Preferences/KnownTableViewDataSource.m; sourceTree = "<group>"; };
+		34B768C21C8DCD19005355AC /* KnownTableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KnownTableViewDelegate.h; path = Classes/Preferences/KnownTableViewDelegate.h; sourceTree = "<group>"; };
+		34B768C31C8DCD19005355AC /* KnownTableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KnownTableViewDelegate.m; path = Classes/Preferences/KnownTableViewDelegate.m; sourceTree = "<group>"; };
 		34BE221A18C1D7800014BB5B /* ServerForUserspace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServerForUserspace.h; path = Classes/ServerForUserspace.h; sourceTree = "<group>"; };
 		34BE221B18C1D7800014BB5B /* ServerForUserspace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ServerForUserspace.m; path = Classes/ServerForUserspace.m; sourceTree = "<group>"; };
 		34BE222018C1D7970014BB5B /* SeilKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SeilKeys.h; path = ../../share/SeilKeys.h; sourceTree = "<group>"; };
@@ -241,8 +247,10 @@
 		34947687168B706C00B783D2 /* Preferences */ = {
 			isa = PBXGroup;
 			children = (
-				34947690168B740E00B783D2 /* OutlineView_keycode.h */,
-				34947691168B740E00B783D2 /* OutlineView_keycode.m */,
+				34B768BF1C8DCCCB005355AC /* KnownTableViewDataSource.h */,
+				34B768C01C8DCCCB005355AC /* KnownTableViewDataSource.m */,
+				34B768C21C8DCD19005355AC /* KnownTableViewDelegate.h */,
+				34B768C31C8DCD19005355AC /* KnownTableViewDelegate.m */,
 				34947692168B740E00B783D2 /* OutlineView_mixed.h */,
 				34947693168B740E00B783D2 /* OutlineView_mixed.m */,
 				34947694168B740E00B783D2 /* OutlineView.h */,
@@ -251,6 +259,8 @@
 				34947689168B707500B783D2 /* PreferencesController.m */,
 				341EC1211C84943600B44195 /* PreferencesWindowController.h */,
 				341EC1221C84943600B44195 /* PreferencesWindowController.m */,
+				34B768BC1C8DCAD6005355AC /* XMLLoader.h */,
+				34B768BD1C8DCAD6005355AC /* XMLLoader.m */,
 			);
 			name = Preferences;
 			sourceTree = "<group>";
@@ -400,7 +410,9 @@
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				256AC3DA0F4B6AC300CF3369 /* AppDelegate.m in Sources */,
+				34B768BE1C8DCAD6005355AC /* XMLLoader.m in Sources */,
 				3495FD501C8DC03100C28214 /* ServerController.m in Sources */,
+				34B768C11C8DCCCB005355AC /* KnownTableViewDataSource.m in Sources */,
 				34F9652C13D742FA0081D1F3 /* PreferencesManager.m in Sources */,
 				3451A03E1949F0C000E68360 /* MigrationUtilities.m in Sources */,
 				34E5165C193EA296002BB013 /* StartAtLoginUtilities.m in Sources */,
@@ -408,9 +420,9 @@
 				34F9652D13D742FA0081D1F3 /* UserClient_userspace.m in Sources */,
 				34947684168B6EB000B783D2 /* Updater.m in Sources */,
 				34EA17361AFF96F8000350AA /* SessionObserver.m in Sources */,
+				34B768C41C8DCD19005355AC /* KnownTableViewDelegate.m in Sources */,
 				341EC1231C84943600B44195 /* PreferencesWindowController.m in Sources */,
 				3494768A168B707500B783D2 /* PreferencesController.m in Sources */,
-				34947696168B740E00B783D2 /* OutlineView_keycode.m in Sources */,
 				341EC1201C84940F00B44195 /* ServerObjects.m in Sources */,
 				34E4086D19571DC100530059 /* Relauncher.m in Sources */,
 				34947697168B740E00B783D2 /* OutlineView_mixed.m in Sources */,

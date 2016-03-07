@@ -1,14 +1,17 @@
 // -*- Mode: objc; Coding: utf-8; indent-tabs-mode: nil; -*-
 
 #import "NotificationKeys.h"
-#import "OutlineView_keycode.h"
 #import "OutlineView_mixed.h"
+#import "KnownTableViewDataSource.h"
 #import "PreferencesManager.h"
 
 @interface OutlineView_mixed () {
   NSMutableDictionary* textsHeightCache_;
   dispatch_queue_t textsHeightQueue_;
 }
+
+@property(weak) IBOutlet KnownTableViewDataSource* knownTableViewDataSource;
+
 @end
 
 @implementation OutlineView_mixed
@@ -144,7 +147,7 @@
     if (!keycode) return nil;
 
     int keycodevalue = [preferencesManager_ defaultValue:keycode];
-    NSString* keycodename = [outlineView_keycode_ getKeyName:keycodevalue];
+    NSString* keycodename = [self.knownTableViewDataSource getKeyName:keycodevalue];
 
     return [NSString stringWithFormat:@"%d (%@)", keycodevalue, keycodename];
   }
