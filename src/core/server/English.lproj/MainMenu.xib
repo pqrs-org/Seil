@@ -426,7 +426,7 @@
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
                                                         <connections>
-                                                            <action selector="openURL:" target="589" id="obO-cS-NQs"/>
+                                                            <action selector="openURL:" target="Md5-Nt-b1A" id="c5M-52-J6R"/>
                                                         </connections>
                                                     </button>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zXL-bg-xVA">
@@ -444,7 +444,7 @@
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
                                                         <connections>
-                                                            <action selector="openURL:" target="589" id="dS1-ZR-5JD"/>
+                                                            <action selector="openURL:" target="Md5-Nt-b1A" id="2WX-km-SXK"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -463,18 +463,82 @@
                                             <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                                             <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </box>
+                                        <box title="Miscellaneous" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="2vj-Xb-Tc4">
+                                            <rect key="frame" x="14" y="103" width="600" height="127"/>
+                                            <view key="contentView" id="GjZ-YF-216">
+                                                <rect key="frame" x="1" y="1" width="598" height="111"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <button translatesAutoresizingMaskIntoConstraints="NO" id="bgk-hy-06V">
+                                                        <rect key="frame" x="15" y="85" width="200" height="18"/>
+                                                        <buttonCell key="cell" type="check" title="Resume at login (Default: On)" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="cTQ-Hr-5vc">
+                                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                        </buttonCell>
+                                                        <connections>
+                                                            <action selector="updateStartAtLogin:" target="Md5-Nt-b1A" id="h7j-2U-7fe"/>
+                                                            <binding destination="586" name="value" keyPath="values.kResumeAtLogin" id="alE-IQ-wjA"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button translatesAutoresizingMaskIntoConstraints="NO" id="Zd1-da-f4p">
+                                                        <rect key="frame" x="15" y="61" width="217" height="18"/>
+                                                        <buttonCell key="cell" type="check" title="Show icon in Dock (Default: Off)" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="TfJ-LH-i4Y">
+                                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                        </buttonCell>
+                                                        <connections>
+                                                            <binding destination="586" name="value" keyPath="values.kShowIconInDock" id="Znn-SS-wJz"/>
+                                                        </connections>
+                                                    </button>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DBs-tb-HUb">
+                                                        <rect key="frame" x="15" y="41" width="428" height="17"/>
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title=" (You have to relaunch Seil to reflect this &quot;Show icon in Dock&quot; setting.)" id="hJW-pB-2Ax">
+                                                            <font key="font" metaFont="system"/>
+                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QrQ-ms-Ef3">
+                                                        <rect key="frame" x="11" y="3" width="122" height="32"/>
+                                                        <buttonCell key="cell" type="push" title="Relaunch Seil" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="P7g-3x-VxY">
+                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                        </buttonCell>
+                                                        <connections>
+                                                            <action selector="relaunch:" target="Md5-Nt-b1A" id="OTJ-nk-Nir"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="bgk-hy-06V" firstAttribute="top" secondItem="GjZ-YF-216" secondAttribute="top" constant="10" id="LTC-lL-Kzo"/>
+                                                    <constraint firstAttribute="bottom" secondItem="QrQ-ms-Ef3" secondAttribute="bottom" constant="10" id="Lqo-L0-mmL"/>
+                                                    <constraint firstItem="Zd1-da-f4p" firstAttribute="leading" secondItem="bgk-hy-06V" secondAttribute="leading" id="RLR-Au-KPm"/>
+                                                    <constraint firstItem="Zd1-da-f4p" firstAttribute="top" secondItem="bgk-hy-06V" secondAttribute="bottom" constant="10" id="dNf-1a-nix"/>
+                                                    <constraint firstItem="bgk-hy-06V" firstAttribute="leading" secondItem="GjZ-YF-216" secondAttribute="leading" constant="17" id="en2-Ta-uzp"/>
+                                                    <constraint firstItem="DBs-tb-HUb" firstAttribute="top" secondItem="Zd1-da-f4p" secondAttribute="bottom" constant="5" id="k4x-7K-J7Q"/>
+                                                    <constraint firstItem="QrQ-ms-Ef3" firstAttribute="top" secondItem="DBs-tb-HUb" secondAttribute="bottom" constant="10" id="lXP-jp-cfR"/>
+                                                    <constraint firstItem="QrQ-ms-Ef3" firstAttribute="leading" secondItem="DBs-tb-HUb" secondAttribute="leading" id="otS-Qj-ncB"/>
+                                                    <constraint firstItem="DBs-tb-HUb" firstAttribute="leading" secondItem="Zd1-da-f4p" secondAttribute="leading" id="pQa-7a-sof"/>
+                                                </constraints>
+                                            </view>
+                                            <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                                            <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </box>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="565" firstAttribute="leading" secondItem="564" secondAttribute="leading" id="2tB-xz-YhK"/>
                                         <constraint firstItem="Pl9-PP-szT" firstAttribute="top" secondItem="565" secondAttribute="bottom" constant="20" id="AMV-7Y-OXC"/>
+                                        <constraint firstItem="2vj-Xb-Tc4" firstAttribute="trailing" secondItem="564" secondAttribute="trailing" id="Aen-eJ-LrZ"/>
                                         <constraint firstItem="Pl9-PP-szT" firstAttribute="trailing" secondItem="565" secondAttribute="trailing" id="GGP-dh-XMr"/>
                                         <constraint firstItem="565" firstAttribute="top" secondItem="564" secondAttribute="bottom" constant="20" id="INf-O7-88h"/>
                                         <constraint firstItem="Pl9-PP-szT" firstAttribute="leading" secondItem="565" secondAttribute="leading" id="MQC-FT-RUF"/>
                                         <constraint firstItem="567" firstAttribute="top" secondItem="563" secondAttribute="top" constant="10" id="YDt-YV-Qhk"/>
                                         <constraint firstItem="567" firstAttribute="leading" secondItem="563" secondAttribute="leading" constant="17" id="dPk-cq-w6D"/>
+                                        <constraint firstItem="2vj-Xb-Tc4" firstAttribute="top" secondItem="Pl9-PP-szT" secondAttribute="bottom" constant="20" id="gsa-0e-qXu"/>
                                         <constraint firstItem="564" firstAttribute="top" secondItem="567" secondAttribute="bottom" constant="20" id="j9M-we-R05"/>
                                         <constraint firstItem="566" firstAttribute="leading" secondItem="567" secondAttribute="trailing" constant="5" id="kFQ-3W-OE8"/>
                                         <constraint firstAttribute="trailing" secondItem="564" secondAttribute="trailing" constant="17" id="lwX-sd-Rk1"/>
+                                        <constraint firstItem="2vj-Xb-Tc4" firstAttribute="leading" secondItem="564" secondAttribute="leading" id="nql-cQ-ZOf"/>
                                         <constraint firstItem="565" firstAttribute="trailing" secondItem="564" secondAttribute="trailing" id="o7P-Mx-GF8"/>
                                         <constraint firstItem="566" firstAttribute="centerY" secondItem="567" secondAttribute="centerY" id="uCr-mF-Usy"/>
                                         <constraint firstItem="564" firstAttribute="leading" secondItem="567" secondAttribute="leading" id="uH7-gv-vNH"/>
@@ -496,6 +560,7 @@
                 <outlet property="menu" destination="29" id="610"/>
             </connections>
         </window>
+        <customObject id="6Rk-jS-qci" customClass="ServerController"/>
         <customObject id="494" customClass="AppDelegate">
             <connections>
                 <outlet property="clientForKernelspace" destination="741" id="743"/>

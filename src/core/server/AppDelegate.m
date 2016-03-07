@@ -3,7 +3,9 @@
 #import "MigrationUtilities.h"
 #import "OutlineView_mixed.h"
 #import "PreferencesController.h"
+#import "PreferencesKeys.h"
 #import "Relauncher.h"
+#import "ServerController.h"
 #import "ServerForUserspace.h"
 #import "SessionObserver.h"
 #import "StartAtLoginUtilities.h"
@@ -161,19 +163,19 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
       });
 
     } else {
-      if (![StartAtLoginUtilities isStartAtLogin]) {
-        [StartAtLoginUtilities setStartAtLogin:YES];
-
+      if (![StartAtLoginUtilities isStartAtLogin] &&
+          [[NSUserDefaults standardUserDefaults] boolForKey:kResumeAtLogin]) {
         if (!isDescendantProcess) {
-          [preferencesController_ show];
+          [self openPreferences];
         }
       }
+      [ServerController updateStartAtLogin:YES];
     }
   }
 }
 
 - (BOOL)applicationShouldHandleReopen:(NSApplication*)theApplication hasVisibleWindows:(BOOL)flag {
-  [preferencesController_ show];
+  [self openPreferences];
   return YES;
 }
 
@@ -181,19 +183,8 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
   [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-// ------------------------------------------------------------
-+ (void)quitWithConfirmation {
-  NSAlert* alert = [NSAlert new];
-  alert.messageText = @"Are you sure you want to quit Seil?";
-  alert.informativeText = @"The changed key will be restored after Seil is quit.";
-  [alert addButtonWithTitle:@"Quit"];
-  [alert addButtonWithTitle:@"Cancel"];
-  if ([alert runModal] != NSAlertFirstButtonReturn) {
-    return;
-  }
-
-  [StartAtLoginUtilities setStartAtLogin:NO];
-  [NSApp terminate:nil];
+- (void)openPreferences {
+  [preferencesController_ show];
 }
 
 @end

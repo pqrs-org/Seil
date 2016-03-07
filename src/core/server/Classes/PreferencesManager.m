@@ -11,7 +11,11 @@
 
 // ----------------------------------------
 + (void)initialize {
-  NSDictionary* dict = @{ kCheckForUpdates : @1 };
+  NSDictionary* dict = @{
+    kCheckForUpdates : @YES,
+    kShowIconInDock : @NO,
+    kResumeAtLogin : @YES,
+  };
   [[NSUserDefaults standardUserDefaults] registerDefaults:dict];
 }
 
