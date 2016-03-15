@@ -6,7 +6,8 @@
 
 - (int)value:(NSString *)name;
 - (int)defaultValue:(NSString *)name;
-- (void)setValueForName:(int)newval forName:(NSString *)name;
+- (void)setValue:(int)newval forName:(NSString*)name;
+- (void)setValue:(int)newval forName:(NSString*)name notificationUserInfo:(NSDictionary*)notificationUserInfo;
 
 - (BOOL)isCheckForUpdates;
 

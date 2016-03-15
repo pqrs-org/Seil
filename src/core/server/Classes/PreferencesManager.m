@@ -59,7 +59,11 @@
   }
 }
 
-- (void)setValueForName:(int)newval forName:(NSString*)name {
+- (void)setValue:(int)newval forName:(NSString*)name {
+  [self setValue:newval forName:name notificationUserInfo:nil];
+}
+
+- (void)setValue:(int)newval forName:(NSString*)name notificationUserInfo:(NSDictionary*)notificationUserInfo {
   NSString* identifier = @"sysctl";
 
   NSMutableDictionary* md = nil;
