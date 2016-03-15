@@ -1,6 +1,14 @@
 #import "XMLLoader.h"
 
+static NSInteger itemId_;
+static dispatch_queue_t itemIdQueue_;
+
 @implementation XMLLoader
+
++ (void)initialize {
+  itemId_ = 0;
+  itemIdQueue_ = dispatch_queue_create("org.pqrs.Seil.XMLCompiler.xmlCompilerItemIdQueue_", NULL);
+}
 
 + (NSXMLElement*)castToNSXMLElement:(NSXMLNode*)node {
   if ([node kind] != NSXMLElementKind) return nil;
@@ -10,7 +18,6 @@
 + (NSMutableDictionary*)parseItemTag:(NSXMLElement*)item {
   NSMutableDictionary* dict = [NSMutableDictionary new];
   NSMutableString* name = [NSMutableString new];
-  int height = 0;
 
   NSUInteger count = [item childCount];
   for (NSUInteger i = 0; i < count; ++i) {
@@ -27,13 +34,14 @@
       dict[@"children"] = children;
 
     } else if ([[e name] isEqualToString:@"name"]) {
+      if ([name length] > 0) {
+        [name appendString:@"\n"];
+      }
       [name appendString:[e stringValue]];
-      ++height;
 
     } else if ([[e name] isEqualToString:@"appendix"]) {
       [name appendString:@"\n  "];
       [name appendString:[e stringValue]];
-      ++height;
 
     } else {
       NSString* value = [[e stringValue] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
@@ -42,7 +50,11 @@
   }
 
   dict[@"name"] = name;
-  dict[@"height"] = @(height);
+
+  dispatch_sync(itemIdQueue_, ^{
+    ++itemId_;
+    dict[@"id"] = @(itemId_);
+  });
 
   return dict;
 }
