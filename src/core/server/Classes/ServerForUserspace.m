@@ -31,7 +31,7 @@
 
 // ----------------------------------------------------------------------
 - (void)setValue:(int)newval forName:(NSString*)name {
-  [preferencesManager_ setValueForName:newval forName:name];
+  [preferencesManager_ setValue:newval forName:name];
 }
 
 - (NSDictionary*)allValues {
