@@ -1,24 +1,31 @@
 #import "SeilClient.h"
 #import "SeilKeys.h"
 
+@interface SeilClient ()
+
+@property NSDistantObject<SeilProtocol>* connection;
+@property dispatch_queue_t connectionQueue;
+
+@end
+
 @implementation SeilClient
 
-- (id<SeilProtocol>)proxy {
-  @synchronized(self) {
-    if (!proxy_) {
-      proxy_ = [NSConnection rootProxyForConnectionWithRegisteredName:kSeilConnectionName host:nil];
-      [proxy_ setProtocolForProxy:@protocol(SeilProtocol)];
+- (NSDistantObject<SeilProtocol>*)proxy {
+  dispatch_sync(self.connectionQueue, ^{
+    if (!self.connection) {
+      self.connection = (NSDistantObject<SeilProtocol>*)([NSConnection rootProxyForConnectionWithRegisteredName:kSeilConnectionName host:nil]);
+      [self.connection setProtocolForProxy:@protocol(SeilProtocol)];
     }
-    return proxy_;
-  }
+  });
+  return self.connection;
 }
 
-- (void)observer_NSConnectionDidDieNotification:(NSNotification *)notification {
+- (void)observer_NSConnectionDidDieNotification:(NSNotification*)notification {
   dispatch_async(dispatch_get_main_queue(), ^{
-    @synchronized(self) {
+    dispatch_sync(self.connectionQueue, ^{
       NSLog(@"observer_NSConnectionDidDieNotification is called");
-      proxy_ = nil;
-    };
+      self.connection = nil;
+    });
   });
 }
 
@@ -26,6 +33,8 @@
   self = [super init];
 
   if (self) {
+    self.connectionQueue = dispatch_queue_create("org.pqrs.Seil.SeilClient.connectionQueue", NULL);
+
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(observer_NSConnectionDidDieNotification:)
                                                  name:NSConnectionDidDieNotification

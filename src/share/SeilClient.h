@@ -1,12 +1,10 @@
 // -*- Mode: objc; Coding: utf-8; indent-tabs-mode: nil; -*-
 
-#import <Cocoa/Cocoa.h>
+@import Cocoa;
 #import "SeilProtocol.h"
 
-@interface SeilClient : NSObject {
-  id proxy_;
-}
+@interface SeilClient : NSObject
 
-- (id<SeilProtocol>)proxy;
+- (NSDistantObject<SeilProtocol>*)proxy;
 
 @end
