@@ -1,4 +1,6 @@
 #import "AppDelegate.h"
+#import "MainOutlineView.h"
+#import "PreferencesKeys.h"
 #import "PreferencesWindowController.h"
 #import "Relauncher.h"
 #import "ServerController.h"
@@ -7,11 +9,42 @@
 
 @interface PreferencesWindowController ()
 
-@property(weak) IBOutlet ServerObjects* serverObjects;
+@property(weak) IBOutlet MainOutlineView* mainOutlineView;
+@property(weak) IBOutlet NSTextField* versionText;
 
 @end
 
 @implementation PreferencesWindowController
+
+- (instancetype)initWithServerObjects:(NSString*)windowNibName serverObjects:(ServerObjects*)serverObjects {
+  self = [super initWithWindowNibName:windowNibName];
+
+  if (self) {
+    self.serverObjects = serverObjects;
+
+    // Show icon in Dock only when Preferences has been opened.
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:kShowIconInDock]) {
+      ProcessSerialNumber psn = {0, kCurrentProcess};
+      TransformProcessType(&psn, kProcessTransformToForegroundApplication);
+    }
+  }
+
+  return self;
+}
+
+- (void)drawVersion {
+  NSString* version = [[NSBundle mainBundle] infoDictionary][@"CFBundleVersion"];
+  [self.versionText setStringValue:version];
+}
+
+- (void)windowDidBecomeMain:(NSNotification*)notification {
+  [self drawVersion];
+}
+
+- (void)show {
+  [self.window makeKeyAndOrderFront:self];
+  [NSApp activateIgnoringOtherApps:YES];
+}
 
 - (IBAction)quit:(id)sender {
   [ServerController quitWithConfirmation];

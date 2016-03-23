@@ -2,5 +2,13 @@
 
 @import Cocoa;
 
-@interface PreferencesWindowController : NSObject
+@class ServerObjects;
+
+@interface PreferencesWindowController : NSWindowController <NSWindowDelegate>
+
+@property(weak) ServerObjects* serverObjects;
+
+- (instancetype)initWithServerObjects:(NSString*)windowNibName serverObjects:(ServerObjects*)serverObjects;
+- (void)show;
+
 @end
