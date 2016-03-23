@@ -58,13 +58,4 @@
   self.mouseDownCellView = nil;
 }
 
-- (void)initialExpandCollapseTree {
-  MainOutlineViewDataSource* dataSource = (MainOutlineViewDataSource*)(self.dataSource);
-  for (NSDictionary* dict in dataSource.source) {
-    if ([dict[@"expand"] isEqualToString:@"true"]) {
-      [self expandItem:dict];
-    }
-  }
-}
-
 @end
