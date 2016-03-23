@@ -1,12 +1,13 @@
 #import "AppDelegate.h"
 #import "ClientForKernelspace.h"
 #import "MigrationUtilities.h"
-#import "OutlineView_mixed.h"
 #import "PreferencesController.h"
 #import "PreferencesKeys.h"
+#import "PreferencesWindowController.h"
 #import "Relauncher.h"
 #import "ServerController.h"
 #import "ServerForUserspace.h"
+#import "ServerObjects.h"
 #import "SessionObserver.h"
 #import "StartAtLoginUtilities.h"
 #import "Updater.h"
@@ -19,13 +20,15 @@
 
   SessionObserver* sessionObserver_;
 
-  IBOutlet OutlineView_mixed* outlineView_mixed_;
   IBOutlet PreferencesController* preferencesController_;
   IBOutlet ServerForUserspace* serverForUserspace_;
 }
 
 @property(weak) IBOutlet ClientForKernelspace* clientForKernelspace;
+@property(weak) IBOutlet ServerObjects* serverObjects;
 @property(weak) IBOutlet Updater* updater;
+
+@property PreferencesWindowController* preferencesWindowController;
 
 @end
 
@@ -111,6 +114,17 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
 }
 
 // ------------------------------------------------------------
+- (void)observer_NSWindowWillCloseNotification:(NSNotification*)notification {
+  dispatch_async(dispatch_get_main_queue(), ^{
+    NSWindow* window = [notification object];
+    if (self.preferencesWindowController &&
+        self.preferencesWindowController.window == window) {
+      self.preferencesWindowController = nil;
+    }
+  });
+}
+
+// ------------------------------------------------------------
 #define kDescendantProcess @"org_pqrs_Seil_DescendantProcess"
 
 - (void)applicationDidFinishLaunching:(NSNotification*)aNotification {
@@ -144,7 +158,12 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
       }];
 
   // ------------------------------------------------------------
-  [outlineView_mixed_ initialExpandCollapseTree];
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(observer_NSWindowWillCloseNotification:)
+                                               name:NSWindowWillCloseNotification
+                                             object:nil];
+
+  // ------------------------------------------------------------
   [self.updater checkForUpdatesInBackground];
 
   // ------------------------------------------------------------
@@ -184,7 +203,10 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
 }
 
 - (void)openPreferences {
-  [preferencesController_ show];
+  if (self.preferencesWindowController == nil) {
+    self.preferencesWindowController = [[PreferencesWindowController alloc] initWithServerObjects:@"PreferencesWindow" serverObjects:self.serverObjects];
+  }
+  [self.preferencesWindowController show];
 }
 
 @end
