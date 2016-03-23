@@ -51,9 +51,8 @@
     result.serverObjects = self.preferencesWindowController.serverObjects;
     result.settingIdentifier = enable;
 
-    if (name) {
-      result.textField.stringValue = name;
-    }
+    result.textField.stringValue = name ? name : @"";
+    result.textField.font = self.font;
 
     if ([enable length] == 0) {
       result.labelLeadingSpace.constant = kLabelLeadingSpaceWithoutCheckbox;
@@ -62,7 +61,6 @@
 
       // ----------------------------------------
       // Add checkbox
-
       result.checkbox = [NSButton new];
       [result.checkbox setButtonType:NSSwitchButton];
       result.checkbox.imagePosition = NSImageOnly;
