@@ -1,5 +1,6 @@
 #import "AppDelegate.h"
 #import "MainOutlineView.h"
+#import "NotificationKeys.h"
 #import "PreferencesKeys.h"
 #import "PreferencesWindowController.h"
 #import "Relauncher.h"
@@ -16,11 +17,26 @@
 
 @implementation PreferencesWindowController
 
+- (void)observer_PreferencesChanged:(NSNotification*)notification {
+  dispatch_async(dispatch_get_main_queue(), ^{
+    if (notification.userInfo && notification.userInfo[kPreferencesChangedNotificationUserInfoKeyPreferencesChangedFromGUI]) {
+      // do nothing
+    } else {
+      [self.mainOutlineView reloadData];
+    }
+  });
+}
+
 - (instancetype)initWithServerObjects:(NSString*)windowNibName serverObjects:(ServerObjects*)serverObjects {
   self = [super initWithWindowNibName:windowNibName];
 
   if (self) {
     self.serverObjects = serverObjects;
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(observer_PreferencesChanged:)
+                                                 name:kPreferencesChangedNotification
+                                               object:nil];
 
     // Show icon in Dock only when Preferences has been opened.
     if ([[NSUserDefaults standardUserDefaults] boolForKey:kShowIconInDock]) {
@@ -30,6 +46,10 @@
   }
 
   return self;
+}
+
+- (void)dealloc {
+  [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)drawVersion {
