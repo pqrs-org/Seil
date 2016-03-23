@@ -3,9 +3,11 @@
 #import "Relauncher.h"
 #import "ServerForUserspace.h"
 
-@interface ServerForUserspace () {
-  NSConnection* connection_;
-}
+@interface ServerForUserspace ()
+
+@property(weak) IBOutlet PreferencesManager* preferencesManager;
+@property NSConnection* connection;
+
 @end
 
 @implementation ServerForUserspace
@@ -14,7 +16,7 @@
   self = [super init];
 
   if (self) {
-    connection_ = [NSConnection new];
+    self.connection = [NSConnection new];
   }
 
   return self;
@@ -22,8 +24,8 @@
 
 // ----------------------------------------------------------------------
 - (BOOL) register {
-  [connection_ setRootObject:self];
-  if (![connection_ registerName:kSeilConnectionName]) {
+  [self.connection setRootObject:self];
+  if (![self.connection registerName:kSeilConnectionName]) {
     return NO;
   }
   return YES;
@@ -31,7 +33,7 @@
 
 // ----------------------------------------------------------------------
 - (void)setValue:(int)newval forName:(NSString*)name {
-  [preferencesManager_ setValue:newval forName:name];
+  [self.preferencesManager setValue:newval forName:name];
 }
 
 - (NSDictionary*)allValues {

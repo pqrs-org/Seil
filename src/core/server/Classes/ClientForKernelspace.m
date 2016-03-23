@@ -3,13 +3,15 @@
 #import "PreferencesManager.h"
 #import "UserClient_userspace.h"
 
-@interface ClientForKernelspace () {
-  io_async_ref64_t asyncref_;
-  UserClient_userspace* userClient_userspace_;
+@interface ClientForKernelspace ()
 
-  NSTimer* timer_;
-  int retryCounter_;
-}
+@property(weak) IBOutlet PreferencesManager* preferencesManager;
+
+@property io_async_ref64_t* asyncref;
+@property UserClient_userspace* userClient_userspace;
+@property NSTimer* timer;
+@property int retryCounter;
+
 @end
 
 @implementation ClientForKernelspace
@@ -26,10 +28,12 @@ static void static_callback_NotificationFromKext(void* refcon, IOReturn result, 
   self = [super init];
 
   if (self) {
-    asyncref_[kIOAsyncCalloutFuncIndex] = (io_user_reference_t)(static_callback_NotificationFromKext);
-    asyncref_[kIOAsyncCalloutRefconIndex] = (io_user_reference_t)(self);
+    self.asyncref = (io_async_ref64_t*)(malloc(sizeof(io_async_ref64_t)));
 
-    userClient_userspace_ = [[UserClient_userspace alloc] init:&asyncref_];
+    (*(self.asyncref))[kIOAsyncCalloutFuncIndex] = (io_user_reference_t)(static_callback_NotificationFromKext);
+    (*(self.asyncref))[kIOAsyncCalloutRefconIndex] = (io_user_reference_t)(self);
+
+    self.userClient_userspace = [[UserClient_userspace alloc] init:self.asyncref];
 
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(observer_PreferencesChanged:)
@@ -41,7 +45,7 @@ static void static_callback_NotificationFromKext(void* refcon, IOReturn result, 
 }
 
 - (void)dealloc {
-  [timer_ invalidate];
+  [self.timer invalidate];
   [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
@@ -55,14 +59,14 @@ static void static_callback_NotificationFromKext(void* refcon, IOReturn result, 
     // (There are few seconds between kext::init and registerService is called.
     // So we need to wait for a while.)
 
-    [timer_ invalidate];
-    timer_ = [NSTimer scheduledTimerWithTimeInterval:0.5
-                                              target:self
-                                            selector:@selector(timerFireMethod:)
-                                            userInfo:nil
-                                             repeats:YES];
-    retryCounter_ = 0;
-    [timer_ fire];
+    [self.timer invalidate];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.5
+                                                  target:self
+                                                selector:@selector(timerFireMethod:)
+                                                userInfo:nil
+                                                 repeats:YES];
+    self.retryCounter = 0;
+    [self.timer fire];
   }
 }
 
@@ -76,7 +80,7 @@ static void static_callback_NotificationFromKext(void* refcon, IOReturn result, 
       }
 
       @try {
-        if ([userClient_userspace_ refresh_connection]) {
+        if ([self.userClient_userspace refresh_connection]) {
           // connected
 
           [timer invalidate];
@@ -86,8 +90,8 @@ static void static_callback_NotificationFromKext(void* refcon, IOReturn result, 
         } else {
           // retry
 
-          ++retryCounter_;
-          if (retryCounter_ > 120) {
+          ++(self.retryCounter);
+          if (self.retryCounter > 120) {
             [timer invalidate];
 
             NSAlert* alert = [NSAlert new];
@@ -119,8 +123,8 @@ static void static_callback_NotificationFromKext(void* refcon, IOReturn result, 
 
 - (void)disconnect_from_kext {
   @synchronized(self) {
-    [timer_ invalidate];
-    [userClient_userspace_ disconnect_from_kext];
+    [self.timer invalidate];
+    [self.userClient_userspace disconnect_from_kext];
   }
 }
 
@@ -135,7 +139,7 @@ static void static_callback_NotificationFromKext(void* refcon, IOReturn result, 
   bridgestruct.option = 0;
   bridgestruct.data = (uintptr_t)(&bridgeconfig);
   bridgestruct.size = sizeof(bridgeconfig);
-  [userClient_userspace_ synchronized_communication:&bridgestruct];
+  [self.userClient_userspace synchronized_communication:&bridgestruct];
 }
 
 @end

@@ -15,7 +15,7 @@
         <customObject id="494" customClass="AppDelegate">
             <connections>
                 <outlet property="clientForKernelspace" destination="741" id="743"/>
-                <outlet property="serverForUserspace_" destination="hAv-NT-zlb" id="RqE-e9-bUf"/>
+                <outlet property="serverForUserspace" destination="hAv-NT-zlb" id="kDM-Eg-HHy"/>
                 <outlet property="serverObjects" destination="kBK-lF-EiU" id="Tzz-92-aa1"/>
                 <outlet property="updater" destination="582" id="vJb-JP-72y"/>
             </connections>
@@ -35,12 +35,12 @@
         <customObject id="583" customClass="PreferencesManager"/>
         <customObject id="741" customClass="ClientForKernelspace">
             <connections>
-                <outlet property="preferencesManager_" destination="583" id="742"/>
+                <outlet property="preferencesManager" destination="583" id="fsG-Ti-cF2"/>
             </connections>
         </customObject>
         <customObject id="hAv-NT-zlb" customClass="ServerForUserspace">
             <connections>
-                <outlet property="preferencesManager_" destination="583" id="00R-gc-ARi"/>
+                <outlet property="preferencesManager" destination="583" id="21z-Ak-Rnx"/>
             </connections>
         </customObject>
     </objects>

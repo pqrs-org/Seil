@@ -2,9 +2,10 @@
 #import "PreferencesKeys.h"
 #import "PreferencesManager.h"
 
-@interface PreferencesManager () {
-  NSMutableDictionary* default_;
-}
+@interface PreferencesManager ()
+
+@property NSMutableDictionary* defaults;
+
 @end
 
 @implementation PreferencesManager
@@ -29,7 +30,7 @@
   self = [super init];
 
   if (self) {
-    default_ = [NSMutableDictionary new];
+    self.defaults = [NSMutableDictionary new];
     [self setDefault];
   }
 
@@ -51,7 +52,7 @@
 }
 
 - (int)defaultValue:(NSString*)name {
-  NSNumber* number = default_[name];
+  NSNumber* number = self.defaults[name];
   if (number) {
     return [number intValue];
   } else {
@@ -77,7 +78,7 @@
   if (!md) return;
 
   int defaultvalue = 0;
-  NSNumber* defaultnumber = default_[name];
+  NSNumber* defaultnumber = self.defaults[name];
   if (defaultnumber) {
     defaultvalue = [defaultnumber intValue];
   }

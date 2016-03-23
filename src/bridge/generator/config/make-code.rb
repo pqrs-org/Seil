@@ -35,13 +35,13 @@ ARGV.each do |xmlpath|
       $outfile[:KeyMapIndex_Value] << "#{identifier} = #{kHIDUsage.text},\n"
       $outfile[:KeyMapIndex_bridgeKeyindexToValue] << "case BRIDGE_KEY_INDEX_#{identifier}: return #{identifier};\n"
 
-      $outfile[:bridgeconfig_config] << "bridgeconfig.config[BRIDGE_KEY_INDEX_#{identifier}].enabled = [preferencesManager_ value:@\"#{enable.text}\"];\n"
-      $outfile[:bridgeconfig_config] << "bridgeconfig.config[BRIDGE_KEY_INDEX_#{identifier}].keycode = [preferencesManager_ value:@\"#{keycode.text}\"];\n"
+      $outfile[:bridgeconfig_config] << "bridgeconfig.config[BRIDGE_KEY_INDEX_#{identifier}].enabled = [self.preferencesManager value:@\"#{enable.text}\"];\n"
+      $outfile[:bridgeconfig_config] << "bridgeconfig.config[BRIDGE_KEY_INDEX_#{identifier}].keycode = [self.preferencesManager value:@\"#{keycode.text}\"];\n"
 
-      $outfile[:setDefault] << "default_[@\"#{keycode.text}\"] = @#{default.text};\n"
+      $outfile[:setDefault] << "self.defaults[@\"#{keycode.text}\"] = @#{default.text};\n"
 
-      $outfile[:configurationDictionary] << "@\"#{enable.text}\":".ljust(35) + "@([preferencesManager_ value:@\"#{enable.text}\"]),\n"
-      $outfile[:configurationDictionary] << "@\"#{keycode.text}\":".ljust(35) + "@([preferencesManager_ value:@\"#{keycode.text}\"]),\n"
+      $outfile[:configurationDictionary] << "@\"#{enable.text}\":".ljust(35) + "@([self.preferencesManager value:@\"#{enable.text}\"]),\n"
+      $outfile[:configurationDictionary] << "@\"#{keycode.text}\":".ljust(35) + "@([self.preferencesManager value:@\"#{keycode.text}\"]),\n"
     end
   end
 end

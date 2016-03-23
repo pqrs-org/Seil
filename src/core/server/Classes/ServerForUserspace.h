@@ -1,13 +1,9 @@
 // -*- Mode: objc; Coding: utf-8; indent-tabs-mode: nil; -*-
 
-#import <Cocoa/Cocoa.h>
+@import Cocoa;
 #import "SeilProtocol.h"
 
-@class PreferencesManager;
-
-@interface ServerForUserspace : NSObject <SeilProtocol> {
-  IBOutlet PreferencesManager* preferencesManager_;
-}
+@interface ServerForUserspace : NSObject <SeilProtocol>
 
 - (BOOL) register;
 

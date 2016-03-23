@@ -12,20 +12,18 @@
 #import "Updater.h"
 #include "bridge.h"
 
-@interface AppDelegate () {
-  // for IONotification
-  IONotificationPortRef notifyport_;
-  CFRunLoopSourceRef loopsource_;
+@interface AppDelegate ()
 
-  SessionObserver* sessionObserver_;
-
-  IBOutlet ServerForUserspace* serverForUserspace_;
-}
-
+@property(weak) IBOutlet ServerForUserspace* serverForUserspace;
 @property(weak) IBOutlet ClientForKernelspace* clientForKernelspace;
 @property(weak) IBOutlet ServerObjects* serverObjects;
 @property(weak) IBOutlet Updater* updater;
 
+// for IONotification
+@property IONotificationPortRef notifyport;
+@property CFRunLoopSourceRef loopsource;
+
+@property SessionObserver* sessionObserver;
 @property PreferencesWindowController* preferencesWindowController;
 
 @end
@@ -67,21 +65,21 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
 }
 
 - (void)unregisterIONotification {
-  if (notifyport_) {
-    if (loopsource_) {
-      CFRunLoopSourceInvalidate(loopsource_);
-      loopsource_ = nil;
+  if (self.notifyport) {
+    if (self.loopsource) {
+      CFRunLoopSourceInvalidate(self.loopsource);
+      self.loopsource = nil;
     }
-    IONotificationPortDestroy(notifyport_);
-    notifyport_ = nil;
+    IONotificationPortDestroy(self.notifyport);
+    self.notifyport = nil;
   }
 }
 
 - (void)registerIONotification {
   [self unregisterIONotification];
 
-  notifyport_ = IONotificationPortCreate(kIOMasterPortDefault);
-  if (!notifyport_) {
+  self.notifyport = IONotificationPortCreate(kIOMasterPortDefault);
+  if (!self.notifyport) {
     NSLog(@"[ERROR] IONotificationPortCreate failed\n");
     return;
   }
@@ -90,7 +88,7 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
   io_iterator_t it;
   kern_return_t kernResult;
 
-  kernResult = IOServiceAddMatchingNotification(notifyport_,
+  kernResult = IOServiceAddMatchingNotification(self.notifyport,
                                                 kIOMatchedNotification,
                                                 IOServiceNameMatching("org_pqrs_driver_Seil"),
                                                 &observer_IONotification,
@@ -103,12 +101,12 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
   observer_IONotification((__bridge void*)(self), it);
 
   // ----------------------------------------------------------------------
-  loopsource_ = IONotificationPortGetRunLoopSource(notifyport_);
-  if (!loopsource_) {
+  self.loopsource = IONotificationPortGetRunLoopSource(self.notifyport);
+  if (!self.loopsource) {
     NSLog(@"[ERROR] IONotificationPortGetRunLoopSource failed");
     return;
   }
-  CFRunLoopAddSource(CFRunLoopGetCurrent(), loopsource_, kCFRunLoopDefaultMode);
+  CFRunLoopAddSource(CFRunLoopGetCurrent(), self.loopsource, kCFRunLoopDefaultMode);
 }
 
 // ------------------------------------------------------------
@@ -136,7 +134,7 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
   }
 
   // ------------------------------------------------------------
-  if (![serverForUserspace_ register]) {
+  if (![self.serverForUserspace register]) {
     // Relaunch when register is failed.
     NSLog(@"[ServerForUserspace register] is failed. Restarting process.");
     [NSThread sleepForTimeInterval:2];
@@ -146,7 +144,7 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
 
   [[NSApplication sharedApplication] disableRelaunchOnLogin];
 
-  sessionObserver_ = [[SessionObserver alloc] init:1
+  self.sessionObserver = [[SessionObserver alloc] init:1
       active:^{
         [self registerIONotification];
       }
