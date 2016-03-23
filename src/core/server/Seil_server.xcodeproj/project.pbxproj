@@ -14,22 +14,27 @@
 		343420CB13D74C16000DBD3E /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 343420CA13D74C16000DBD3E /* IOKit.framework */; };
 		3451A03E1949F0C000E68360 /* MigrationUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 3451A03D1949F0C000E68360 /* MigrationUtilities.m */; };
 		34598343169CAB66007C84F8 /* ClientForKernelspace.m in Sources */ = {isa = PBXBuildFile; fileRef = 34598342169CAB66007C84F8 /* ClientForKernelspace.m */; };
+		3489863A1C94608A0018A65D /* MainNameBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 348986391C94608A0018A65D /* MainNameBackgroundView.m */; };
 		34947684168B6EB000B783D2 /* Updater.m in Sources */ = {isa = PBXBuildFile; fileRef = 34947683168B6EB000B783D2 /* Updater.m */; };
 		3494768A168B707500B783D2 /* PreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34947689168B707500B783D2 /* PreferencesController.m */; };
-		34947697168B740E00B783D2 /* OutlineView_mixed.m in Sources */ = {isa = PBXBuildFile; fileRef = 34947693168B740E00B783D2 /* OutlineView_mixed.m */; };
-		34947698168B740E00B783D2 /* OutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 34947695168B740E00B783D2 /* OutlineView.m */; };
 		3494769C168B7AAA00B783D2 /* checkbox.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3494769A168B7AAA00B783D2 /* checkbox.xml */; };
 		3494769D168B7AAA00B783D2 /* known.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3494769B168B7AAA00B783D2 /* known.xml */; };
 		3495FD501C8DC03100C28214 /* ServerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3495FD4F1C8DC03100C28214 /* ServerController.m */; };
 		34B768BE1C8DCAD6005355AC /* XMLLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 34B768BD1C8DCAD6005355AC /* XMLLoader.m */; };
 		34B768C11C8DCCCB005355AC /* KnownTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 34B768C01C8DCCCB005355AC /* KnownTableViewDataSource.m */; };
 		34B768C41C8DCD19005355AC /* KnownTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 34B768C31C8DCD19005355AC /* KnownTableViewDelegate.m */; };
+		34B768C71C8E8BAE005355AC /* MainOutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 34B768C61C8E8BAE005355AC /* MainOutlineView.m */; };
+		34B768CD1C8F3022005355AC /* MainOutlineViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 34B768CC1C8F3022005355AC /* MainOutlineViewDataSource.m */; };
+		34B768D01C8F33FF005355AC /* MainOutlineViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 34B768CF1C8F33FF005355AC /* MainOutlineViewDelegate.m */; };
+		34B768D31C8F3554005355AC /* MainNameCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 34B768D21C8F3554005355AC /* MainNameCellView.m */; };
 		34BE221C18C1D7800014BB5B /* ServerForUserspace.m in Sources */ = {isa = PBXBuildFile; fileRef = 34BE221B18C1D7800014BB5B /* ServerForUserspace.m */; };
 		34D2910613ED97C5002A224E /* Seil_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 34D2910513ED97C5002A224E /* Seil_pub.pem */; };
 		34D65EEA13E06A7400476C2A /* app.icns in Resources */ = {isa = PBXBuildFile; fileRef = 34D65EE913E06A7400476C2A /* app.icns */; };
 		34E4086D19571DC100530059 /* Relauncher.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E4086C19571DC100530059 /* Relauncher.m */; };
 		34E5165C193EA296002BB013 /* StartAtLoginUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E5165B193EA296002BB013 /* StartAtLoginUtilities.m */; };
+		34E8523B1C986A8F00D6EA3B /* MainValueCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E8523A1C986A8F00D6EA3B /* MainValueCellView.m */; };
 		34EA17361AFF96F8000350AA /* SessionObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA17351AFF96F8000350AA /* SessionObserver.m */; };
+		34ED12251CA2DB1A0081A39E /* PreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34ED12241CA2DB1A0081A39E /* PreferencesWindow.xib */; };
 		34F9652C13D742FA0081D1F3 /* PreferencesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F9652913D742FA0081D1F3 /* PreferencesManager.m */; };
 		34F9652D13D742FA0081D1F3 /* UserClient_userspace.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F9652B13D742FA0081D1F3 /* UserClient_userspace.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
@@ -75,16 +80,14 @@
 		3451A03D1949F0C000E68360 /* MigrationUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MigrationUtilities.m; path = ../../share/MigrationUtilities.m; sourceTree = "<group>"; };
 		34598341169CAB66007C84F8 /* ClientForKernelspace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClientForKernelspace.h; path = Classes/ClientForKernelspace.h; sourceTree = "<group>"; };
 		34598342169CAB66007C84F8 /* ClientForKernelspace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClientForKernelspace.m; path = Classes/ClientForKernelspace.m; sourceTree = "<group>"; };
+		348986381C94608A0018A65D /* MainNameBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainNameBackgroundView.h; path = Classes/Preferences/MainNameBackgroundView.h; sourceTree = "<group>"; };
+		348986391C94608A0018A65D /* MainNameBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainNameBackgroundView.m; path = Classes/Preferences/MainNameBackgroundView.m; sourceTree = "<group>"; };
 		34947682168B6EB000B783D2 /* Updater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Updater.h; path = Classes/Updater.h; sourceTree = "<group>"; };
 		34947683168B6EB000B783D2 /* Updater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Updater.m; path = Classes/Updater.m; sourceTree = "<group>"; };
 		34947686168B6F9200B783D2 /* PreferencesKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreferencesKeys.h; path = Classes/PreferencesKeys.h; sourceTree = "<group>"; };
 		34947688168B707500B783D2 /* PreferencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreferencesController.h; path = Classes/Preferences/PreferencesController.h; sourceTree = "<group>"; };
 		34947689168B707500B783D2 /* PreferencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PreferencesController.m; path = Classes/Preferences/PreferencesController.m; sourceTree = "<group>"; };
 		3494768B168B70F700B783D2 /* NotificationKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotificationKeys.h; path = Classes/NotificationKeys.h; sourceTree = "<group>"; };
-		34947692168B740E00B783D2 /* OutlineView_mixed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutlineView_mixed.h; path = Classes/Preferences/OutlineView_mixed.h; sourceTree = "<group>"; };
-		34947693168B740E00B783D2 /* OutlineView_mixed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OutlineView_mixed.m; path = Classes/Preferences/OutlineView_mixed.m; sourceTree = "<group>"; };
-		34947694168B740E00B783D2 /* OutlineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OutlineView.h; path = Classes/Preferences/OutlineView.h; sourceTree = "<group>"; };
-		34947695168B740E00B783D2 /* OutlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OutlineView.m; path = Classes/Preferences/OutlineView.m; sourceTree = "<group>"; };
 		3494769A168B7AAA00B783D2 /* checkbox.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = checkbox.xml; path = Resources/checkbox.xml; sourceTree = "<group>"; };
 		3494769B168B7AAA00B783D2 /* known.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = known.xml; path = Resources/known.xml; sourceTree = "<group>"; };
 		3495FD4E1C8DC03100C28214 /* ServerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServerController.h; path = Classes/ServerController.h; sourceTree = "<group>"; };
@@ -95,6 +98,14 @@
 		34B768C01C8DCCCB005355AC /* KnownTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KnownTableViewDataSource.m; path = Classes/Preferences/KnownTableViewDataSource.m; sourceTree = "<group>"; };
 		34B768C21C8DCD19005355AC /* KnownTableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KnownTableViewDelegate.h; path = Classes/Preferences/KnownTableViewDelegate.h; sourceTree = "<group>"; };
 		34B768C31C8DCD19005355AC /* KnownTableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KnownTableViewDelegate.m; path = Classes/Preferences/KnownTableViewDelegate.m; sourceTree = "<group>"; };
+		34B768C51C8E8BAE005355AC /* MainOutlineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainOutlineView.h; path = Classes/Preferences/MainOutlineView.h; sourceTree = "<group>"; };
+		34B768C61C8E8BAE005355AC /* MainOutlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainOutlineView.m; path = Classes/Preferences/MainOutlineView.m; sourceTree = "<group>"; };
+		34B768CB1C8F3022005355AC /* MainOutlineViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainOutlineViewDataSource.h; path = Classes/Preferences/MainOutlineViewDataSource.h; sourceTree = "<group>"; };
+		34B768CC1C8F3022005355AC /* MainOutlineViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainOutlineViewDataSource.m; path = Classes/Preferences/MainOutlineViewDataSource.m; sourceTree = "<group>"; };
+		34B768CE1C8F33FF005355AC /* MainOutlineViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainOutlineViewDelegate.h; path = Classes/Preferences/MainOutlineViewDelegate.h; sourceTree = "<group>"; };
+		34B768CF1C8F33FF005355AC /* MainOutlineViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainOutlineViewDelegate.m; path = Classes/Preferences/MainOutlineViewDelegate.m; sourceTree = "<group>"; };
+		34B768D11C8F3554005355AC /* MainNameCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainNameCellView.h; path = Classes/Preferences/MainNameCellView.h; sourceTree = "<group>"; };
+		34B768D21C8F3554005355AC /* MainNameCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainNameCellView.m; path = Classes/Preferences/MainNameCellView.m; sourceTree = "<group>"; };
 		34BE221A18C1D7800014BB5B /* ServerForUserspace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServerForUserspace.h; path = Classes/ServerForUserspace.h; sourceTree = "<group>"; };
 		34BE221B18C1D7800014BB5B /* ServerForUserspace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ServerForUserspace.m; path = Classes/ServerForUserspace.m; sourceTree = "<group>"; };
 		34BE222018C1D7970014BB5B /* SeilKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SeilKeys.h; path = ../../share/SeilKeys.h; sourceTree = "<group>"; };
@@ -105,8 +116,11 @@
 		34E4086C19571DC100530059 /* Relauncher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Relauncher.m; path = ../../share/Relauncher.m; sourceTree = "<group>"; };
 		34E5165A193EA296002BB013 /* StartAtLoginUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartAtLoginUtilities.h; path = ../../share/StartAtLoginUtilities.h; sourceTree = "<group>"; };
 		34E5165B193EA296002BB013 /* StartAtLoginUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StartAtLoginUtilities.m; path = ../../share/StartAtLoginUtilities.m; sourceTree = "<group>"; };
+		34E852391C986A8F00D6EA3B /* MainValueCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainValueCellView.h; path = Classes/Preferences/MainValueCellView.h; sourceTree = "<group>"; };
+		34E8523A1C986A8F00D6EA3B /* MainValueCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainValueCellView.m; path = Classes/Preferences/MainValueCellView.m; sourceTree = "<group>"; };
 		34EA17341AFF96F8000350AA /* SessionObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SessionObserver.h; path = ../../share/SessionObserver.h; sourceTree = "<group>"; };
 		34EA17351AFF96F8000350AA /* SessionObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SessionObserver.m; path = ../../share/SessionObserver.m; sourceTree = "<group>"; };
+		34ED12241CA2DB1A0081A39E /* PreferencesWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PreferencesWindow.xib; path = Resources/PreferencesWindow.xib; sourceTree = "<group>"; };
 		34F9652813D742FA0081D1F3 /* PreferencesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreferencesManager.h; path = Classes/PreferencesManager.h; sourceTree = "<group>"; };
 		34F9652913D742FA0081D1F3 /* PreferencesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PreferencesManager.m; path = Classes/PreferencesManager.m; sourceTree = "<group>"; };
 		34F9652A13D742FA0081D1F3 /* UserClient_userspace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserClient_userspace.h; path = Classes/UserClient_userspace.h; sourceTree = "<group>"; };
@@ -218,6 +232,7 @@
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				3494769B168B7AAA00B783D2 /* known.xml */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
+				34ED12241CA2DB1A0081A39E /* PreferencesWindow.xib */,
 				34D2910513ED97C5002A224E /* Seil_pub.pem */,
 			);
 			name = Resources;
@@ -251,10 +266,18 @@
 				34B768C01C8DCCCB005355AC /* KnownTableViewDataSource.m */,
 				34B768C21C8DCD19005355AC /* KnownTableViewDelegate.h */,
 				34B768C31C8DCD19005355AC /* KnownTableViewDelegate.m */,
-				34947692168B740E00B783D2 /* OutlineView_mixed.h */,
-				34947693168B740E00B783D2 /* OutlineView_mixed.m */,
-				34947694168B740E00B783D2 /* OutlineView.h */,
-				34947695168B740E00B783D2 /* OutlineView.m */,
+				348986381C94608A0018A65D /* MainNameBackgroundView.h */,
+				348986391C94608A0018A65D /* MainNameBackgroundView.m */,
+				34B768D11C8F3554005355AC /* MainNameCellView.h */,
+				34B768D21C8F3554005355AC /* MainNameCellView.m */,
+				34B768C51C8E8BAE005355AC /* MainOutlineView.h */,
+				34B768C61C8E8BAE005355AC /* MainOutlineView.m */,
+				34B768CB1C8F3022005355AC /* MainOutlineViewDataSource.h */,
+				34B768CC1C8F3022005355AC /* MainOutlineViewDataSource.m */,
+				34B768CE1C8F33FF005355AC /* MainOutlineViewDelegate.h */,
+				34B768CF1C8F33FF005355AC /* MainOutlineViewDelegate.m */,
+				34E852391C986A8F00D6EA3B /* MainValueCellView.h */,
+				34E8523A1C986A8F00D6EA3B /* MainValueCellView.m */,
 				34947688168B707500B783D2 /* PreferencesController.h */,
 				34947689168B707500B783D2 /* PreferencesController.m */,
 				341EC1211C84943600B44195 /* PreferencesWindowController.h */,
@@ -321,7 +344,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0730;
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Seil_server" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -344,6 +367,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34ED12251CA2DB1A0081A39E /* PreferencesWindow.xib in Resources */,
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
 				34D65EEA13E06A7400476C2A /* app.icns in Resources */,
@@ -412,21 +436,25 @@
 				256AC3DA0F4B6AC300CF3369 /* AppDelegate.m in Sources */,
 				34B768BE1C8DCAD6005355AC /* XMLLoader.m in Sources */,
 				3495FD501C8DC03100C28214 /* ServerController.m in Sources */,
+				3489863A1C94608A0018A65D /* MainNameBackgroundView.m in Sources */,
 				34B768C11C8DCCCB005355AC /* KnownTableViewDataSource.m in Sources */,
 				34F9652C13D742FA0081D1F3 /* PreferencesManager.m in Sources */,
+				34B768CD1C8F3022005355AC /* MainOutlineViewDataSource.m in Sources */,
 				3451A03E1949F0C000E68360 /* MigrationUtilities.m in Sources */,
+				34B768C71C8E8BAE005355AC /* MainOutlineView.m in Sources */,
 				34E5165C193EA296002BB013 /* StartAtLoginUtilities.m in Sources */,
+				34E8523B1C986A8F00D6EA3B /* MainValueCellView.m in Sources */,
 				34BE221C18C1D7800014BB5B /* ServerForUserspace.m in Sources */,
+				34B768D01C8F33FF005355AC /* MainOutlineViewDelegate.m in Sources */,
 				34F9652D13D742FA0081D1F3 /* UserClient_userspace.m in Sources */,
 				34947684168B6EB000B783D2 /* Updater.m in Sources */,
 				34EA17361AFF96F8000350AA /* SessionObserver.m in Sources */,
 				34B768C41C8DCD19005355AC /* KnownTableViewDelegate.m in Sources */,
 				341EC1231C84943600B44195 /* PreferencesWindowController.m in Sources */,
 				3494768A168B707500B783D2 /* PreferencesController.m in Sources */,
+				34B768D31C8F3554005355AC /* MainNameCellView.m in Sources */,
 				341EC1201C84940F00B44195 /* ServerObjects.m in Sources */,
 				34E4086D19571DC100530059 /* Relauncher.m in Sources */,
-				34947697168B740E00B783D2 /* OutlineView_mixed.m in Sources */,
-				34947698168B740E00B783D2 /* OutlineView.m in Sources */,
 				34598343169CAB66007C84F8 /* ClientForKernelspace.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -476,7 +504,6 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
