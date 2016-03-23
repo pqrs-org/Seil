@@ -8,7 +8,6 @@
 
   <item>
     <name>Change the caps lock key</name>
-    <!-- <expand>true</expand> -->
     <item>
       <name>Change the caps lock key</name>
       <enable>enable_capslock</enable>
