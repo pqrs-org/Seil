@@ -16,7 +16,6 @@
 		34598343169CAB66007C84F8 /* ClientForKernelspace.m in Sources */ = {isa = PBXBuildFile; fileRef = 34598342169CAB66007C84F8 /* ClientForKernelspace.m */; };
 		3489863A1C94608A0018A65D /* MainNameBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 348986391C94608A0018A65D /* MainNameBackgroundView.m */; };
 		34947684168B6EB000B783D2 /* Updater.m in Sources */ = {isa = PBXBuildFile; fileRef = 34947683168B6EB000B783D2 /* Updater.m */; };
-		3494768A168B707500B783D2 /* PreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34947689168B707500B783D2 /* PreferencesController.m */; };
 		3494769C168B7AAA00B783D2 /* checkbox.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3494769A168B7AAA00B783D2 /* checkbox.xml */; };
 		3494769D168B7AAA00B783D2 /* known.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3494769B168B7AAA00B783D2 /* known.xml */; };
 		3495FD501C8DC03100C28214 /* ServerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3495FD4F1C8DC03100C28214 /* ServerController.m */; };
@@ -85,8 +84,6 @@
 		34947682168B6EB000B783D2 /* Updater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Updater.h; path = Classes/Updater.h; sourceTree = "<group>"; };
 		34947683168B6EB000B783D2 /* Updater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Updater.m; path = Classes/Updater.m; sourceTree = "<group>"; };
 		34947686168B6F9200B783D2 /* PreferencesKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreferencesKeys.h; path = Classes/PreferencesKeys.h; sourceTree = "<group>"; };
-		34947688168B707500B783D2 /* PreferencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreferencesController.h; path = Classes/Preferences/PreferencesController.h; sourceTree = "<group>"; };
-		34947689168B707500B783D2 /* PreferencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PreferencesController.m; path = Classes/Preferences/PreferencesController.m; sourceTree = "<group>"; };
 		3494768B168B70F700B783D2 /* NotificationKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotificationKeys.h; path = Classes/NotificationKeys.h; sourceTree = "<group>"; };
 		3494769A168B7AAA00B783D2 /* checkbox.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = checkbox.xml; path = Resources/checkbox.xml; sourceTree = "<group>"; };
 		3494769B168B7AAA00B783D2 /* known.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = known.xml; path = Resources/known.xml; sourceTree = "<group>"; };
@@ -278,8 +275,6 @@
 				34B768CF1C8F33FF005355AC /* MainOutlineViewDelegate.m */,
 				34E852391C986A8F00D6EA3B /* MainValueCellView.h */,
 				34E8523A1C986A8F00D6EA3B /* MainValueCellView.m */,
-				34947688168B707500B783D2 /* PreferencesController.h */,
-				34947689168B707500B783D2 /* PreferencesController.m */,
 				341EC1211C84943600B44195 /* PreferencesWindowController.h */,
 				341EC1221C84943600B44195 /* PreferencesWindowController.m */,
 				34B768BC1C8DCAD6005355AC /* XMLLoader.h */,
@@ -451,7 +446,6 @@
 				34EA17361AFF96F8000350AA /* SessionObserver.m in Sources */,
 				34B768C41C8DCD19005355AC /* KnownTableViewDelegate.m in Sources */,
 				341EC1231C84943600B44195 /* PreferencesWindowController.m in Sources */,
-				3494768A168B707500B783D2 /* PreferencesController.m in Sources */,
 				34B768D31C8F3554005355AC /* MainNameCellView.m in Sources */,
 				341EC1201C84940F00B44195 /* ServerObjects.m in Sources */,
 				34E4086D19571DC100530059 /* Relauncher.m in Sources */,

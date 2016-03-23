@@ -1,7 +1,6 @@
 #import "AppDelegate.h"
 #import "ClientForKernelspace.h"
 #import "MigrationUtilities.h"
-#import "PreferencesController.h"
 #import "PreferencesKeys.h"
 #import "PreferencesWindowController.h"
 #import "Relauncher.h"
@@ -20,7 +19,6 @@
 
   SessionObserver* sessionObserver_;
 
-  IBOutlet PreferencesController* preferencesController_;
   IBOutlet ServerForUserspace* serverForUserspace_;
 }
 
