@@ -1,11 +1,15 @@
-#!/bin/sh
+#!/bin/bash
 
 # set $GEM_HOME/bin/ for CocoaPods.
 PATH="/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:$GEM_HOME/bin"; export PATH
 
 version=$(cat version)
 
-make clean build || exit $?
+echo "make clean build"
+make clean build | ruby files/extra/reduce-logs.rb
+if [ ${PIPESTATUS[0]} -ne 0 ]; then
+    exit 99
+fi
 
 # --------------------------------------------------
 # http://developer.apple.com/documentation/Darwin/Conceptual/KEXTConcept/KEXTConceptPackaging/packaging_kext.html
