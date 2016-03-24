@@ -1,8 +1,8 @@
 // -*- Mode: objc; Coding: utf-8; indent-tabs-mode: nil; -*-
 
-#import <Cocoa/Cocoa.h>
+@import Cocoa;
 
-@protocol SeilProtocol
+@protocol ServerClientProtocol
 
 - (void)setValue:(int)newval forName:(NSString *)name;
 - (NSDictionary *)allValues;

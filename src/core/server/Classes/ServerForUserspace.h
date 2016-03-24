@@ -1,9 +1,9 @@
 // -*- Mode: objc; Coding: utf-8; indent-tabs-mode: nil; -*-
 
 @import Cocoa;
-#import "SeilProtocol.h"
+#import "ServerClientProtocol.h"
 
-@interface ServerForUserspace : NSObject <SeilProtocol>
+@interface ServerForUserspace : NSObject <ServerClientProtocol>
 
 - (BOOL) register;
 

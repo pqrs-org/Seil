@@ -3,18 +3,18 @@
 
 @interface ServerClient ()
 
-@property NSDistantObject<SeilProtocol>* connection;
+@property NSDistantObject<ServerClientProtocol>* connection;
 @property dispatch_queue_t connectionQueue;
 
 @end
 
 @implementation ServerClient
 
-- (NSDistantObject<SeilProtocol>*)proxy {
+- (NSDistantObject<ServerClientProtocol>*)proxy {
   dispatch_sync(self.connectionQueue, ^{
     if (!self.connection) {
-      self.connection = (NSDistantObject<SeilProtocol>*)([NSConnection rootProxyForConnectionWithRegisteredName:kSeilConnectionName host:nil]);
-      [self.connection setProtocolForProxy:@protocol(SeilProtocol)];
+      self.connection = (NSDistantObject<ServerClientProtocol>*)([NSConnection rootProxyForConnectionWithRegisteredName:kSeilConnectionName host:nil]);
+      [self.connection setProtocolForProxy:@protocol(ServerClientProtocol)];
     }
   });
   return self.connection;

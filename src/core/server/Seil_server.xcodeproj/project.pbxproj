@@ -106,7 +106,7 @@
 		34BE221A18C1D7800014BB5B /* ServerForUserspace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServerForUserspace.h; path = Classes/ServerForUserspace.h; sourceTree = "<group>"; };
 		34BE221B18C1D7800014BB5B /* ServerForUserspace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ServerForUserspace.m; path = Classes/ServerForUserspace.m; sourceTree = "<group>"; };
 		34BE222018C1D7970014BB5B /* SharedKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SharedKeys.h; path = ../../share/SharedKeys.h; sourceTree = "<group>"; };
-		34BE222118C1D7970014BB5B /* SeilProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SeilProtocol.h; path = ../../share/SeilProtocol.h; sourceTree = "<group>"; };
+		34BE222118C1D7970014BB5B /* ServerClientProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServerClientProtocol.h; path = ../../share/ServerClientProtocol.h; sourceTree = "<group>"; };
 		34D2910513ED97C5002A224E /* Seil_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Seil_pub.pem; path = Resources/Seil_pub.pem; sourceTree = "<group>"; };
 		34D65EE913E06A7400476C2A /* app.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = app.icns; path = ../../share/Resources/app.icns; sourceTree = "<group>"; };
 		34E4086B19571DC100530059 /* Relauncher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Relauncher.h; path = ../../share/Relauncher.h; sourceTree = "<group>"; };
@@ -291,7 +291,7 @@
 				34E4086B19571DC100530059 /* Relauncher.h */,
 				34E4086C19571DC100530059 /* Relauncher.m */,
 				34BE222018C1D7970014BB5B /* SharedKeys.h */,
-				34BE222118C1D7970014BB5B /* SeilProtocol.h */,
+				34BE222118C1D7970014BB5B /* ServerClientProtocol.h */,
 				34EA17341AFF96F8000350AA /* SessionObserver.h */,
 				34EA17351AFF96F8000350AA /* SessionObserver.m */,
 				34E5165A193EA296002BB013 /* StartAtLoginUtilities.h */,
