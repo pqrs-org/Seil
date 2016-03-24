@@ -92,7 +92,7 @@
   [[NSUserDefaults standardUserDefaults] setObject:md forKey:identifier];
   // [[NSUserDefaults standardUserDefaults] synchronize];
 
-  [[NSNotificationCenter defaultCenter] postNotificationName:kPreferencesChangedNotification object:nil];
+  [[NSNotificationCenter defaultCenter] postNotificationName:kPreferencesChangedNotification object:nil userInfo:notificationUserInfo];
 }
 
 // ----------------------------------------------------------------------
