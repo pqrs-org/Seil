@@ -27,5 +27,5 @@ run:
 	./build/Release/Seil.app/Contents/MacOS/Seil
 
 podupdate:
-	pod install --no-repo-update
 	pod update
+	pod install --no-repo-update
