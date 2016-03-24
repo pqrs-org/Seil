@@ -1,5 +1,5 @@
 @import Cocoa;
-#import "SeilClient.h"
+#import "ServerClient.h"
 
 @interface SeilCLI : NSObject
 
@@ -30,7 +30,7 @@
   [[NSApplication sharedApplication] terminate:nil];
 }
 
-- (void) export:(SeilClient*)client {
+- (void) export:(ServerClient*)client {
   NSArray* arguments = [[NSProcessInfo processInfo] arguments];
   NSDictionary* dict = [[client proxy] allValues];
 
@@ -50,7 +50,7 @@
     [self usage];
   } else {
     @try {
-      SeilClient* client = [SeilClient new];
+      ServerClient* client = [ServerClient new];
       NSString* command = arguments[1];
 
       /*  */ if ([command isEqualToString:@"export"]) {

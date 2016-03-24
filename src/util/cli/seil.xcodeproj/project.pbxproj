@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		34BE223918C208C60014BB5B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 34BE223818C208C60014BB5B /* main.m */; };
-		34BE223F18C2091F0014BB5B /* SeilClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 34BE223C18C2091F0014BB5B /* SeilClient.m */; };
+		34BE223F18C2091F0014BB5B /* ServerClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 34BE223C18C2091F0014BB5B /* ServerClient.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,8 +26,8 @@
 /* Begin PBXFileReference section */
 		34BE222C18C200190014BB5B /* seil */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = seil; sourceTree = BUILT_PRODUCTS_DIR; };
 		34BE223818C208C60014BB5B /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		34BE223B18C2091F0014BB5B /* SeilClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SeilClient.h; path = ../../../share/SeilClient.h; sourceTree = "<group>"; };
-		34BE223C18C2091F0014BB5B /* SeilClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SeilClient.m; path = ../../../share/SeilClient.m; sourceTree = "<group>"; };
+		34BE223B18C2091F0014BB5B /* ServerClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServerClient.h; path = ../../../share/ServerClient.h; sourceTree = "<group>"; };
+		34BE223C18C2091F0014BB5B /* ServerClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ServerClient.m; path = ../../../share/ServerClient.m; sourceTree = "<group>"; };
 		34BE223D18C2091F0014BB5B /* SharedKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SharedKeys.h; path = ../../../share/SharedKeys.h; sourceTree = "<group>"; };
 		34BE223E18C2091F0014BB5B /* SeilProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SeilProtocol.h; path = ../../../share/SeilProtocol.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -71,8 +71,8 @@
 		34BE223A18C208D30014BB5B /* share */ = {
 			isa = PBXGroup;
 			children = (
-				34BE223B18C2091F0014BB5B /* SeilClient.h */,
-				34BE223C18C2091F0014BB5B /* SeilClient.m */,
+				34BE223B18C2091F0014BB5B /* ServerClient.h */,
+				34BE223C18C2091F0014BB5B /* ServerClient.m */,
 				34BE223D18C2091F0014BB5B /* SharedKeys.h */,
 				34BE223E18C2091F0014BB5B /* SeilProtocol.h */,
 			);
@@ -131,7 +131,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				34BE223918C208C60014BB5B /* main.m in Sources */,
-				34BE223F18C2091F0014BB5B /* SeilClient.m in Sources */,
+				34BE223F18C2091F0014BB5B /* ServerClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

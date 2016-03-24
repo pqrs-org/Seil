@@ -1,14 +1,14 @@
-#import "SeilClient.h"
+#import "ServerClient.h"
 #import "SharedKeys.h"
 
-@interface SeilClient ()
+@interface ServerClient ()
 
 @property NSDistantObject<SeilProtocol>* connection;
 @property dispatch_queue_t connectionQueue;
 
 @end
 
-@implementation SeilClient
+@implementation ServerClient
 
 - (NSDistantObject<SeilProtocol>*)proxy {
   dispatch_sync(self.connectionQueue, ^{
@@ -33,7 +33,7 @@
   self = [super init];
 
   if (self) {
-    self.connectionQueue = dispatch_queue_create("org.pqrs.Seil.SeilClient.connectionQueue", NULL);
+    self.connectionQueue = dispatch_queue_create("org.pqrs.Seil.ServerClient.connectionQueue", NULL);
 
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(observer_NSConnectionDidDieNotification:)

@@ -3,7 +3,7 @@
 @import Cocoa;
 #import "SeilProtocol.h"
 
-@interface SeilClient : NSObject
+@interface ServerClient : NSObject
 
 - (NSDistantObject<SeilProtocol>*)proxy;
 
