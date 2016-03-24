@@ -1,7 +1,7 @@
-#import "SeilKeys.h"
 #import "PreferencesManager.h"
 #import "Relauncher.h"
 #import "ServerForUserspace.h"
+#import "SharedKeys.h"
 
 @interface ServerForUserspace ()
 

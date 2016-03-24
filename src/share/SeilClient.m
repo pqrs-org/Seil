@@ -1,5 +1,5 @@
 #import "SeilClient.h"
-#import "SeilKeys.h"
+#import "SharedKeys.h"
 
 @interface SeilClient ()
 
