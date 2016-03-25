@@ -7,7 +7,7 @@ all:
 	$(MAKE) -C ../../../pkginfo
 	$(MAKE) -C ../../bridge/generator/bridge_version
 	$(MAKE) -C ../../bridge/generator/config
-	(cd Pods && xcodebuild -configuration $(CONFIGURATION) SYMROOT=`pwd`/../build)
+	(cd Pods && xcodebuild -configuration $(CONFIGURATION) SYMROOT=$(CURDIR)/build)
 	xcodebuild -alltargets -configuration $(CONFIGURATION) build
 	[ -f $(AUTOUPDATE_ICON) ] || exit 1
 	install -m 644 ../../share/Resources/app.icns $(AUTOUPDATE_ICON)
