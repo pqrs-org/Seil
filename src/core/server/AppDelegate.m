@@ -121,12 +121,10 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
 }
 
 // ------------------------------------------------------------
-#define kDescendantProcess @"org_pqrs_Seil_DescendantProcess"
-
 - (void)applicationDidFinishLaunching:(NSNotification*)aNotification {
-  NSInteger isDescendantProcess = [[[NSProcessInfo processInfo] environment][kDescendantProcess] integerValue];
-  setenv([kDescendantProcess UTF8String], "1", 1);
+  NSInteger relaunchedCount = [Relauncher getRelaunchedCount];
 
+  // ------------------------------------------------------------
   if ([MigrationUtilities migrate:@[ @"org.pqrs.PCKeyboardHack" ]
            oldApplicationSupports:@[]
                          oldPaths:@[ @"/Applications/PCKeyboardHack.app" ]]) {
@@ -160,7 +158,11 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
                                              object:nil];
 
   // ------------------------------------------------------------
-  [self.updater checkForUpdatesInBackground];
+  if (relaunchedCount == 0) {
+    [self.updater checkForUpdatesInBackground];
+  } else {
+    NSLog(@"Skip checkForUpdatesInBackground in the relaunched process.");
+  }
 
   // ------------------------------------------------------------
   // Open Preferences if Seil was launched by hand.
@@ -169,20 +171,20 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
     if (![bundlePath isEqualToString:@"/Applications/Seil.app"]) {
       NSLog(@"Skip setStartAtLogin for %@", bundlePath);
 
-      dispatch_async(dispatch_get_main_queue(), ^{
-        NSAlert* alert = [NSAlert new];
-        [alert setMessageText:@"Seil Alert"];
-        [alert addButtonWithTitle:@"Close"];
-        [alert setInformativeText:@"Seil.app should be located in /Applications/Seil.app.\nDo not move Seil.app into other folders."];
-        [alert runModal];
-      });
+      if (relaunchedCount == 0) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+          NSAlert* alert = [NSAlert new];
+          [alert setMessageText:@"Seil Alert"];
+          [alert addButtonWithTitle:@"Close"];
+          [alert setInformativeText:@"Seil.app should be located in /Applications/Seil.app.\nDo not move Seil.app into other folders."];
+          [alert runModal];
+        });
+      }
 
     } else {
       if (![StartAtLoginUtilities isStartAtLogin] &&
           [[NSUserDefaults standardUserDefaults] boolForKey:kResumeAtLogin]) {
-        if (!isDescendantProcess) {
-          [self openPreferences];
-        }
+        [self openPreferences];
       }
       [ServerController updateStartAtLogin:YES];
     }
