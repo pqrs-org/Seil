@@ -15,6 +15,7 @@
         <customObject id="494" customClass="AppDelegate">
             <connections>
                 <outlet property="clientForKernelspace" destination="741" id="743"/>
+                <outlet property="preferencesManager" destination="583" id="gTa-RF-NyU"/>
                 <outlet property="serverForUserspace" destination="hAv-NT-zlb" id="kDM-Eg-HHy"/>
                 <outlet property="serverObjects" destination="kBK-lF-EiU" id="Tzz-92-aa1"/>
                 <outlet property="updater" destination="582" id="vJb-JP-72y"/>

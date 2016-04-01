@@ -2,6 +2,7 @@
 #import "ClientForKernelspace.h"
 #import "MigrationUtilities.h"
 #import "PreferencesKeys.h"
+#import "PreferencesManager.h"
 #import "PreferencesWindowController.h"
 #import "Relauncher.h"
 #import "ServerController.h"
@@ -14,8 +15,9 @@
 
 @interface AppDelegate ()
 
-@property(weak) IBOutlet ServerForUserspace* serverForUserspace;
 @property(weak) IBOutlet ClientForKernelspace* clientForKernelspace;
+@property(weak) IBOutlet PreferencesManager* preferencesManager;
+@property(weak) IBOutlet ServerForUserspace* serverForUserspace;
 @property(weak) IBOutlet ServerObjects* serverObjects;
 @property(weak) IBOutlet Updater* updater;
 
@@ -116,6 +118,9 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
     if (self.preferencesWindowController &&
         self.preferencesWindowController.window == window) {
       self.preferencesWindowController = nil;
+      if ([self.preferencesManager isRelaunchAfterClosingPreferencesWindow]) {
+        [Relauncher relaunch];
+      }
     }
   });
 }
