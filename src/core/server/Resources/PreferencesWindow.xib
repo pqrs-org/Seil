@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
         <capability name="box content view" minToolsVersion="7.0"/>
     </dependencies>
@@ -151,8 +152,8 @@
                                                                         <rect key="frame" x="1" y="1" width="370" height="18"/>
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                         <subviews>
-                                                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wWb-Vd-fZG">
-                                                                                <rect key="frame" x="0.0" y="2" width="370" height="14"/>
+                                                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="wWb-Vd-fZG">
+                                                                                <rect key="frame" x="0.0" y="2" width="368" height="14"/>
                                                                                 <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Name" id="RRN-5y-WFN">
                                                                                     <font key="font" metaFont="smallSystem"/>
                                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -595,13 +596,13 @@
                                             <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </box>
                                         <box title="Miscellaneous" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="2vj-Xb-Tc4">
-                                            <rect key="frame" x="14" y="103" width="600" height="127"/>
+                                            <rect key="frame" x="14" y="109" width="600" height="121"/>
                                             <view key="contentView" id="GjZ-YF-216">
-                                                <rect key="frame" x="1" y="1" width="598" height="111"/>
+                                                <rect key="frame" x="1" y="1" width="598" height="105"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <button translatesAutoresizingMaskIntoConstraints="NO" id="bgk-hy-06V">
-                                                        <rect key="frame" x="15" y="85" width="200" height="18"/>
+                                                        <rect key="frame" x="15" y="79" width="200" height="18"/>
                                                         <buttonCell key="cell" type="check" title="Resume at login (Default: On)" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="cTQ-Hr-5vc">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="system"/>
@@ -612,23 +613,17 @@
                                                         </connections>
                                                     </button>
                                                     <button translatesAutoresizingMaskIntoConstraints="NO" id="Zd1-da-f4p">
-                                                        <rect key="frame" x="15" y="61" width="217" height="18"/>
-                                                        <buttonCell key="cell" type="check" title="Show icon in Dock (Default: Off)" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="TfJ-LH-i4Y">
+                                                        <rect key="frame" x="15" y="39" width="446" height="34"/>
+                                                        <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="TfJ-LH-i4Y">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                            <string key="title">Show icon in Dock (Default: Off)
+ (You have to relaunch Seil to reflect this "Show icon in Dock" setting.)</string>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
                                                         <connections>
                                                             <binding destination="H4D-vQ-Dp0" name="value" keyPath="values.kShowIconInDock" id="zXx-Mm-zeq"/>
                                                         </connections>
                                                     </button>
-                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DBs-tb-HUb">
-                                                        <rect key="frame" x="15" y="41" width="428" height="17"/>
-                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title=" (You have to relaunch Seil to reflect this &quot;Show icon in Dock&quot; setting.)" id="hJW-pB-2Ax">
-                                                            <font key="font" metaFont="system"/>
-                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                        </textFieldCell>
-                                                    </textField>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QrQ-ms-Ef3">
                                                         <rect key="frame" x="11" y="3" width="122" height="32"/>
                                                         <buttonCell key="cell" type="push" title="Relaunch Seil" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="P7g-3x-VxY">
@@ -644,12 +639,10 @@
                                                     <constraint firstItem="bgk-hy-06V" firstAttribute="top" secondItem="GjZ-YF-216" secondAttribute="top" constant="10" id="LTC-lL-Kzo"/>
                                                     <constraint firstAttribute="bottom" secondItem="QrQ-ms-Ef3" secondAttribute="bottom" constant="10" id="Lqo-L0-mmL"/>
                                                     <constraint firstItem="Zd1-da-f4p" firstAttribute="leading" secondItem="bgk-hy-06V" secondAttribute="leading" id="RLR-Au-KPm"/>
+                                                    <constraint firstItem="QrQ-ms-Ef3" firstAttribute="top" secondItem="Zd1-da-f4p" secondAttribute="bottom" constant="10" id="RZ9-2x-2Lx"/>
                                                     <constraint firstItem="Zd1-da-f4p" firstAttribute="top" secondItem="bgk-hy-06V" secondAttribute="bottom" constant="10" id="dNf-1a-nix"/>
                                                     <constraint firstItem="bgk-hy-06V" firstAttribute="leading" secondItem="GjZ-YF-216" secondAttribute="leading" constant="17" id="en2-Ta-uzp"/>
-                                                    <constraint firstItem="DBs-tb-HUb" firstAttribute="top" secondItem="Zd1-da-f4p" secondAttribute="bottom" constant="5" id="k4x-7K-J7Q"/>
-                                                    <constraint firstItem="QrQ-ms-Ef3" firstAttribute="top" secondItem="DBs-tb-HUb" secondAttribute="bottom" constant="10" id="lXP-jp-cfR"/>
-                                                    <constraint firstItem="QrQ-ms-Ef3" firstAttribute="leading" secondItem="DBs-tb-HUb" secondAttribute="leading" id="otS-Qj-ncB"/>
-                                                    <constraint firstItem="DBs-tb-HUb" firstAttribute="leading" secondItem="Zd1-da-f4p" secondAttribute="leading" id="pQa-7a-sof"/>
+                                                    <constraint firstItem="QrQ-ms-Ef3" firstAttribute="leading" secondItem="bgk-hy-06V" secondAttribute="leading" id="frJ-o4-UPj"/>
                                                 </constraints>
                                             </view>
                                             <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
