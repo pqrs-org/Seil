@@ -118,9 +118,6 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
     if (self.preferencesWindowController &&
         self.preferencesWindowController.window == window) {
       self.preferencesWindowController = nil;
-      if ([self.preferencesManager isRelaunchAfterClosingPreferencesWindow]) {
-        [Relauncher relaunch];
-      }
     }
   });
 }

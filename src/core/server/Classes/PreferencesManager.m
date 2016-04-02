@@ -100,8 +100,4 @@
   return [[NSUserDefaults standardUserDefaults] boolForKey:kCheckForUpdates];
 }
 
-- (BOOL)isRelaunchAfterClosingPreferencesWindow {
-  return YES;
-}
-
 @end
