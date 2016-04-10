@@ -14,6 +14,7 @@
 		343420CB13D74C16000DBD3E /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 343420CA13D74C16000DBD3E /* IOKit.framework */; };
 		3451A03E1949F0C000E68360 /* MigrationUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 3451A03D1949F0C000E68360 /* MigrationUtilities.m */; };
 		34598343169CAB66007C84F8 /* ClientForKernelspace.m in Sources */ = {isa = PBXBuildFile; fileRef = 34598342169CAB66007C84F8 /* ClientForKernelspace.m */; };
+		346F77351CBA99E40083F2BD /* PreferencesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 346F77341CBA99E40083F2BD /* PreferencesModel.m */; };
 		3489863A1C94608A0018A65D /* MainNameBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 348986391C94608A0018A65D /* MainNameBackgroundView.m */; };
 		34947684168B6EB000B783D2 /* Updater.m in Sources */ = {isa = PBXBuildFile; fileRef = 34947683168B6EB000B783D2 /* Updater.m */; };
 		3494769C168B7AAA00B783D2 /* checkbox.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3494769A168B7AAA00B783D2 /* checkbox.xml */; };
@@ -79,6 +80,8 @@
 		3451A03D1949F0C000E68360 /* MigrationUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MigrationUtilities.m; path = ../../share/MigrationUtilities.m; sourceTree = "<group>"; };
 		34598341169CAB66007C84F8 /* ClientForKernelspace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClientForKernelspace.h; path = Classes/ClientForKernelspace.h; sourceTree = "<group>"; };
 		34598342169CAB66007C84F8 /* ClientForKernelspace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClientForKernelspace.m; path = Classes/ClientForKernelspace.m; sourceTree = "<group>"; };
+		346F77331CBA99E40083F2BD /* PreferencesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreferencesModel.h; path = ../../share/PreferencesModel.h; sourceTree = "<group>"; };
+		346F77341CBA99E40083F2BD /* PreferencesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PreferencesModel.m; path = ../../share/PreferencesModel.m; sourceTree = "<group>"; };
 		348986381C94608A0018A65D /* MainNameBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainNameBackgroundView.h; path = Classes/Preferences/MainNameBackgroundView.h; sourceTree = "<group>"; };
 		348986391C94608A0018A65D /* MainNameBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainNameBackgroundView.m; path = Classes/Preferences/MainNameBackgroundView.m; sourceTree = "<group>"; };
 		34947682168B6EB000B783D2 /* Updater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Updater.h; path = Classes/Updater.h; sourceTree = "<group>"; };
@@ -288,12 +291,14 @@
 			children = (
 				3451A03C1949F0C000E68360 /* MigrationUtilities.h */,
 				3451A03D1949F0C000E68360 /* MigrationUtilities.m */,
+				346F77331CBA99E40083F2BD /* PreferencesModel.h */,
+				346F77341CBA99E40083F2BD /* PreferencesModel.m */,
 				34E4086B19571DC100530059 /* Relauncher.h */,
 				34E4086C19571DC100530059 /* Relauncher.m */,
-				34BE222018C1D7970014BB5B /* SharedKeys.h */,
 				34BE222118C1D7970014BB5B /* ServerClientProtocol.h */,
 				34EA17341AFF96F8000350AA /* SessionObserver.h */,
 				34EA17351AFF96F8000350AA /* SessionObserver.m */,
+				34BE222018C1D7970014BB5B /* SharedKeys.h */,
 				34E5165A193EA296002BB013 /* StartAtLoginUtilities.h */,
 				34E5165B193EA296002BB013 /* StartAtLoginUtilities.m */,
 			);
@@ -435,6 +440,7 @@
 				34B768C11C8DCCCB005355AC /* KnownTableViewDataSource.m in Sources */,
 				34F9652C13D742FA0081D1F3 /* PreferencesManager.m in Sources */,
 				34B768CD1C8F3022005355AC /* MainOutlineViewDataSource.m in Sources */,
+				346F77351CBA99E40083F2BD /* PreferencesModel.m in Sources */,
 				3451A03E1949F0C000E68360 /* MigrationUtilities.m in Sources */,
 				34B768C71C8E8BAE005355AC /* MainOutlineView.m in Sources */,
 				34E5165C193EA296002BB013 /* StartAtLoginUtilities.m in Sources */,
