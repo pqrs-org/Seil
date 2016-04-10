@@ -38,7 +38,9 @@ ARGV.each do |xmlpath|
       $outfile[:bridgeconfig_config] << "bridgeconfig.config[BRIDGE_KEY_INDEX_#{identifier}].enabled = [self.preferencesManager value:@\"#{enable.text}\"];\n"
       $outfile[:bridgeconfig_config] << "bridgeconfig.config[BRIDGE_KEY_INDEX_#{identifier}].keycode = [self.preferencesManager value:@\"#{keycode.text}\"];\n"
 
+      $outfile[:defaults] << "@\"#{enable.text}\": @0,\n"
       $outfile[:defaults] << "@\"#{keycode.text}\": @#{default.text},\n"
+      $outfile[:defaults] << "\n"
 
       $outfile[:configurationDictionary] << "@\"#{enable.text}\":".ljust(35) + "@([self.preferencesManager value:@\"#{enable.text}\"]),\n"
       $outfile[:configurationDictionary] << "@\"#{keycode.text}\":".ljust(35) + "@([self.preferencesManager value:@\"#{keycode.text}\"]),\n"
