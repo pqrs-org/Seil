@@ -18,6 +18,7 @@
     kCheckForUpdates : @YES,
     kShowIconInDock : @NO,
     kResumeAtLogin : @YES,
+    kPreferencesValues: @{},
   };
   [[NSUserDefaults standardUserDefaults] registerDefaults:dict];
 }
@@ -29,14 +30,26 @@
   preferencesModel.defaults = @{
 #include "defaults.h"
   };
-  preferencesModel.values = [[NSUserDefaults standardUserDefaults] dictionaryForKey:@"sysctl"];
+
+  NSMutableDictionary* values = [NSMutableDictionary dictionaryWithDictionary:preferencesModel.defaults];
+  NSDictionary* preferencesValues = [[NSUserDefaults standardUserDefaults] dictionaryForKey:kPreferencesValues];
+  for (NSString* key in preferencesValues) {
+    values[key] = preferencesValues[key];
+  }
+  preferencesModel.values = values;
 }
 
 - (void)savePreferencesModel:(PreferencesModel*)preferencesModel processIdentifier:(int)processIdentifier {
   [[NSUserDefaults standardUserDefaults] setObject:@(preferencesModel.resumeAtLogin) forKey:kResumeAtLogin];
   [[NSUserDefaults standardUserDefaults] setObject:@(preferencesModel.checkForUpdates) forKey:kCheckForUpdates];
 
-  [[NSUserDefaults standardUserDefaults] setObject:preferencesModel.values forKey:@"sysctl"];
+  NSMutableDictionary* values = [NSMutableDictionary dictionaryWithDictionary:preferencesModel.values];
+  for (NSString* key in preferencesModel.defaults) {
+    if ([preferencesModel.defaults[key] intValue] == [values[key] intValue]) {
+      [values removeObjectForKey:key];
+    }
+  }
+  [[NSUserDefaults standardUserDefaults] setObject:values forKey:@"sysctl"];
 
   // ----------------------------------------
   // refresh local model.
