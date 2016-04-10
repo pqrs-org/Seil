@@ -1,16 +1,18 @@
+#import "PreferencesManager.h"
 #import "NotificationKeys.h"
 #import "PreferencesKeys.h"
-#import "PreferencesManager.h"
+#import "PreferencesModel.h"
+#import "SharedKeys.h"
 
 @interface PreferencesManager ()
 
-@property NSMutableDictionary* defaults;
+@property(weak) IBOutlet PreferencesModel* preferencesModel;
+@property(copy) NSDictionary* defaults;
 
 @end
 
 @implementation PreferencesManager
 
-// ----------------------------------------
 + (void)initialize {
   NSDictionary* dict = @{
     kCheckForUpdates : @YES,
@@ -20,9 +22,34 @@
   [[NSUserDefaults standardUserDefaults] registerDefaults:dict];
 }
 
-// ----------------------------------------
-- (void)setDefault {
-#include "setDefault.h"
+- (void)loadPreferencesModel:(PreferencesModel*)preferencesModel {
+  preferencesModel.resumeAtLogin = [[NSUserDefaults standardUserDefaults] boolForKey:kResumeAtLogin];
+  preferencesModel.checkForUpdates = [[NSUserDefaults standardUserDefaults] boolForKey:kCheckForUpdates];
+
+  preferencesModel.defaults = @{
+#include "defaults.h"
+  };
+  preferencesModel.values = [[NSUserDefaults standardUserDefaults] dictionaryForKey:@"sysctl"];
+}
+
+- (void)savePreferencesModel:(PreferencesModel*)preferencesModel processIdentifier:(int)processIdentifier {
+  [[NSUserDefaults standardUserDefaults] setObject:@(preferencesModel.resumeAtLogin) forKey:kResumeAtLogin];
+  [[NSUserDefaults standardUserDefaults] setObject:@(preferencesModel.checkForUpdates) forKey:kCheckForUpdates];
+
+  [[NSUserDefaults standardUserDefaults] setObject:preferencesModel.values forKey:@"sysctl"];
+
+  // ----------------------------------------
+  // refresh local model.
+  if (preferencesModel != self.preferencesModel) {
+    [self loadPreferencesModel:self.preferencesModel];
+  }
+
+  // ----------------------------------------
+  [[NSNotificationCenter defaultCenter] postNotificationName:kPreferencesChangedNotification object:nil];
+  [[NSDistributedNotificationCenter defaultCenter] postNotificationName:kSeilPreferencesUpdatedNotification
+                                                                 object:nil
+                                                               userInfo:@{ @"processIdentifier" : @(processIdentifier) }
+                                                     deliverImmediately:YES];
 }
 
 // ----------------------------------------
@@ -30,8 +57,9 @@
   self = [super init];
 
   if (self) {
-    self.defaults = [NSMutableDictionary new];
-    [self setDefault];
+    self.defaults = @{
+#include "defaults.h"
+    };
   }
 
   return self;

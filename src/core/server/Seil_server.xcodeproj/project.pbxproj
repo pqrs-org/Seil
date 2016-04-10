@@ -74,7 +74,7 @@
 		342A41B8183E50B800BF09C8 /* BRIDGE_KEY_INDEX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BRIDGE_KEY_INDEX.h; path = ../../bridge/output/BRIDGE_KEY_INDEX.h; sourceTree = "<group>"; };
 		342A41B9183E50B800BF09C8 /* bridgeconfig_config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bridgeconfig_config.h; path = ../../bridge/output/bridgeconfig_config.h; sourceTree = "<group>"; };
 		342A41BA183E50B800BF09C8 /* include.bridge_version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = include.bridge_version.h; path = ../../bridge/output/include.bridge_version.h; sourceTree = "<group>"; };
-		342A41BB183E50B800BF09C8 /* setDefault.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = setDefault.h; path = ../../bridge/output/setDefault.h; sourceTree = "<group>"; };
+		342A41BB183E50B800BF09C8 /* defaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = defaults.h; path = ../../bridge/output/defaults.h; sourceTree = "<group>"; };
 		343420CA13D74C16000DBD3E /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		3451A03C1949F0C000E68360 /* MigrationUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MigrationUtilities.h; path = ../../share/MigrationUtilities.h; sourceTree = "<group>"; };
 		3451A03D1949F0C000E68360 /* MigrationUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MigrationUtilities.m; path = ../../share/MigrationUtilities.m; sourceTree = "<group>"; };
@@ -253,8 +253,8 @@
 			children = (
 				342A41B8183E50B800BF09C8 /* BRIDGE_KEY_INDEX.h */,
 				342A41B9183E50B800BF09C8 /* bridgeconfig_config.h */,
+				342A41BB183E50B800BF09C8 /* defaults.h */,
 				342A41BA183E50B800BF09C8 /* include.bridge_version.h */,
-				342A41BB183E50B800BF09C8 /* setDefault.h */,
 			);
 			name = bridge;
 			sourceTree = "<group>";

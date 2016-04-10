@@ -33,7 +33,12 @@
                 <outlet property="preferencesManager" destination="583" id="zNB-Ql-PQV"/>
             </connections>
         </customObject>
-        <customObject id="583" customClass="PreferencesManager"/>
+        <customObject id="583" customClass="PreferencesManager">
+            <connections>
+                <outlet property="preferencesModel" destination="Ca3-fR-sAX" id="4Xv-Tj-6Go"/>
+            </connections>
+        </customObject>
+        <customObject id="Ca3-fR-sAX" customClass="PreferencesModel"/>
         <customObject id="741" customClass="ClientForKernelspace">
             <connections>
                 <outlet property="preferencesManager" destination="583" id="fsG-Ti-cF2"/>
