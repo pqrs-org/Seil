@@ -124,6 +124,9 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
 
 // ------------------------------------------------------------
 - (void)applicationDidFinishLaunching:(NSNotification*)aNotification {
+  [[NSApplication sharedApplication] disableRelaunchOnLogin];
+
+  // ------------------------------------------------------------
   NSInteger relaunchedCount = [Relauncher getRelaunchedCount];
 
   // ------------------------------------------------------------
@@ -142,8 +145,7 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
   }
   [Relauncher resetRelaunchedCount];
 
-  [[NSApplication sharedApplication] disableRelaunchOnLogin];
-
+  // ------------------------------------------------------------
   self.sessionObserver = [[SessionObserver alloc] init:1
       active:^{
         [self registerIONotification];
