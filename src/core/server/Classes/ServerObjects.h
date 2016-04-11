@@ -4,12 +4,14 @@
 
 @class ClientForKernelspace;
 @class PreferencesManager;
+@class PreferencesModel;
 @class Updater;
 
 @interface ServerObjects : NSObject
 
 @property(weak) IBOutlet ClientForKernelspace* clientForKernelspace;
 @property(weak) IBOutlet PreferencesManager* preferencesManager;
+@property(weak) IBOutlet PreferencesModel* preferencesModel;
 @property(weak) IBOutlet Updater* updater;
 
 @end

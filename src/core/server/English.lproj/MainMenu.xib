@@ -26,6 +26,7 @@
             <connections>
                 <outlet property="clientForKernelspace" destination="741" id="PAd-6Z-ShL"/>
                 <outlet property="preferencesManager" destination="583" id="SGx-qr-AT8"/>
+                <outlet property="preferencesModel" destination="Ca3-fR-sAX" id="gON-RZ-Yib"/>
                 <outlet property="updater" destination="582" id="ZLs-Ir-eow"/>
             </connections>
         </customObject>
