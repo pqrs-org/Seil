@@ -18,7 +18,7 @@
     kCheckForUpdates : @YES,
     kShowIconInDock : @NO,
     kResumeAtLogin : @YES,
-    kPreferencesValues: @{},
+    kPreferencesValues : @{},
   };
   [[NSUserDefaults standardUserDefaults] registerDefaults:dict];
 }
@@ -27,11 +27,7 @@
   preferencesModel.resumeAtLogin = [[NSUserDefaults standardUserDefaults] boolForKey:kResumeAtLogin];
   preferencesModel.checkForUpdates = [[NSUserDefaults standardUserDefaults] boolForKey:kCheckForUpdates];
 
-  preferencesModel.defaults = @{
-#include "defaults.h"
-  };
-
-  NSMutableDictionary* values = [NSMutableDictionary dictionaryWithDictionary:preferencesModel.defaults];
+  NSMutableDictionary* values = [NSMutableDictionary dictionaryWithDictionary:self.defaults];
   NSDictionary* preferencesValues = [[NSUserDefaults standardUserDefaults] dictionaryForKey:kPreferencesValues];
   for (NSString* key in preferencesValues) {
     values[key] = preferencesValues[key];
@@ -44,8 +40,8 @@
   [[NSUserDefaults standardUserDefaults] setObject:@(preferencesModel.checkForUpdates) forKey:kCheckForUpdates];
 
   NSMutableDictionary* values = [NSMutableDictionary dictionaryWithDictionary:preferencesModel.values];
-  for (NSString* key in preferencesModel.defaults) {
-    if ([preferencesModel.defaults[key] intValue] == [values[key] intValue]) {
+  for (NSString* key in self.defaults) {
+    if ([self.defaults[key] intValue] == [values[key] intValue]) {
       [values removeObjectForKey:key];
     }
   }

@@ -6,8 +6,6 @@
 
 @property BOOL resumeAtLogin;
 @property BOOL checkForUpdates;
-
-@property(copy) NSDictionary* defaults;
 @property(copy) NSDictionary* values;
 
 @end
