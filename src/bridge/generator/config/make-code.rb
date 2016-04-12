@@ -34,8 +34,8 @@ ARGV.each do |xmlpath|
       $outfile[:KeyMapIndex_Value] << "#{identifier} = #{kHIDUsage.text},\n"
       $outfile[:KeyMapIndex_bridgeKeyindexToValue] << "case BRIDGE_KEY_INDEX_#{identifier}: return #{identifier};\n"
 
-      $outfile[:bridgeconfig_config] << "bridgeconfig.config[BRIDGE_KEY_INDEX_#{identifier}].enabled = [self.preferencesManager value:@\"#{enable.text}\"];\n"
-      $outfile[:bridgeconfig_config] << "bridgeconfig.config[BRIDGE_KEY_INDEX_#{identifier}].keycode = [self.preferencesManager value:@\"#{keycode.text}\"];\n"
+      $outfile[:bridgeconfig_config] << "bridgeconfig.config[BRIDGE_KEY_INDEX_#{identifier}].enabled = [self.preferencesModel.values[@\"#{enable.text}\"] intValue];\n"
+      $outfile[:bridgeconfig_config] << "bridgeconfig.config[BRIDGE_KEY_INDEX_#{identifier}].keycode = [self.preferencesModel.values[@\"#{keycode.text}\"] intValue];\n"
 
       $outfile[:defaults] << "@\"#{enable.text}\": @0,\n"
       $outfile[:defaults] << "@\"#{keycode.text}\": @#{default.text},\n"
