@@ -1,6 +1,6 @@
+#import "ServerForUserspace.h"
 #import "PreferencesManager.h"
 #import "Relauncher.h"
-#import "ServerForUserspace.h"
 #import "SharedKeys.h"
 
 @interface ServerForUserspace ()
@@ -12,7 +12,7 @@
 
 @implementation ServerForUserspace
 
-- (id)init {
+- (instancetype)init {
   self = [super init];
 
   if (self) {
@@ -22,7 +22,6 @@
   return self;
 }
 
-// ----------------------------------------------------------------------
 - (BOOL) register {
   [self.connection setRootObject:self];
   if (![self.connection registerName:kSeilConnectionName]) {
@@ -32,14 +31,20 @@
 }
 
 // ----------------------------------------------------------------------
-- (void)setValue:(int)newval forName:(NSString*)name {
-  [self.preferencesManager setValue:newval forName:name];
+- (void)loadPreferencesModel:(PreferencesModel*)preferencesModel {
+  [self.preferencesManager loadPreferencesModel:preferencesModel];
 }
 
-- (NSDictionary*)allValues {
-  return @{
-#include "../../../bridge/output/configurationDictionary.m"
-  };
+- (void)savePreferencesModel:(PreferencesModel*)preferencesModel processIdentifier:(int)processIdentifier {
+  [self.preferencesManager savePreferencesModel:preferencesModel processIdentifier:processIdentifier];
+}
+
+- (NSDictionary*)exportPreferences {
+  return [self.preferencesManager export];
+}
+
+- (void)setValue:(int)newval forName:(NSString*)name {
+  [self.preferencesManager setValue:newval forName:name];
 }
 
 - (void)relaunch {
