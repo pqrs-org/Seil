@@ -27,12 +27,13 @@
                 <outlet property="clientForKernelspace" destination="741" id="PAd-6Z-ShL"/>
                 <outlet property="preferencesManager" destination="583" id="SGx-qr-AT8"/>
                 <outlet property="preferencesModel" destination="Ca3-fR-sAX" id="gON-RZ-Yib"/>
+                <outlet property="serverForUserspace" destination="hAv-NT-zlb" id="Rwl-2l-AaP"/>
                 <outlet property="updater" destination="582" id="ZLs-Ir-eow"/>
             </connections>
         </customObject>
         <customObject id="582" userLabel="Updater" customClass="Updater">
             <connections>
-                <outlet property="preferencesManager" destination="583" id="zNB-Ql-PQV"/>
+                <outlet property="preferencesModel" destination="Ca3-fR-sAX" id="YXy-Vg-1qC"/>
             </connections>
         </customObject>
         <customObject id="583" customClass="PreferencesManager">
@@ -43,7 +44,7 @@
         <customObject id="Ca3-fR-sAX" customClass="PreferencesModel"/>
         <customObject id="741" customClass="ClientForKernelspace">
             <connections>
-                <outlet property="preferencesManager" destination="583" id="fsG-Ti-cF2"/>
+                <outlet property="preferencesModel" destination="Ca3-fR-sAX" id="CHc-w3-NiZ"/>
             </connections>
         </customObject>
         <customObject id="hAv-NT-zlb" customClass="ServerForUserspace">
