@@ -73,7 +73,6 @@
 }
 
 - (IBAction)quit:(id)sender {
-  [ServerController quitWithConfirmation];
 }
 
 - (IBAction)checkForUpdatesStableOnly:(id)sender {
@@ -94,7 +93,6 @@
 }
 
 - (IBAction)updateStartAtLogin:(id)sender {
-  [ServerController updateStartAtLogin:YES];
 }
 
 - (IBAction)relaunch:(id)sender {
