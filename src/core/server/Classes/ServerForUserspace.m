@@ -43,10 +43,6 @@
   return [self.preferencesManager export];
 }
 
-- (void)setValue:(int)newval forName:(NSString*)name {
-  [self.preferencesManager setValue:newval forName:name];
-}
-
 - (void)relaunch {
   // Use dispatch_async in order to avoid "disconnected from server".
   //

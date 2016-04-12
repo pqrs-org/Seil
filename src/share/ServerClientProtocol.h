@@ -10,7 +10,6 @@
 - (void)savePreferencesModel:(PreferencesModel*)preferencesModel processIdentifier:(int)processIdentifier;
 - (NSDictionary*)exportPreferences;
 
-- (void)setValue:(int)newval forName:(NSString*)name;
 - (void)relaunch;
 
 @end
