@@ -1,11 +1,11 @@
 #import "ClientForKernelspace.h"
 #import "NotificationKeys.h"
-#import "PreferencesManager.h"
+#import "PreferencesModel.h"
 #import "UserClient_userspace.h"
 
 @interface ClientForKernelspace ()
 
-@property(weak) IBOutlet PreferencesManager* preferencesManager;
+@property(weak) IBOutlet PreferencesModel* preferencesModel;
 
 @property io_async_ref64_t* asyncref;
 @property UserClient_userspace* userClient_userspace;
