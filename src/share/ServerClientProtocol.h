@@ -13,4 +13,7 @@
 - (void)terminateServerProcess;
 - (void)relaunch;
 
+- (void)checkForUpdatesStableOnly;
+- (void)checkForUpdatesWithBetaVersion;
+
 @end

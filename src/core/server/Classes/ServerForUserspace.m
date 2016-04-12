@@ -3,11 +3,13 @@
 #import "Relauncher.h"
 #import "ServerController.h"
 #import "SharedKeys.h"
+#import "Updater.h"
 
 @interface ServerForUserspace ()
 
 @property(weak) IBOutlet PreferencesManager* preferencesManager;
 @property(weak) IBOutlet ServerController* serverController;
+@property(weak) IBOutlet Updater* updater;
 @property NSConnection* connection;
 
 @end
@@ -58,6 +60,18 @@
   //   "seil: connection went invalid while waiting for a reply because a mach port died"
   dispatch_async(dispatch_get_main_queue(), ^{
     [Relauncher relaunch];
+  });
+}
+
+- (void)checkForUpdatesStableOnly {
+  dispatch_async(dispatch_get_main_queue(), ^{
+    [self.updater checkForUpdatesStableOnly];
+  });
+}
+
+- (void)checkForUpdatesWithBetaVersion {
+  dispatch_async(dispatch_get_main_queue(), ^{
+    [self.updater checkForUpdatesWithBetaVersion];
   });
 }
 

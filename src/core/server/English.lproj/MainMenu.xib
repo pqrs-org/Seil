@@ -52,6 +52,7 @@
             <connections>
                 <outlet property="preferencesManager" destination="583" id="21z-Ak-Rnx"/>
                 <outlet property="serverController" destination="GXd-pH-dYd" id="zly-Js-0fB"/>
+                <outlet property="updater" destination="582" id="yfl-4M-mYK"/>
             </connections>
         </customObject>
         <customObject id="582" userLabel="Updater" customClass="Updater">
