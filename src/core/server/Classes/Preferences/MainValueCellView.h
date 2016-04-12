@@ -3,10 +3,12 @@
 @import Cocoa;
 
 @class ServerObjects;
+@class PreferencesWindowController;
 
 @interface MainValueCellView : NSTableCellView
 
-@property(weak) ServerObjects* serverObjects;
 @property(copy) NSString* settingIdentifier;
+@property(weak) PreferencesWindowController* preferencesWindowController;
+@property(weak) ServerObjects* serverObjects;
 
 @end
