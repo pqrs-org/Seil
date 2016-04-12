@@ -1,7 +1,8 @@
 #import "MainNameCellView.h"
 #import "MainNameBackgroundView.h"
 #import "NotificationKeys.h"
-#import "PreferencesManager.h"
+#import "PreferencesModel.h"
+#import "PreferencesWindowController.h"
 #import "ServerObjects.h"
 
 @implementation MainNameCellView
@@ -58,14 +59,8 @@
 - (void)valueChanged:(id)sender {
   if (self.checkbox) {
     int value = (self.checkbox.state == NSOnState);
-
-    NSDictionary* notificationUserInfo = @{
-      kPreferencesChangedNotificationUserInfoKeyPreferencesChangedFromGUI : @YES,
-    };
-
-    [self.serverObjects.preferencesManager setValue:value
-                                            forName:self.settingIdentifier
-                               notificationUserInfo:notificationUserInfo];
+    [self.serverObjects.preferencesModel setValue:value forName:self.settingIdentifier];
+    [self.preferencesWindowController savePreferencesModel];
   }
 }
 
