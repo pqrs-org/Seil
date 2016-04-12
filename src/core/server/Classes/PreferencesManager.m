@@ -16,7 +16,6 @@
 + (void)initialize {
   NSDictionary* dict = @{
     kCheckForUpdates : @YES,
-    kShowIconInDock : @NO,
     kResumeAtLogin : @YES,
     kPreferencesValues : @{},
   };

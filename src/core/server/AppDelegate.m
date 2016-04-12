@@ -4,7 +4,6 @@
 #import "PreferencesKeys.h"
 #import "PreferencesManager.h"
 #import "PreferencesModel.h"
-#import "PreferencesWindowController.h"
 #import "Relauncher.h"
 #import "ServerController.h"
 #import "ServerForUserspace.h"
@@ -29,7 +28,6 @@
 @property CFRunLoopSourceRef loopsource;
 
 @property SessionObserver* sessionObserver;
-@property PreferencesWindowController* preferencesWindowController;
 
 @end
 
@@ -115,17 +113,6 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
 }
 
 // ------------------------------------------------------------
-- (void)observer_NSWindowWillCloseNotification:(NSNotification*)notification {
-  dispatch_async(dispatch_get_main_queue(), ^{
-    NSWindow* window = [notification object];
-    if (self.preferencesWindowController &&
-        self.preferencesWindowController.window == window) {
-      self.preferencesWindowController = nil;
-    }
-  });
-}
-
-// ------------------------------------------------------------
 - (void)applicationDidFinishLaunching:(NSNotification*)aNotification {
   [[NSApplication sharedApplication] disableRelaunchOnLogin];
 
@@ -159,12 +146,6 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
         [self unregisterIONotification];
         [clientForKernelspace disconnect_from_kext];
       }];
-
-  // ------------------------------------------------------------
-  [[NSNotificationCenter defaultCenter] addObserver:self
-                                           selector:@selector(observer_NSWindowWillCloseNotification:)
-                                               name:NSWindowWillCloseNotification
-                                             object:nil];
 
   // ------------------------------------------------------------
   if (relaunchedCount == 0) {
@@ -207,15 +188,11 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
   return YES;
 }
 
-- (void)dealloc {
-  [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
 - (void)openPreferences {
-  if (self.preferencesWindowController == nil) {
-    self.preferencesWindowController = [[PreferencesWindowController alloc] initWithServerObjects:@"PreferencesWindow" serverObjects:self.serverObjects];
+  NSString* bundlePath = [[NSBundle mainBundle] bundlePath];
+  if ([bundlePath length] > 0) {
+    [[NSWorkspace sharedWorkspace] openFile:[NSString stringWithFormat:@"%@/Contents/Applications/Seil Preferences.app", bundlePath]];
   }
-  [self.preferencesWindowController show];
 }
 
 @end
