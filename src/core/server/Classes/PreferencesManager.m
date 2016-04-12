@@ -45,7 +45,7 @@
       [values removeObjectForKey:key];
     }
   }
-  [[NSUserDefaults standardUserDefaults] setObject:values forKey:@"sysctl"];
+  [[NSUserDefaults standardUserDefaults] setObject:values forKey:kPreferencesValues];
 
   // ----------------------------------------
   // refresh local model.
@@ -59,6 +59,10 @@
                                                                  object:nil
                                                                userInfo:@{ @"processIdentifier" : @(processIdentifier) }
                                                      deliverImmediately:YES];
+}
+
+- (NSDictionary*)export {
+  return [[NSUserDefaults standardUserDefaults] dictionaryForKey:kPreferencesValues];
 }
 
 // ----------------------------------------

@@ -8,6 +8,7 @@
 
 - (void)loadPreferencesModel:(PreferencesModel*)preferencesModel;
 - (void)savePreferencesModel:(PreferencesModel*)preferencesModel processIdentifier:(int)processIdentifier;
+- (NSDictionary*)export;
 
 - (int)value:(NSString*)name;
 - (int)defaultValue:(NSString*)name;
