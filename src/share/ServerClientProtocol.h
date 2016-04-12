@@ -10,6 +10,7 @@
 - (void)savePreferencesModel:(PreferencesModel*)preferencesModel processIdentifier:(int)processIdentifier;
 - (NSDictionary*)exportPreferences;
 
+- (void)terminateServerProcess;
 - (void)relaunch;
 
 @end

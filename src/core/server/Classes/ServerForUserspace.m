@@ -1,11 +1,13 @@
 #import "ServerForUserspace.h"
 #import "PreferencesManager.h"
 #import "Relauncher.h"
+#import "ServerController.h"
 #import "SharedKeys.h"
 
 @interface ServerForUserspace ()
 
 @property(weak) IBOutlet PreferencesManager* preferencesManager;
+@property(weak) IBOutlet ServerController* serverController;
 @property NSConnection* connection;
 
 @end
@@ -41,6 +43,12 @@
 
 - (NSDictionary*)exportPreferences {
   return [self.preferencesManager export];
+}
+
+- (void)terminateServerProcess {
+  dispatch_async(dispatch_get_main_queue(), ^{
+    [self.serverController terminateServerProcess];
+  });
 }
 
 - (void)relaunch {

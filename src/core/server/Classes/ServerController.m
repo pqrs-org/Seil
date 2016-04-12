@@ -1,30 +1,27 @@
 #import "ServerController.h"
-#import "PreferencesKeys.h"
+#import "PreferencesModel.h"
 #import "StartAtLoginUtilities.h"
+
+@interface ServerController ()
+
+@property(weak) IBOutlet PreferencesModel* preferencesModel;
+
+@end
 
 @implementation ServerController
 
-+ (void)quitWithConfirmation {
-  NSAlert* alert = [NSAlert new];
-  alert.messageText = @"Are you sure you want to quit Seil?";
-  alert.informativeText = @"The changed key will be restored after Seil is quit.";
-  [alert addButtonWithTitle:@"Quit"];
-  [alert addButtonWithTitle:@"Cancel"];
-  if ([alert runModal] != NSAlertFirstButtonReturn) {
-    return;
-  }
-
-  [ServerController updateStartAtLogin:NO];
+- (void)terminateServerProcess {
+  [self updateStartAtLogin:NO];
   [NSApp terminate:nil];
 }
 
-+ (void)updateStartAtLogin:(BOOL)preferredValue {
+- (void)updateStartAtLogin:(BOOL)preferredValue {
   if (!preferredValue) {
     [StartAtLoginUtilities setStartAtLogin:NO];
 
   } else {
     // Do not register to StartAtLogin if kResumeAtLogin is NO.
-    if (![[NSUserDefaults standardUserDefaults] boolForKey:kResumeAtLogin]) {
+    if (!self.preferencesModel.resumeAtLogin) {
       [StartAtLoginUtilities setStartAtLogin:NO];
     } else {
       [StartAtLoginUtilities setStartAtLogin:YES];
