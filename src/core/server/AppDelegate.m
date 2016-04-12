@@ -19,6 +19,7 @@
 @property(weak) IBOutlet ClientForKernelspace* clientForKernelspace;
 @property(weak) IBOutlet PreferencesManager* preferencesManager;
 @property(weak) IBOutlet PreferencesModel* preferencesModel;
+@property(weak) IBOutlet ServerController* serverController;
 @property(weak) IBOutlet ServerForUserspace* serverForUserspace;
 @property(weak) IBOutlet ServerObjects* serverObjects;
 @property(weak) IBOutlet Updater* updater;
@@ -196,7 +197,7 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
           [self openPreferences];
         }
       }
-      [ServerController updateStartAtLogin:YES];
+      [self.serverController updateStartAtLogin:YES];
     }
   }
 }
