@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		346F77401CBD13DC0083F2BD /* PreferencesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 346F773F1CBD13DC0083F2BD /* PreferencesModel.m */; };
 		34BE223918C208C60014BB5B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 34BE223818C208C60014BB5B /* main.m */; };
 		34BE223F18C2091F0014BB5B /* ServerClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 34BE223C18C2091F0014BB5B /* ServerClient.m */; };
 /* End PBXBuildFile section */
@@ -24,6 +25,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		346F773E1CBD13DC0083F2BD /* PreferencesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreferencesModel.h; path = ../../../share/PreferencesModel.h; sourceTree = "<group>"; };
+		346F773F1CBD13DC0083F2BD /* PreferencesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PreferencesModel.m; path = ../../../share/PreferencesModel.m; sourceTree = "<group>"; };
 		34BE222C18C200190014BB5B /* seil */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = seil; sourceTree = BUILT_PRODUCTS_DIR; };
 		34BE223818C208C60014BB5B /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		34BE223B18C2091F0014BB5B /* ServerClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServerClient.h; path = ../../../share/ServerClient.h; sourceTree = "<group>"; };
@@ -70,6 +73,8 @@
 		34BE223A18C208D30014BB5B /* share */ = {
 			isa = PBXGroup;
 			children = (
+				346F773E1CBD13DC0083F2BD /* PreferencesModel.h */,
+				346F773F1CBD13DC0083F2BD /* PreferencesModel.m */,
 				34BE223B18C2091F0014BB5B /* ServerClient.h */,
 				34BE223C18C2091F0014BB5B /* ServerClient.m */,
 				34BE223E18C2091F0014BB5B /* ServerClientProtocol.h */,
@@ -130,6 +135,7 @@
 			files = (
 				34BE223918C208C60014BB5B /* main.m in Sources */,
 				34BE223F18C2091F0014BB5B /* ServerClient.m in Sources */,
+				346F77401CBD13DC0083F2BD /* PreferencesModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

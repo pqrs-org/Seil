@@ -1,4 +1,5 @@
 @import Cocoa;
+#import "PreferencesModel.h"
 #import "ServerClient.h"
 
 @interface SeilCLI : NSObject
@@ -61,9 +62,14 @@
         if ([arguments count] != 4) {
           [self usage];
         }
+
         NSString* identifier = arguments[2];
         NSString* value = arguments[3];
-        [[client proxy] setValue:[value intValue] forName:identifier];
+
+        PreferencesModel* preferencesModel = [PreferencesModel new];
+        [[client proxy] loadPreferencesModel:preferencesModel];
+        [preferencesModel setValue:[value intValue] forName:identifier];
+        [[client proxy] savePreferencesModel:preferencesModel processIdentifier:[NSProcessInfo processInfo].processIdentifier];
       }
     }
     @catch (NSException* exception) {
