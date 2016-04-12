@@ -1,9 +1,10 @@
+#import "MainOutlineViewDelegate.h"
 #import "KnownTableViewDataSource.h"
 #import "MainNameBackgroundView.h"
 #import "MainNameCellView.h"
-#import "MainOutlineViewDelegate.h"
 #import "MainValueCellView.h"
 #import "PreferencesManager.h"
+#import "PreferencesModel.h"
 #import "PreferencesWindowController.h"
 #import "ServerObjects.h"
 
@@ -66,7 +67,7 @@
       result.checkbox.imagePosition = NSImageOnly;
       result.checkbox.target = result;
       result.checkbox.action = @selector(valueChanged:);
-      if ([self.preferencesWindowController.serverObjects.preferencesManager value:enable]) {
+      if ([self.preferencesWindowController.serverObjects.preferencesModel.values[enable] intValue]) {
         result.checkbox.state = NSOnState;
       } else {
         result.checkbox.state = NSOffState;
@@ -131,7 +132,7 @@
       MainValueCellView* result = [outlineView makeViewWithIdentifier:@"MainValueCellView" owner:self];
       result.serverObjects = self.preferencesWindowController.serverObjects;
       result.settingIdentifier = keycode;
-      result.textField.stringValue = [@([self.preferencesWindowController.serverObjects.preferencesManager value:keycode]) stringValue];
+      result.textField.stringValue = [self.preferencesWindowController.serverObjects.preferencesModel.values[keycode] stringValue];
       return result;
     }
   }
