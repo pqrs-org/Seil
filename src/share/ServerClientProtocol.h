@@ -9,6 +9,7 @@
 - (void)loadPreferencesModel:(PreferencesModel*)preferencesModel;
 - (void)savePreferencesModel:(PreferencesModel*)preferencesModel processIdentifier:(int)processIdentifier;
 - (NSDictionary*)exportPreferences;
+- (void)updateStartAtLogin;
 
 - (void)terminateServerProcess;
 - (void)relaunch;

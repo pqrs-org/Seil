@@ -47,6 +47,10 @@
   return [self.preferencesManager export];
 }
 
+- (void)updateStartAtLogin {
+  [self.serverController updateStartAtLogin:YES];
+}
+
 - (void)terminateServerProcess {
   dispatch_async(dispatch_get_main_queue(), ^{
     [self.serverController terminateServerProcess];
