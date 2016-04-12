@@ -1,5 +1,5 @@
-#import "MainNameBackgroundView.h"
 #import "MainNameCellView.h"
+#import "MainNameBackgroundView.h"
 #import "NotificationKeys.h"
 #import "PreferencesManager.h"
 #import "ServerObjects.h"

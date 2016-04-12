@@ -1,6 +1,6 @@
 @import Sparkle;
-#import "PreferencesManager.h"
 #import "Updater.h"
+#import "PreferencesManager.h"
 
 @interface Updater ()
 
