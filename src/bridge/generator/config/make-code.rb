@@ -10,7 +10,6 @@ $outfile = {
   :KeyMapIndex_bridgeKeyindexToValue => open('../../output/KeyMapIndex_bridgeKeyindexToValue.hpp.tmp', 'w'),
   :bridgeconfig_config               => open('../../output/bridgeconfig_config.h.tmp', 'w'),
   :defaults                          => open('../../output/defaults.h.tmp', 'w'),
-  :configurationDictionary           => open('../../output/configurationDictionary.m.tmp', 'w'),
 }
 
 ARGV.each do |xmlpath|
@@ -41,9 +40,6 @@ ARGV.each do |xmlpath|
       $outfile[:defaults] << "@\"#{enable.text}\": @0,\n"
       $outfile[:defaults] << "@\"#{keycode.text}\": @#{default.text},\n"
       $outfile[:defaults] << "\n"
-
-      $outfile[:configurationDictionary] << "@\"#{enable.text}\":".ljust(35) + "@([self.preferencesManager value:@\"#{enable.text}\"]),\n"
-      $outfile[:configurationDictionary] << "@\"#{keycode.text}\":".ljust(35) + "@([self.preferencesManager value:@\"#{keycode.text}\"]),\n"
     end
   end
 end
