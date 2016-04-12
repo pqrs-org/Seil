@@ -1,5 +1,4 @@
-#ifndef GLOBALLOCK_HPP
-#define GLOBALLOCK_HPP
+#pragma once
 
 namespace org_pqrs_Seil {
 class GlobalLock {
@@ -31,5 +30,3 @@ private:
   static IOLock* lock_;
 };
 }
-
-#endif

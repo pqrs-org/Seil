@@ -1,6 +1,3 @@
-#ifndef OSTYPE_HPP
-#define OSTYPE_HPP
+#pragma once
 
 const char* const ostype = "10.11";
-
-#endif

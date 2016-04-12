@@ -1,5 +1,4 @@
-#ifndef IOLOGWRAPPER_HPP
-#define IOLOGWRAPPER_HPP
+#pragma once
 
 #define IOLOG_DEBUG(...)                               \
   {                                                    \
@@ -70,5 +69,3 @@ private:
   static bool suppressed_;
 };
 }
-
-#endif

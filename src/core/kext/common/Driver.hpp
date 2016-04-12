@@ -1,7 +1,4 @@
-// -*- indent-tabs-mode: nil; -*-
-
-#ifndef DRIVER_HPP
-#define DRIVER_HPP
+#pragma once
 
 #include "diagnostic_macros.hpp"
 
@@ -83,5 +80,3 @@ private:
   IONotifier* notifier_hookKeyboard_;
   IONotifier* notifier_unhookKeyboard_;
 };
-
-#endif

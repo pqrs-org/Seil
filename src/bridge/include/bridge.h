@@ -1,8 +1,7 @@
-#ifndef BRIDGE_H
-#define BRIDGE_H
+#pragma once
 
-#include <sys/types.h>
 #include <mach/mach_types.h>
+#include <sys/types.h>
 
 enum {
   BRIDGE_USERCLIENT_OPEN,
@@ -51,5 +50,3 @@ struct BridgeConfig {
   } config[BRIDGE_KEY_INDEX__END__];
 };
 enum { STATIC_ASSERT__sizeof_BridgeConfig = 1 / (sizeof(struct BridgeConfig) == BRIDGE_KEY_INDEX__END__ * 2) };
-
-#endif
