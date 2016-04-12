@@ -8,4 +8,6 @@
 @property BOOL checkForUpdates;
 @property(copy) NSDictionary* values;
 
+- (void)setValue:(int)newval forName:(NSString*)name;
+
 @end
