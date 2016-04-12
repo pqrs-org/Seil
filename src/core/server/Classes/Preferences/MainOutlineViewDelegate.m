@@ -18,6 +18,7 @@
 @property(weak) IBOutlet KnownTableViewDataSource* knownTableViewDataSource;
 @property(weak) IBOutlet NSTextField* wrappedTextHeightCalculator;
 @property(weak) IBOutlet PreferencesWindowController* preferencesWindowController;
+@property(copy) NSDictionary* defaults;
 @property NSFont* font;
 @property NSMutableDictionary* heightCache;
 @property dispatch_queue_t textsHeightQueue;
@@ -30,6 +31,9 @@
   self = [super init];
 
   if (self) {
+    self.defaults = @{
+#include "defaults.h"
+    };
     self.textsHeightQueue = dispatch_queue_create("org.pqrs.Seil.MainOutlineViewDelegate.textsHeightQueue", NULL);
     self.heightCache = [NSMutableDictionary new];
     self.font = [NSFont systemFontOfSize:[NSFont smallSystemFontSize]];
@@ -51,6 +55,7 @@
     MainNameCellView* result = [outlineView makeViewWithIdentifier:@"MainNameCellView" owner:self];
     result.serverObjects = self.preferencesWindowController.serverObjects;
     result.settingIdentifier = enable;
+    result.preferencesWindowController = self.preferencesWindowController;
 
     result.textField.stringValue = name ? name : @"";
     result.textField.font = self.font;
@@ -121,7 +126,7 @@
     }
 
     if ([tableColumn.identifier isEqualToString:@"MainDefaultValueColumn"]) {
-      int keycodevalue = [self.preferencesWindowController.serverObjects.preferencesManager defaultValue:keycode];
+      int keycodevalue = [self.defaults[keycode] intValue];
       NSString* keycodename = [self.knownTableViewDataSource getKeyName:keycodevalue];
 
       NSTableCellView* result = [outlineView makeViewWithIdentifier:@"MainDefaultValueCellView" owner:self];
@@ -130,6 +135,7 @@
 
     } else if ([tableColumn.identifier isEqualToString:@"MainValueColumn"]) {
       MainValueCellView* result = [outlineView makeViewWithIdentifier:@"MainValueCellView" owner:self];
+      result.preferencesWindowController = self.preferencesWindowController;
       result.serverObjects = self.preferencesWindowController.serverObjects;
       result.settingIdentifier = keycode;
       result.textField.stringValue = [self.preferencesWindowController.serverObjects.preferencesModel.values[keycode] stringValue];

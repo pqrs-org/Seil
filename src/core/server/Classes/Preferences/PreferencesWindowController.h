@@ -10,5 +10,6 @@
 
 - (instancetype)initWithServerObjects:(NSString*)windowNibName serverObjects:(ServerObjects*)serverObjects;
 - (void)show;
+- (void)savePreferencesModel;
 
 @end

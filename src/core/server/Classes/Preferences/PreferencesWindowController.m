@@ -3,8 +3,10 @@
 #import "MainOutlineView.h"
 #import "NotificationKeys.h"
 #import "PreferencesKeys.h"
+#import "PreferencesModel.h"
 #import "Relauncher.h"
 #import "ServerController.h"
+#import "ServerForUserspace.h"
 #import "ServerObjects.h"
 #import "Updater.h"
 
@@ -64,6 +66,10 @@
 - (void)show {
   [self.window makeKeyAndOrderFront:self];
   [NSApp activateIgnoringOtherApps:YES];
+}
+
+- (void)savePreferencesModel {
+  [self.serverObjects.serverForUserspace savePreferencesModel:self.serverObjects.preferencesModel processIdentifier:[NSProcessInfo processInfo].processIdentifier];
 }
 
 - (IBAction)quit:(id)sender {
