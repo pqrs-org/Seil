@@ -35,6 +35,10 @@
 }
 
 // ----------------------------------------------------------------------
+- (NSString*)bundleVersion {
+  return [[NSBundle mainBundle] infoDictionary][@"CFBundleVersion"];
+}
+
 - (void)loadPreferencesModel:(PreferencesModel*)preferencesModel {
   [self.preferencesManager loadPreferencesModel:preferencesModel];
 }

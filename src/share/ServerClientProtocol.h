@@ -6,6 +6,8 @@
 
 @protocol ServerClientProtocol
 
+@property(copy, readonly) NSString* bundleVersion;
+
 - (void)loadPreferencesModel:(PreferencesModel*)preferencesModel;
 - (void)savePreferencesModel:(PreferencesModel*)preferencesModel processIdentifier:(int)processIdentifier;
 - (NSDictionary*)exportPreferences;
