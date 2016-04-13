@@ -33,8 +33,6 @@
 
 @implementation AppDelegate
 
-@synthesize clientForKernelspace;
-
 // ------------------------------------------------------------
 static void observer_IONotification(void* refcon, io_iterator_t iterator) {
   dispatch_async(dispatch_get_main_queue(), ^{
@@ -62,8 +60,8 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
     // When you release the iterator you receive from IOServiceAddMatchingNotification, you also disable the notification.
 
     // ------------------------------------------------------------
-    [[self clientForKernelspace] refresh_connection_with_retry];
-    [[self clientForKernelspace] send_config_to_kext];
+    [self.clientForKernelspace refresh_connection_with_retry];
+    [self.clientForKernelspace send_config_to_kext];
   });
 }
 
@@ -144,7 +142,7 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
       }
       inactive:^{
         [self unregisterIONotification];
-        [clientForKernelspace disconnect_from_kext];
+        [self.clientForKernelspace disconnect_from_kext];
       }];
 
   // ------------------------------------------------------------
