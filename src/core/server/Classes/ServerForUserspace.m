@@ -14,7 +14,7 @@
 @property(weak) IBOutlet ServerController* serverController;
 @property(weak) IBOutlet Updater* updater;
 @property NSConnection* connection;
-@property MainConfigurationTree* mainConfigurationTree;
+@property(readwrite) MainConfigurationTree* mainConfigurationTree;
 @property(copy, readwrite) NSArray* knownKeyCodes;
 
 @end
