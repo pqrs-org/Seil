@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		256AC3DA0F4B6AC300CF3369 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* AppDelegate.m */; };
-		341EC1201C84940F00B44195 /* ServerObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 341EC11F1C84940F00B44195 /* ServerObjects.m */; };
 		3423C62C1CBD62F6001754AF /* XMLLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3423C62B1CBD62F6001754AF /* XMLLoader.m */; };
 		343420CB13D74C16000DBD3E /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 343420CA13D74C16000DBD3E /* IOKit.framework */; };
 		3451A03E1949F0C000E68360 /* MigrationUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 3451A03D1949F0C000E68360 /* MigrationUtilities.m */; };
@@ -58,8 +57,6 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
-		341EC11E1C84940F00B44195 /* ServerObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServerObjects.h; path = Classes/ServerObjects.h; sourceTree = "<group>"; };
-		341EC11F1C84940F00B44195 /* ServerObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ServerObjects.m; path = Classes/ServerObjects.m; sourceTree = "<group>"; };
 		3423C62A1CBD62F6001754AF /* XMLLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMLLoader.h; path = Classes/XMLLoader.h; sourceTree = "<group>"; };
 		3423C62B1CBD62F6001754AF /* XMLLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMLLoader.m; path = Classes/XMLLoader.m; sourceTree = "<group>"; };
 		342A41B7183E507C00BF09C8 /* bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bridge.h; path = ../../bridge/include/bridge.h; sourceTree = "<group>"; };
@@ -139,8 +136,6 @@
 				3495FD4F1C8DC03100C28214 /* ServerController.m */,
 				34BE221A18C1D7800014BB5B /* ServerForUserspace.h */,
 				34BE221B18C1D7800014BB5B /* ServerForUserspace.m */,
-				341EC11E1C84940F00B44195 /* ServerObjects.h */,
-				341EC11F1C84940F00B44195 /* ServerObjects.m */,
 				34BE221D18C1D7850014BB5B /* share */,
 				34947682168B6EB000B783D2 /* Updater.h */,
 				34947683168B6EB000B783D2 /* Updater.m */,
@@ -398,7 +393,6 @@
 				34EC820E1CBF3EA000A282D5 /* KnownKeyCode.m in Sources */,
 				34947684168B6EB000B783D2 /* Updater.m in Sources */,
 				34EA17361AFF96F8000350AA /* SessionObserver.m in Sources */,
-				341EC1201C84940F00B44195 /* ServerObjects.m in Sources */,
 				34E4086D19571DC100530059 /* Relauncher.m in Sources */,
 				34598343169CAB66007C84F8 /* ClientForKernelspace.m in Sources */,
 				345848471CBFD96E00A223B5 /* MainConfigurationTree.m in Sources */,

@@ -7,7 +7,6 @@
 #import "Relauncher.h"
 #import "ServerController.h"
 #import "ServerForUserspace.h"
-#import "ServerObjects.h"
 #import "SessionObserver.h"
 #import "StartAtLoginUtilities.h"
 #import "Updater.h"
@@ -20,7 +19,6 @@
 @property(weak) IBOutlet PreferencesModel* preferencesModel;
 @property(weak) IBOutlet ServerController* serverController;
 @property(weak) IBOutlet ServerForUserspace* serverForUserspace;
-@property(weak) IBOutlet ServerObjects* serverObjects;
 @property(weak) IBOutlet Updater* updater;
 
 // for IONotification
