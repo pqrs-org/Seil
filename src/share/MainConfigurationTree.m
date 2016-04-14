@@ -1,7 +1,11 @@
 #import "MainConfigurationTree.h"
 
+static NSInteger itemId_;
+static dispatch_queue_t itemIdQueue_;
+
 @interface MainConfigurationItem ()
 
+@property(readwrite) NSNumber* id;
 @property(copy, readwrite) NSString* name;
 @property(copy, readwrite) NSString* style;
 @property(copy, readwrite) NSString* enableKey;
@@ -19,6 +23,11 @@
 
 @implementation MainConfigurationItem
 
++ (void)initialize {
+  itemId_ = 0;
+  itemIdQueue_ = dispatch_queue_create("org.pqrs.Seil.MainConfigurationTree.itemIdQueue_", NULL);
+}
+
 - (instancetype)initWithName:(NSString*)name
                        style:(NSString*)style
                    enableKey:(NSString*)enableKey
@@ -27,6 +36,11 @@
   self = [super init];
 
   if (self) {
+    dispatch_sync(itemIdQueue_, ^{
+      ++itemId_;
+      self.id = @(itemId_);
+    });
+
     self.name = name;
     self.style = style;
     self.enableKey = enableKey;

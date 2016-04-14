@@ -4,6 +4,7 @@
 
 @interface MainConfigurationItem : NSObject
 
+@property(readonly) NSNumber* id;
 @property(copy, readonly) NSString* name;
 @property(copy, readonly) NSString* style;
 @property(copy, readonly) NSString* enableKey;
