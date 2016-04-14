@@ -13,6 +13,7 @@
 		3423C62C1CBD62F6001754AF /* XMLLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3423C62B1CBD62F6001754AF /* XMLLoader.m */; };
 		343420CB13D74C16000DBD3E /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 343420CA13D74C16000DBD3E /* IOKit.framework */; };
 		3451A03E1949F0C000E68360 /* MigrationUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 3451A03D1949F0C000E68360 /* MigrationUtilities.m */; };
+		345848471CBFD96E00A223B5 /* MainConfigurationTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 345848461CBFD96E00A223B5 /* MainConfigurationTree.m */; };
 		34598343169CAB66007C84F8 /* ClientForKernelspace.m in Sources */ = {isa = PBXBuildFile; fileRef = 34598342169CAB66007C84F8 /* ClientForKernelspace.m */; };
 		346F77351CBA99E40083F2BD /* PreferencesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 346F77341CBA99E40083F2BD /* PreferencesModel.m */; };
 		34947684168B6EB000B783D2 /* Updater.m in Sources */ = {isa = PBXBuildFile; fileRef = 34947683168B6EB000B783D2 /* Updater.m */; };
@@ -69,6 +70,8 @@
 		343420CA13D74C16000DBD3E /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		3451A03C1949F0C000E68360 /* MigrationUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MigrationUtilities.h; path = ../../share/MigrationUtilities.h; sourceTree = "<group>"; };
 		3451A03D1949F0C000E68360 /* MigrationUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MigrationUtilities.m; path = ../../share/MigrationUtilities.m; sourceTree = "<group>"; };
+		345848451CBFD96E00A223B5 /* MainConfigurationTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainConfigurationTree.h; path = ../../share/MainConfigurationTree.h; sourceTree = "<group>"; };
+		345848461CBFD96E00A223B5 /* MainConfigurationTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainConfigurationTree.m; path = ../../share/MainConfigurationTree.m; sourceTree = "<group>"; };
 		34598341169CAB66007C84F8 /* ClientForKernelspace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClientForKernelspace.h; path = Classes/ClientForKernelspace.h; sourceTree = "<group>"; };
 		34598342169CAB66007C84F8 /* ClientForKernelspace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClientForKernelspace.m; path = Classes/ClientForKernelspace.m; sourceTree = "<group>"; };
 		346F77331CBA99E40083F2BD /* PreferencesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreferencesModel.h; path = ../../share/PreferencesModel.h; sourceTree = "<group>"; };
@@ -238,6 +241,8 @@
 			children = (
 				34EC820C1CBF3EA000A282D5 /* KnownKeyCode.h */,
 				34EC820D1CBF3EA000A282D5 /* KnownKeyCode.m */,
+				345848451CBFD96E00A223B5 /* MainConfigurationTree.h */,
+				345848461CBFD96E00A223B5 /* MainConfigurationTree.m */,
 				3451A03C1949F0C000E68360 /* MigrationUtilities.h */,
 				3451A03D1949F0C000E68360 /* MigrationUtilities.m */,
 				346F77331CBA99E40083F2BD /* PreferencesModel.h */,
@@ -396,6 +401,7 @@
 				341EC1201C84940F00B44195 /* ServerObjects.m in Sources */,
 				34E4086D19571DC100530059 /* Relauncher.m in Sources */,
 				34598343169CAB66007C84F8 /* ClientForKernelspace.m in Sources */,
+				345848471CBFD96E00A223B5 /* MainConfigurationTree.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
