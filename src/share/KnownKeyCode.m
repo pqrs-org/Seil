@@ -3,13 +3,13 @@
 @interface KnownKeyCode ()
 
 @property(copy, readwrite) NSString* name;
-@property(readwrite) int keyCode;
+@property(copy, readwrite) NSString* keyCode;
 
 @end
 
 @implementation KnownKeyCode
 
-- (instancetype)initWithName:(NSString*)name keyCode:(int)keyCode {
+- (instancetype)initWithName:(NSString*)name keyCode:(NSString*)keyCode {
   self = [super init];
 
   if (self) {

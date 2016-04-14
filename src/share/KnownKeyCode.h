@@ -5,8 +5,8 @@
 @interface KnownKeyCode : NSObject
 
 @property(copy, readonly) NSString* name;
-@property(readonly) int keyCode;
+@property(copy, readonly) NSString* keyCode;
 
-- (instancetype)initWithName:(NSString*)name keyCode:(int)keyCode;
+- (instancetype)initWithName:(NSString*)name keyCode:(NSString*)keyCode;
 
 @end
