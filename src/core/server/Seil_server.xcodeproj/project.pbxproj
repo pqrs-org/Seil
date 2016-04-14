@@ -25,6 +25,7 @@
 		34E4086D19571DC100530059 /* Relauncher.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E4086C19571DC100530059 /* Relauncher.m */; };
 		34E5165C193EA296002BB013 /* StartAtLoginUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E5165B193EA296002BB013 /* StartAtLoginUtilities.m */; };
 		34EA17361AFF96F8000350AA /* SessionObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EA17351AFF96F8000350AA /* SessionObserver.m */; };
+		34EC820E1CBF3EA000A282D5 /* KnownKeyCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EC820D1CBF3EA000A282D5 /* KnownKeyCode.m */; };
 		34F9652C13D742FA0081D1F3 /* PreferencesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F9652913D742FA0081D1F3 /* PreferencesManager.m */; };
 		34F9652D13D742FA0081D1F3 /* UserClient_userspace.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F9652B13D742FA0081D1F3 /* UserClient_userspace.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
@@ -92,6 +93,8 @@
 		34E5165B193EA296002BB013 /* StartAtLoginUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StartAtLoginUtilities.m; path = ../../share/StartAtLoginUtilities.m; sourceTree = "<group>"; };
 		34EA17341AFF96F8000350AA /* SessionObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SessionObserver.h; path = ../../share/SessionObserver.h; sourceTree = "<group>"; };
 		34EA17351AFF96F8000350AA /* SessionObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SessionObserver.m; path = ../../share/SessionObserver.m; sourceTree = "<group>"; };
+		34EC820C1CBF3EA000A282D5 /* KnownKeyCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KnownKeyCode.h; path = ../../share/KnownKeyCode.h; sourceTree = "<group>"; };
+		34EC820D1CBF3EA000A282D5 /* KnownKeyCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KnownKeyCode.m; path = ../../share/KnownKeyCode.m; sourceTree = "<group>"; };
 		34F9652813D742FA0081D1F3 /* PreferencesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreferencesManager.h; path = Classes/PreferencesManager.h; sourceTree = "<group>"; };
 		34F9652913D742FA0081D1F3 /* PreferencesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PreferencesManager.m; path = Classes/PreferencesManager.m; sourceTree = "<group>"; };
 		34F9652A13D742FA0081D1F3 /* UserClient_userspace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserClient_userspace.h; path = Classes/UserClient_userspace.h; sourceTree = "<group>"; };
@@ -233,6 +236,8 @@
 		34BE221D18C1D7850014BB5B /* share */ = {
 			isa = PBXGroup;
 			children = (
+				34EC820C1CBF3EA000A282D5 /* KnownKeyCode.h */,
+				34EC820D1CBF3EA000A282D5 /* KnownKeyCode.m */,
 				3451A03C1949F0C000E68360 /* MigrationUtilities.h */,
 				3451A03D1949F0C000E68360 /* MigrationUtilities.m */,
 				346F77331CBA99E40083F2BD /* PreferencesModel.h */,
@@ -385,6 +390,7 @@
 				3423C62C1CBD62F6001754AF /* XMLLoader.m in Sources */,
 				34BE221C18C1D7800014BB5B /* ServerForUserspace.m in Sources */,
 				34F9652D13D742FA0081D1F3 /* UserClient_userspace.m in Sources */,
+				34EC820E1CBF3EA000A282D5 /* KnownKeyCode.m in Sources */,
 				34947684168B6EB000B783D2 /* Updater.m in Sources */,
 				34EA17361AFF96F8000350AA /* SessionObserver.m in Sources */,
 				341EC1201C84940F00B44195 /* ServerObjects.m in Sources */,
