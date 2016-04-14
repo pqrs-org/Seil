@@ -19,17 +19,7 @@
                 <outlet property="preferencesModel" destination="Ca3-fR-sAX" id="9Lr-W0-0QA"/>
                 <outlet property="serverController" destination="GXd-pH-dYd" id="euu-0C-ITy"/>
                 <outlet property="serverForUserspace" destination="hAv-NT-zlb" id="kDM-Eg-HHy"/>
-                <outlet property="serverObjects" destination="kBK-lF-EiU" id="Tzz-92-aa1"/>
                 <outlet property="updater" destination="582" id="vJb-JP-72y"/>
-            </connections>
-        </customObject>
-        <customObject id="kBK-lF-EiU" customClass="ServerObjects">
-            <connections>
-                <outlet property="clientForKernelspace" destination="741" id="PAd-6Z-ShL"/>
-                <outlet property="preferencesManager" destination="583" id="SGx-qr-AT8"/>
-                <outlet property="preferencesModel" destination="Ca3-fR-sAX" id="gON-RZ-Yib"/>
-                <outlet property="serverForUserspace" destination="hAv-NT-zlb" id="Rwl-2l-AaP"/>
-                <outlet property="updater" destination="582" id="ZLs-Ir-eow"/>
             </connections>
         </customObject>
         <customObject id="583" customClass="PreferencesManager">
