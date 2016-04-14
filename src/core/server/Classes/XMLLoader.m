@@ -1,37 +1,83 @@
 #import "XMLLoader.h"
-
-static NSInteger itemId_;
-static dispatch_queue_t itemIdQueue_;
+#import "KnownKeyCode.h"
+#import "MainConfigurationTree.h"
 
 @implementation XMLLoader
-
-+ (void)initialize {
-  itemId_ = 0;
-  itemIdQueue_ = dispatch_queue_create("org.pqrs.Seil.XMLCompiler.xmlCompilerItemIdQueue_", NULL);
-}
 
 + (NSXMLElement*)castToNSXMLElement:(NSXMLNode*)node {
   if ([node kind] != NSXMLElementKind) return nil;
   return (NSXMLElement*)(node);
 }
 
-+ (NSMutableDictionary*)parseItemTag:(NSXMLElement*)item {
-  NSMutableDictionary* dict = [NSMutableDictionary new];
-  NSMutableString* name = [NSMutableString new];
++ (NSXMLDocument*)loadXMLDocument:(NSString*)filePath {
+  NSURL* url = [NSURL fileURLWithPath:filePath];
+  NSError* error = nil;
+  NSXMLDocument* document = [[NSXMLDocument alloc] initWithContentsOfURL:url options:0 error:&error];
+  if (!document) {
+    NSLog(@"XML error %@", [error localizedDescription]);
+  }
+  return document;
+}
 
-  NSUInteger count = [item childCount];
++ (MainConfigurationTree*)loadMainConfiguration:(NSString*)filePath {
+  NSXMLDocument* document = [XMLLoader loadXMLDocument:filePath];
+  if (!document) {
+    return nil;
+  }
+
+  NSXMLElement* root = [document rootElement];
+  NSUInteger count = [root childCount];
+  NSMutableArray* children = [NSMutableArray new];
   for (NSUInteger i = 0; i < count; ++i) {
-    NSXMLElement* e = [XMLLoader castToNSXMLElement:[item childAtIndex:i]];
+    NSXMLElement* element = [XMLLoader castToNSXMLElement:[root childAtIndex:i]];
+    if (!element) continue;
+
+    MainConfigurationTree* tree = [XMLLoader parseMainConfigurationItem:element];
+    [children addObject:tree];
+  }
+
+  return [[MainConfigurationTree alloc] initWithItem:nil children:children];
+}
+
++ (NSArray*)loadKnownKeyCode:(NSString*)filePath {
+  NSXMLDocument* document = [XMLLoader loadXMLDocument:filePath];
+  if (!document) {
+    return nil;
+  }
+
+  NSXMLElement* root = [document rootElement];
+  NSUInteger count = [root childCount];
+  NSMutableArray* children = [NSMutableArray new];
+  for (NSUInteger i = 0; i < count; ++i) {
+    NSXMLElement* element = [XMLLoader castToNSXMLElement:[root childAtIndex:i]];
+    if (!element) continue;
+
+    KnownKeyCode* node = [XMLLoader parseKnownKeyCodeItem:element];
+    [children addObject:node];
+  }
+
+  return children;
+}
+
++ (MainConfigurationTree*)parseMainConfigurationItem:(NSXMLElement*)element {
+  NSMutableString* name = [NSMutableString new];
+  NSString* style = nil;
+  NSString* enableKey = nil;
+  NSString* keyCodeKey = nil;
+  int defaultKeyCode = 0;
+  NSMutableArray* children = nil;
+
+  NSUInteger count = [element childCount];
+  for (NSUInteger i = 0; i < count; ++i) {
+    NSXMLElement* e = [XMLLoader castToNSXMLElement:[element childAtIndex:i]];
     if (!e) continue;
 
     if ([[e name] isEqualToString:@"item"]) {
-      NSMutableDictionary* child = [XMLLoader parseItemTag:e];
-      NSMutableArray* children = dict[@"children"];
+      MainConfigurationTree* child = [XMLLoader parseMainConfigurationItem:e];
       if (!children) {
         children = [NSMutableArray new];
       }
       [children addObject:child];
-      dict[@"children"] = children;
 
     } else if ([[e name] isEqualToString:@"name"]) {
       if ([name length] > 0) {
@@ -45,41 +91,45 @@ static dispatch_queue_t itemIdQueue_;
 
     } else {
       NSString* value = [[e stringValue] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-      dict[[e name]] = value;
+      if ([[e name] isEqualToString:@"style"]) {
+        style = value;
+      } else if ([[e name] isEqualToString:@"enable"]) {
+        enableKey = value;
+      } else if ([[e name] isEqualToString:@"keycode"]) {
+        keyCodeKey = value;
+      } else if ([[e name] isEqualToString:@"default"]) {
+        defaultKeyCode = [value intValue];
+      }
     }
   }
 
-  dict[@"name"] = name;
+  MainConfigurationItem* item = [[MainConfigurationItem alloc] initWithName:name
+                                                                      style:style
+                                                                  enableKey:enableKey
+                                                                 keyCodeKey:keyCodeKey
+                                                             defaultKeyCode:defaultKeyCode];
 
-  dispatch_sync(itemIdQueue_, ^{
-    ++itemId_;
-    dict[@"id"] = @(itemId_);
-  });
-
-  return dict;
+  return [[MainConfigurationTree alloc] initWithItem:item children:children];
 }
 
-+ (NSArray*)load:(NSString*)xmlpath {
-  NSMutableArray* result = [NSMutableArray new];
++ (KnownKeyCode*)parseKnownKeyCodeItem:(NSXMLElement*)element {
+  NSString* name = nil;
+  NSString* keyCode = nil;
 
-  NSURL* url = [NSURL fileURLWithPath:xmlpath];
-  NSError* error = nil;
-  NSXMLDocument* xmldocument = [[NSXMLDocument alloc] initWithContentsOfURL:url options:0 error:&error];
-  if (!xmldocument) {
-    NSLog(@"XML error %@", [error localizedDescription]);
-    return result;
+  NSUInteger count = [element childCount];
+  for (NSUInteger i = 0; i < count; ++i) {
+    NSXMLElement* e = [XMLLoader castToNSXMLElement:[element childAtIndex:i]];
+    if (!e) continue;
+
+    NSString* value = [[e stringValue] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    if ([[e name] isEqualToString:@"name"]) {
+      name = value;
+    } else if ([[e name] isEqualToString:@"keycode"]) {
+      keyCode = value;
+    }
   }
 
-  NSXMLElement* root = [xmldocument rootElement];
-  NSUInteger itemcount = [root childCount];
-  for (NSUInteger i = 0; i < itemcount; ++i) {
-    NSXMLElement* item = [XMLLoader castToNSXMLElement:[root childAtIndex:i]];
-    if (!item) continue;
-
-    [result addObject:[XMLLoader parseItemTag:item]];
-  }
-
-  return result;
+  return [[KnownKeyCode alloc] initWithName:name keyCode:keyCode];
 }
 
 @end

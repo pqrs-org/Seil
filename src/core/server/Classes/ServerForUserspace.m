@@ -1,9 +1,12 @@
 #import "ServerForUserspace.h"
+#import "KnownKeyCode.h"
+#import "MainConfigurationTree.h"
 #import "PreferencesManager.h"
 #import "Relauncher.h"
 #import "ServerController.h"
 #import "SharedKeys.h"
 #import "Updater.h"
+#import "XMLLoader.h"
 
 @interface ServerForUserspace ()
 
@@ -11,6 +14,8 @@
 @property(weak) IBOutlet ServerController* serverController;
 @property(weak) IBOutlet Updater* updater;
 @property NSConnection* connection;
+@property MainConfigurationTree* mainConfigurationTree;
+@property(copy, readwrite) NSArray* knownKeyCodes;
 
 @end
 
@@ -21,6 +26,8 @@
 
   if (self) {
     self.connection = [NSConnection new];
+    self.mainConfigurationTree = [XMLLoader loadMainConfiguration:[[NSBundle mainBundle] pathForResource:@"checkbox" ofType:@"xml"]];
+    self.knownKeyCodes = [XMLLoader loadKnownKeyCode:[[NSBundle mainBundle] pathForResource:@"known" ofType:@"xml"]];
   }
 
   return self;

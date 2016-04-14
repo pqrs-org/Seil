@@ -3,10 +3,13 @@
 @import Cocoa;
 
 @class PreferencesModel;
+@class MainConfigurationTree;
 
 @protocol ServerClientProtocol
 
 @property(copy, readonly) NSString* bundleVersion;
+@property(copy, readonly) MainConfigurationTree* mainConfigurationTree;
+@property(copy, readonly) NSArray* knownKeyCodes;
 
 - (void)loadPreferencesModel:(PreferencesModel*)preferencesModel;
 - (void)savePreferencesModel:(PreferencesModel*)preferencesModel processIdentifier:(int)processIdentifier;

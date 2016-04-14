@@ -2,8 +2,11 @@
 
 @import Cocoa;
 
+@class MainConfigurationTree;
+
 @interface XMLLoader : NSObject
 
-+ (NSArray*)load:(NSString*)xmlpath;
++ (MainConfigurationTree*)loadMainConfiguration:(NSString*)filePath;
++ (NSArray*)loadKnownKeyCode:(NSString*)filePath;
 
 @end
