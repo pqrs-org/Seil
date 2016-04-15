@@ -26,19 +26,22 @@
 
   if (self) {
     self.connection = [NSConnection new];
-    self.mainConfigurationTree = [XMLLoader loadMainConfiguration:[[NSBundle mainBundle] pathForResource:@"checkbox" ofType:@"xml"]];
-    self.knownKeyCodes = [XMLLoader loadKnownKeyCode:[[NSBundle mainBundle] pathForResource:@"known" ofType:@"xml"]];
   }
 
   return self;
 }
 
-- (BOOL) register {
+- (BOOL)registerService {
   [self.connection setRootObject:self];
   if (![self.connection registerName:kSeilConnectionName]) {
     return NO;
   }
   return YES;
+}
+
+- (void)setup {
+  self.mainConfigurationTree = [XMLLoader loadMainConfiguration:[[NSBundle mainBundle] pathForResource:@"checkbox" ofType:@"xml"]];
+  self.knownKeyCodes = [XMLLoader loadKnownKeyCode:[[NSBundle mainBundle] pathForResource:@"known" ofType:@"xml"]];
 }
 
 // ----------------------------------------------------------------------
