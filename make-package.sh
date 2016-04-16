@@ -21,6 +21,10 @@ mkdir -p pkgroot
 mkdir -p "pkgroot/Applications"
 cp -R "src/core/server/build/Release/Seil.app" "pkgroot/Applications"
 
+basedir="pkgroot/Applications/Seil.app/Contents/Applications"
+mkdir -p "$basedir"
+cp -R "src/util/preferences/build/Release/Seil Preferences.app" "$basedir"
+
 basedir="pkgroot/Applications/Seil.app/Contents/Library/bin"
 mkdir -p "$basedir"
 cp -R src/util/cli/build/Release/seil "$basedir"
