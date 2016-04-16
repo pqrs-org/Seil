@@ -2,7 +2,7 @@
 
 @import Cocoa;
 
-@interface MainConfigurationItem : NSObject
+@interface MainConfigurationItem : NSObject <NSCopying>
 
 @property(readonly) NSNumber* id;
 @property(copy, readonly) NSString* name;
@@ -19,7 +19,7 @@
 
 @end
 
-@interface MainConfigurationTree : NSObject
+@interface MainConfigurationTree : NSObject <NSCopying>
 
 @property(readonly) MainConfigurationItem* node;
 @property(copy, readonly) NSArray* children;

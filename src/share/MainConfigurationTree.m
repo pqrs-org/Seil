@@ -14,13 +14,6 @@ static dispatch_queue_t itemIdQueue_;
 
 @end
 
-@interface MainConfigurationTree ()
-
-@property(readwrite) MainConfigurationItem* node;
-@property(copy, readwrite) NSArray* children;
-
-@end
-
 @implementation MainConfigurationItem
 
 + (void)initialize {
@@ -51,6 +44,26 @@ static dispatch_queue_t itemIdQueue_;
   return self;
 }
 
+- (id)copyWithZone:(NSZone*)zone {
+  MainConfigurationItem* obj = [[[self class] allocWithZone:zone] init];
+  if (obj) {
+    obj.id = [self.id copyWithZone:zone];
+    obj.name = [self.name copyWithZone:zone];
+    obj.style = [self.style copyWithZone:zone];
+    obj.enableKey = [self.enableKey copyWithZone:zone];
+    obj.keyCodeKey = [self.keyCodeKey copyWithZone:zone];
+    obj.defaultKeyCode = self.defaultKeyCode;
+  }
+  return obj;
+}
+
+@end
+
+@interface MainConfigurationTree ()
+
+@property(readwrite) MainConfigurationItem* node;
+@property(copy, readwrite) NSArray* children;
+
 @end
 
 @implementation MainConfigurationTree
@@ -65,6 +78,15 @@ static dispatch_queue_t itemIdQueue_;
   }
 
   return self;
+}
+
+- (id)copyWithZone:(NSZone*)zone {
+  MainConfigurationTree* obj = [[[self class] allocWithZone:zone] init];
+  if (obj) {
+    obj.node = [self.node copyWithZone:zone];
+    obj.children = [self.children copyWithZone:zone];
+  }
+  return obj;
 }
 
 @end
