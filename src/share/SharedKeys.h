@@ -2,6 +2,7 @@
 
 // ------------------------------------------------------------
 // NSDistributedNotificationCenter
+#define kSeilServerDidLaunchNotification @"org.pqrs.Seil.notification.ServerDidLaunch"
 #define kSeilPreferencesUpdatedNotification @"org.pqrs.Seil.notification.PreferencesUpdated"
 
 // ------------------------------------------------------------
