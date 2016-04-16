@@ -503,6 +503,9 @@
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
+                                                        <connections>
+                                                            <binding destination="Ca3-fR-sAX" name="value" keyPath="self.checkForUpdates" id="Pst-wX-cRD"/>
+                                                        </connections>
                                                     </button>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NfX-w9-1LS">
                                                         <rect key="frame" x="11" y="3" width="152" height="32"/>
@@ -636,6 +639,7 @@
                                                         </buttonCell>
                                                         <connections>
                                                             <action selector="resumeAtLoginChanged:" target="ylX-us-6qp" id="u41-OL-BGC"/>
+                                                            <binding destination="Ca3-fR-sAX" name="value" keyPath="self.resumeAtLogin" id="3HR-Pf-lSM"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
