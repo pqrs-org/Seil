@@ -15,13 +15,21 @@
   [NSApp terminate:nil];
 }
 
+- (BOOL)isDebuggingBundle {
+  NSString* bundlePath = [[NSBundle mainBundle] bundlePath];
+  if (![bundlePath isEqualToString:@"/Applications/Seil.app"]) {
+    return YES;
+  }
+  return NO;
+}
+
 - (void)updateStartAtLogin:(BOOL)preferredValue {
   if (!preferredValue) {
     [StartAtLoginUtilities setStartAtLogin:NO];
 
   } else {
     // Do not register to StartAtLogin if kResumeAtLogin is NO.
-    if (!self.preferencesModel.resumeAtLogin) {
+    if (!self.preferencesModel.resumeAtLogin || [self isDebuggingBundle]) {
       [StartAtLoginUtilities setStartAtLogin:NO];
     } else {
       [StartAtLoginUtilities setStartAtLogin:YES];
