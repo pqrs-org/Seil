@@ -679,6 +679,9 @@
                     <constraint firstItem="AGe-le-moS" firstAttribute="leading" secondItem="VYP-5Q-zS0" secondAttribute="leading" constant="17" id="r9A-2w-XLt"/>
                 </constraints>
             </view>
+            <connections>
+                <outlet property="delegate" destination="ylX-us-6qp" id="pMA-cd-XPh"/>
+            </connections>
         </window>
         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" preferredMaxLayoutWidth="400" id="rD1-cj-Vjm">
             <rect key="frame" x="0.0" y="0.0" width="63" height="34"/>
