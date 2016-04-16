@@ -8,6 +8,7 @@
 #import "ServerController.h"
 #import "ServerForUserspace.h"
 #import "SessionObserver.h"
+#import "SharedKeys.h"
 #import "StartAtLoginUtilities.h"
 #import "Updater.h"
 #include "bridge.h"
@@ -150,6 +151,12 @@ static void observer_IONotification(void* refcon, io_iterator_t iterator) {
   } else {
     NSLog(@"Skip checkForUpdatesInBackground in the relaunched process.");
   }
+
+  // ------------------------------------------------------------
+  [[NSDistributedNotificationCenter defaultCenter] postNotificationName:kSeilServerDidLaunchNotification
+                                                                 object:nil
+                                                               userInfo:nil
+                                                     deliverImmediately:YES];
 
   // ------------------------------------------------------------
   // Open Preferences if Seil was launched by hand.
