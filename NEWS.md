@@ -1,11 +1,12 @@
 # Since 12.0.0
 
 * New functions and improvements:
-  * "Show icon in Dock" setting has been added.
   * "Resume at login" setting has been added. <br />
     You can disable auto resume function.
   * The physical forward delete key has been added into the changeable keys.
   * The behavior of starting Seil on system startup has been improved.
+  * The preferences window UI has been improved.
+  * Memory usage has been reduced.
 
 
 # Version 12.0.0
