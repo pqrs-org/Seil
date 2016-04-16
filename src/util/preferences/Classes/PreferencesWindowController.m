@@ -111,6 +111,10 @@
   [[self.client proxy] checkForUpdatesWithBetaVersion];
 }
 
+- (IBAction)preferencesChanged:(id)sender {
+  [self savePreferencesModel];
+}
+
 - (IBAction)resumeAtLoginChanged:(id)sender {
   [self savePreferencesModel];
   [[self.client proxy] updateStartAtLogin];

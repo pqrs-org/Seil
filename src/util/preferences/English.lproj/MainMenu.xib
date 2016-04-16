@@ -504,6 +504,7 @@
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
                                                         <connections>
+                                                            <action selector="preferencesChanged:" target="ylX-us-6qp" id="429-Q7-KmS"/>
                                                             <binding destination="Ca3-fR-sAX" name="value" keyPath="self.checkForUpdates" id="Pst-wX-cRD"/>
                                                         </connections>
                                                     </button>
