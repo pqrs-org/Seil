@@ -44,6 +44,39 @@ static dispatch_queue_t itemIdQueue_;
   return self;
 }
 
+#pragma mark - NSObject
+
+- (id)replacementObjectForPortCoder:(NSPortCoder*)encoder {
+  if ([encoder isBycopy]) return self;
+  return [super replacementObjectForPortCoder:encoder];
+}
+
+#pragma mark - NSCoding
+
+- (instancetype)initWithCoder:(NSCoder*)decoder {
+  self = [super init];
+
+  if (self) {
+    self.id = [decoder decodeObjectForKey:@"id"];
+    self.name = [decoder decodeObjectForKey:@"name"];
+    self.style = [decoder decodeObjectForKey:@"style"];
+    self.enableKey = [decoder decodeObjectForKey:@"enableKey"];
+    self.keyCodeKey = [decoder decodeObjectForKey:@"keyCodeKey"];
+    self.defaultKeyCode = [decoder decodeIntForKey:@"defaultKeyCode"];
+  }
+
+  return self;
+}
+
+- (void)encodeWithCoder:(NSCoder*)encoder {
+  [encoder encodeObject:self.id forKey:@"id"];
+  [encoder encodeObject:self.name forKey:@"name"];
+  [encoder encodeObject:self.style forKey:@"style"];
+  [encoder encodeObject:self.enableKey forKey:@"enableKey"];
+  [encoder encodeObject:self.keyCodeKey forKey:@"keyCodeKey"];
+  [encoder encodeInt:self.defaultKeyCode forKey:@"defaultKeyCode"];
+}
+
 - (id)copyWithZone:(NSZone*)zone {
   MainConfigurationItem* obj = [[[self class] allocWithZone:zone] init];
   if (obj) {
@@ -79,6 +112,33 @@ static dispatch_queue_t itemIdQueue_;
 
   return self;
 }
+
+#pragma mark - NSObject
+
+- (id)replacementObjectForPortCoder:(NSPortCoder*)encoder {
+  if ([encoder isBycopy]) return self;
+  return [super replacementObjectForPortCoder:encoder];
+}
+
+#pragma mark - NSCoding
+
+- (instancetype)initWithCoder:(NSCoder*)decoder {
+  self = [super init];
+
+  if (self) {
+    self.node = [decoder decodeObjectForKey:@"node"];
+    self.children = [decoder decodeObjectForKey:@"children"];
+  }
+
+  return self;
+}
+
+- (void)encodeWithCoder:(NSCoder*)encoder {
+  [encoder encodeObject:self.node forKey:@"node"];
+  [encoder encodeObject:self.children forKey:@"children"];
+}
+
+#pragma mark - NSCoping
 
 - (id)copyWithZone:(NSZone*)zone {
   MainConfigurationTree* obj = [[[self class] allocWithZone:zone] init];
