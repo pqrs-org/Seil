@@ -7,14 +7,15 @@
 
 @protocol ServerClientProtocol
 
-@property(copy, readonly) NSString* bundleVersion;
-@property(copy, readonly) MainConfigurationTree* mainConfigurationTree;
-@property(copy, readonly) NSArray* knownKeyCodes;
+- (NSString*)bundleVersion;
 
 - (void)loadPreferencesModel:(PreferencesModel*)preferencesModel;
 - (void)savePreferencesModel:(PreferencesModel*)preferencesModel processIdentifier:(int)processIdentifier;
 - (NSDictionary*)exportPreferences;
 - (void)updateStartAtLogin;
+
+- (bycopy MainConfigurationTree*)mainConfigurationTree;
+- (bycopy NSArray*)knownKeyCodes;
 
 - (void)terminateServerProcess;
 - (void)relaunch;
