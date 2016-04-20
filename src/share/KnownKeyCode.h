@@ -2,7 +2,7 @@
 
 @import Cocoa;
 
-@interface KnownKeyCode : NSObject
+@interface KnownKeyCode : NSObject <NSCoding>
 
 @property(copy, readonly) NSString* name;
 @property(copy, readonly) NSString* keyCode;
