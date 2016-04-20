@@ -43,7 +43,7 @@
     MainNameCellView* view = [self viewAtColumn:column row:row makeIfNecessary:NO];
     if (self.mouseDownCellView == view) {
       // clicked
-      NSDictionary* item = [self itemAtRow:row];
+      MainConfigurationTree* item = [self itemAtRow:row];
       if ([self isExpandable:item]) {
         if ([self isItemExpanded:item]) {
           if ([self selectedRow] == row) {
