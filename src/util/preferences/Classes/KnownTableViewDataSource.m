@@ -12,7 +12,7 @@
 @implementation KnownTableViewDataSource
 
 - (void)setup {
-  self.source = [[[self client] proxy] knownKeyCodes];
+  self.source = [self.client.proxy knownKeyCodes];
 }
 
 - (NSString*)getKeyName:(int)keycode {

@@ -33,7 +33,7 @@
     if (notification.userInfo &&
         [notification.userInfo[@"processIdentifier"] intValue] != [NSProcessInfo processInfo].processIdentifier) {
       NSLog(@"PreferencesModel is changed in another process.");
-      [[self.client proxy] loadPreferencesModel:self.preferencesModel];
+      [self.client.proxy loadPreferencesModel:self.preferencesModel];
       [self.mainOutlineView reloadData];
     }
   });
@@ -82,20 +82,20 @@
 }
 
 - (void)checkServerClient {
-  if ([[self.client proxy].bundleVersion length] == 0) {
+  if ([[self.client.proxy bundleVersion] length] == 0) {
     NSLog(@"Seil server is not running.");
     [NSApp terminate:self];
   }
 }
 
 - (void)savePreferencesModel {
-  [[self.client proxy] savePreferencesModel:self.preferencesModel processIdentifier:[NSProcessInfo processInfo].processIdentifier];
+  [self.client.proxy savePreferencesModel:self.preferencesModel processIdentifier:[NSProcessInfo processInfo].processIdentifier];
 }
 
 - (IBAction)quitWithConfirmation:(id)sender {
   if ([SharedUtilities confirmQuit]) {
     @try {
-      [[self.client proxy] terminateServerProcess];
+      [self.client.proxy terminateServerProcess];
     } @catch (NSException* exception) {
     }
 
@@ -104,11 +104,11 @@
 }
 
 - (IBAction)checkForUpdatesStableOnly:(id)sender {
-  [[self.client proxy] checkForUpdatesStableOnly];
+  [self.client.proxy checkForUpdatesStableOnly];
 }
 
 - (IBAction)checkForUpdatesWithBetaVersion:(id)sender {
-  [[self.client proxy] checkForUpdatesWithBetaVersion];
+  [self.client.proxy checkForUpdatesWithBetaVersion];
 }
 
 - (IBAction)preferencesChanged:(id)sender {
@@ -117,7 +117,7 @@
 
 - (IBAction)resumeAtLoginChanged:(id)sender {
   [self savePreferencesModel];
-  [[self.client proxy] updateStartAtLogin];
+  [self.client.proxy updateStartAtLogin];
 }
 
 - (IBAction)launchUninstaller:(id)sender {

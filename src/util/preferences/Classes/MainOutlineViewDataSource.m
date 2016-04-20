@@ -12,7 +12,7 @@
 @implementation MainOutlineViewDataSource
 
 - (void)setup {
-  self.source = [[[self client] proxy] mainConfigurationTree];
+  self.source = [self.client.proxy mainConfigurationTree];
 }
 
 - (NSInteger)outlineView:(NSOutlineView*)outlineView numberOfChildrenOfItem:(id)item {
