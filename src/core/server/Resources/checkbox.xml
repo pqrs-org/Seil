@@ -149,6 +149,20 @@
       <kHIDUsage>kHIDUsage_KeyboardTab</kHIDUsage>
       <default>48</default>
     </item>
+    <item>
+      <name>Change Backslash</name>
+      <enable>enable_backslash</enable>
+      <keycode>keycode_backslash</keycode>
+      <kHIDUsage>kHIDUsage_KeyboardBackslash</kHIDUsage>
+      <default>42</default>
+    </item>
+    <item>
+      <name>Change NonUSBackslash</name>
+      <enable>enable_nonusbackslash</enable>
+      <keycode>keycode_nonusbackslash</keycode>
+      <kHIDUsage>kHIDUsage_KeyboardNonUSBackslash</kHIDUsage>
+      <default>42</default>
+    </item>
   </item>
 
   <item>
@@ -178,6 +192,7 @@
     </item>
     <item>
       <name>Enable International 3 Key</name>
+      <appendix>* Yen key in Japanese keyboards.</appendix>
       <enable>enable_int3</enable>
       <keycode>keycode_int3</keycode>
       <kHIDUsage>kHIDUsage_KeyboardInternational3</kHIDUsage>
