@@ -157,6 +157,13 @@
       <default>42</default>
     </item>
     <item>
+      <name>Change NonUSPound</name>
+      <enable>enable_nonuspound</enable>
+      <keycode>keycode_nonuspound</keycode>
+      <kHIDUsage>kHIDUsage_KeyboardNonUSPound</kHIDUsage>
+      <default>42</default>
+    </item>
+    <item>
       <name>Change NonUSBackslash</name>
       <enable>enable_nonusbackslash</enable>
       <keycode>keycode_nonusbackslash</keycode>
