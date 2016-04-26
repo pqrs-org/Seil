@@ -1,4 +1,4 @@
-# Since 12.0.0
+# Version 12.1.0
 
 * New functions and improvements:
   * "Resume at login" setting has been added. <br />
