@@ -14,7 +14,7 @@
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification*)aNotification {
-  [[self.client proxy] loadPreferencesModel:self.preferencesModel];
+  [self.client.proxy loadPreferencesModel:self.preferencesModel];
 
   [self.preferencesWindowController setup];
 }
