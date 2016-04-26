@@ -168,7 +168,7 @@
       <enable>enable_nonusbackslash</enable>
       <keycode>keycode_nonusbackslash</keycode>
       <kHIDUsage>kHIDUsage_KeyboardNonUSBackslash</kHIDUsage>
-      <default>42</default>
+      <default>10</default>
     </item>
   </item>
 
