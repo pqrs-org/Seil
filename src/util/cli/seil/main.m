@@ -33,7 +33,7 @@
 
 - (void) export:(ServerClient*)client {
   NSArray* arguments = [[NSProcessInfo processInfo] arguments];
-  NSDictionary* dict = [[client proxy] exportPreferences];
+  NSDictionary* dict = [client.proxy exportPreferences];
 
   [self output:@"#!/bin/sh\n\n"];
   [self output:[NSString stringWithFormat:@"cli=%@\n\n", arguments[0]]];
@@ -57,7 +57,7 @@
       /*  */ if ([command isEqualToString:@"export"]) {
         [self export:client];
       } else if ([command isEqualToString:@"relaunch"]) {
-        [[client proxy] relaunch];
+        [client.proxy relaunch];
       } else if ([command isEqualToString:@"set"]) {
         if ([arguments count] != 4) {
           [self usage];
@@ -67,9 +67,9 @@
         NSString* value = arguments[3];
 
         PreferencesModel* preferencesModel = [PreferencesModel new];
-        [[client proxy] loadPreferencesModel:preferencesModel];
+        [client.proxy loadPreferencesModel:preferencesModel];
         [preferencesModel setValue:[value intValue] forName:identifier];
-        [[client proxy] savePreferencesModel:preferencesModel processIdentifier:[NSProcessInfo processInfo].processIdentifier];
+        [client.proxy savePreferencesModel:preferencesModel processIdentifier:[NSProcessInfo processInfo].processIdentifier];
       }
     }
     @catch (NSException* exception) {
