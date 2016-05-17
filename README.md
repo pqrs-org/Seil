@@ -40,7 +40,6 @@ System requirements:
 * OS X 10.10+
 * Xcode 7.0+
 * Command Line Tools for Xcode
-* CocoaPods http://cocoapods.org/
 
 
 ### Step 1: Getting source code
