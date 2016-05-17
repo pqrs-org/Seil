@@ -19,7 +19,7 @@ Prior to version 10.7.0, Seil was called *PCKeyboardHack*.
 You also can get the latest stable release package via fixed URL.
 
 ```
-$ curl -L -o seil-latest.dmg https://pqrs.org/latest/seil.dmg
+$ curl -L -o seil-latest.dmg https://pqrs.org/latest/seil
 ```
 
 ## System requirements
