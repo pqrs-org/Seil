@@ -16,7 +16,7 @@ Prior to version 10.7.0, Seil was called *PCKeyboardHack*.
 * Latest build: https://pqrs.org/osx/karabiner/seil.html
 * Mirror: http://tekezo.github.io/pqrs.org/
 
-You also can get the latest stable release package via fixed URL.
+You can also get the latest stable release package via fixed URL.
 
 ```
 $ curl -L -O https://pqrs.org/latest/seil-latest.dmg
