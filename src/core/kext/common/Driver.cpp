@@ -105,6 +105,8 @@ bool org_pqrs_driver_Seil::init(OSDictionary* dict) {
   bool res = super::init(dict);
 
   memset(&configuration_, 0, sizeof(configuration_));
+  notifier_hookKeyboard_ = nullptr;
+  notifier_unhookKeyboard_ = nullptr;
 
   return res;
 }
