@@ -1,6 +1,12 @@
 [![Build Status](https://travis-ci.org/tekezo/Seil.svg?branch=master)](https://travis-ci.org/tekezo/Seil)
 [![License](https://img.shields.io/badge/license-Public%20Domain-blue.svg)](https://github.com/tekezo/Seil/blob/master/LICENSE.md)
 
+OBSOLETED
+=========
+
+Seil is obsoleted on macOS Sierra (10.12) or later.<br />
+Please use [Karabiner-Elements](https://github.com/tekezo/Karabiner-Elements).
+
 # Seil
 
 Seil applies a patch to a keyboard driver.
@@ -26,6 +32,7 @@ $ curl -L -O https://pqrs.org/latest/seil-latest.dmg
 
 OS X 10.11 or higher.
 
+* If you require Seil for macOS 10.12, please use [Karabiner Elements](https://github.com/tekezo/Karabiner-Elements).
 * If you require Seil for OS X 10.10 and 10.9, please use Seil 11.3.0.
 * If you require Seil for OS X 10.8, please use Seil 10.11.0.
 * If you require Seil for OS X 10.7, please use PCKeyboardHack 9.0.0.
